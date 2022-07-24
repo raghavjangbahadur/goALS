@@ -25,7 +25,7 @@ struct ContentView: View {
                 }
             tribalsView()
                 .tabItem {
-                    Text("Com")
+                    Text("Community")
                     Image("tribals_logo_grey")
                     
                         
