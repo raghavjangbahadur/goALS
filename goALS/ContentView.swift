@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    init() {
+        UITabBar.appearance().barTintColor = UIColor(.teal) // custom color.
+    }
+
     var body: some View {
         TabView {
             goalsView()
@@ -20,14 +24,13 @@ struct ContentView: View {
                 }
             tribalsView()
                 .tabItem {
-                    Text("Community")
-                    Image("tribals_logo_grey")
+                    Label("Community", image:"tribals_logo_grey")
                 }
             verbalsView()
                 .tabItem {
                     Label("Communicate", image:"verbals_logo_grey")
                 }
-        }
+        }.accentColor(.white)
     }
 }
 
