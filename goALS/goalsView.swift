@@ -33,6 +33,7 @@ struct goalsView: View {
                                 }
                                 Text("Find and update vital information about ALS and your patient")
                                     .foregroundColor(.white)
+                                    .frame(maxWidth: 200)
                             }
                             NavigationLink(destination: tribalsView()) {
                                 ZStack {
@@ -47,6 +48,7 @@ struct goalsView: View {
                                 }
                                 Text("Find and access your public and private community")
                                     .foregroundColor(.white)
+                                    .frame(maxWidth: 200)
                                     
                             }
                             NavigationLink(destination: verbalsView()) {
@@ -62,6 +64,7 @@ struct goalsView: View {
                                 }
                                 Text("Communicate with your ALS patient")
                                     .foregroundColor(.white)
+                                    .frame(maxWidth: 200)
                             }
                             Spacer()
                         }
