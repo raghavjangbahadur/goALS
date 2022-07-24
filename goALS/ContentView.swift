@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    
     var body: some View {
-        
         TabView {
-            
             goalsView()
                 .tabItem {
                     Label("Home", image: "home_logo_grey")
@@ -21,25 +17,17 @@ struct ContentView: View {
             vitalsView()
                 .tabItem {
                     Label("View Patient Info", image:"vitals_logo_grey")
-                        
                 }
             tribalsView()
                 .tabItem {
                     Text("Community")
                     Image("tribals_logo_grey")
-                    
-                        
-                    
-                    
                 }
             verbalsView()
                 .tabItem {
-                    Label("Communicate", image:"verbals_logo_grey"
-                    )
-                    
+                    Label("Communicate", image:"verbals_logo_grey")
                 }
         }
-        
     }
 }
 
