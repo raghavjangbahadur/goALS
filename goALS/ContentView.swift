@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         TabView {
             goalsView()
@@ -28,6 +29,7 @@ struct ContentView: View {
                     Label("Communicate", image:"verbals_logo_grey")
                 }
         }
+        .edgesIgnoringSafeArea(.top)
     }
 }
 

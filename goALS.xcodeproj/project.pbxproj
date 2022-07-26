@@ -28,6 +28,8 @@
 		2A90CB4D286BF3700079B380 /* goALSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90CB4C286BF3700079B380 /* goALSTests.swift */; };
 		2A90CB57286BF3700079B380 /* goALSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90CB56286BF3700079B380 /* goALSUITests.swift */; };
 		2A90CB59286BF3700079B380 /* goALSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90CB58286BF3700079B380 /* goALSUITestsLaunchTests.swift */; };
+		2AD1D534288F1D190019812E /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1D533288F1D180019812E /* RegistrationModel.swift */; };
+		2AD1D536288F22C10019812E /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1D535288F22C10019812E /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		2A90CB52286BF3700079B380 /* goALSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = goALSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A90CB56286BF3700079B380 /* goALSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goALSUITests.swift; sourceTree = "<group>"; };
 		2A90CB58286BF3700079B380 /* goALSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goALSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2AD1D533288F1D180019812E /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
+		2AD1D535288F22C10019812E /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 			children = (
 				2A90CB3B286BF36D0079B380 /* goALSApp.swift */,
 				2A90CB3D286BF36D0079B380 /* ContentView.swift */,
+				2AD1D533288F1D180019812E /* RegistrationModel.swift */,
+				2AD1D535288F22C10019812E /* RegistrationView.swift */,
 				2A661F8D2870FCB50014B661 /* goalsView.swift */,
 				2A5B93442881ED31005A457E /* accountView.swift */,
 				2A661F8F2870FCCA0014B661 /* vitalsView.swift */,
@@ -308,9 +314,11 @@
 				2A661F922870FCEF0014B661 /* tribalsView.swift in Sources */,
 				2A90CB3E286BF36D0079B380 /* ContentView.swift in Sources */,
 				2A661F902870FCCA0014B661 /* vitalsView.swift in Sources */,
+				2AD1D536288F22C10019812E /* RegistrationView.swift in Sources */,
 				2A661F8E2870FCB50014B661 /* goalsView.swift in Sources */,
 				2A661F942870FD0E0014B661 /* verbalsView.swift in Sources */,
 				2A90CB3C286BF36D0079B380 /* goALSApp.swift in Sources */,
+				2AD1D534288F1D190019812E /* RegistrationModel.swift in Sources */,
 				2A5B93452881ED31005A457E /* accountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

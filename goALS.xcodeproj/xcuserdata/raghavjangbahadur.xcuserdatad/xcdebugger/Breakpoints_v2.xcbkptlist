@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3D772697-AFBA-468E-B830-78C062C59F55"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "goALS/ContentView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "31FB0D2D-63FB-41B4-9F7A-EC484DDD20DE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -30,9 +14,9 @@
             filePath = "goALS/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "body"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "previews"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
