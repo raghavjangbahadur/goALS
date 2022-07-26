@@ -19,7 +19,12 @@ class RegistrationModel: ObservableObject {
     
     func registerCall() {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-          
+            guard let authResult = authResult else {
+                print("Failed registering")
+                return
+            }
+        print(authResult)
+
         }
     }
 }
