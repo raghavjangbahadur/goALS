@@ -17,20 +17,24 @@ struct RegistrationView: View {
     
     var body: some View {
         VStack {
-            padding()
             Text("Set user ID (email)")
+                .fontWeight(.bold)
             TextField("Email", text: self.$model.email)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 .autocapitalization(.none)
-            Text("Set password")
+                .padding(.bottom)
+            Text("Set password (minimum 6 characters)")
+                .fontWeight(.bold)
             TextField("Password", text: self.$model.password)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal, 10)
                 .autocapitalization(.none)
+                .padding(.bottom)
             Button("Register", action: registerAction)
             NavigationLink(
                 destination: ContentView(),
+                isActive: $model.registered,
                 label: {}
             )
         }
@@ -39,11 +43,12 @@ struct RegistrationView: View {
     
     func registerAction() {
         model.registerCall()
+        
     }
 }
 
-//struct RegistrationView_Previews: PreviewProvider {
-    //static var previews: some View {
-        //RegistrationView()
-    //}
-//}
+struct RegistrationView_Previews: PreviewProvider {
+    static var previews: some View {
+        RegistrationView(model: RegistrationModel())
+    }
+}

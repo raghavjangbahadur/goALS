@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     init() {
-        UITabBar.appearance().barTintColor = UIColor(.teal) // custom color.
+        UITabBar.appearance().barTintColor = UIColor(.teal)
     }
 
     var body: some View {
@@ -30,7 +30,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Communicate", image:"verbals_logo_grey")
                 }
-        }.accentColor(.white)
+        }
     }
 }
 

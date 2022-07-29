@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A4B2F462893655900E47DB2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F452893655900E47DB2 /* LoginView.swift */; };
+		2A4B2F4828936F8C00E47DB2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */; };
 		2A5B93452881ED31005A457E /* accountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B93442881ED31005A457E /* accountView.swift */; };
 		2A654A6E288DCB4C00C0C492 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A654A6D288DCB4B00C0C492 /* GoogleService-Info.plist */; };
 		2A654A71288DCD2900C0C492 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2A654A70288DCD2900C0C492 /* FirebaseAnalyticsSwift */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A4B2F452893655900E47DB2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		2A5B93442881ED31005A457E /* accountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountView.swift; sourceTree = "<group>"; };
 		2A654A6D288DCB4B00C0C492 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2A661F8D2870FCB50014B661 /* goalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goalsView.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				2A90CB3D286BF36D0079B380 /* ContentView.swift */,
 				2AD1D533288F1D180019812E /* RegistrationModel.swift */,
 				2AD1D535288F22C10019812E /* RegistrationView.swift */,
+				2A4B2F452893655900E47DB2 /* LoginView.swift */,
+				2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */,
 				2A661F8D2870FCB50014B661 /* goalsView.swift */,
 				2A5B93442881ED31005A457E /* accountView.swift */,
 				2A661F8F2870FCCA0014B661 /* vitalsView.swift */,
@@ -314,11 +320,13 @@
 				2A661F922870FCEF0014B661 /* tribalsView.swift in Sources */,
 				2A90CB3E286BF36D0079B380 /* ContentView.swift in Sources */,
 				2A661F902870FCCA0014B661 /* vitalsView.swift in Sources */,
+				2A4B2F4828936F8C00E47DB2 /* LoginModel.swift in Sources */,
 				2AD1D536288F22C10019812E /* RegistrationView.swift in Sources */,
 				2A661F8E2870FCB50014B661 /* goalsView.swift in Sources */,
 				2A661F942870FD0E0014B661 /* verbalsView.swift in Sources */,
 				2A90CB3C286BF36D0079B380 /* goALSApp.swift in Sources */,
 				2AD1D534288F1D190019812E /* RegistrationModel.swift in Sources */,
+				2A4B2F462893655900E47DB2 /* LoginView.swift in Sources */,
 				2A5B93452881ED31005A457E /* accountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
