@@ -42,7 +42,13 @@ struct LoginView: View {
                         .navigationBarBackButtonHidden(true)
                 }
                 .hidden()
-
+                
+                NavigationLink("Don't have an account? Register now!") {
+                    RegistrationView(model: RegistrationModel())
+                        .navigationTitle("Register now!")
+                        .navigationBarBackButtonHidden(true)
+                        .padding(.bottom, 30)
+                }
             }
             .background(Color.red)
         }
