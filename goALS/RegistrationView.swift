@@ -43,7 +43,6 @@ struct RegistrationView: View {
     
     func registerAction() {
         model.registerCall()
-        
     }
 }
 

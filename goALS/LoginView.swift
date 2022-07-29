@@ -37,10 +37,10 @@ struct LoginView: View {
             
         }
         .background(Color.red)
-        
-        func loginAction() {
-            model.loginCall()
-        }
+    }
+
+    func loginAction() {
+        model.loginCall()
     }
 }
 

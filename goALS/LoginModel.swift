@@ -16,16 +16,14 @@ class LoginModel: ObservableObject {
     @Published var password: String = ""
     @Published var loading: Bool = false
     @Published var loggedIn: Bool = false
-    
-    
-    
+
     func loginCall() {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let strongSelf = self else {
               print("Failed signing in")
               return
           }
-            self.loggedIn = true
+          strongSelf.loggedIn = true
         }
     }
 }
