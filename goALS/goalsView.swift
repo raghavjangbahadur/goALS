@@ -9,70 +9,69 @@ import SwiftUI
 
 struct goalsView: View {
     var body: some View {
-        VStack {
-            NavigationView {
-                VStack {
-                    NavigationLink(destination: accountView()) {
-                        Text("Account")
-                            .font(.subheadline)
-                            .multilineTextAlignment(.trailing)
-                            .foregroundColor(.white)
-                    }
-                    Text("Hi Raghav")
+        NavigationView {
+            VStack {
+                NavigationLink(destination: accountView()) {
+                    Text("Account")
+                        .font(.subheadline)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                         .foregroundColor(.white)
-                    NavigationLink(destination: vitalsView()) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius:15)
-                                .frame(width: 125, height: 125)
-                                .foregroundColor(.white)
-                                .padding(.all, 15)
-                            Image("vitals_logo_grey")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: 24)
-                        }
-                        Text("Find and update vital information about ALS and your patient")
+                        .padding(.horizontal, 20)
+                }
+                Text("Hi Raghav")
+                    .foregroundColor(.white)
+                NavigationLink(destination: vitalsView()) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius:15)
+                            .frame(width: 125, height: 125)
                             .foregroundColor(.white)
-                            .frame(maxWidth: 200)
+                            .padding(.all, 15)
+                        Image("vitals_logo_grey")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 24)
                     }
-                    NavigationLink(destination: tribalsView()) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius:15)
-                                .frame(width: 125, height: 125)
-                                .foregroundColor(.white)
-                                .padding(.all, 15)
-                            Image("tribals_logo_grey")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: 24)
-                        }
-                        Text("Find and access your public and private community")
+                    Text("Find and update vital information about ALS and your patient")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: 200)
+                }
+                NavigationLink(destination: tribalsView()) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius:15)
+                            .frame(width: 125, height: 125)
                             .foregroundColor(.white)
-                            .frame(maxWidth: 200)
-                        
+                            .padding(.all, 15)
+                        Image("tribals_logo_grey")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 24)
                     }
-                    NavigationLink(destination: verbalsView()) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius:15)
-                                .frame(width: 125, height: 125)
-                                .foregroundColor(.white)
-                                .padding(.all, 15)
-                            Image("verbals_logo_grey")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: 24)
-                        }
-                        Text("Communicate with your ALS patient")
-                            .foregroundColor(.white)
-                            .frame(maxWidth: 200)
-                    }
-                    Spacer()
+                    Text("Find and access your public and private community")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: 200)
                     
                 }
-                .padding(.bottom, 100)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.red.edgesIgnoringSafeArea(.all))
+                NavigationLink(destination: verbalsView()) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius:15)
+                            .frame(width: 125, height: 125)
+                            .foregroundColor(.white)
+                            .padding(.all, 15)
+                        Image("verbals_logo_grey")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 24)
+                    }
+                    Text("Communicate with your ALS patient")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: 200)
+                }
+                Spacer()
+                
             }
+            .padding(.bottom, 100)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.red.edgesIgnoringSafeArea(.all))
         }
         
     }

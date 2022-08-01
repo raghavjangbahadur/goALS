@@ -31,13 +31,20 @@ struct RegistrationView: View {
                 .padding(.horizontal, 10)
                 .autocapitalization(.none)
                 .padding(.bottom)
+            
+            //going to add more text fields for additional information
+            
+            Divider()
+            Spacer()
             Button("Register", action: registerAction)
+                .padding(.bottom, 25)
             NavigationLink(
                 destination: ContentView(),
                 isActive: $model.registered,
                 label: {}
             )
         }
+        .background(Color.red)
     
     }
     
