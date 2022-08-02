@@ -31,6 +31,8 @@ struct ContentView: View {
                     Label("Communicate", image:"verbals_logo_grey")
                 }
         }
+        Divider()
+        Spacer()
     }
 }
 

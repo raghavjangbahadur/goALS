@@ -14,9 +14,27 @@ struct RegistrationView: View {
         self.model = model
     }
     
-    
     var body: some View {
         VStack {
+            Image("goals_logo_white")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 100)
+                .padding(.all, 40)
+            Text("Enter Caregiver (your) first and last name")
+                .fontWeight(.bold)
+            TextField("First and last name", text: self.$model.name)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal, 10)
+                .autocapitalization(.none)
+                .padding(.bottom)
+            Text("ALS Patient Name")
+                .fontWeight(.bold)
+            TextField("Patient Name", text: self.$model.patientName)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal, 10)
+                .autocapitalization(.none)
+                .padding(.bottom)
             Text("Set user ID (email)")
                 .fontWeight(.bold)
             TextField("Email", text: self.$model.email)
@@ -30,14 +48,13 @@ struct RegistrationView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal, 10)
                 .autocapitalization(.none)
-                .padding(.bottom)
-            
-            //going to add more text fields for additional information
+                .padding(.bottom, 25)
             
             Divider()
             Spacer()
+            
             Button("Register", action: registerAction)
-                .padding(.bottom, 25)
+                .padding(.bottom, 35)
             NavigationLink(
                 destination: ContentView(),
                 isActive: $model.registered,
