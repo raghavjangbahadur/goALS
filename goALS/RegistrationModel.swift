@@ -21,7 +21,7 @@ class RegistrationModel: ObservableObject {
     @Published var name: String = ""
     
     func registerCall() {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+        Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
             guard let _ = authResult else {
                 print("Failed registering")
                 return
@@ -30,8 +30,15 @@ class RegistrationModel: ObservableObject {
             guard let userID = Auth.auth().currentUser?.uid else {
                 return
             }
-            db.collection("users").document(userID).setData(["patientName" : self.patientName, "name" : self.name], merge: true)
+            let patientId = UUID().uuidString
+            db.collection("users").document(userID).setData(["patient uuid" : patientId, "patientName" : self.patientName, "name" : self.name], merge: true)
+            self.createPatient(patientId, self.patientName)
             self.registered = true
         }
+    }
+    
+    func createPatient(_ id : String, _ name : String) {
+        let dbs = Firestore.firestore()
+        dbs.collection("patients").document(id).setData(["patientName" : name, "patientId" : id])
     }
 }
