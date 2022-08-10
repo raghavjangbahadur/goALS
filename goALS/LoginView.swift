@@ -33,9 +33,6 @@ struct LoginView: View {
                 Button("Log in", action: loginAction)
                 Divider()
                 Spacer()
-
-                /* need to add a button to go to registration view if user does not have an account, and a button to go to the home page view*/
-
                 NavigationLink("Hidden nav link", isActive: self.$model.loggedIn) {
                     ContentView()
                         .navigationTitle("")
