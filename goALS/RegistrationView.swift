@@ -57,7 +57,7 @@ struct RegistrationView: View {
             Button("Register", action: registerAction)
                 .padding(.bottom, 35)
             NavigationLink(
-                destination: ContentView(),
+                destination: PatientInfoView(),
                 isActive: $model.registered,
                 label: {}
             )

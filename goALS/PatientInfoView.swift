@@ -11,15 +11,12 @@ struct PatientInfoView: View {
     
     @ObservedObject var model = PatientInfoModel()
     var body: some View {
-        let gender = model.patient.gender
-        let age = model.patient.age
-        let stage = model.patient.stage
         VStack {
             HStack {
                 Text("Gender")
                     .foregroundColor(.teal)
                 Spacer()
-                Text(gender)
+                Text(model.patient.gender)
                     .foregroundColor(.teal)
             }
             .padding()
@@ -27,15 +24,15 @@ struct PatientInfoView: View {
                 Text("Age")
                     .foregroundColor(.teal)
                 Spacer()
-                Text(String(age))
+                Text(String(model.patient.age))
                     .foregroundColor(.teal)
             }
             .padding()
             HStack {
                 Text("Stage of ALS \n [Link for more info](https://alsnewstoday.com/stages-of-als/)")
-                    .foregroundColor(.teal)
+                    .foregroundColor(.tealc)
                 Spacer()
-                Text(stage)
+                Text(model.patient.stage)
                     .foregroundColor(.teal)
             }
             .padding()

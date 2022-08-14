@@ -27,7 +27,7 @@ class PatientInfoModel: ObservableObject {
         guard let userID = Auth.auth().currentUser?.uid else {
             return
         }
-        let docRef = db.collection("patients").document(userID)
+        let docRef = db.collection("users").document(userID)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let docData = document.data()
@@ -37,7 +37,7 @@ class PatientInfoModel: ObservableObject {
                     if let document = document, document.exists {
                         let docData = document.data()
                         self.patient = PatientInfo(id: patientId, name: docData!["patientName"] as? String ?? "",
-                                                   gender: docData!["patientGender"] as? String ?? "",
+                                                   gender: docData!["patientGender"] as? String ?? "lol",
                                                    age: docData!["patientAge"] as? Int ?? 0,
                                                    stage: docData!["stage"] as? String ?? "")
                     } else {
@@ -45,7 +45,7 @@ class PatientInfoModel: ObservableObject {
                     }
                 }
             } else {
-                print("Document does not exist")
+                print("Document does not exist here")
             }
         }
     }

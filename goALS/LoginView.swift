@@ -19,13 +19,11 @@ struct LoginView: View {
                     .frame(height: 150)
                     .padding(50)
                 TextField("Email", text: self.$model.email)
-                    .foregroundColor(.white)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 20)
                     .autocapitalization(.none)
                     .padding(.bottom, 30)
                 TextField("Password", text: self.$model.password)
-                    .foregroundColor(.white)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 20)
                     .autocapitalization(.none)
@@ -34,7 +32,7 @@ struct LoginView: View {
                 Divider()
                 Spacer()
                 NavigationLink("Hidden nav link", isActive: self.$model.loggedIn) {
-                    ContentView()
+                    PatientInfoView()
                         .navigationTitle("")
                         .navigationBarBackButtonHidden(true)
                 }
