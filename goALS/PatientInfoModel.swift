@@ -31,7 +31,7 @@ class PatientInfoModel: ObservableObject {
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let docData = document.data()
-                let patientId = docData!["patientId"] as? String ?? ""
+                let patientId = docData!["patient uuid"] as? String ?? ""
                 let docRef = db.collection("patients").document(patientId)
                 docRef.getDocument { (document, error) in
                     if let document = document, document.exists {

@@ -30,16 +30,15 @@ struct PatientInfoView: View {
             .padding()
             HStack {
                 Text("Stage of ALS \n [Link for more info](https://alsnewstoday.com/stages-of-als/)")
-                    .foregroundColor(.tealc)
+                    .foregroundColor(.teal)
                 Spacer()
                 Text(model.patient.stage)
                     .foregroundColor(.teal)
             }
             .padding()
+        }.onAppear {
+            model.getSingleData()
         }
-    }
-    init() {
-        model.getSingleData()
     }
 }
 
