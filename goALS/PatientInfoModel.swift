@@ -78,6 +78,21 @@ class PatientInfoModel: ObservableObject {
         
         
     }
+    /* let docRef = db.collection("patients").document(patientId)
+    docRef.getDocument { (document, error) in
+        if let document = document, document.exists {
+            let docData = document.data()
+            self.patient = PatientInfo(id: patientId, name: docData!["patientName"] as? String ?? "",
+                                       gender: docData!["patientGender"] as? String ?? "lol",
+                                       age: docData!["patientAge"] as? Int ?? 0,
+                                       stage: docData!["stage"] as? String ?? "")
+        } else {
+            print("Document does not exist")
+        }
+    }
+} else {
+    print("Document does not exist here")
+} */
     
     func getSingleData() {
         let db = Firestore.firestore()
