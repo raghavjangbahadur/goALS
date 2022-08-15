@@ -43,14 +43,18 @@ struct PatientInfoEditView: View {
     }
     
     func updateData() {
+        var values = [String: Any]()
         if newGender != "" {
-            model.updateDataString("patientGender", newGender)
+            values["patientGender"] = newGender
         }
         if newAge != "" {
-            model.updateDataInt("patientAge", Int(newAge) ?? 0)
+            values["patientAge"] = Int(newAge) ?? 0
         }
         if newStage != "" {
-            model.updateDataString("stage", newStage)
+            values["stage"] = newStage
+        }
+        if !values.isEmpty {
+            model.updateData(values)
         }
     }
 }
