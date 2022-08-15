@@ -34,6 +34,8 @@
 		2A90CB4D286BF3700079B380 /* goALSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90CB4C286BF3700079B380 /* goALSTests.swift */; };
 		2A90CB57286BF3700079B380 /* goALSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90CB56286BF3700079B380 /* goALSUITests.swift */; };
 		2A90CB59286BF3700079B380 /* goALSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90CB58286BF3700079B380 /* goALSUITestsLaunchTests.swift */; };
+		2AA7347428A9CD3A00D17A07 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7347328A9CD3A00D17A07 /* Todo.swift */; };
+		2AA7347628AA247C00D17A07 /* TodosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7347528AA247C00D17A07 /* TodosView.swift */; };
 		2AD1D534288F1D190019812E /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1D533288F1D180019812E /* RegistrationModel.swift */; };
 		2AD1D536288F22C10019812E /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1D535288F22C10019812E /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +80,8 @@
 		2A90CB52286BF3700079B380 /* goALSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = goALSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A90CB56286BF3700079B380 /* goALSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goALSUITests.swift; sourceTree = "<group>"; };
 		2A90CB58286BF3700079B380 /* goALSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goALSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2AA7347328A9CD3A00D17A07 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		2AA7347528AA247C00D17A07 /* TodosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosView.swift; sourceTree = "<group>"; };
 		2AD1D533288F1D180019812E /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
 		2AD1D535288F22C10019812E /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +150,8 @@
 				2A4B2F5328A3269100E47DB2 /* PatientInfoEditView.swift */,
 				2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */,
 				2A4B2F4F28A3138B00E47DB2 /* PatientInfoModel.swift */,
+				2AA7347528AA247C00D17A07 /* TodosView.swift */,
+				2AA7347328A9CD3A00D17A07 /* Todo.swift */,
 				2A4B2F5128A3142500E47DB2 /* PatientInfo.swift */,
 				2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */,
 				2A661F8D2870FCB50014B661 /* goalsView.swift */,
@@ -332,6 +338,7 @@
 				2A4B2F5028A3138B00E47DB2 /* PatientInfoModel.swift in Sources */,
 				2A4B2F5228A3142500E47DB2 /* PatientInfo.swift in Sources */,
 				2A4B2F4E28A3137800E47DB2 /* PatientInfoView.swift in Sources */,
+				2AA7347628AA247C00D17A07 /* TodosView.swift in Sources */,
 				2A661F922870FCEF0014B661 /* tribalsView.swift in Sources */,
 				2A90CB3E286BF36D0079B380 /* ContentView.swift in Sources */,
 				2A661F902870FCCA0014B661 /* vitalsView.swift in Sources */,
@@ -340,6 +347,7 @@
 				2A4B2F5428A3269100E47DB2 /* PatientInfoEditView.swift in Sources */,
 				2A661F8E2870FCB50014B661 /* goalsView.swift in Sources */,
 				2A661F942870FD0E0014B661 /* verbalsView.swift in Sources */,
+				2AA7347428A9CD3A00D17A07 /* Todo.swift in Sources */,
 				2A90CB3C286BF36D0079B380 /* goALSApp.swift in Sources */,
 				2AD1D534288F1D190019812E /* RegistrationModel.swift in Sources */,
 				2A4B2F462893655900E47DB2 /* LoginView.swift in Sources */,

@@ -44,5 +44,6 @@ class RegistrationModel: ObservableObject {
     func createPatient(_ id : String, _ name : String) {
         let dbs = Firestore.firestore()
         dbs.collection("patients").document(id).setData(["patientName" : name, "patientId" : id, "patientGender" : self.patientGender, "patientAge" : self.patientAge, "stage" : self.stage])
+        
     }
 }
