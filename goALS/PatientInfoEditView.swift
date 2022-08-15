@@ -19,46 +19,27 @@ struct PatientInfoEditView: View {
         
         
         VStack {
-            HStack {
-                Text("Gender")
-                    .foregroundColor(.teal)
-                Spacer()
-                TextField("New Gender", text: self.$newGender)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 10)
-                    .autocapitalization(.none)
-                    .padding(.bottom)
-            }
-            .padding()
-            HStack {
-                Text("Age")
-                    .foregroundColor(.teal)
-                Spacer()
-                TextField("New Age", text: self.$newAge)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 10)
-                    .autocapitalization(.none)
-                    .padding(.bottom)
-            }
-            .padding()
-            HStack {
-                Text("Stage of ALS \n [Link for more info](https://alsnewstoday.com/stages-of-als/)")
-                    .foregroundColor(.teal)
-                Spacer()
-                TextField("New Stage", text: self.$newStage)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 10)
-                    .autocapitalization(.none)
-                    .padding(.bottom)
-            }
-            .padding()
+            TextField("Update Gender", text: self.$newGender)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal, 10)
+                .autocapitalization(.none)
+                .padding(.bottom)
+            
+            TextField("Update Age", text: self.$newAge)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal, 10)
+                .autocapitalization(.none)
+                .padding(.bottom)
+            TextField("Update Stage", text: self.$newStage)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal, 10)
+                .autocapitalization(.none)
+                .padding(.bottom)
             Button("Update data", action: updateData)
                 .padding(.bottom)
+        }.onAppear {
+            model.getSingleData()
         }
-    }
-    
-    init() {
-        model.getSingleData()
     }
     
     func updateData() {

@@ -4,7 +4,6 @@
 //
 //  Created by Raghav Jangbahadur on 8/9/22.
 //
-
 import Foundation
 import Firebase
 import SwiftUI
@@ -80,7 +79,7 @@ class PatientInfoModel: ObservableObject {
             guard let userID = Auth.auth().currentUser?.uid else {
                 return
             }
-            let docRef = db.collection("patients").document(userID)
+            let docRef = db.collection("users").document(userID)
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let docData = document.data()
@@ -102,7 +101,7 @@ class PatientInfoModel: ObservableObject {
         guard let userID = Auth.auth().currentUser?.uid else {
             return
         }
-        let docRef = db.collection("patients").document(userID)
+        let docRef = db.collection("users").document(userID)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let docData = document.data()
