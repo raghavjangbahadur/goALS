@@ -78,21 +78,6 @@ class PatientInfoModel: ObservableObject {
         
         
     }
-    /* let docRef = db.collection("patients").document(patientId)
-    docRef.getDocument { (document, error) in
-        if let document = document, document.exists {
-            let docData = document.data()
-            self.patient = PatientInfo(id: patientId, name: docData!["patientName"] as? String ?? "",
-                                       gender: docData!["patientGender"] as? String ?? "lol",
-                                       age: docData!["patientAge"] as? Int ?? 0,
-                                       stage: docData!["stage"] as? String ?? "")
-        } else {
-            print("Document does not exist")
-        }
-    }
-} else {
-    print("Document does not exist here")
-} */
     
     func getSingleData() {
         let db = Firestore.firestore()
@@ -133,7 +118,7 @@ class PatientInfoModel: ObservableObject {
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let docData = document.data()
-                let patientId = docData!["patientId"] as? String ?? ""
+                let patientId = docData!["patient uuid"] as? String ?? ""
                 db.collection("patients").document(patientId).setData(["patientAge" : self.newAge, "patientGender" : self.newGender, "stage" : self.newStage], merge: true) { error in
                     if error == nil {
                         self.getSingleData()
@@ -146,7 +131,7 @@ class PatientInfoModel: ObservableObject {
     }
     */
         
-    func updateDataString(_ parameter : String, _ newValue : String) {
+    func updateData(_ value: [String : Any]) {
             let db = Firestore.firestore()
             guard let userID = Auth.auth().currentUser?.uid else {
                 return
@@ -155,8 +140,8 @@ class PatientInfoModel: ObservableObject {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let docData = document.data()
-                    let patientId = docData!["patientId"] as? String ?? ""
-                    db.collection("patients").document(patientId).setData([parameter : newValue], merge: true) { error in
+                    let patientId = docData!["patient uuid"] as? String ?? ""
+                    db.collection("patients").document(patientId).setData(value, merge: true) { error in
                         if error == nil {
                             self.getSingleData()
                         }
@@ -166,29 +151,7 @@ class PatientInfoModel: ObservableObject {
                 }
         }
     }
-            
-            
-    func updateDataInt(_ parameter : String, _ newValue : Int) {
-        let db = Firestore.firestore()
-        guard let userID = Auth.auth().currentUser?.uid else {
-            return
-        }
-        let docRef = db.collection("users").document(userID)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let docData = document.data()
-                let patientId = docData!["patientId"] as? String ?? ""
-                db.collection("patients").document(patientId).setData([parameter : newValue], merge: true) { error in
-                    if error == nil {
-                        self.getSingleData()
-                    }
-                }
-            } else {
-                print("Document does not exist")
-            }
-        }
-    }
-            
+
     func getData() {
         let db = Firestore.firestore()
         db.collection("patients").getDocuments { snapshot, error in

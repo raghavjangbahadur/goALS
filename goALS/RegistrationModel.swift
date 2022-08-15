@@ -4,7 +4,6 @@
 //
 //  Created by Raghav Jangbahadur on 7/25/22.
 //
-
 import Foundation
 import SwiftUI
 import FirebaseCore
@@ -43,7 +42,7 @@ class RegistrationModel: ObservableObject {
     
     func createPatient(_ id : String, _ name : String) {
         let dbs = Firestore.firestore()
-        dbs.collection("patients").document(id).setData(["patientName" : name, "patientId" : id, "patientGender" : self.patientGender, "patientAge" : self.patientAge, "stage" : self.stage])
+        dbs.collection("patients").document(id).setData(["patientName" : name, "patient uuid" : id, "patientGender" : self.patientGender, "patientAge" : self.patientAge, "stage" : self.stage])
         
     }
 }
