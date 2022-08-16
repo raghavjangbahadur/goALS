@@ -31,7 +31,7 @@ struct LoginView: View {
                 Divider()
                 Spacer()
                 NavigationLink("Hidden nav link", isActive: self.$model.loggedIn) {
-                    PatientInfoEditView()
+                    TodosView()
                         .navigationTitle("")
                         .navigationBarBackButtonHidden(true)
                 }

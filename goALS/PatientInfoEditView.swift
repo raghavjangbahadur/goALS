@@ -34,7 +34,7 @@ struct PatientInfoEditView: View {
                 .padding(.horizontal, 10)
                 .autocapitalization(.none)
                 .padding(.bottom)
-            Button("Update data", action: updateData)
+            Button("Update", action: updateData)
                 .padding(.bottom)
         }.onAppear {
             model.getSingleData()

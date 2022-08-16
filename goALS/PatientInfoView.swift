@@ -35,6 +35,11 @@ struct PatientInfoView: View {
                 Text(model.patient.stage)
                     .foregroundColor(.teal)
             }
+            NavigationLink("Update basic information") {
+                PatientInfoEditView(model: PatientInfoModel())
+                    .navigationBarBackButtonHidden(true)
+                    .padding(.bottom, 30)
+            }
             .padding()
         }.onAppear {
             model.getSingleData()

@@ -15,8 +15,16 @@ struct TodosView: View {
     
     var body: some View {
         VStack {
-            List (model.todoList) { item in
-                Text(item.name)
+            List (model.checklist) { item in
+                HStack {
+                    Text(item.name)
+                    Spacer()
+                    Button(action: {
+                        model.deleteCheckListItem(item)
+                    }, label: {
+                        Image(systemName: "minus.circle")
+                    })
+                }
             }
             
             VStack(spacing: 5) {
@@ -27,17 +35,18 @@ struct TodosView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
                 Button(action: {
-                    model.addTodoItem(name, notes)
+                    model.addChecklistItem(name, notes)
                     name = ""
                     notes = ""
                 }, label: {
-                    Text("Add item todo")
+                    Text("Add item to checklist")
                 })
                 .padding()
             }
         }
         .onAppear {
             model.getSingleData()
+            model.getChecklist()
         }
     }
 }

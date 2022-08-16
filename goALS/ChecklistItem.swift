@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Todo: Codable, Identifiable {
-    var id : String
+struct ChecklistItem: Codable, Identifiable {
+    var id: String
+    var patientId : String
     var name : String
     var notes : String
 }
