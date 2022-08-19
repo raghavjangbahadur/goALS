@@ -21,6 +21,13 @@ class RegistrationModel: ObservableObject {
     @Published var patientGender: String = ""
     @Published var patientAge: Int = 0
     @Published var stage: String = ""
+    @Published var feedingTube: String = ""
+    @Published var hands: String = ""
+    @Published var speech: String = ""
+    @Published var muscles: String = ""
+    @Published var walking: String = ""
+    @Published var legs: String = ""
+    @Published var breathing: String = ""
     
     func registerCall() {
         Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
@@ -42,7 +49,6 @@ class RegistrationModel: ObservableObject {
     
     func createPatient(_ id : String, _ name : String) {
         let dbs = Firestore.firestore()
-        dbs.collection("patients").document(id).setData(["patientName" : name, "patient uuid" : id, "patientGender" : self.patientGender, "patientAge" : self.patientAge, "stage" : self.stage])
-        
+        dbs.collection("patients").document(id).setData(["patientName" : name, "patient uuid" : id, "patientGender" : self.patientGender, "patientAge" : self.patientAge, "stage" : self.stage, "feedingTube" : self.feedingTube, "hands" : self.hands, "speech" : self.speech, "muscles" : self.muscles, "walking" : self.walking, "legs" : self.legs, "breathing" : self.breathing])
     }
 }

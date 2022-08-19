@@ -13,6 +13,8 @@ struct PatientInfoEditView: View {
     @State private var newGender: String = ""
     @State private var newStage: String = ""
     @State private var newAge: String = ""
+    @State private var tube: String = ""
+    
     
     var body: some View {
         
@@ -34,6 +36,11 @@ struct PatientInfoEditView: View {
                 .padding(.horizontal, 10)
                 .autocapitalization(.none)
                 .padding(.bottom)
+            TextField("Update use of feeding tube (high/medium/low)", text: self.$tube)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal, 10)
+                .autocapitalization(.none)
+                .padding(.bottom)
             Button("Update", action: updateData)
                 .padding(.bottom)
         }.onAppear {
@@ -51,6 +58,9 @@ struct PatientInfoEditView: View {
         }
         if newStage != "" {
             values["stage"] = newStage
+        }
+        if tube != "" {
+            values["feedingTube"] = tube
         }
         if !values.isEmpty {
             model.updateData(values)

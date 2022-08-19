@@ -13,5 +13,11 @@ struct PatientInfo: Identifiable, Codable {
     var gender: String
     var age: Int
     var stage: String
-    
+    var tube: String
+    var hands: String
+    var speech: String
+    var muscles: String
+    var walking: String
+    var legs: String
+    var breathing: String
 }

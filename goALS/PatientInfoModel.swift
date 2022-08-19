@@ -15,7 +15,7 @@ class PatientInfoModel: ObservableObject {
     
     @Published var list = [PatientInfo]()
     @Published var checklist = [ChecklistItem]()
-    @Published var patient = PatientInfo(id: "", name: "", gender: "", age: 0, stage: "")
+    @Published var patient = PatientInfo(id: "", name: "", gender: "", age: 0, stage: "", tube: "", hands: "", speech: "", muscles: "", walking: "", legs: "", breathing: "")
     @Published var newId : String = ""
     @Published var newName : String = ""
     @Published var newGender : String = ""
@@ -142,7 +142,14 @@ class PatientInfoModel: ObservableObject {
                         self.patient = PatientInfo(id: patientId, name: docData!["patientName"] as? String ?? "",
                                                    gender: docData!["patientGender"] as? String ?? "lol",
                                                    age: docData!["patientAge"] as? Int ?? 0,
-                                                   stage: docData!["stage"] as? String ?? "")
+                                                   stage: docData!["stage"] as? String ?? "",
+                                                   tube: docData!["feedingTube"] as? String ?? "",
+                                                   hands: docData!["hands"] as? String ?? "",
+                                                   speech: docData!["speech"] as? String ?? "",
+                                                   muscles: docData!["muscles"] as? String ?? "",
+                                                   walking: docData!["walking"] as? String ?? "",
+                                                   legs: docData!["legs"] as? String ?? "",
+                                                   breathing: docData!["breathing"] as? String ?? "")
                     } else {
                         print("Document does not exist")
                     }
@@ -184,7 +191,14 @@ class PatientInfoModel: ObservableObject {
                             return PatientInfo(id: d.documentID, name: d["patientName"] as? String ?? "",
                                                gender: d["patientGender"] as? String ?? "",
                                                age: d["patientAge"] as? Int ?? 0,
-                                               stage: d["stage"] as? String ?? "")
+                                               stage: d["stage"] as? String ?? "",
+                                               tube: d["feedingTube"] as? String ?? "",
+                                               hands: d["hands"] as? String ?? "",
+                                               speech: d["speech"] as? String ?? "",
+                                               muscles: d["muscles"] as? String ?? "",
+                                               walking: d["walking"] as? String ?? "",
+                                               legs: d["legs"] as? String ?? "",
+                                               breathing: d["breathing"] as? String ?? "")
                         }
                     }
                 }
