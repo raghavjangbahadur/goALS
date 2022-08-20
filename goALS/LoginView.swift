@@ -45,6 +45,8 @@ struct LoginView: View {
                 }
             }
             .background(Color.red)
+        }.onAppear(){
+            loginAction()
         }
     }
 

@@ -100,20 +100,19 @@ struct PatientInfoView: View {
                         .frame(width: 170)
                         .foregroundColor(.teal)
                     Spacer()
-                    Text(model.patient.breathing
+                    Text(model.patient.breathing)
                         .foregroundColor(.teal)
                         .frame(width: 170)
                 }
                 .padding(10)
-                NavigationLink("Update basic information") {
-                    PatientInfoEditView(model: PatientInfoModel())
-                        .navigationBarBackButtonHidden(true)
-                        .padding(.bottom, 30)
-                }
-                .padding()
             }.onAppear {
                 model.getSingleData()
             }
+        }
+        NavigationLink("Update basic information") {
+            PatientInfoEditView(model: PatientInfoModel())
+                .navigationBarBackButtonHidden(true)
+                .padding(.bottom, 30)
         }
     }
 }
