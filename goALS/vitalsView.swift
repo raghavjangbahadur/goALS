@@ -9,7 +9,28 @@ import SwiftUI
 
 struct vitalsView: View {
     var body: some View {
-        Text("vitals")
+        VStack {
+            Image("goals_logo_white")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 100)
+                .padding(.all)
+            NavigationLink(destination: PatientInfoView()) {
+                Text("Key details and information")
+                    .foregroundColor(.white)
+            }
+            .padding(.bottom, 20)
+            
+            NavigationLink(destination: TodosView()) {
+                Text("Daily Checklist")
+                    .foregroundColor(.white)
+            }
+            .padding(.bottom, 20)
+            
+            Divider()
+            Spacer()
+        }
+        .background(Color.red)
     }
 }
 

@@ -16,12 +16,6 @@ class PatientInfoModel: ObservableObject {
     @Published var list = [PatientInfo]()
     @Published var checklist = [ChecklistItem]()
     @Published var patient = PatientInfo(id: "", name: "", gender: "", age: 0, stage: "", tube: "", hands: "", speech: "", muscles: "", walking: "", legs: "", breathing: "")
-    @Published var newId : String = ""
-    @Published var newName : String = ""
-    @Published var newGender : String = ""
-    @Published var newAge : Int = 0
-    @Published var newStage : String = ""
-    
     
     /*func getPatientId() {
         let db = Firestore.firestore()

@@ -35,6 +35,8 @@ struct goalsView: View {
                         .foregroundColor(.white)
                         .frame(maxWidth: 200)
                 }
+                .navigationBarBackButtonHidden(true)
+                
                 NavigationLink(destination: tribalsView()) {
                     ZStack {
                         RoundedRectangle(cornerRadius:15)
@@ -51,6 +53,8 @@ struct goalsView: View {
                         .frame(maxWidth: 200)
                     
                 }
+                .navigationBarBackButtonHidden(true)
+                
                 NavigationLink(destination: verbalsView()) {
                     ZStack {
                         RoundedRectangle(cornerRadius:15)
@@ -66,6 +70,8 @@ struct goalsView: View {
                         .foregroundColor(.white)
                         .frame(maxWidth: 200)
                 }
+                .navigationBarBackButtonHidden(true)
+                
                 Spacer()
                 
             }

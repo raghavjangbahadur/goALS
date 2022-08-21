@@ -12,6 +12,11 @@ struct PatientInfoView: View {
     @ObservedObject var model = PatientInfoModel()
     var body: some View {
         ScrollView {
+            Text("Key Details and Information")
+                .foregroundColor(.teal)
+                .font(.title2)
+                .fontWeight(.bold)
+                .padding(.top, 15)
             VStack{
                 HStack {
                     Text("Gender")
@@ -111,7 +116,6 @@ struct PatientInfoView: View {
         }
         NavigationLink("Update basic information") {
             PatientInfoEditView(model: PatientInfoModel())
-                .navigationBarBackButtonHidden(true)
                 .padding(.bottom, 30)
         }
     }

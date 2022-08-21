@@ -31,7 +31,7 @@ struct TodosView: View {
                 TextField("Name", text: $name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
-                TextField("Notes", text: $notes)
+                TextField("Notes (activites, times, etc.)", text: $notes)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
                 Button(action: {
@@ -56,3 +56,4 @@ struct TodosView_Previews: PreviewProvider {
         TodosView()
     }
 }
+ 
