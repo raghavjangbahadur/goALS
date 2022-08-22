@@ -5,6 +5,7 @@
 //  Created by Raghav Jangbahadur on 7/25/22.
 //
 import Foundation
+import Firebase
 import SwiftUI
 import FirebaseCore
 import FirebaseFirestore
@@ -41,7 +42,7 @@ class RegistrationModel: ObservableObject {
                 return
             }
             let patientId = UUID().uuidString
-            db.collection("users").document(userID).setData(["patient uuid" : patientId, "patientName" : self.patientName, "firstName" : self.firstName, "lastName" : self.lastName], merge: true)
+            db.collection("users").document(userID).setData(["patient uuid" : patientId, "patientName" : self.patientName, "firstName" : self.firstName, "lastName" : self.lastName])
             self.createPatient(patientId, self.patientName)
             self.registered = true
             createPatient(patientId, self.patientName)

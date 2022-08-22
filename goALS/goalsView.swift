@@ -15,11 +15,10 @@ struct goalsView: View {
                 NavigationLink(destination: accountView()) {
                     Text("Account")
                         .font(.subheadline)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
                         .foregroundColor(.white)
                         .padding(.horizontal, 20)
                 }
-                Text("Hi " + model.user.firstName)
+                Text("Hi " + model.user.firstName + "!")
                     .foregroundColor(.white)
                 NavigationLink(destination: vitalsView()) {
                     ZStack {
@@ -72,7 +71,7 @@ struct goalsView: View {
                         .frame(maxWidth: 200)
                 }
                 .navigationBarBackButtonHidden(true)
-                
+                Divider()
                 Spacer()
                 
             }

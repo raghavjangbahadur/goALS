@@ -17,7 +17,7 @@ struct RegistrationView: View {
     var body: some View {
         VStack {
             Image("goals_logo_white")
-                .resizable()
+                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 100)
                 .padding(.all)
@@ -73,7 +73,7 @@ struct RegistrationView: View {
                 isActive: $model.registered,
                 label: {}
             )
-            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
         }
         .background(Color.red)
     
