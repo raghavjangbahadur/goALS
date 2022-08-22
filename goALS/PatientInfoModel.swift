@@ -16,7 +16,8 @@ class PatientInfoModel: ObservableObject {
     @Published var list = [PatientInfo]()
     @Published var checklist = [ChecklistItem]()
     @Published var patient = PatientInfo(id: "", name: "", gender: "", age: 0, stage: "", tube: "", hands: "", speech: "", muscles: "", walking: "", legs: "", breathing: "")
-    
+    @Published var user = User(uuid: "", firstName: "", lastName: "",  patientID: "", patientName: "")
+     
     /*func getPatientId() {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {
@@ -128,6 +129,10 @@ class PatientInfoModel: ObservableObject {
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let docData = document.data()
+                self.user = User(uuid: userID, firstName: docData!["firstName"] as? String ?? "",
+                                 lastName: docData!["lastName"] as? String ?? "",
+                                 patientID: docData!["patient uuid"] as? String ?? "",
+                                 patientName: docData!["patientName"] as? String ?? "")
                 let patientId = docData!["patient uuid"] as? String ?? ""
                 let docRef = db.collection("patients").document(patientId)
                 docRef.getDocument { (document, error) in
@@ -153,6 +158,7 @@ class PatientInfoModel: ObservableObject {
             }
         }
     }
+    
     func updateData(_ value: [String : Any]) {
             let db = Firestore.firestore()
             guard let userID = Auth.auth().currentUser?.uid else {

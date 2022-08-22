@@ -17,6 +17,7 @@ struct PatientInfoView: View {
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.top, 15)
+                .padding(.bottom, 20)
             VStack{
                 HStack {
                     Text("Gender")

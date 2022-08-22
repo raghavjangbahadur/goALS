@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A274C5D28B36D5D00474135 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C5C28B36D5D00474135 /* User.swift */; };
 		2A4B2F462893655900E47DB2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F452893655900E47DB2 /* LoginView.swift */; };
 		2A4B2F4828936F8C00E47DB2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */; };
 		2A4B2F4E28A3137800E47DB2 /* PatientInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */; };
@@ -38,6 +39,7 @@
 		2AA7347628AA247C00D17A07 /* TodosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7347528AA247C00D17A07 /* TodosView.swift */; };
 		2AB522A228B026C800BB5691 /* ChecklistNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB522A128B026C800BB5691 /* ChecklistNotesView.swift */; };
 		2AB522A428B2F74000BB5691 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB522A328B2F74000BB5691 /* LearnView.swift */; };
+		2AB522A628B3671200BB5691 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB522A528B3671200BB5691 /* MenuView.swift */; };
 		2AD1D534288F1D190019812E /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1D533288F1D180019812E /* RegistrationModel.swift */; };
 		2AD1D536288F22C10019812E /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1D535288F22C10019812E /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A274C5C28B36D5D00474135 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A4B2F452893655900E47DB2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoView.swift; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 		2AA7347528AA247C00D17A07 /* TodosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosView.swift; sourceTree = "<group>"; };
 		2AB522A128B026C800BB5691 /* ChecklistNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistNotesView.swift; sourceTree = "<group>"; };
 		2AB522A328B2F74000BB5691 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
+		2AB522A528B3671200BB5691 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		2AD1D533288F1D180019812E /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
 		2AD1D535288F22C10019812E /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,12 +153,14 @@
 				2A90CB3B286BF36D0079B380 /* goALSApp.swift */,
 				2A90CB3D286BF36D0079B380 /* ContentView.swift */,
 				2AD1D533288F1D180019812E /* RegistrationModel.swift */,
+				2AB522A528B3671200BB5691 /* MenuView.swift */,
 				2AD1D535288F22C10019812E /* RegistrationView.swift */,
 				2A4B2F452893655900E47DB2 /* LoginView.swift */,
 				2A4B2F5328A3269100E47DB2 /* PatientInfoEditView.swift */,
 				2AB522A328B2F74000BB5691 /* LearnView.swift */,
 				2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */,
 				2A4B2F4F28A3138B00E47DB2 /* PatientInfoModel.swift */,
+				2A274C5C28B36D5D00474135 /* User.swift */,
 				2AA7347528AA247C00D17A07 /* TodosView.swift */,
 				2AB522A128B026C800BB5691 /* ChecklistNotesView.swift */,
 				2AA7347328A9CD3A00D17A07 /* ChecklistItem.swift */,
@@ -346,6 +352,7 @@
 				2A4B2F4E28A3137800E47DB2 /* PatientInfoView.swift in Sources */,
 				2AA7347628AA247C00D17A07 /* TodosView.swift in Sources */,
 				2AB522A428B2F74000BB5691 /* LearnView.swift in Sources */,
+				2AB522A628B3671200BB5691 /* MenuView.swift in Sources */,
 				2A661F922870FCEF0014B661 /* tribalsView.swift in Sources */,
 				2A90CB3E286BF36D0079B380 /* ContentView.swift in Sources */,
 				2A661F902870FCCA0014B661 /* vitalsView.swift in Sources */,
@@ -360,6 +367,7 @@
 				2AB522A228B026C800BB5691 /* ChecklistNotesView.swift in Sources */,
 				2A4B2F462893655900E47DB2 /* LoginView.swift in Sources */,
 				2A5B93452881ED31005A457E /* accountView.swift in Sources */,
+				2A274C5D28B36D5D00474135 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

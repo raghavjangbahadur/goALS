@@ -22,13 +22,22 @@ struct RegistrationView: View {
                 .frame(height: 100)
                 .padding(.all)
             Group {
-                Text("Enter Caregiver (your) first and last name")
+                Text("Enter Caregiver (your) first name")
                     .fontWeight(.bold)
-                TextField("First and last name", text: self.$model.name)
+                TextField("First name", text: self.$model.firstName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
                     .autocapitalization(.none)
                     .padding(.bottom)
+                    .disableAutocorrection(true)
+                Text("Enter Caregiver (your) last name")
+                    .fontWeight(.bold)
+                TextField("Last name", text: self.$model.lastName)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.horizontal, 10)
+                    .autocapitalization(.none)
+                    .padding(.bottom)
+                    .disableAutocorrection(true)
                 Text("ALS Patient Name")
                     .fontWeight(.bold)
                 TextField("Patient Name", text: self.$model.patientName)
@@ -36,6 +45,7 @@ struct RegistrationView: View {
                     .padding(.horizontal, 10)
                     .autocapitalization(.none)
                     .padding(.bottom)
+                    .disableAutocorrection(true)
                 Text("Set user ID (email)")
                     .fontWeight(.bold)
                 TextField("Email", text: self.$model.email)
@@ -43,6 +53,7 @@ struct RegistrationView: View {
                     .padding(.horizontal, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     .autocapitalization(.none)
                     .padding(.bottom)
+                    .disableAutocorrection(true)
                 Text("Set password (minimum 6 characters)")
                     .fontWeight(.bold)
                 TextField("Password", text: self.$model.password)
@@ -50,6 +61,7 @@ struct RegistrationView: View {
                     .padding(.horizontal, 10)
                     .autocapitalization(.none)
                     .padding(.bottom, 25)
+                    .disableAutocorrection(true)
             }
             Divider()
             Spacer()
@@ -57,7 +69,7 @@ struct RegistrationView: View {
             Button("Register", action: registerAction)
                 .padding(.bottom, 35)
             NavigationLink(
-                destination: PatientInfoView(),
+                destination: ContentView(),
                 isActive: $model.registered,
                 label: {}
             )

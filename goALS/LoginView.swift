@@ -22,11 +22,13 @@ struct LoginView: View {
                     .padding(.horizontal, 20)
                     .autocapitalization(.none)
                     .padding(.bottom, 30)
+                    .disableAutocorrection(true)
                 TextField("Password", text: self.$model.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 20)
                     .autocapitalization(.none)
                     .padding(.bottom, 20)
+                    .disableAutocorrection(true)
                 Button("Log in", action: loginAction)
                 Divider()
                 Spacer()
@@ -45,8 +47,6 @@ struct LoginView: View {
                 }
             }
             .background(Color.red)
-        }.onAppear(){
-            loginAction()
         }
     }
 

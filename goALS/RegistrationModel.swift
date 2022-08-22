@@ -17,7 +17,8 @@ class RegistrationModel: ObservableObject {
     @Published var registered: Bool = false
     @Published var loggedIn: Bool = false
     @Published var patientName: String = ""
-    @Published var name: String = ""
+    @Published var firstName: String = ""
+    @Published var lastName: String = ""
     @Published var patientGender: String = ""
     @Published var patientAge: Int = 0
     @Published var stage: String = ""
@@ -40,7 +41,7 @@ class RegistrationModel: ObservableObject {
                 return
             }
             let patientId = UUID().uuidString
-            db.collection("users").document(userID).setData(["patient uuid" : patientId, "patientName" : self.patientName, "name" : self.name], merge: true)
+            db.collection("users").document(userID).setData(["patient uuid" : patientId, "patientName" : self.patientName, "firstName" : self.firstName, "lastName" : self.lastName], merge: true)
             self.createPatient(patientId, self.patientName)
             self.registered = true
             createPatient(patientId, self.patientName)

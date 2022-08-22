@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct goalsView: View {
+    @ObservedObject var model = PatientInfoModel()
     var body: some View {
         NavigationView {
             VStack {
@@ -18,7 +19,7 @@ struct goalsView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 20)
                 }
-                Text("Hi Raghav")
+                Text("Hi " + model.user.firstName)
                     .foregroundColor(.white)
                 NavigationLink(destination: vitalsView()) {
                     ZStack {
@@ -76,7 +77,9 @@ struct goalsView: View {
                 
             }
             .padding(.bottom, 100)
-            .background(Color.red.edgesIgnoringSafeArea(.all))
+            .background(Color.red)
+        }.onAppear {
+            model.getSingleData()
         }
         
     }
