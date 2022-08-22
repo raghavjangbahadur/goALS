@@ -12,8 +12,8 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class LoginModel: ObservableObject {
-    @Published var email: String = "raghavjang1@gmail.com"
-    @Published var password: String = "sidarthjang1"
+    @Published var email: String = ""
+    @Published var password: String = ""
     @Published var loading: Bool = false
     @Published var loggedIn: Bool = false
 

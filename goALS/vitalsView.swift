@@ -27,6 +27,12 @@ struct vitalsView: View {
             }
             .padding(.bottom, 20)
             
+            NavigationLink(destination: LearnView()) {
+                Text("Learn more about ALS")
+                    .foregroundColor(.white)
+            }
+            .padding(.bottom, 20)
+            
             Divider()
             Spacer()
         }

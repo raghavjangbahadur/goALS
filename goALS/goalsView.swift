@@ -76,7 +76,6 @@ struct goalsView: View {
                 
             }
             .padding(.bottom, 100)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.red.edgesIgnoringSafeArea(.all))
         }
         

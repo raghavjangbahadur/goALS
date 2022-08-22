@@ -20,12 +20,19 @@ struct LearnView: View {
                     .font(.title)
                     .fontWeight(.bold)
             }
-            .padding()
+            .padding(.all, 20)
+            .padding(.bottom, 20)
             Text("[Understanding ALS](https://www.als.org/understanding-als)")
-                .padding(.bottom, 20)
-            Text("[Learn about dealing with ALS](https://iamals.org/get-help//#learn-about-als-understanding-als)")
-                .padding(.bottom, 20)
-            
+                .padding(.bottom, 30)
+            Text("[Learn about dealing with ALS](https://iamalcs.org/get-help//#learn-about-als-understanding-als)")
+                .padding(.bottom, 30)
+            Text("[ALS Fact Sheet](https://www.ninds.nih.gov/Disorders/Patient-Caregiver-Education/Fact-Sheets/Amyotrophic-lateral-Sclerosis-ALS-Fact-Sheet)")
+                .padding(.bottom, 30)
+            Text("[ALS FAQs](https://iamals.org/get-help/frequently-asked-questions-about-als/)")
+                .padding(.bottom, 30)
+            Text("[ALS Guide](www.youralsguide.com)")
+                .padding(.bottom, 30)
+            Spacer()
         }
     }
 }
