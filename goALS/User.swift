@@ -13,4 +13,5 @@ struct User: Codable {
     var lastName: String
     var patientID: String
     var patientName: String
+    var email: String
 }

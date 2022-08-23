@@ -16,7 +16,7 @@ class PatientInfoModel: ObservableObject {
     @Published var list = [PatientInfo]()
     @Published var checklist = [ChecklistItem]()
     @Published var patient = PatientInfo(id: "", name: "", gender: "", age: 0, stage: "", tube: "", hands: "", speech: "", muscles: "", walking: "", legs: "", breathing: "")
-    @Published var user = User(uuid: "", firstName: "", lastName: "",  patientID: "", patientName: "")
+    @Published var user = User(uuid: "", firstName: "", lastName: "",  patientID: "", patientName: "", email: "")
      
     /*func getPatientId() {
         let db = Firestore.firestore()
@@ -132,7 +132,8 @@ class PatientInfoModel: ObservableObject {
                 self.user = User(uuid: userID, firstName: docData!["firstName"] as? String ?? "",
                                  lastName: docData!["lastName"] as? String ?? "",
                                  patientID: docData!["patient uuid"] as? String ?? "",
-                                 patientName: docData!["patientName"] as? String ?? "")
+                                 patientName: docData!["patientName"] as? String ?? "",
+                                 email: docData!["email"] as? String ?? "")
                 let patientId = docData!["patient uuid"] as? String ?? ""
                 let docRef = db.collection("patients").document(patientId)
                 docRef.getDocument { (document, error) in
