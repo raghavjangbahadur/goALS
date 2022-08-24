@@ -14,56 +14,12 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class ChatModel: ObservableObject {
-    @Published var text = ""
-    @Published var messages = [Message]()
     @Published var users = [User]()
     
-    
-    func send(toUser: User) {
-        let db = Firestore.firestore()
-        guard let userID = Auth.auth().currentUser?.uid else {
-            print("could not find user id")
-            return
-        }
-        let toId = toUser.uuid
-        let docRef = db.collection("messages").document(userID).collection(toId).document()
-        let message = ["fromId" : userID, "toId" : toId, "text" : self.text, "timestamp" : Timestamp()] as [String : Any]
-        docRef.setData(message) { error in
-            if let error = error {
-                print(error)
-                return
-            }
-            self.text = ""
-        }
-        let docRefRec = db.collection("messages").document(toId).collection(userID).document()
-        docRefRec.setData(message) { error in
-            if let error = error {
-                print(error)
-                return
-            }
-        }
+    init() {
+        fetchUsers()
     }
     
-    func fetchChat(toUser: User) {
-        let db = Firestore.firestore()
-        guard let userID = Auth.auth().currentUser?.uid else {
-            print("could not find user id")
-            return
-        }
-        let toId = toUser.uuid
-        db.collection("messages").document(userID).collection(toId).order(by: "timestamp").addSnapshotListener { querySnapshot, error in
-            if let error = error {
-                print(error)
-                return
-            }
-            querySnapshot?.documentChanges.forEach({ change in
-                if change.type == .added {
-                    let data = change.document.data()
-                    self.messages.append(.init(documentId: change.document.documentID, data: data))
-                }
-            })
-        }
-    }
     
     func fetchUsers() {
         let db = Firestore.firestore()
@@ -84,7 +40,7 @@ class ChatModel: ObservableObject {
                         if let querySnapshot = querySnapshot {
                             DispatchQueue.main.async {
                                 self.users = querySnapshot.documents.map { d in
-                                    return User(uuid: d.documentID, firstName: d["firstName"] as? String ?? "", lastName: d["lastName"] as? String ?? "", patientID: d["patient uuid"] as? String ?? "", patientName: d["patientName"] as? String ?? "", email: d["email"] as? String ?? "")
+                                    return User(id: d.documentID, firstName: d["firstName"] as? String ?? "", lastName: d["lastName"] as? String ?? "", patientID: d["patient uuid"] as? String ?? "", patientName: d["patientName"] as? String ?? "", email: d["email"] as? String ?? "")
                                 }
                             }
                         }

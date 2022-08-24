@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct User: Codable {
-    var uuid: String
+struct User: Codable, Identifiable {
+    var id: String
     var firstName: String
     var lastName: String
     var patientID: String

@@ -30,6 +30,11 @@
 		2A661F902870FCCA0014B661 /* vitalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A661F8F2870FCCA0014B661 /* vitalsView.swift */; };
 		2A661F922870FCEF0014B661 /* tribalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A661F912870FCEF0014B661 /* tribalsView.swift */; };
 		2A661F942870FD0E0014B661 /* verbalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A661F932870FD0E0014B661 /* verbalsView.swift */; };
+		2A8F13E828B5DB880053B091 /* MainMessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F13E728B5DB880053B091 /* MainMessagesView.swift */; };
+		2A8F13EA28B5E0FF0053B091 /* MainMessagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F13E928B5E0FF0053B091 /* MainMessagesModel.swift */; };
+		2A8F13EC28B5E7B40053B091 /* NewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F13EB28B5E7B40053B091 /* NewMessageView.swift */; };
+		2A8F13EE28B5F2630053B091 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F13ED28B5F2630053B091 /* ChatView.swift */; };
+		2A8F13F028B5FCBF0053B091 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F13EF28B5FCBF0053B091 /* ChatViewModel.swift */; };
 		2A90CB3C286BF36D0079B380 /* goALSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90CB3B286BF36D0079B380 /* goALSApp.swift */; };
 		2A90CB3E286BF36D0079B380 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A90CB3D286BF36D0079B380 /* ContentView.swift */; };
 		2A90CB40286BF3700079B380 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A90CB3F286BF3700079B380 /* Assets.xcassets */; };
@@ -78,6 +83,11 @@
 		2A661F8F2870FCCA0014B661 /* vitalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vitalsView.swift; sourceTree = "<group>"; };
 		2A661F912870FCEF0014B661 /* tribalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tribalsView.swift; sourceTree = "<group>"; };
 		2A661F932870FD0E0014B661 /* verbalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verbalsView.swift; sourceTree = "<group>"; };
+		2A8F13E728B5DB880053B091 /* MainMessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessagesView.swift; sourceTree = "<group>"; };
+		2A8F13E928B5E0FF0053B091 /* MainMessagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessagesModel.swift; sourceTree = "<group>"; };
+		2A8F13EB28B5E7B40053B091 /* NewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageView.swift; sourceTree = "<group>"; };
+		2A8F13ED28B5F2630053B091 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		2A8F13EF28B5FCBF0053B091 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		2A90CB38286BF36D0079B380 /* goALS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goALS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A90CB3B286BF36D0079B380 /* goALSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goALSApp.swift; sourceTree = "<group>"; };
 		2A90CB3D286BF36D0079B380 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -156,8 +166,8 @@
 				2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */,
 				2A4B2F452893655900E47DB2 /* LoginView.swift */,
 				2AD1D533288F1D180019812E /* RegistrationModel.swift */,
-				2AD1D535288F22C10019812E /* RegistrationView.swift */,
 				2A90CB3D286BF36D0079B380 /* ContentView.swift */,
+				2AD1D535288F22C10019812E /* RegistrationView.swift */,
 				2A5B93442881ED31005A457E /* accountView.swift */,
 				2A4B2F4F28A3138B00E47DB2 /* PatientInfoModel.swift */,
 				2A661F8F2870FCCA0014B661 /* vitalsView.swift */,
@@ -172,6 +182,11 @@
 				2A274C6228B4AC9B00474135 /* Message.swift */,
 				2A661F8D2870FCB50014B661 /* goalsView.swift */,
 				2A274C6028B4A88900474135 /* ChatModel.swift */,
+				2A8F13EF28B5FCBF0053B091 /* ChatViewModel.swift */,
+				2A8F13E928B5E0FF0053B091 /* MainMessagesModel.swift */,
+				2A8F13E728B5DB880053B091 /* MainMessagesView.swift */,
+				2A8F13ED28B5F2630053B091 /* ChatView.swift */,
+				2A8F13EB28B5E7B40053B091 /* NewMessageView.swift */,
 				2A661F912870FCEF0014B661 /* tribalsView.swift */,
 				2A661F932870FD0E0014B661 /* verbalsView.swift */,
 				2A90CB3F286BF3700079B380 /* Assets.xcassets */,
@@ -351,12 +366,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A4B2F5028A3138B00E47DB2 /* PatientInfoModel.swift in Sources */,
+				2A8F13E828B5DB880053B091 /* MainMessagesView.swift in Sources */,
 				2A4B2F5228A3142500E47DB2 /* PatientInfo.swift in Sources */,
 				2A4B2F4E28A3137800E47DB2 /* PatientInfoView.swift in Sources */,
 				2AA7347628AA247C00D17A07 /* TodosView.swift in Sources */,
 				2AB522A428B2F74000BB5691 /* LearnView.swift in Sources */,
+				2A8F13EE28B5F2630053B091 /* ChatView.swift in Sources */,
+				2A8F13F028B5FCBF0053B091 /* ChatViewModel.swift in Sources */,
 				2A661F922870FCEF0014B661 /* tribalsView.swift in Sources */,
 				2A90CB3E286BF36D0079B380 /* ContentView.swift in Sources */,
+				2A8F13EA28B5E0FF0053B091 /* MainMessagesModel.swift in Sources */,
+				2A8F13EC28B5E7B40053B091 /* NewMessageView.swift in Sources */,
 				2A661F902870FCCA0014B661 /* vitalsView.swift in Sources */,
 				2A4B2F4828936F8C00E47DB2 /* LoginModel.swift in Sources */,
 				2AD1D536288F22C10019812E /* RegistrationView.swift in Sources */,

@@ -16,20 +16,35 @@ struct vitalsView: View {
                 .frame(height: 100)
                 .padding(.all)
             NavigationLink(destination: PatientInfoView()) {
-                Text("Key details and information")
-                    .foregroundColor(.white)
+                ZStack {
+                    RoundedRectangle(cornerRadius:15)
+                        .frame(width: 320, height: 45)
+                        .foregroundColor(.gray)
+                    Text("Key details and information")
+                        .foregroundColor(.white)
+                }
             }
             .padding(.bottom, 20)
             
             NavigationLink(destination: TodosView()) {
-                Text("Daily Checklist")
-                    .foregroundColor(.white)
+                ZStack {
+                    RoundedRectangle(cornerRadius:15)
+                        .frame(width: 320, height: 45)
+                        .foregroundColor(.gray)
+                    Text("Daily Checklist")
+                        .foregroundColor(.white)
+                }
             }
             .padding(.bottom, 20)
             
             NavigationLink(destination: LearnView()) {
-                Text("Learn more about ALS")
-                    .foregroundColor(.white)
+                ZStack {
+                    RoundedRectangle(cornerRadius:15)
+                        .frame(width: 320, height: 45)
+                        .foregroundColor(.gray)
+                    Text("Learn more about ALS")
+                        .foregroundColor(.white)
+                }
             }
             .padding(.bottom, 20)
             
