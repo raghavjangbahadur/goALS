@@ -16,24 +16,16 @@ import FirebaseAuth
 class ChatModel: ObservableObject {
     @Published var text = ""
     @Published var messages = [Message]()
+    @Published var users = [User]()
     
-    let toUser: User?
     
-    init(toUser: User?) {
-        self.toUser = toUser
-        fetchChat()
-    }
-    
-    func send() {
+    func send(toUser: User) {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {
             print("could not find user id")
             return
         }
-        guard let toId = toUser?.uuid else {
-            print("could not find recipient id")
-            return
-        }
+        let toId = toUser.uuid
         let docRef = db.collection("messages").document(userID).collection(toId).document()
         let message = ["fromId" : userID, "toId" : toId, "text" : self.text, "timestamp" : Timestamp()] as [String : Any]
         docRef.setData(message) { error in
@@ -52,16 +44,13 @@ class ChatModel: ObservableObject {
         }
     }
     
-    func fetchChat() {
+    func fetchChat(toUser: User) {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {
             print("could not find user id")
             return
         }
-        guard let toId = toUser?.uuid else {
-            print("could not find recipient id")
-            return
-        }
+        let toId = toUser.uuid
         db.collection("messages").document(userID).collection(toId).order(by: "timestamp").addSnapshotListener { querySnapshot, error in
             if let error = error {
                 print(error)
@@ -73,6 +62,41 @@ class ChatModel: ObservableObject {
                     self.messages.append(.init(documentId: change.document.documentID, data: data))
                 }
             })
+        }
+    }
+    
+    func fetchUsers() {
+        let db = Firestore.firestore()
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("could not find user id")
+            return
+        }
+        let docRef = db.collection("users").document(userID)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let docData = document.data()
+                let key = docData!["patient uuid"] as? String ?? ""
+                db.collection("users").whereField("patient uuid", isEqualTo: key)
+                  .getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        if let querySnapshot = querySnapshot {
+                            DispatchQueue.main.async {
+                                self.users = querySnapshot.documents.map { d in
+                                    return User(uuid: d.documentID, firstName: d["firstName"] as? String ?? "", lastName: d["lastName"] as? String ?? "", patientID: d["patient uuid"] as? String ?? "", patientName: d["patientName"] as? String ?? "", email: d["email"] as? String ?? "")
+                                }
+                            }
+                        }
+                        else {
+                            print("No document")
+                        }
+                    }
+                }
+                
+            } else {
+                print("Document does not exist")
+            }
         }
     }
 }
