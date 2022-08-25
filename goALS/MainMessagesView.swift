@@ -12,6 +12,8 @@ struct MainMessagesView: View {
     @State var shouldShowExitOptions = false
     @State var shouldShowNewMessageScreen = false
     @State var shouldNavigateToChatLogView = false
+    @State var user: User?
+    @State var exit = false
     
     @ObservedObject var model = MainMessagesViewModel()
     
@@ -47,8 +49,9 @@ struct MainMessagesView: View {
         }
         .padding()
         .actionSheet(isPresented: $shouldShowExitOptions) {
-            .init(title: Text("Settings"), message: Text("What do you want to do?"), buttons: [
+            .init(title: Text("Exit Messaging") , buttons: [
                 .destructive(Text("Exit"), action: {
+                    exit.toggle()
                     print("handle exit")
                 }),
                 .cancel()
@@ -66,16 +69,24 @@ struct MainMessagesView: View {
                 NavigationLink("", isActive: $shouldNavigateToChatLogView) {
                     ChatView(user: self.user)
                 }
+                NavigationLink(
+                    destination: verbalsView(),
+                    isActive: $exit,
+                    label: {}
+                )
+                .navigationBarBackButtonHidden(true)
             }
             .overlay(
                 newMessageButton, alignment: .bottom)
             .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     private var messagesView: some View {
         ScrollView {
-            ForEach(0..<10, id: \.self) { num in
+            ForEach(model.recentMessages) { recentMessage in
                 VStack {
                     NavigationLink {
                         Text("Description")
@@ -89,16 +100,18 @@ struct MainMessagesView: View {
                                 )
                             
                             
-                            VStack(alignment: .leading) {
-                                Text("Username")
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text(recentMessage.firstName)
                                     .font(.system(size: 16, weight: .bold))
-                                Text("Message sent to user")
+                                    .foregroundColor(Color(.label))
+                                Text(recentMessage.text)
                                     .font(.system(size: 14))
                                     .foregroundColor(Color(.lightGray))
+                                    .multilineTextAlignment(.leading)
                             }
                             Spacer()
                             
-                            Text("22d")
+                            Text(recentMessage.timestamp.description)
                                 .font(.system(size: 14, weight: .semibold))
                         }
                         Divider()
@@ -135,7 +148,6 @@ struct MainMessagesView: View {
             })
         }
     }
-    @State var user: User?
 }
 
 

@@ -8,14 +8,25 @@
 import SwiftUI
 
 struct ChecklistNotesView: View {
-    @ObservedObject var model = PatientInfoModel()
+    let item: ChecklistItem?
+    
+    init(item: ChecklistItem?) {
+        self.item = item
+    }
+    
     var body: some View {
-        Text("s")
+        VStack {
+            Text("Notes")
+                .font(.title)
+                .padding(20)
+            Text(item?.notes ?? "")
+            Spacer()
+        }
     }
 }
 
-struct ChecklistNotesView_Previews: PreviewProvider {
+/*struct ChecklistNotesView_Previews: PreviewProvider {
     static var previews: some View {
-        ChecklistNotesView(model: PatientInfoModel())
+        ChecklistNotesView(model: PatientInfoModel(item: ChecklistItem))
     }
-}
+}*/

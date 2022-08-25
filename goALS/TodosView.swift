@@ -16,14 +16,18 @@ struct TodosView: View {
     var body: some View {
         VStack {
             List (model.checklist) { item in
-                HStack {
-                    Text(item.name)
-                    Spacer()
-                    Button(action: {
-                        model.deleteCheckListItem(item)
-                    }, label: {
-                        Image(systemName: "minus.circle")
-                    })
+                NavigationLink {
+                    ChecklistNotesView(item: item)
+                } label: {
+                    HStack {
+                        Text(item.name)
+                        Spacer()
+                        Button(action: {
+                            model.deleteCheckListItem(item)
+                        }, label: {
+                            Image(systemName: "minus.circle")
+                        })
+                    }
                 }
             }
             
@@ -56,4 +60,4 @@ struct TodosView_Previews: PreviewProvider {
         TodosView()
     }
 }
- 
+

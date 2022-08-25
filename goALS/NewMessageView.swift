@@ -22,12 +22,12 @@ struct NewMessageView: View {
                 ForEach(model.users) { user in
                     Button {
                         presentationMode.wrappedValue.dismiss()
-                        
+                        didSelectNewUser(user)
                     } label: {
                         HStack(spacing: 16) {
                             Image(systemName: "person.fill")
                                 .font(.system(size: 34, weight: .heavy))
-                            Text(user.email)
+                            Text(user.firstName)
                                 .foregroundColor(Color(.label))
                             Spacer()
                         }.padding(.horizontal)

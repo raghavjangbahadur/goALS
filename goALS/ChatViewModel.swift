@@ -38,6 +38,9 @@ class ChatViewModel: ObservableObject {
                 print(error)
                 return
             }
+            
+            self.persistRecentMessage()
+            
             self.text = ""
             self.count += 1
         }
@@ -71,6 +74,32 @@ class ChatViewModel: ObservableObject {
             
             DispatchQueue.main.async {
                 self.count += 1
+            }
+        }
+    }
+    
+    func persistRecentMessage() {
+        guard let user = user else { return }
+        let db = Firestore.firestore()
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("could not find user id")
+            return
+        }
+        let toId = user.id
+        let docRef = db.collection("recent_messages").document(userID).collection("messages").document(toId)
+        
+        let data = [
+            "timestamp": Timestamp(),
+            "text": self.text,
+            "fromId": userID,
+            "toId" : toId,
+            "firstName" : user.firstName
+        ] as [String : Any]
+        
+        docRef.setData(data) { error in
+            if let error = error {
+                print(error)
+                return
             }
         }
     }

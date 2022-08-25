@@ -41,7 +41,6 @@ struct LoginView: View {
                 
                 NavigationLink("Don't have an account? Register now!") {
                     RegistrationView(model: RegistrationModel())
-                        .navigationTitle("Register now!")
                         .navigationBarBackButtonHidden(true)
                         .padding(.bottom, 30)
                 }
