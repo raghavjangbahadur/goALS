@@ -74,6 +74,7 @@ struct RegistrationView: View {
                 label: {}
             )
             .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
         .background(Color.red)
     
