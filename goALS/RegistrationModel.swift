@@ -30,6 +30,7 @@ class RegistrationModel: ObservableObject {
     @Published var walking: String = ""
     @Published var legs: String = ""
     @Published var breathing: String = ""
+    @Published var generatedId: String = ""
     
     func registerCall() {
         Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
@@ -46,6 +47,39 @@ class RegistrationModel: ObservableObject {
             self.createPatient(patientId, self.patientName)
             self.registered = true
             createPatient(patientId, self.patientName)
+        }
+    }
+    
+    func registerSecondary() {
+        let db = Firestore.firestore()
+        if (generatedId == "" || patientName == ""){
+            return
+        }
+        let docRef = db.collection("patients").document(generatedId)
+        docRef.getDocument { [self] (document, error) in
+            if let document = document, document.exists {
+                let docData = document.data()
+                let name = docData!["patientName"] as? String ?? ""
+                if name != self.patientName {
+                    return
+                }
+                Auth.auth().createUser(withEmail: self.email, password: self.password) { [self] authResult, error in
+                    guard let _ = authResult else {
+                        print("Failed registering")
+                        return
+                    }
+                    let db = Firestore.firestore()
+                    guard let userID = Auth.auth().currentUser?.uid else {
+                        return
+                    }
+                    let patientId = UUID().uuidString
+                    db.collection("users").document(userID).setData(["patient uuid" : patientId, "patientName" : self.patientName, "firstName" : self.firstName, "lastName" : self.lastName, "email" : self.email])
+                    self.registered = true
+                }
+                
+            } else {
+                print("Document does not exist")
+            }
         }
     }
     

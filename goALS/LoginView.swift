@@ -33,7 +33,7 @@ struct LoginView: View {
                 Divider()
                 Spacer()
                 NavigationLink("Hidden nav link", isActive: self.$model.loggedIn) {
-                    ContentView()
+                    AddNewUserView()
                         .navigationTitle("")
                         .navigationBarBackButtonHidden(true)
                         .navigationBarHidden(true)
@@ -41,7 +41,7 @@ struct LoginView: View {
                 .hidden()
                 
                 NavigationLink("Don't have an account? Register now!") {
-                    RegistrationView(model: RegistrationModel())
+                    RegistrationSelection()
                         .navigationBarBackButtonHidden(true)
                         .navigationBarHidden(true)
                         .padding(.bottom, 30)
