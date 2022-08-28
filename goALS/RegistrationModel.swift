@@ -52,11 +52,11 @@ class RegistrationModel: ObservableObject {
     
     func registerSecondary() {
         let db = Firestore.firestore()
-        if (generatedId == "" || patientName == ""){
+        if (self.generatedId == "" || self.patientName == ""){
             return
         }
-        let docRef = db.collection("patients").document(generatedId)
-        docRef.getDocument { [self] (document, error) in
+        let docRef = db.collection("patients").document(self.generatedId)
+        docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let docData = document.data()
                 let name = docData!["patientName"] as? String ?? ""
@@ -72,8 +72,7 @@ class RegistrationModel: ObservableObject {
                     guard let userID = Auth.auth().currentUser?.uid else {
                         return
                     }
-                    let patientId = UUID().uuidString
-                    db.collection("users").document(userID).setData(["patient uuid" : patientId, "patientName" : self.patientName, "firstName" : self.firstName, "lastName" : self.lastName, "email" : self.email])
+                    db.collection("users").document(userID).setData(["patient uuid" : generatedId, "patientName" : self.patientName, "firstName" : self.firstName, "lastName" : self.lastName, "email" : self.email])
                     self.registered = true
                 }
                 

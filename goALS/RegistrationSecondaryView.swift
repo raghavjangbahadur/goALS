@@ -17,38 +17,28 @@ struct RegistrationSecondaryView: View {
     var body: some View {
         VStack {
             Image("goals_logo_white")
-                 .resizable()
+                .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 50)
                 .padding(.all)
             Group {
-                Text("Enter Caregiver (your) first name")
-                    .fontWeight(.bold)
-                TextField("First name", text: self.$model.firstName)
+                TextField("Enter Caregiver (your) first name", text: self.$model.firstName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
                     .autocapitalization(.none)
                     .padding(.bottom)
                     .disableAutocorrection(true)
-                Text("Enter Caregiver (your) last name")
-                    .fontWeight(.bold)
-                TextField("Last name", text: self.$model.lastName)
+                TextField("Enter Caregiver (your) last name", text: self.$model.lastName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
                     .autocapitalization(.none)
                     .padding(.bottom)
                     .disableAutocorrection(true)
                 Text("ALS Patient Name")
-                    .fontWeight(.bold)
+                  .fontWeight(.bold)
                 TextField("Patient Name", text: self.$model.patientName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 10)
-                    .autocapitalization(.none)
-                    .padding(.bottom)
-                    .disableAutocorrection(true)
-                TextField("Enter unique patient ID from Primary Caregiver", text: self.$model.generatedId)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 10)
+                    .padding(.horizontal, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     .autocapitalization(.none)
                     .padding(.bottom, 15)
                     .disableAutocorrection(true)
@@ -68,28 +58,38 @@ struct RegistrationSecondaryView: View {
                     .autocapitalization(.none)
                     .padding(.bottom, 15)
                     .disableAutocorrection(true)
-                
-                Divider()
-                Spacer()
-                
-                Button("Register", action: registerAction)
-                    .padding(.bottom, 35)
-                NavigationLink(
-                    destination: ContentView(),
-                    isActive: $model.registered,
-                    label: {}
-                )
-                .navigationBarBackButtonHidden(true)
-                .navigationBarHidden(true)
+                Text("Enter unique patient ID from Primary Caregiver")
+                    .fontWeight(.bold)
+                TextField("Unique Patient ID", text: self.$model.generatedId)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.horizontal, 10)
+                    .autocapitalization(.none)
+                    .padding(.bottom, 15)
+                    .disableAutocorrection(true)
             }
+            
+            Divider()
+            Spacer()
+            
+            Button("Register", action: registerAction)
+                .padding(.bottom, 35)
+            NavigationLink(
+                destination: ContentView(),
+                isActive: $model.registered,
+                label: {}
+            )
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
+        
         .background(Color.red)
-    
     }
+    
     
     func registerAction() {
-        model.registerCall()
+        model.registerSecondary()
     }
+    
 }
 
 struct RegistrationSecondaryView_Previews: PreviewProvider {

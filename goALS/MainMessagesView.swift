@@ -75,6 +75,8 @@ struct MainMessagesView: View {
                     label: {}
                 )
                 .navigationBarBackButtonHidden(true)
+            } .onAppear {
+                model.fetchRecentMessages()
             }
             .overlay(
                 newMessageButton, alignment: .bottom)
@@ -108,6 +110,7 @@ struct MainMessagesView: View {
                                     .font(.system(size: 14))
                                     .foregroundColor(Color(.lightGray))
                                     .multilineTextAlignment(.leading)
+                                
                             }
                             Spacer()
                             

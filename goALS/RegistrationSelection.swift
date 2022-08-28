@@ -28,7 +28,7 @@ struct RegistrationSelection: View {
             .navigationBarHidden(true)
             .padding(.bottom, 50)
             
-            NavigationLink(destination: RegistrationView(model: RegistrationModel())) {
+            NavigationLink(destination: RegistrationSecondaryView(model: RegistrationModel())) {
                 ZStack {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 150, height: 150)
