@@ -5,7 +5,12 @@
 //  Created by Raghav Jangbahadur on 8/23/22.
 //
 
+import Foundation
+import Firebase
 import SwiftUI
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 struct MainMessagesView: View {
     
@@ -16,6 +21,8 @@ struct MainMessagesView: View {
     @State var exit = false
     
     @ObservedObject var model = MainMessagesViewModel()
+    
+    private var chatModel = ChatViewModel(user: nil)
     
     private var customNavBar: some View {
         HStack(spacing: 16) {
@@ -90,8 +97,12 @@ struct MainMessagesView: View {
         ScrollView {
             ForEach(model.recentMessages) { recentMessage in
                 VStack {
-                    NavigationLink {
-                        Text("Description")
+                    Button {
+                        model.setToUser(msg: recentMessage)
+                        self.chatModel.user = self.model.toUser
+                        self.chatModel.fetchChat()
+                        self.shouldNavigateToChatLogView.toggle()
+                        
                     } label: {
                         HStack(spacing: 16) {
                             Image(systemName: "person.fill")

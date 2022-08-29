@@ -18,7 +18,7 @@ class ChatViewModel: ObservableObject {
     @Published var count = 0
     @Published var messages = [Message]()
    // @Published var user = User(id: "", firstName: "", lastName: "",  patientID: "", patientName: "", email: "")
-    let user: User?
+    var user: User?
     init(user: User?) {
         self.user = user
         fetchChat()

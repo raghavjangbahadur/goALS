@@ -16,6 +16,7 @@ import FirebaseAuth
 class MainMessagesViewModel: ObservableObject {
     
     @Published var user = User(id: "", firstName: "", lastName: "",  patientID: "", patientName: "", email: "")
+    @Published var toUser = User(id: "", firstName: "", lastName: "", patientID : "", patientName: "", email: "")
     
     init() {
         fetchCurrentUser()
@@ -63,6 +64,41 @@ class MainMessagesViewModel: ObservableObject {
             self.timestamp = data["timestamp"] as? Timestamp ?? Timestamp(date: Date())
         }
         
+        
+    }
+    
+    func setToUser(msg: RecentMessage) {
+        let db = Firestore.firestore()
+        if msg.fromId != Auth.auth().currentUser?.uid {
+            let docRef = db.collection("users").document(msg.fromId)
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let docData = document.data()
+                    self.user = User(id: msg.fromId, firstName: docData!["firstName"] as? String ?? "",
+                                     lastName: docData!["lastName"] as? String ?? "",
+                                     patientID: docData!["patient uuid"] as? String ?? "",
+                                     patientName: docData!["patientName"] as? String ?? "",
+                                     email: docData!["email"] as? String ?? "")
+                } else {
+                    print("Document does not exist here")
+                }
+            }
+        }
+        else {
+            let docRef = db.collection("users").document(msg.toId)
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let docData = document.data()
+                    self.user = User(id: msg.toId, firstName: docData!["firstName"] as? String ?? "",
+                                     lastName: docData!["lastName"] as? String ?? "",
+                                     patientID: docData!["patient uuid"] as? String ?? "",
+                                     patientName: docData!["patientName"] as? String ?? "",
+                                     email: docData!["email"] as? String ?? "")
+                } else {
+                    print("Document does not exist here")
+                }
+            }
+        }
         
     }
     
