@@ -59,7 +59,10 @@ class ChatViewModel: ObservableObject {
             print("could not find user id")
             return
         }
-        guard let toId = user?.id else { return }
+        guard let toId = user?.id, !toId.isEmpty else {
+            print("toId is empty")
+            return
+        }
         db.collection("messages").document(userID).collection(toId).order(by: "timestamp").addSnapshotListener { querySnapshot, error in
             if let error = error {
                 print(error)
