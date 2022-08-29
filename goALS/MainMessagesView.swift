@@ -99,7 +99,7 @@ struct MainMessagesView: View {
                 VStack {
                     Button {
                         model.setToUser(msg: recentMessage)
-                        self.chatModel.user = self.model.toUser
+                        self.user = self.model.toUser
                         self.chatModel.fetchChat()
                         self.shouldNavigateToChatLogView.toggle()
                         

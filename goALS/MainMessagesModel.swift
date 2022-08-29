@@ -74,7 +74,7 @@ class MainMessagesViewModel: ObservableObject {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let docData = document.data()
-                    self.user = User(id: msg.fromId, firstName: docData!["firstName"] as? String ?? "",
+                    self.toUser = User(id: msg.fromId, firstName: docData!["firstName"] as? String ?? "",
                                      lastName: docData!["lastName"] as? String ?? "",
                                      patientID: docData!["patient uuid"] as? String ?? "",
                                      patientName: docData!["patientName"] as? String ?? "",
@@ -89,7 +89,7 @@ class MainMessagesViewModel: ObservableObject {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let docData = document.data()
-                    self.user = User(id: msg.toId, firstName: docData!["firstName"] as? String ?? "",
+                    self.toUser = User(id: msg.toId, firstName: docData!["firstName"] as? String ?? "",
                                      lastName: docData!["lastName"] as? String ?? "",
                                      patientID: docData!["patient uuid"] as? String ?? "",
                                      patientName: docData!["patientName"] as? String ?? "",

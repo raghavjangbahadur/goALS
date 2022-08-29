@@ -35,6 +35,8 @@ struct ChatView: View {
                 chatBottomBar
                     .background(Color.white.ignoresSafeArea())
             }
+        }.onAppear() {
+            model.fetchChat()
         }
         .navigationTitle(user?.firstName ?? "")
             .navigationBarTitleDisplayMode(.inline)
