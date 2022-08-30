@@ -51,6 +51,8 @@
 		2AF1188328B896C0001A6525 /* AddNewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1188228B896C0001A6525 /* AddNewUserView.swift */; };
 		2AF1188528B89A93001A6525 /* RegistrationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1188428B89A93001A6525 /* RegistrationSelection.swift */; };
 		2AF1188728B89C8F001A6525 /* RegistrationSecondaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */; };
+		2AF1195728BDBF16001A6525 /* GroupMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1195628BDBF16001A6525 /* GroupMessage.swift */; };
+		2AF1195928BDC075001A6525 /* GroupChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1195828BDC075001A6525 /* GroupChatModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		2AF1188228B896C0001A6525 /* AddNewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewUserView.swift; sourceTree = "<group>"; };
 		2AF1188428B89A93001A6525 /* RegistrationSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSelection.swift; sourceTree = "<group>"; };
 		2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSecondaryView.swift; sourceTree = "<group>"; };
+		2AF1195628BDBF16001A6525 /* GroupMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessage.swift; sourceTree = "<group>"; };
+		2AF1195828BDC075001A6525 /* GroupChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,10 +172,10 @@
 		2A90CB3A286BF36D0079B380 /* goALS */ = {
 			isa = PBXGroup;
 			children = (
-				2A90CB3B286BF36D0079B380 /* goALSApp.swift */,
 				2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */,
-				2A4B2F452893655900E47DB2 /* LoginView.swift */,
 				2AD1D533288F1D180019812E /* RegistrationModel.swift */,
+				2A90CB3B286BF36D0079B380 /* goALSApp.swift */,
+				2A4B2F452893655900E47DB2 /* LoginView.swift */,
 				2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */,
 				2A90CB3D286BF36D0079B380 /* ContentView.swift */,
 				2A5B93442881ED31005A457E /* accountView.swift */,
@@ -189,9 +193,11 @@
 				2AA7347328A9CD3A00D17A07 /* ChecklistItem.swift */,
 				2A4B2F5128A3142500E47DB2 /* PatientInfo.swift */,
 				2A274C6228B4AC9B00474135 /* Message.swift */,
+				2AF1195628BDBF16001A6525 /* GroupMessage.swift */,
 				2A661F8D2870FCB50014B661 /* goalsView.swift */,
 				2A274C6028B4A88900474135 /* ChatModel.swift */,
 				2A8F13EF28B5FCBF0053B091 /* ChatViewModel.swift */,
+				2AF1195828BDC075001A6525 /* GroupChatModel.swift */,
 				2A8F13E928B5E0FF0053B091 /* MainMessagesModel.swift */,
 				2A8F13ED28B5F2630053B091 /* ChatView.swift */,
 				2A8F13EB28B5E7B40053B091 /* NewMessageView.swift */,
@@ -387,6 +393,7 @@
 				2A90CB3E286BF36D0079B380 /* ContentView.swift in Sources */,
 				2A8F13EA28B5E0FF0053B091 /* MainMessagesModel.swift in Sources */,
 				2AF1188728B89C8F001A6525 /* RegistrationSecondaryView.swift in Sources */,
+				2AF1195928BDC075001A6525 /* GroupChatModel.swift in Sources */,
 				2A8F13EC28B5E7B40053B091 /* NewMessageView.swift in Sources */,
 				2A661F902870FCCA0014B661 /* vitalsView.swift in Sources */,
 				2A4B2F4828936F8C00E47DB2 /* LoginModel.swift in Sources */,
@@ -402,6 +409,7 @@
 				2A274C6328B4AC9B00474135 /* Message.swift in Sources */,
 				2A274C6128B4A88900474135 /* ChatModel.swift in Sources */,
 				2A4B2F462893655900E47DB2 /* LoginView.swift in Sources */,
+				2AF1195728BDBF16001A6525 /* GroupMessage.swift in Sources */,
 				2A5B93452881ED31005A457E /* accountView.swift in Sources */,
 				2A274C5D28B36D5D00474135 /* User.swift in Sources */,
 			);
