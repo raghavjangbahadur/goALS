@@ -17,7 +17,8 @@ class ChatViewModel: ObservableObject {
     @Published var text = ""
     @Published var count = 0
     @Published var messages = [Message]()
-   // @Published var user = User(id: "", firstName: "", lastName: "",  patientID: "", patientName: "", email: "")
+    var messageIds:Set<String> = Set<String>()
+
     var user: User?
     init(user: User?) {
         self.user = user
@@ -68,13 +69,18 @@ class ChatViewModel: ObservableObject {
                 print(error)
                 return
             }
+
             querySnapshot?.documentChanges.forEach({ change in
                 if change.type == .added {
                     let data = change.document.data()
-                    self.messages.append(.init(documentId: change.document.documentID, data: data))
+                    let documentID = change.document.documentID
+                    if !self.messageIds.contains(documentID) {
+                        self.messageIds.insert(documentID)
+                        self.messages.append(.init(documentId: documentID, data: data))
+                    }
                 }
             })
-            
+
             DispatchQueue.main.async {
                 self.count += 1
             }
