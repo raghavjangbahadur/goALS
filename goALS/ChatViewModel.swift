@@ -24,7 +24,10 @@ class ChatViewModel: ObservableObject {
             print("could not find user id")
             return
         }
-        guard let toId = user?.id else { return }
+        guard let toId = user?.id, !toId.isEmpty else {
+            print("toId is empty")
+            return
+        }
         let docRef = db.collection("messages").document(userID).collection(toId).document()
         let message = ["fromId" : userID, "toId" : toId, "text" : self.text, "timestamp" : Timestamp()] as [String : Any]
         docRef.setData(message) { error in
