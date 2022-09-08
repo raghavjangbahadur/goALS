@@ -16,6 +16,7 @@ class GroupChatModel: ObservableObject {
     @Published var text = ""
     @Published var count = 0
     @Published var messages = [GroupMessage]()
+    @Published var patientName = ""
    // @Published var user = User(id: "", firstName: "", lastName: "",  patientID: "", patientName: "", email: "")
     /*var user: User?
     init(user: User?) {
@@ -66,6 +67,7 @@ class GroupChatModel: ObservableObject {
             if let document = document, document.exists {
                 let docData = document.data()
                 let patientId = docData!["patient uuid"] as? String ?? ""
+                self.patientName = docData!["patientName"] as? String ?? ""
                 db.collection("groupMessages").document(patientId).collection(patientId).order(by: "timestamp").addSnapshotListener { querySnapshot, error in
                     if let error = error {
                         print(error)
