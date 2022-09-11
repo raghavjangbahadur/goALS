@@ -67,20 +67,21 @@ class MainMessagesViewModel: ObservableObject {
         
     }
     
-    func setToUser(msg: RecentMessage) {
+    func fetchUser(msg: RecentMessage, completion:@escaping (User?)-> Void) {
         let db = Firestore.firestore()
         if msg.fromId != Auth.auth().currentUser?.uid {
             let docRef = db.collection("users").document(msg.fromId)
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let docData = document.data()
-                    self.toUser = User(id: msg.fromId, firstName: docData!["firstName"] as? String ?? "",
-                                     lastName: docData!["lastName"] as? String ?? "",
-                                     patientID: docData!["patient uuid"] as? String ?? "",
-                                     patientName: docData!["patientName"] as? String ?? "",
-                                     email: docData!["email"] as? String ?? "")
+                    completion(User(id: msg.fromId, firstName: docData!["firstName"] as? String ?? "",
+                                    lastName: docData!["lastName"] as? String ?? "",
+                                    patientID: docData!["patient uuid"] as? String ?? "",
+                                    patientName: docData!["patientName"] as? String ?? "",
+                                    email: docData!["email"] as? String ?? ""))
                 } else {
                     print("Document does not exist here")
+                    completion(nil)
                 }
             }
         }
@@ -89,13 +90,14 @@ class MainMessagesViewModel: ObservableObject {
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     let docData = document.data()
-                    self.toUser = User(id: msg.toId, firstName: docData!["firstName"] as? String ?? "",
+                    completion((User(id: msg.toId, firstName: docData!["firstName"] as? String ?? "",
                                      lastName: docData!["lastName"] as? String ?? "",
                                      patientID: docData!["patient uuid"] as? String ?? "",
                                      patientName: docData!["patientName"] as? String ?? "",
-                                     email: docData!["email"] as? String ?? "")
+                                     email: docData!["email"] as? String ?? "")))
                 } else {
                     print("Document does not exist here")
+                    completion(nil)
                 }
             }
         }

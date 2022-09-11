@@ -21,9 +21,7 @@ struct MainMessagesView: View {
     @State var exit = false
     
     @ObservedObject var model = MainMessagesViewModel()
-    
-    private var chatModel = ChatViewModel(user: nil)
-    
+
     private var customNavBar: some View {
         HStack(spacing: 16) {
             
@@ -68,7 +66,6 @@ struct MainMessagesView: View {
     
     var body: some View {
         NavigationView {
-            
             VStack {
                 customNavBar
                 messagesView
@@ -98,9 +95,9 @@ struct MainMessagesView: View {
             ForEach(model.recentMessages) { recentMessage in
                 VStack {
                     Button {
-                        model.setToUser(msg: recentMessage)
-                        self.user = self.model.toUser
-                        self.chatModel.fetchChat()
+                        model.fetchUser(msg: recentMessage) { user in
+                            self.user = user
+                        }
                         self.shouldNavigateToChatLogView.toggle()
                         
                     } label: {

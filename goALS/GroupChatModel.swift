@@ -17,14 +17,8 @@ class GroupChatModel: ObservableObject {
     @Published var count = 0
     @Published var messages = [GroupMessage]()
     @Published var patientName = ""
-   // @Published var user = User(id: "", firstName: "", lastName: "",  patientID: "", patientName: "", email: "")
-    /*var user: User?
-    init(user: User?) {
-        self.user = user
-        fetchChat()
-    }
-    */
-    
+    var messageIDs = Set<String>()
+
     func send() {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {
@@ -75,8 +69,14 @@ class GroupChatModel: ObservableObject {
                     }
                     querySnapshot?.documentChanges.forEach({ change in
                         if change.type == .added {
-                            let data = change.document.data()
-                            self.messages.append(.init(documentId: change.document.documentID, data: data))
+                            let document = change.document
+                            let documentID = document.documentID
+                            guard !self.messageIDs.contains(documentID) else {
+                                return
+                            }
+
+                            self.messageIDs.insert(documentID)
+                            self.messages.append(.init(documentId: documentID, data: document.data()))
                         }
                     })
                     

@@ -16,21 +16,20 @@ import FirebaseAuth
 struct ChatView: View {
     
     let user: User?
-    
-    init(user: User?) {
-        self.user = user
-        self.model = .init(user: user)
-    }
 
     @ObservedObject var model: ChatViewModel
-    
+
     @State var text = ""
 
+    init(user: User?) {
+        self.user = user
+        self.model =  ChatViewModel(user: user)
+    }
+
     var body: some View {
-        ZStack {
+        VStack {
             messagesView
-            VStack(spacing: 0) {
-                Spacer()
+            VStack(spacing: 10) {
                 chatBottomBar
                     .background(Color.white.ignoresSafeArea())
             }
@@ -55,7 +54,7 @@ struct ChatView: View {
                         .id(Self.emptyString)
                 }
                 .onReceive(model.$count) { _ in
-                    withAnimation(.easeOut(duration: 0.4)) {
+                    withAnimation(.easeOut(duration: 0.1)) {
                         scrollViewProxy.scrollTo(Self.emptyString, anchor: .bottom)
                     }
                 }

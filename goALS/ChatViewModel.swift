@@ -12,7 +12,7 @@ class ChatViewModel: ObservableObject {
     @Published var messages = [Message]()
     var messageIds:Set<String> = Set<String>()
 
-    var user: User?
+    let user: User?
     init(user: User?) {
         self.user = user
         fetchChat()
