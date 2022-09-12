@@ -52,7 +52,7 @@ class MainMessagesViewModel: ObservableObject {
         var id: String { documentId }
         let documentId: String
         let text, fromId, toId, firstName: String
-        let timestamp: Timestamp
+        let timestamp: Date
         //var timeAgo: String
         
         init(documentId: String, data: [String: Any]) {
@@ -61,10 +61,14 @@ class MainMessagesViewModel: ObservableObject {
             self.toId = data["toId"] as? String ?? ""
             self.text = data["text"] as? String ?? ""
             self.firstName = data["firstName"] as? String ?? ""
-            self.timestamp = data["timestamp"] as? Timestamp ?? Timestamp(date: Date())
+            self.timestamp = data["timestamp"] as? Date ?? Date()
         }
         
-        
+        var timeAgo: String {
+            let formatter = RelativeDateTimeFormatter()
+            formatter.unitsStyle = .abbreviated
+            return formatter.localizedString(for: timestamp, relativeTo: Date())
+        }
     }
     
     func fetchUser(msg: RecentMessage, completion:@escaping (User?)-> Void) {

@@ -94,7 +94,7 @@ class ChatViewModel: ObservableObject {
         let docRef = db.collection("recent_messages").document(userID).collection("messages").document(toId)
         
         let data = [
-            "timestamp": Timestamp(),
+            "timestamp": NSDate(),
             "text": self.text,
             "fromId": userID,
             "toId" : toId,
