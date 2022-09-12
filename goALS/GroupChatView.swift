@@ -20,17 +20,16 @@ struct GroupChatView: View {
     @State var text = ""
     
     var body: some View {
-        ZStack {
+        VStack {
             messagesView
             VStack(spacing: 0) {
-                Spacer()
                 chatBottomBar
                     .background(Color.white.ignoresSafeArea())
             }
         }.onAppear() {
             model.fetchChat()
         }
-        .navigationTitle(model.patientName)
+        .navigationTitle(model.patientName + "'s Circle" )
             .navigationBarTitleDisplayMode(.inline)
     }
     
@@ -48,7 +47,7 @@ struct GroupChatView: View {
                         .id(Self.emptyString)
                 }
                 .onReceive(model.$count) { _ in
-                    withAnimation(.easeOut(duration: 0.4)) {
+                    withAnimation(.easeOut(duration: 0.1)) {
                         scrollViewProxy.scrollTo(Self.emptyString, anchor: .bottom)
                     }
                 }
@@ -119,11 +118,17 @@ struct GroupMessageView: View {
             }
             else {
                 HStack {
-                    HStack {
+                    VStack(alignment: .leading) {
+                        Text(message.firstName + " " + message.lastName)
+                            .font(.system(size: 10))
+                            .padding(.bottom, 1)
                         Text(message.text)
                             .foregroundColor(.black)
                     }
-                    .padding()
+                    .padding(.leading, 10)
+                    .padding(.trailing, 20)
+                    .padding(.top, 7)
+                    .padding(.bottom, 20)
                     .background(Color.white)
                     .cornerRadius(8)
                     Spacer()
