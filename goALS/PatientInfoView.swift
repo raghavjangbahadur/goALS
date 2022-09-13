@@ -116,7 +116,7 @@ struct PatientInfoView: View {
             }
         }
         NavigationLink("Update basic information") {
-            PatientInfoEditView(model: PatientInfoModel())
+            PatientInfoEditView(/*model: PatientInfoModel()*/)
                 .padding(.bottom, 30)
         }
     }

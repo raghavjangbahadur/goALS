@@ -10,6 +10,8 @@
 		2A274C5D28B36D5D00474135 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C5C28B36D5D00474135 /* User.swift */; };
 		2A274C6128B4A88900474135 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C6028B4A88900474135 /* ChatModel.swift */; };
 		2A274C6328B4AC9B00474135 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C6228B4AC9B00474135 /* Message.swift */; };
+		2A2E59EE28D0113700796506 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E59ED28D0113700796506 /* ViewController.swift */; };
+		2A2E59F028D013A300796506 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E59EF28D013A300796506 /* Calendar.swift */; };
 		2A4B2F462893655900E47DB2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F452893655900E47DB2 /* LoginView.swift */; };
 		2A4B2F4828936F8C00E47DB2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */; };
 		2A4B2F4E28A3137800E47DB2 /* PatientInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */; };
@@ -78,6 +80,8 @@
 		2A274C5C28B36D5D00474135 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A274C6028B4A88900474135 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		2A274C6228B4AC9B00474135 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		2A2E59ED28D0113700796506 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2A2E59EF28D013A300796506 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		2A4B2F452893655900E47DB2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoView.swift; sourceTree = "<group>"; };
@@ -181,14 +185,16 @@
 				2A90CB3B286BF36D0079B380 /* goALSApp.swift */,
 				2A4B2F452893655900E47DB2 /* LoginView.swift */,
 				2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */,
+				2A2E59EF28D013A300796506 /* Calendar.swift */,
+				2A2E59ED28D0113700796506 /* ViewController.swift */,
 				2A90CB3D286BF36D0079B380 /* ContentView.swift */,
 				2A5B93442881ED31005A457E /* accountView.swift */,
 				2AD1D535288F22C10019812E /* RegistrationView.swift */,
-				2A4B2F4F28A3138B00E47DB2 /* PatientInfoModel.swift */,
 				2AF1188228B896C0001A6525 /* AddNewUserView.swift */,
 				2AF1188428B89A93001A6525 /* RegistrationSelection.swift */,
 				2A661F8F2870FCCA0014B661 /* vitalsView.swift */,
 				2AB522A328B2F74000BB5691 /* LearnView.swift */,
+				2A4B2F4F28A3138B00E47DB2 /* PatientInfoModel.swift */,
 				2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */,
 				2A4B2F5328A3269100E47DB2 /* PatientInfoEditView.swift */,
 				2A274C5C28B36D5D00474135 /* User.swift */,
@@ -413,6 +419,7 @@
 				2AF1188328B896C0001A6525 /* AddNewUserView.swift in Sources */,
 				2A90CB3C286BF36D0079B380 /* goALSApp.swift in Sources */,
 				2AD1D534288F1D190019812E /* RegistrationModel.swift in Sources */,
+				2A2E59EE28D0113700796506 /* ViewController.swift in Sources */,
 				2AB522A228B026C800BB5691 /* ChecklistNotesView.swift in Sources */,
 				2A274C6328B4AC9B00474135 /* Message.swift in Sources */,
 				2A274C6128B4A88900474135 /* ChatModel.swift in Sources */,
@@ -420,6 +427,7 @@
 				2AF1195728BDBF16001A6525 /* GroupMessage.swift in Sources */,
 				2A5B93452881ED31005A457E /* accountView.swift in Sources */,
 				2A274C5D28B36D5D00474135 /* User.swift in Sources */,
+				2A2E59F028D013A300796506 /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
