@@ -5,7 +5,6 @@
 //  Created by Raghav Jangbahadur on 7/28/22.
 //
 import SwiftUI
-
 struct LoginView: View {
     @ObservedObject var model: LoginModel
     
