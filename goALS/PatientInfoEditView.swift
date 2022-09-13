@@ -45,11 +45,14 @@ struct PatientInfoEditView: View {
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.top, 10)
+                .padding(.bottom, 10)
             VStack {
                 HStack {
                     Text("Gender")
                         .padding(.horizontal, 3)
                     Spacer()
+                    Text("Edit:")
+                        .font(.system(size: 15))
                     Picker(selection: $newGender,
                            content: {
                         ForEach(optionsGender, id: \.self) { option in
@@ -58,16 +61,12 @@ struct PatientInfoEditView: View {
                         }
                     }, label: {
                         HStack {
-                            Text("       ")
+                            Text("Edit:")
                             Text(newGender)
                                 .foregroundColor(.red)
+                        } .onAppear() {
+                            newGender = model.patient.gender
                         }
-                        .font(.headline)
-                        .foregroundColor(Color.red)
-                        .padding()
-                        .background(Color.gray)
-                        .cornerRadius(10)
-                        .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 10)
                     })
                     .pickerStyle(MenuPickerStyle())
                 }
@@ -77,7 +76,23 @@ struct PatientInfoEditView: View {
                     Text("Age")
                         .padding(.trailing, 10)
                     Spacer()
-                    Stepper("\(newAge)", value: $newAge)
+                    Text("Edit:")
+                        .font(.system(size: 15))
+                    Picker(selection: $newAge,
+                           content: {
+                        ForEach(1..<120) { number in
+                            Text("\(number)")
+                                .tag(number)
+                        }
+                    }, label: {
+                        HStack {
+                            Text("       ")
+                            Text("\(newAge)")
+                                .foregroundColor(.red)
+                        }.onAppear() {
+                            newAge = model.patient.age
+                        }
+                    })
                     
                 }
                 .padding(.horizontal, 10)
@@ -86,6 +101,8 @@ struct PatientInfoEditView: View {
                     Text("Stage of ALS \n [Link for more info](https://alsnewstoday.com/stages-of-als/)")
                         .padding(.horizontal, 3)
                     Spacer()
+                    Text("Edit:")
+                        .font(.system(size: 15))
                     Picker(selection: $newStage,
                            content: {
                         ForEach(optionsStage, id: \.self) { option in
@@ -97,13 +114,9 @@ struct PatientInfoEditView: View {
                             Text("       ")
                             Text(newStage)
                                 .foregroundColor(.red)
+                        }.onAppear() {
+                            newStage = model.patient.stage
                         }
-                        .font(.headline)
-                        .foregroundColor(Color.red)
-                        .padding()
-                        .background(Color.gray)
-                        .cornerRadius(10)
-                        .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 10)
                     })
                     .pickerStyle(MenuPickerStyle())
                 }
@@ -113,6 +126,8 @@ struct PatientInfoEditView: View {
                     Text("Use of feeding tube")
                         .padding(.horizontal, 5)
                     Spacer()
+                    Text("Edit:")
+                        .font(.system(size: 15))
                     Picker(selection: $tube,
                            content: {
                         ForEach(optionsYN, id: \.self) { option in
@@ -124,13 +139,9 @@ struct PatientInfoEditView: View {
                             Text("       ")
                             Text(tube)
                                 .foregroundColor(.red)
+                        }.onAppear() {
+                            tube = model.patient.tube
                         }
-                        .font(.headline)
-                        .foregroundColor(Color.red)
-                        .padding()
-                        .background(Color.gray)
-                        .cornerRadius(10)
-                        .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 10)
                     })
                     .pickerStyle(MenuPickerStyle())
                 }
@@ -140,6 +151,8 @@ struct PatientInfoEditView: View {
                     Text("Hand strength/control, clumsiness, inability to hold items, difficulty, etc")
                         .padding(.trailing, 10)
                     Spacer()
+                    Text("Edit:")
+                        .font(.system(size: 15))
                     Picker(selection: $hands,
                            content: {
                         ForEach(options, id: \.self) { option in
@@ -151,13 +164,9 @@ struct PatientInfoEditView: View {
                             Text("")
                             Text(hands)
                                 .foregroundColor(.red)
+                        }.onAppear() {
+                            hands = model.patient.hands
                         }
-                        .font(.headline)
-                        .foregroundColor(Color.red)
-                        .padding()
-                        .background(Color.gray)
-                        .cornerRadius(10)
-                        .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 10)
                     })
                     .pickerStyle(MenuPickerStyle())
                 }
@@ -167,6 +176,8 @@ struct PatientInfoEditView: View {
                     Text("Speech issues (slurring, trouble speaking clearly)")
                         .padding(.horizontal, 3)
                     Spacer()
+                    Text("Edit:")
+                        .font(.system(size: 15))
                     Picker(selection: $speech,
                            content: {
                         ForEach(options, id: \.self) { option in
@@ -178,13 +189,9 @@ struct PatientInfoEditView: View {
                             Text("       ")
                             Text(speech)
                                 .foregroundColor(.red)
+                        }.onAppear() {
+                            speech = model.patient.speech
                         }
-                        .font(.headline)
-                        .foregroundColor(Color.red)
-                        .padding()
-                        .background(Color.gray)
-                        .cornerRadius(10)
-                        .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 10)
                     })
                     .pickerStyle(MenuPickerStyle())
                 }
@@ -194,6 +201,8 @@ struct PatientInfoEditView: View {
                     Text("Muscle cramps/twitches")
                         .padding(.horizontal, 3)
                     Spacer()
+                    Text("Edit:")
+                        .font(.system(size: 15))
                     Picker(selection: $muscles,
                            content: {
                         ForEach(options, id: \.self) { option in
@@ -205,13 +214,9 @@ struct PatientInfoEditView: View {
                             Text("       ")
                             Text(muscles)
                                 .foregroundColor(.red)
+                        }.onAppear() {
+                            muscles = model.patient.muscles
                         }
-                        .font(.headline)
-                        .foregroundColor(Color.red)
-                        .padding()
-                        .background(Color.gray)
-                        .cornerRadius(10)
-                        .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 10)
                     })
                     .pickerStyle(MenuPickerStyle())
                 }
@@ -222,6 +227,8 @@ struct PatientInfoEditView: View {
                     Text("Difficulty walking, without tripping or falling")
                         .padding(.horizontal, 3)
                     Spacer()
+                    Text("Edit:")
+                        .font(.system(size: 15))
                     Picker(selection: $walking,
                            content: {
                         ForEach(options, id: \.self) { option in
@@ -233,13 +240,9 @@ struct PatientInfoEditView: View {
                             Text("       ")
                             Text(walking)
                                 .foregroundColor(.red)
+                        }.onAppear() {
+                            walking = model.patient.walking
                         }
-                        .font(.headline)
-                        .foregroundColor(Color.red)
-                        .padding()
-                        .background(Color.gray)
-                        .cornerRadius(10)
-                        .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 10)
                     })
                     .pickerStyle(MenuPickerStyle())
                 }
@@ -250,6 +253,8 @@ struct PatientInfoEditView: View {
                     Text("Weakness in legs, feet, hands, or fingers")
                         .padding(.horizontal, 3)
                     Spacer()
+                    Text("Edit:")
+                        .font(.system(size: 15))
                     Picker(selection: $legs,
                            content: {
                         ForEach(options, id: \.self) { option in
@@ -261,13 +266,9 @@ struct PatientInfoEditView: View {
                             Text("       ")
                             Text(legs)
                                 .foregroundColor(.red)
+                        }.onAppear() {
+                            legs = model.patient.legs
                         }
-                        .font(.headline)
-                        .foregroundColor(Color.red)
-                        .padding()
-                        .background(Color.gray)
-                        .cornerRadius(10)
-                        .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 10)
                     })
                     .pickerStyle(MenuPickerStyle())
                 }
@@ -278,7 +279,9 @@ struct PatientInfoEditView: View {
                     Text("Difficult breathing")
                         .padding(.horizontal, 3)
                     Spacer()
-                    Picker(selection: $walking,
+                    Text("Edit:")
+                        .font(.system(size: 15))
+                    Picker(selection: $breathing,
                            content: {
                         ForEach(options, id: \.self) { option in
                             Text(option)
@@ -287,20 +290,16 @@ struct PatientInfoEditView: View {
                     }, label: {
                         HStack {
                             Text("       ")
-                            Text(walking)
+                            Text(breathing)
                                 .foregroundColor(.red)
+                        }.onAppear() {
+                            breathing = model.patient.breathing
                         }
-                        .font(.headline)
-                        .foregroundColor(Color.red)
-                        .padding()
-                        .background(Color.gray)
-                        .cornerRadius(10)
-                        .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 10)
                     })
                     .pickerStyle(MenuPickerStyle())
                 }
                 .padding(.horizontal, 10)
-                .padding(.bottom, 10)
+                .padding(.bottom, 20)
                 
             }.onAppear {
                 model.getSingleData()
@@ -313,30 +312,17 @@ struct PatientInfoEditView: View {
     }
     func updateData() {
         var values = [String: Any]()
-        if newGender != "       " {
-            values["patientGender"] = newGender
-        }
-        if newAge != 0 {
-            values["patientAge"] = newAge
-        }
-        if newStage != "       " {
-            values["stage"] = newStage
-        }
-        if tube != "       " {
-            values["feedingTube"] = tube
-        }
-        if hands != "       " {
-            values["hands"] = hands
-        }
-        if speech != "       " {
-            values["speech"] = speech
-        }
-        if muscles != "       " {
-            values["muscles"] = muscles
-        }
-        if !values.isEmpty {
-            model.updateData(values)
-        }
+        values["patientGender"] = newGender
+        values["patientAge"] = newAge
+        values["stage"] = newStage
+        values["feedingTube"] = tube
+        values["hands"] = hands
+        values["speech"] = speech
+        values["muscles"] = muscles
+        values["walking"] = walking
+        values["legs"] = legs
+        values["breathing"] = breathing
+        model.updateData(values)
     }
 }
 

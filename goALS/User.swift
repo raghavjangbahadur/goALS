@@ -14,4 +14,5 @@ struct User: Codable, Identifiable {
     var patientID: String
     var patientName: String
     var email: String
+    var account: String
 }

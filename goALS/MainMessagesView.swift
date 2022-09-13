@@ -74,7 +74,7 @@ struct MainMessagesView: View {
                     ChatView(user: self.user)
                 }
                 NavigationLink(
-                    destination: verbalsView(),
+                    destination: tribalsView(),
                     isActive: $exit,
                     label: {}
                 )

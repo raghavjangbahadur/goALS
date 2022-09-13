@@ -14,6 +14,7 @@ import FirebaseAuth
 class AddNewUserModel: ObservableObject {
     @Published var patientId = ""
     
+    
     func getPatientId() {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {
@@ -46,7 +47,7 @@ struct AddNewUserView: View {
             }
             ZStack {
                 Rectangle()
-                    .fill(.white)
+                    .fill(Color.gray.opacity(0.3))
                     .frame(width: 370, height: 25)
                 Text(model.patientId)
                     .textSelection(.enabled)
@@ -54,7 +55,6 @@ struct AddNewUserView: View {
             Divider()
             Spacer()
         }
-        .background(Color.red)
     }
 }
 

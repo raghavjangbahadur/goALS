@@ -14,6 +14,7 @@ import FirebaseAuth
 class RegistrationModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
+    @Published var account: String = ""
     @Published var loading: Bool = false
     @Published var registered: Bool = false
     @Published var loggedIn: Bool = false
@@ -43,7 +44,7 @@ class RegistrationModel: ObservableObject {
                 return
             }
             let patientId = UUID().uuidString
-            db.collection("users").document(userID).setData(["patient uuid" : patientId, "patientName" : self.patientName, "firstName" : self.firstName, "lastName" : self.lastName, "email" : self.email])
+            db.collection("users").document(userID).setData(["patient uuid" : patientId, "patientName" : self.patientName, "firstName" : self.firstName, "lastName" : self.lastName, "email" : self.email, "account" : "primary"])
             self.createPatient(patientId, self.patientName)
             self.registered = true
             createPatient(patientId, self.patientName)
@@ -72,7 +73,7 @@ class RegistrationModel: ObservableObject {
                     guard let userID = Auth.auth().currentUser?.uid else {
                         return
                     }
-                    db.collection("users").document(userID).setData(["patient uuid" : generatedId, "patientName" : self.patientName, "firstName" : self.firstName, "lastName" : self.lastName, "email" : self.email])
+                    db.collection("users").document(userID).setData(["patient uuid" : generatedId, "patientName" : self.patientName, "firstName" : self.firstName, "lastName" : self.lastName, "email" : self.email, "account" : "secondary"])
                     self.registered = true
                 }
                 

@@ -15,8 +15,8 @@ import FirebaseAuth
 
 class MainMessagesViewModel: ObservableObject {
     
-    @Published var user = User(id: "", firstName: "", lastName: "",  patientID: "", patientName: "", email: "")
-    @Published var toUser = User(id: "", firstName: "", lastName: "", patientID : "", patientName: "", email: "")
+    @Published var user = User(id: "", firstName: "", lastName: "",  patientID: "", patientName: "", email: "", account: "")
+    @Published var toUser = User(id: "", firstName: "", lastName: "", patientID : "", patientName: "", email: "", account: "")
     
     init() {
         fetchCurrentUser()
@@ -82,7 +82,8 @@ class MainMessagesViewModel: ObservableObject {
                                     lastName: docData!["lastName"] as? String ?? "",
                                     patientID: docData!["patient uuid"] as? String ?? "",
                                     patientName: docData!["patientName"] as? String ?? "",
-                                    email: docData!["email"] as? String ?? ""))
+                                    email: docData!["email"] as? String ?? "",
+                                    account: docData!["account"] as? String ?? ""))
                 } else {
                     print("Document does not exist here")
                     completion(nil)
@@ -98,7 +99,8 @@ class MainMessagesViewModel: ObservableObject {
                                      lastName: docData!["lastName"] as? String ?? "",
                                      patientID: docData!["patient uuid"] as? String ?? "",
                                      patientName: docData!["patientName"] as? String ?? "",
-                                     email: docData!["email"] as? String ?? "")))
+                                     email: docData!["email"] as? String ?? "",
+                                     account: docData!["account"] as? String ?? "")))
                 } else {
                     print("Document does not exist here")
                     completion(nil)
@@ -121,7 +123,8 @@ class MainMessagesViewModel: ObservableObject {
                                  lastName: docData!["lastName"] as? String ?? "",
                                  patientID: docData!["patient uuid"] as? String ?? "",
                                  patientName: docData!["patientName"] as? String ?? "",
-                                 email: docData!["email"] as? String ?? "")
+                                 email: docData!["email"] as? String ?? "",
+                                 account: docData!["account"] as? String ?? "")
             } else {
                 print("Document does not exist here")
             }

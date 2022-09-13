@@ -44,7 +44,7 @@ struct PatientInfoView: View {
                 }
                 .padding(10)
                 HStack {
-                    Text("Use of feeding tube (high/medium/low)")
+                    Text("Use of feeding tube")
                         .frame(width: 150)
                         .foregroundColor(.teal)
                     Spacer()
@@ -59,7 +59,6 @@ struct PatientInfoView: View {
                     Spacer()
                     Text(model.patient.hands)
                         .foregroundColor(.teal)
-                        .frame(width: 170)
                 }
                 .padding(10)
                 HStack {
@@ -69,7 +68,6 @@ struct PatientInfoView: View {
                     Spacer()
                     Text(model.patient.speech)
                         .foregroundColor(.teal)
-                        .frame(width: 170)
                 }
                 .padding(10)
                 HStack {
@@ -78,7 +76,6 @@ struct PatientInfoView: View {
                     Spacer()
                     Text(model.patient.muscles)
                         .foregroundColor(.teal)
-                        .frame(width: 150)
                 }
                 .padding(10)
                 HStack {
@@ -88,7 +85,6 @@ struct PatientInfoView: View {
                     Spacer()
                     Text(model.patient.walking)
                         .foregroundColor(.teal)
-                        .frame(width: 150)
                 }
                 .padding(10)
                 HStack {
@@ -98,7 +94,6 @@ struct PatientInfoView: View {
                     Spacer()
                     Text(model.patient.legs)
                         .foregroundColor(.teal)
-                        .frame(width: 170)
                 }
                 .padding(10)
                 HStack {
@@ -108,7 +103,6 @@ struct PatientInfoView: View {
                     Spacer()
                     Text(model.patient.breathing)
                         .foregroundColor(.teal)
-                        .frame(width: 170)
                 }
                 .padding(10)
             }.onAppear {
