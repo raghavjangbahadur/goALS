@@ -38,19 +38,28 @@ struct AddNewUserView: View {
     var body: some View {
         VStack {
             Spacer()
-            Button {
-                model.getPatientId()
-            } label: {
-                Text("Generate Patient Unique ID")
-                    .fontWeight(.bold)
-                    .font(.title)
-            }
+            Text("Use unique Patient ID when secondary user registers for authentication")
+                .padding(.all, 8)
             ZStack {
                 Rectangle()
-                    .fill(Color.gray.opacity(0.3))
+                    .fill(Color.gray.opacity(0.1))
                     .frame(width: 370, height: 25)
                 Text(model.patientId)
                     .textSelection(.enabled)
+            }
+            .padding(.bottom, 20)
+            Button {
+                model.getPatientId()
+            } label: {
+                ZStack {
+                    Rectangle()
+                        .fill(.blue)
+                        .frame(width: 370, height: 38)
+                    Text("Generate Patient Unique ID")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .font(.system(size: 20))
+                }
             }
             Divider()
             Spacer()

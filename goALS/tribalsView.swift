@@ -24,8 +24,6 @@ struct tribalsView: View {
                         .foregroundColor(.white)
                 }
             }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
             .padding(.bottom, 20)
             
             NavigationLink(destination: GroupChatView()) {

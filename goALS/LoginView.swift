@@ -29,6 +29,11 @@ struct LoginView: View {
                     .padding(.bottom, 20)
                     .disableAutocorrection(true)
                 Button("Log in", action: loginAction)
+                    .padding(.bottom, 15)
+                NavigationLink("Forgot Password") {
+                    ResetPasswordView()
+                        .padding(.bottom, 10)
+                }
                 Divider()
                 Spacer()
                 NavigationLink("Hidden nav link", isActive: self.$model.loggedIn) {
