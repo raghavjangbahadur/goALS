@@ -14,6 +14,7 @@ import FirebaseAuth
 
 class accountViewModel: ObservableObject {
     @Published var primary = false
+    @Published var signedOut = false
     
     init() {
         let db = Firestore.firestore()
@@ -33,11 +34,25 @@ class accountViewModel: ObservableObject {
             }
         }
     }
+    
+    func signOut() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+            signedOut = false
+            return
+        }
+        signedOut = true
+    }
 }
 
 struct accountView: View {
     
     @ObservedObject var model = accountViewModel()
+    @ObservedObject var loginModel = LoginModel()
+    @State var shouldShowLogOutOptions = false
     
     var body: some View {
         VStack {
@@ -61,7 +76,29 @@ struct accountView: View {
                         }
                     }
                 }
+                Button {
+                    shouldShowLogOutOptions.toggle()
+                } label: {
+                    HStack {
+                        Text("Sign out")
+                            .foregroundColor(.red)
+                        Spacer()
+                    }
+                }
+                
             }
+            NavigationLink("", isActive: $model.signedOut) {
+                LoginView(model: LoginModel())
+            }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
+        }.actionSheet(isPresented: $shouldShowLogOutOptions) {
+            .init(title: Text("Sign out"), message: Text("Are you sure you want to sign out?"), buttons: [
+                .destructive(Text("Sign out"), action: {
+                    model.signOut()
+                }),
+                .cancel()
+            ])
         }
     }
 }

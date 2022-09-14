@@ -50,6 +50,8 @@ struct LoginView: View {
                         .navigationBarHidden(true)
                         .padding(.bottom, 30)
                 }
+            }.onAppear {
+                loginAction()
             }
             .background(Color.red)
         }
