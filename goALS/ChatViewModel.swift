@@ -10,11 +10,24 @@ class ChatViewModel: ObservableObject {
     @Published var text = ""
     @Published var count = 0
     @Published var messages = [Message]()
+    @Published var userFirstName = ""
     var messageIds:Set<String> = Set<String>()
 
     let user: User?
     init(user: User?) {
         self.user = user
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("could not find user id")
+            return
+        }
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(userID)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let docData = document.data()
+                self.userFirstName = docData!["firstName"] as? String ?? ""
+            }
+        }
         fetchChat()
     }
     
@@ -90,9 +103,16 @@ class ChatViewModel: ObservableObject {
             print("could not find user id")
             return
         }
+        /*let docRef = db.collection("users").document(userID)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let docData = document.data()
+                userFirstName = docData!["firstName"] as? String ?? ""
+            }
+        }*/
         let toId = user.id
-        let docRef = db.collection("recent_messages").document(userID).collection("messages").document(toId)
-        
+        let docRef3 = db.collection("recent_messages").document(userID).collection("messages").document(toId)
+        let docRef2 = db.collection("recent_messages").document(toId).collection("messages").document(userID)
         let data = [
             "timestamp": NSDate(),
             "text": self.text,
@@ -101,7 +121,20 @@ class ChatViewModel: ObservableObject {
             "firstName" : user.firstName
         ] as [String : Any]
         
-        docRef.setData(data) { error in
+        let data2 = [
+            "timestamp": NSDate(),
+            "text": self.text,
+            "fromId": toId,
+            "toId" : userID,
+            "firstName" : userFirstName
+        ] as [String : Any]
+        docRef2.setData(data2) { error in
+            if let error = error {
+                print(error)
+                return
+            }
+        }
+        docRef3.setData(data) { error in
             if let error = error {
                 print(error)
                 return
