@@ -58,6 +58,7 @@
 		2AF1195728BDBF16001A6525 /* GroupMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1195628BDBF16001A6525 /* GroupMessage.swift */; };
 		2AF1195928BDC075001A6525 /* GroupChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1195828BDC075001A6525 /* GroupChatModel.swift */; };
 		2AF1195B28BE6DE0001A6525 /* GroupChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1195A28BE6DE0001A6525 /* GroupChatView.swift */; };
+		C995A37128D42FBC000E48D7 /* Keychain in Frameworks */ = {isa = PBXBuildFile; productRef = C995A37028D42FBC000E48D7 /* Keychain */; };
 		C9B23A5128CFB14000F9AC50 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C9B23A5028CFB14000F9AC50 /* FSCalendar */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,7 @@
 				2A654A7F288DCD2900C0C492 /* FirebaseRemoteConfigSwift in Frameworks */,
 				2A654A77288DCD2900C0C492 /* FirebaseDatabaseSwift in Frameworks */,
 				2A654A7D288DCD2900C0C492 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
+				C995A37128D42FBC000E48D7 /* Keychain in Frameworks */,
 				C9B23A5128CFB14000F9AC50 /* FSCalendar in Frameworks */,
 				2A654A75288DCD2900C0C492 /* FirebaseCrashlytics in Frameworks */,
 				2A654A71288DCD2900C0C492 /* FirebaseAnalyticsSwift in Frameworks */,
@@ -279,6 +281,7 @@
 				2A654A7C288DCD2900C0C492 /* FirebaseInAppMessagingSwift-Beta */,
 				2A654A7E288DCD2900C0C492 /* FirebaseRemoteConfigSwift */,
 				C9B23A5028CFB14000F9AC50 /* FSCalendar */,
+				C995A37028D42FBC000E48D7 /* Keychain */,
 			);
 			productName = goALS;
 			productReference = 2A90CB38286BF36D0079B380 /* goALS.app */;
@@ -355,6 +358,7 @@
 			packageReferences = (
 				2A654A6F288DCD2800C0C492 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C9B23A4F28CFB14000F9AC50 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				C995A36F28D42FBC000E48D7 /* XCRemoteSwiftPackageReference "Keychain.swift" */,
 			);
 			productRefGroup = 2A90CB39286BF36D0079B380 /* Products */;
 			projectDirPath = "";
@@ -770,6 +774,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		C995A36F28D42FBC000E48D7 /* XCRemoteSwiftPackageReference "Keychain.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GroupeMINASTE/Keychain.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		C9B23A4F28CFB14000F9AC50 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar/";
@@ -820,6 +832,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2A654A6F288DCD2800C0C492 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseRemoteConfigSwift;
+		};
+		C995A37028D42FBC000E48D7 /* Keychain */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C995A36F28D42FBC000E48D7 /* XCRemoteSwiftPackageReference "Keychain.swift" */;
+			productName = Keychain;
 		};
 		C9B23A5028CFB14000F9AC50 /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;

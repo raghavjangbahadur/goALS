@@ -11,28 +11,34 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 import Combine
+import Keychain
 
 class LoginModel: ObservableObject {
+    private let keychain = Keychain()
+
     @Published var email: String {
         didSet {
-            UserDefaults.standard.set(email, forKey: "username")
+            let _ = keychain.save(email, forKey: "username")
         }
     }
     
     @Published var password: String {
         didSet {
-            UserDefaults.standard.set(password, forKey: "password")
+            let _ = keychain.save(password, forKey: "password")
         }
     }
     
     init() {
-        self.email = UserDefaults.standard.object(forKey: "username") as? String ?? ""
-        self.password = UserDefaults.standard.object(forKey: "password") as? String ?? ""
+        self.email = keychain.value(forKey: "username") as? String ?? ""
+        self.password = keychain.value(forKey: "password") as? String ?? ""
     }
     @Published var loading: Bool = false
     @Published var loggedIn: Bool = false
 
     func loginCall() {
+        guard !self.email.isEmpty || !self.password.isEmpty else {
+            return
+        }
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let strongSelf = self else {
               print("Failed signing in")
