@@ -61,7 +61,7 @@ class MainMessagesViewModel: ObservableObject {
             self.toId = data["toId"] as? String ?? ""
             self.text = data["text"] as? String ?? ""
             self.firstName = data["firstName"] as? String ?? ""
-            self.timestamp = data["timestamp"] as? Date ?? Date()
+            self.timestamp = (data["timestamp"] as? Timestamp)?.dateValue() ?? Date()
         }
         
         var timeAgo: String {
