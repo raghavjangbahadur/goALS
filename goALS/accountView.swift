@@ -96,6 +96,7 @@ struct accountView: View {
             .init(title: Text("Sign out"), message: Text("Are you sure you want to sign out?"), buttons: [
                 .destructive(Text("Sign out"), action: {
                     model.signOut()
+                    loginModel.logoutCall()
                 }),
                 .cancel()
             ])

@@ -41,4 +41,17 @@ class LoginModel: ObservableObject {
           strongSelf.loggedIn = true
         }
     }
+    
+    func logoutCall() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+            return
+        }
+        self.loggedIn = false
+        self.email = ""
+        self.password = ""
+    }
 }
