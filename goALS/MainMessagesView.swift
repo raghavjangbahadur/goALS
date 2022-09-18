@@ -44,13 +44,13 @@ struct MainMessagesView: View {
             }
             
             Spacer()
-            Button {
+            /*Button {
                 shouldShowExitOptions.toggle()
             } label: {
                 Image(systemName: "gear")
                     .font(.system(size: 24, weight: .bold))
                     .foregroundColor(Color(.label))
-            }
+            }*/
         }
         .padding()
         .actionSheet(isPresented: $shouldShowExitOptions) {

@@ -89,9 +89,9 @@ struct accountView: View {
             }
             NavigationLink("", isActive: $model.signedOut) {
                 LoginView(model: LoginModel())
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true)
             }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
         }.actionSheet(isPresented: $shouldShowLogOutOptions) {
             .init(title: Text("Sign out"), message: Text("Are you sure you want to sign out?"), buttons: [
                 .destructive(Text("Sign out"), action: {
