@@ -27,16 +27,20 @@ class LoginModel: ObservableObject {
             let _ = keychain.save(password, forKey: "password")
         }
     }
-    
+
     init() {
-        self.email = keychain.value(forKey: "username") as? String ?? ""
-        self.password = keychain.value(forKey: "password") as? String ?? ""
+        email = keychain.value(forKey: "username") as? String ?? ""
+        password = keychain.value(forKey: "password") as? String ?? ""
     }
+
     @Published var loading: Bool = false
     @Published var loggedIn: Bool = false
 
     func loginCall() {
-        guard !self.email.isEmpty || !self.password.isEmpty else {
+        let email = keychain.value(forKey: "username") as? String ?? ""
+        let password = keychain.value(forKey: "password") as? String ?? ""
+
+        guard !email.isEmpty || !password.isEmpty else {
             return
         }
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in

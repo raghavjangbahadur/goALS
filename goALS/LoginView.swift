@@ -7,7 +7,7 @@
 import SwiftUI
 struct LoginView: View {
     @ObservedObject var model: LoginModel
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -54,7 +54,7 @@ struct LoginView: View {
                 loginAction()
             }
             .background(Color.red)
-        }
+        }.environment(\.rootPresentationMode, self.$model.loggedIn)
     }
 
     func loginAction() {

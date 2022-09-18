@@ -53,6 +53,7 @@ struct accountView: View {
     @ObservedObject var model = accountViewModel()
     @ObservedObject var loginModel = LoginModel()
     @State var shouldShowLogOutOptions = false
+    @Environment(\.rootPresentationMode) private var rootPresentationMode: Binding<RootPresentationMode>
     
     var body: some View {
         VStack {
@@ -95,8 +96,8 @@ struct accountView: View {
         }.actionSheet(isPresented: $shouldShowLogOutOptions) {
             .init(title: Text("Sign out"), message: Text("Are you sure you want to sign out?"), buttons: [
                 .destructive(Text("Sign out"), action: {
-                    model.signOut()
                     loginModel.logoutCall()
+                    self.rootPresentationMode.wrappedValue.dismiss()
                 }),
                 .cancel()
             ])
