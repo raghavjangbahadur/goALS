@@ -47,6 +47,17 @@ struct vitalsView: View {
                 }
             }
             .padding(.bottom, 20)
+
+            NavigationLink(destination: Calendar()) {
+                ZStack {
+                    RoundedRectangle(cornerRadius:15)
+                        .frame(width: 320, height: 45)
+                        .foregroundColor(.gray)
+                    Text("Calendar")
+                        .foregroundColor(.white)
+                }
+            }
+            .padding(.bottom, 20)
             
             Divider()
             Spacer()

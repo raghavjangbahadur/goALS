@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FSCalendar
 import SwiftUI
 
 class ViewController: UIViewController, FSCalendarDelegate {
