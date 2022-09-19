@@ -37,7 +37,7 @@ extension Calendar: MonthlyCalendarDataSource {
     }
 
     func calendar(viewForSelectedDate date: Date, dimensions size: CGSize) -> AnyView {
-        AnyView(Text(date, style: Text.DateStyle.date))
+        AnyView(EventView(date: date))
     }
 }
 
