@@ -7,21 +7,13 @@
 
 import SwiftUI
 
-
-
-struct CalendarSelectionKey: EnvironmentKey {
+struct CalendarDateSelectionKey: EnvironmentKey {
     static let defaultValue: Binding<Date?> = .constant(nil)
 }
 
 extension EnvironmentValues {
     var selectedDate: Binding<Date?> {
-        get { return self[CalendarSelectionKey.self] }
-        set { self[CalendarSelectionKey.self] = newValue }
-    }
-
-    func refresh() {
-        let date = selectedDate.wrappedValue
-        selectedDate.wrappedValue = nil
-        selectedDate.wrappedValue = date
+        get { return self[CalendarDateSelectionKey.self] }
+        set { self[CalendarDateSelectionKey.self] = newValue }
     }
 }

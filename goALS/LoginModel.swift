@@ -44,7 +44,7 @@ class LoginModel: ObservableObject {
             return
         }
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            guard let strongSelf = self else {
+            guard let strongSelf = self, let _ = authResult else {
               print("Failed signing in")
               return
           }

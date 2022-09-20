@@ -16,49 +16,9 @@ import FirebaseAuth
 class EventModel: ObservableObject {
     
     @Published var events = [Event]()
-    @Published var totalEvents = [Event]()
+    var totalEvents = Set<Event>()
     
-    func getEvents(date: String) {
-        let db = Firestore.firestore()
-        guard let userID = Auth.auth().currentUser?.uid else {
-            print("could not find user id")
-            return
-        }
-        let docRef = db.collection("users").document(userID)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let docData = document.data()
-                let key = docData!["patient uuid"] as? String ?? ""
-                db.collection("events").document(key).collection(key).whereField("date", isEqualTo: date)
-                    .getDocuments() { (querySnapshot, err) in
-                    if let err = err {
-                        print("Error getting documents: \(err)")
-                    } else {
-                        if let querySnapshot = querySnapshot {
-                            DispatchQueue.main.async {
-                                self.events = querySnapshot.documents.map { d in
-                                    return Event(id: d.documentID, title: d["title"] as? String ?? "", description: d["description"] as? String ?? "", date: d["date"] as? String ?? "", startTime: d["startTime"] as? String ?? "", endTime: d["endTime"] as? String ?? "")
-                                }
-                            }
-                        }
-                        else {
-                            print("No document")
-                        }
-                    }
-                }
-                
-            } else {
-                print("Document does not exist")
-            }
-        }
-    }
-    
-    func sortEvents() {
-        events = events.sorted(by: { $0.startTime > $1.startTime})
-    }
-    
-    
-    func getAllEvents() {
+    func getEvents(date: String, completion: (([Event]) -> Void)? = nil) {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {
             print("could not find user id")
@@ -74,10 +34,21 @@ class EventModel: ObservableObject {
                         print("Error getting documents: \(err)")
                     } else {
                         if let querySnapshot = querySnapshot {
+                            let totalEvents = querySnapshot.documents.map { d in
+                                return Event(id: d.documentID,
+                                             title: d["title"] as? String ?? "",
+                                             description: d["description"] as? String ?? "",
+                                             date: d["date"] as? String ?? "",
+                                             startTime: d["startTime"] as? String ?? "",
+                                             endTime: d["endTime"] as? String ?? "")
+                            }
+
+                            self.totalEvents = Set(totalEvents)
+                            var events = Array(self.totalEvents.filter { $0.date == date })
+                            events.sort { $0.startTime > $1.startTime}
                             DispatchQueue.main.async {
-                                self.totalEvents = querySnapshot.documents.map { d in
-                                    return Event(id: d.documentID, title: d["title"] as? String ?? "", description: d["description"] as? String ?? "", date: d["date"] as? String ?? "", startTime: d["startTime"] as? String ?? "", endTime: d["endTime"] as? String ?? "")
-                                }
+                                self.events = events
+                                completion?(events)
                             }
                         }
                         else {
@@ -85,13 +56,13 @@ class EventModel: ObservableObject {
                         }
                     }
                 }
-                
+
             } else {
                 print("Document does not exist")
             }
         }
     }
-    
+
     func returnOpacity(date: Date) -> Double {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YY/MM/dd"
@@ -105,7 +76,12 @@ class EventModel: ObservableObject {
         }
     }
     
-    func addEvent(_ title: String, _ description: String, _ date: String, _ startTime: String, _ endTime: String) {
+    func addEvent(_ title: String,
+                  _ description: String,
+                  _ date: String,
+                  _ startTime: String,
+                  _ endTime: String,
+                  completion: (([Event]) -> Void)? = nil) {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {
             print("could not find user id")
@@ -118,7 +94,7 @@ class EventModel: ObservableObject {
                 let key = docData!["patient uuid"] as? String ?? ""
                 db.collection("events").document(key).collection(key).addDocument(data: ["title": title, "description": description, "date": date, "startTime" : startTime, "endTime" : endTime]) { error in
                     if error == nil {
-                        self.getEvents(date: date)
+                        self.getEvents(date: date, completion: completion)
                     }
                 }
             } else {
@@ -127,7 +103,7 @@ class EventModel: ObservableObject {
         }
     }
     
-    func deleteEvent(_ event: Event, _ date: String) {
+    func deleteEvent(_ event: Event, _ date: String, completion: (([Event]) -> Void)? = nil) {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {
             print("could not find user id")
@@ -140,12 +116,7 @@ class EventModel: ObservableObject {
                 let key = docData!["patient uuid"] as? String ?? ""
                 db.collection("events").document(key).collection(key).document(event.id).delete { error in
                     if error == nil {
-                        DispatchQueue.main.async {
-                            self.events.removeAll { eventItem in
-                                return eventItem.id == event.id
-                            }
-                        }
-                        self.getEvents(date: date)
+                        self.getEvents(date: date, completion:completion)
                     }
                 }
             } else {

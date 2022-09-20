@@ -12,6 +12,7 @@ import SwiftUI
 struct AddEventView: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.selectedDate) var selectedDate
     
     @ObservedObject var model: EventModel
     
@@ -44,34 +45,42 @@ struct AddEventView: View {
             }
             .padding(10)
             .navigationTitle("New Event")
-                .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarLeading) {
-                        Button {
-                            
-                            presentationMode.wrappedValue.dismiss()
-                        } label: {
-                            Text("Cancel")
-                        }
-                    }
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button {
-                            addItem(title, description, date, start, end)
-                            presentationMode.wrappedValue.dismiss()
-                        } label: {
-                            Text("Add event")
-                        }
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Text("Cancel")
                     }
                 }
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button {
+                        addItem(title, description, date, start, end) { _ in
+                            presentationMode.wrappedValue.dismiss()
+                            // reload
+                            let date = selectedDate.wrappedValue
+                            selectedDate.wrappedValue = date
+                        }
+                    } label: {
+                        Text("Add event")
+                    }
+                }
+            }
         }
     }
     
-    func addItem(_ title: String, _ description: String, _ date: String, _ start: Date, _ end: Date) {
+    func addItem(_ title: String,
+                 _ description: String,
+                 _ date: String,
+                 _ start: Date,
+                 _ end: Date,
+                 completion: (([Event]) -> Void)? = nil) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
         dateFormatter.timeStyle = .short
         let newStart = dateFormatter.string(from: start)
         let newEnd = dateFormatter.string(from: end)
-        model.addEvent(title, description, date, newStart, newEnd)
+        model.addEvent(title, description, date, newStart, newEnd, completion: completion)
     }
 }
 

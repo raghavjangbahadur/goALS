@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Event: Codable, Identifiable {
+struct Event: Codable, Identifiable, Hashable {
     var id: String
     var title : String
     var description : String

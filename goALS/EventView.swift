@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EventView: View {
     
-    @ObservedObject var model = EventModel()
+    @ObservedObject var model: EventModel
     
     @State var shouldShowAddView = false
     
@@ -19,12 +19,12 @@ struct EventView: View {
     
     let stringified: String
 
-    init(date: Date) {
+    init(date: Date, model: EventModel) {
         self.date = date
+        self.model = model
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YY/MM/dd"
         stringified = dateFormatter.string(from: date)
-        model.getEvents(date: stringified)
     }
     
     var body: some View {
@@ -55,13 +55,12 @@ struct EventView: View {
             
         }.onAppear {
             model.getEvents(date: stringified)
-            model.sortEvents()
         }
     }
 }
 
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        EventView(date: Date())
+        EventView(date: Date(), model: EventModel())
     }
 }
