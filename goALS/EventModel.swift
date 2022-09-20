@@ -16,6 +16,7 @@ import FirebaseAuth
 class EventModel: ObservableObject {
     
     @Published var events = [Event]()
+    @Published var totalEvents = [Event]()
     
     func getEvents(date: String) {
         let db = Firestore.firestore()
@@ -29,7 +30,7 @@ class EventModel: ObservableObject {
                 let docData = document.data()
                 let key = docData!["patient uuid"] as? String ?? ""
                 db.collection("events").document(key).collection(key).whereField("date", isEqualTo: date)
-                  .getDocuments() { (querySnapshot, err) in
+                    .getDocuments() { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
                     } else {
@@ -49,6 +50,58 @@ class EventModel: ObservableObject {
             } else {
                 print("Document does not exist")
             }
+        }
+    }
+    
+    func sortEvents() {
+        events = events.sorted(by: { $0.startTime > $1.startTime})
+    }
+    
+    
+    func getAllEvents() {
+        let db = Firestore.firestore()
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("could not find user id")
+            return
+        }
+        let docRef = db.collection("users").document(userID)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let docData = document.data()
+                let key = docData!["patient uuid"] as? String ?? ""
+                db.collection("events").document(key).collection(key).getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        if let querySnapshot = querySnapshot {
+                            DispatchQueue.main.async {
+                                self.totalEvents = querySnapshot.documents.map { d in
+                                    return Event(id: d.documentID, title: d["title"] as? String ?? "", description: d["description"] as? String ?? "", date: d["date"] as? String ?? "", startTime: d["startTime"] as? String ?? "", endTime: d["endTime"] as? String ?? "")
+                                }
+                            }
+                        }
+                        else {
+                            print("No document")
+                        }
+                    }
+                }
+                
+            } else {
+                print("Document does not exist")
+            }
+        }
+    }
+    
+    func returnOpacity(date: Date) -> Double {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YY/MM/dd"
+        let stringified = dateFormatter.string(from: date)
+        
+        if totalEvents.contains(where: {$0.date == stringified}) {
+            return 0.5
+        }
+        else {
+            return 0
         }
     }
     

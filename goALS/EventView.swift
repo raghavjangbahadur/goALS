@@ -55,6 +55,7 @@ struct EventView: View {
             
         }.onAppear {
             model.getEvents(date: stringified)
+            model.sortEvents()
         }
     }
 }

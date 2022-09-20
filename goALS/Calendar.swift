@@ -9,8 +9,10 @@ import SwiftUI
 import ElegantCalendar
 
 struct Calendar: View {
+    
     @ObservedObject var calendarManager: MonthlyCalendarManager
     @State private var calendarTheme: CalendarTheme = CalendarTheme(primary: Color.red)
+    @ObservedObject var model = EventModel()
 
     init() {
         let startDate = Date()
@@ -18,6 +20,7 @@ struct Calendar: View {
         let configuration = CalendarConfiguration(startDate: startDate, endDate: endDate)
         calendarManager = MonthlyCalendarManager(configuration: configuration)
         calendarManager.datasource = self
+        model.getAllEvents()
     }
 
     var body: some View {
@@ -29,7 +32,7 @@ struct Calendar: View {
 extension Calendar: MonthlyCalendarDataSource {
 
     func calendar(backgroundColorOpacityForDate date: Date) -> Double {
-        return 1.0
+        return model.returnOpacity(date: date)
     }
 
     func calendar(canSelectDate date: Date) -> Bool {
