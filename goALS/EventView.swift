@@ -18,9 +18,7 @@ struct EventView: View {
     let date: Date
     
     let stringified: String
-    
 
-    
     init(date: Date) {
         self.date = date
         let dateFormatter = DateFormatter()
@@ -38,14 +36,14 @@ struct EventView: View {
                 } label: {
                     Image(systemName: "plus")
                 }.fullScreenCover(isPresented: $shouldShowAddView){
-                    AddEventView(date: stringified)
+                    AddEventView(date: stringified, model: model)
                 }
             }
             .padding(10)
             Spacer()
             List (model.events) { event in
                 NavigationLink {
-                    EventItemView(event: event)
+                    EventItemView(event: event, model: model)
                 } label: {
                     HStack {
                         Text(event.title)

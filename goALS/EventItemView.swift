@@ -11,14 +11,15 @@ struct EventItemView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var model = EventModel()
+    @ObservedObject var model: EventModel
     
     @State var shouldDelete = false
     
     let event: Event
     
-    init(event: Event) {
+    init(event: Event, model: EventModel) {
         self.event = event
+        self.model = model
     }
     
     @State var deletedEvent = Event(id: "", title: "", description: "", date: "", startTime: "", endTime: "")

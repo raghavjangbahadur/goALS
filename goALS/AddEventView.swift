@@ -13,15 +13,16 @@ struct AddEventView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var model = EventModel()
+    @ObservedObject var model: EventModel
     
     let date: String
     
     @State private var end = Date()
     @State private var start = Date()
     
-    init(date: String) {
+    init(date: String, model: EventModel) {
         self.date = date
+        self.model = model
     }
     
     @State var title = ""

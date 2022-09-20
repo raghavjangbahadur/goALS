@@ -65,6 +65,7 @@
 		C911309228D7AD150034DC68 /* RootPresentationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C911309128D7AD150034DC68 /* RootPresentationMode.swift */; };
 		C911309528D7B3E20034DC68 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C911309428D7B3E20034DC68 /* ElegantCalendar */; };
 		C911309728D7B6260034DC68 /* ElegantCalendar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C911309628D7B6260034DC68 /* ElegantCalendar.xcassets */; };
+		C91130CC28D95DDE0034DC68 /* CalendarSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91130CB28D95DDE0034DC68 /* CalendarSelection.swift */; };
 		C995A37128D42FBC000E48D7 /* Keychain in Frameworks */ = {isa = PBXBuildFile; productRef = C995A37028D42FBC000E48D7 /* Keychain */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +139,7 @@
 		2AF1195A28BE6DE0001A6525 /* GroupChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatView.swift; sourceTree = "<group>"; };
 		C911309128D7AD150034DC68 /* RootPresentationMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootPresentationMode.swift; sourceTree = "<group>"; };
 		C911309628D7B6260034DC68 /* ElegantCalendar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ElegantCalendar.xcassets; sourceTree = "<group>"; };
+		C91130CB28D95DDE0034DC68 /* CalendarSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSelection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +243,7 @@
 				2A661F912870FCEF0014B661 /* tribalsView.swift */,
 				2A8F13E728B5DB880053B091 /* MainMessagesView.swift */,
 				2A661F932870FD0E0014B661 /* verbalsView.swift */,
+				C91130CB28D95DDE0034DC68 /* CalendarSelection.swift */,
 				2A90CB3F286BF3700079B380 /* Assets.xcassets */,
 				2A654A6D288DCB4B00C0C492 /* GoogleService-Info.plist */,
 				2A90CB41286BF3700079B380 /* Preview Content */,
@@ -423,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A4B2F5028A3138B00E47DB2 /* PatientInfoModel.swift in Sources */,
+				C91130CC28D95DDE0034DC68 /* CalendarSelection.swift in Sources */,
 				2A8F13E828B5DB880053B091 /* MainMessagesView.swift in Sources */,
 				C911309228D7AD150034DC68 /* RootPresentationMode.swift in Sources */,
 				2A4B2F5228A3142500E47DB2 /* PatientInfo.swift in Sources */,
