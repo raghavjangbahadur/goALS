@@ -84,10 +84,7 @@ struct MainMessagesView: View {
             }
             .overlay(
                 newMessageButton, alignment: .bottom)
-            .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
     }
     
     private var messagesView: some View {

@@ -12,6 +12,9 @@
 		2A05DB4428D7D9A700B1FAA9 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB4328D7D9A700B1FAA9 /* EventModel.swift */; };
 		2A05DB4628D7E2DF00B1FAA9 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB4528D7E2DF00B1FAA9 /* AddEventView.swift */; };
 		2A05DB4828D80DFE00B1FAA9 /* EventItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB4728D80DFE00B1FAA9 /* EventItemView.swift */; };
+		2A05DB4C28DB7E3F00B1FAA9 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB4B28DB7E3F00B1FAA9 /* QuizView.swift */; };
+		2A05DB4E28DB8B5500B1FAA9 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB4D28DB8B5500B1FAA9 /* Question.swift */; };
+		2A05DB5028DB8F4600B1FAA9 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB4F28DB8F4600B1FAA9 /* QuizViewModel.swift */; };
 		2A274C5D28B36D5D00474135 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C5C28B36D5D00474135 /* User.swift */; };
 		2A274C6128B4A88900474135 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C6028B4A88900474135 /* ChatModel.swift */; };
 		2A274C6328B4AC9B00474135 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C6228B4AC9B00474135 /* Message.swift */; };
@@ -92,6 +95,9 @@
 		2A05DB4328D7D9A700B1FAA9 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		2A05DB4528D7E2DF00B1FAA9 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		2A05DB4728D80DFE00B1FAA9 /* EventItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemView.swift; sourceTree = "<group>"; };
+		2A05DB4B28DB7E3F00B1FAA9 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		2A05DB4D28DB8B5500B1FAA9 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		2A05DB4F28DB8F4600B1FAA9 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		2A274C5C28B36D5D00474135 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A274C6028B4A88900474135 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		2A274C6228B4AC9B00474135 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -223,6 +229,9 @@
 				2AF1188428B89A93001A6525 /* RegistrationSelection.swift */,
 				2A2E59F328D175A700796506 /* ResetPasswordView.swift */,
 				2A661F8F2870FCCA0014B661 /* vitalsView.swift */,
+				2A05DB4D28DB8B5500B1FAA9 /* Question.swift */,
+				2A05DB4F28DB8F4600B1FAA9 /* QuizViewModel.swift */,
+				2A05DB4B28DB7E3F00B1FAA9 /* QuizView.swift */,
 				2AB522A328B2F74000BB5691 /* LearnView.swift */,
 				2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */,
 				2A4B2F5328A3269100E47DB2 /* PatientInfoEditView.swift */,
@@ -426,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A4B2F5028A3138B00E47DB2 /* PatientInfoModel.swift in Sources */,
+				2A05DB5028DB8F4600B1FAA9 /* QuizViewModel.swift in Sources */,
 				C91130CC28D95DDE0034DC68 /* CalendarSelection.swift in Sources */,
 				2A8F13E828B5DB880053B091 /* MainMessagesView.swift in Sources */,
 				C911309228D7AD150034DC68 /* RootPresentationMode.swift in Sources */,
@@ -438,6 +448,7 @@
 				2AB522A428B2F74000BB5691 /* LearnView.swift in Sources */,
 				2AF1195B28BE6DE0001A6525 /* GroupChatView.swift in Sources */,
 				2A8F13EE28B5F2630053B091 /* ChatView.swift in Sources */,
+				2A05DB4C28DB7E3F00B1FAA9 /* QuizView.swift in Sources */,
 				2A05DB4828D80DFE00B1FAA9 /* EventItemView.swift in Sources */,
 				2A8F13F028B5FCBF0053B091 /* ChatViewModel.swift in Sources */,
 				2A661F922870FCEF0014B661 /* tribalsView.swift in Sources */,
@@ -454,6 +465,7 @@
 				2A661F8E2870FCB50014B661 /* goalsView.swift in Sources */,
 				2A661F942870FD0E0014B661 /* verbalsView.swift in Sources */,
 				2AA7347428A9CD3A00D17A07 /* ChecklistItem.swift in Sources */,
+				2A05DB4E28DB8B5500B1FAA9 /* Question.swift in Sources */,
 				2A4BFB4728D2844B0090D1B5 /* MainView.swift in Sources */,
 				2AF1188328B896C0001A6525 /* AddNewUserView.swift in Sources */,
 				2A90CB3C286BF36D0079B380 /* goALSApp.swift in Sources */,

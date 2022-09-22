@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct vitalsView: View {
+    
+    @State var showQuiz = false
+    
+    @State var correct = 0
+    @State var incorrect = 0
+    @State var answered = 0
+    
     var body: some View {
         VStack {
             Image("goals_logo_white")
@@ -59,10 +66,24 @@ struct vitalsView: View {
             }
             .padding(.bottom, 20)
             
+            ZStack {
+                RoundedRectangle(cornerRadius:15)
+                    .frame(width: 320, height: 45)
+                    .foregroundColor(.gray)
+                Text("Take the ALS Quiz!")
+                    .foregroundColor(.white)
+            }
+            .padding(.bottom, 20)
+            .onTapGesture(perform: {
+                showQuiz.toggle()
+            })
             Divider()
             Spacer()
         }
         .background(Color.red)
+        .sheet(isPresented: $showQuiz, content: {
+            QuizView(correct: $correct, incorrect: $incorrect, answered: $answered)
+        })
     }
 }
 
