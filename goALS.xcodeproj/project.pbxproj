@@ -291,6 +291,14 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		2A05DB6328DCFBA800B1FAA9 /* Verbals */ = {
+			isa = PBXGroup;
+			children = (
+				2A661F932870FD0E0014B661 /* verbalsView.swift */,
+			);
+			path = Verbals;
+			sourceTree = "<group>";
+		};
 		2A90CB2F286BF36D0079B380 = {
 			isa = PBXGroup;
 			children = (
@@ -324,7 +332,7 @@
 				2A05DB5128DCD3B100B1FAA9 /* Authentication */,
 				2A05DB5A28DCF86800B1FAA9 /* Vitals */,
 				2A05DB5E28DCFA0A00B1FAA9 /* Tribals */,
-				2A661F932870FD0E0014B661 /* verbalsView.swift */,
+				2A05DB6328DCFBA800B1FAA9 /* Verbals */,
 				2A90CB3F286BF3700079B380 /* Assets.xcassets */,
 				2A654A6D288DCB4B00C0C492 /* GoogleService-Info.plist */,
 				2A90CB41286BF3700079B380 /* Preview Content */,
