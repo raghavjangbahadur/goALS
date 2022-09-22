@@ -15,13 +15,15 @@
 		2A05DB4C28DB7E3F00B1FAA9 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB4B28DB7E3F00B1FAA9 /* QuizView.swift */; };
 		2A05DB4E28DB8B5500B1FAA9 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB4D28DB8B5500B1FAA9 /* Question.swift */; };
 		2A05DB5028DB8F4600B1FAA9 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB4F28DB8F4600B1FAA9 /* QuizViewModel.swift */; };
+		2A05DB5328DCD3DB00B1FAA9 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB5228DCD3DB00B1FAA9 /* LoginModel.swift */; };
+		2A05DB5528DCD41500B1FAA9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB5428DCD41500B1FAA9 /* LoginView.swift */; };
+		2A05DB5728DCF7C800B1FAA9 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB5628DCF7C700B1FAA9 /* RegistrationModel.swift */; };
+		2A05DB5928DCF7DA00B1FAA9 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB5828DCF7DA00B1FAA9 /* RegistrationView.swift */; };
 		2A274C5D28B36D5D00474135 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C5C28B36D5D00474135 /* User.swift */; };
 		2A274C6128B4A88900474135 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C6028B4A88900474135 /* ChatModel.swift */; };
 		2A274C6328B4AC9B00474135 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C6228B4AC9B00474135 /* Message.swift */; };
 		2A2E59F028D013A300796506 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E59EF28D013A300796506 /* Calendar.swift */; };
 		2A2E59F428D175A800796506 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2E59F328D175A700796506 /* ResetPasswordView.swift */; };
-		2A4B2F462893655900E47DB2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F452893655900E47DB2 /* LoginView.swift */; };
-		2A4B2F4828936F8C00E47DB2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */; };
 		2A4B2F4E28A3137800E47DB2 /* PatientInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */; };
 		2A4B2F5028A3138B00E47DB2 /* PatientInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F4F28A3138B00E47DB2 /* PatientInfoModel.swift */; };
 		2A4B2F5228A3142500E47DB2 /* PatientInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B2F5128A3142500E47DB2 /* PatientInfo.swift */; };
@@ -57,8 +59,6 @@
 		2AA7347628AA247C00D17A07 /* TodosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7347528AA247C00D17A07 /* TodosView.swift */; };
 		2AB522A228B026C800BB5691 /* ChecklistNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB522A128B026C800BB5691 /* ChecklistNotesView.swift */; };
 		2AB522A428B2F74000BB5691 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB522A328B2F74000BB5691 /* LearnView.swift */; };
-		2AD1D534288F1D190019812E /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1D533288F1D180019812E /* RegistrationModel.swift */; };
-		2AD1D536288F22C10019812E /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1D535288F22C10019812E /* RegistrationView.swift */; };
 		2AF1188328B896C0001A6525 /* AddNewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1188228B896C0001A6525 /* AddNewUserView.swift */; };
 		2AF1188528B89A93001A6525 /* RegistrationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1188428B89A93001A6525 /* RegistrationSelection.swift */; };
 		2AF1188728B89C8F001A6525 /* RegistrationSecondaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */; };
@@ -98,13 +98,15 @@
 		2A05DB4B28DB7E3F00B1FAA9 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		2A05DB4D28DB8B5500B1FAA9 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		2A05DB4F28DB8F4600B1FAA9 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
+		2A05DB5228DCD3DB00B1FAA9 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginModel.swift; path = goALS/LoginModel.swift; sourceTree = SOURCE_ROOT; };
+		2A05DB5428DCD41500B1FAA9 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = goALS/LoginView.swift; sourceTree = SOURCE_ROOT; };
+		2A05DB5628DCF7C700B1FAA9 /* RegistrationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationModel.swift; path = goALS/RegistrationModel.swift; sourceTree = SOURCE_ROOT; };
+		2A05DB5828DCF7DA00B1FAA9 /* RegistrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationView.swift; path = goALS/RegistrationView.swift; sourceTree = SOURCE_ROOT; };
 		2A274C5C28B36D5D00474135 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A274C6028B4A88900474135 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		2A274C6228B4AC9B00474135 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2A2E59EF28D013A300796506 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		2A2E59F328D175A700796506 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
-		2A4B2F452893655900E47DB2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoView.swift; sourceTree = "<group>"; };
 		2A4B2F4F28A3138B00E47DB2 /* PatientInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfoModel.swift; sourceTree = "<group>"; };
 		2A4B2F5128A3142500E47DB2 /* PatientInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientInfo.swift; sourceTree = "<group>"; };
@@ -135,8 +137,6 @@
 		2AA7347528AA247C00D17A07 /* TodosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosView.swift; sourceTree = "<group>"; };
 		2AB522A128B026C800BB5691 /* ChecklistNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistNotesView.swift; sourceTree = "<group>"; };
 		2AB522A328B2F74000BB5691 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
-		2AD1D533288F1D180019812E /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
-		2AD1D535288F22C10019812E /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		2AF1188228B896C0001A6525 /* AddNewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewUserView.swift; sourceTree = "<group>"; };
 		2AF1188428B89A93001A6525 /* RegistrationSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSelection.swift; sourceTree = "<group>"; };
 		2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSecondaryView.swift; sourceTree = "<group>"; };
@@ -183,6 +183,114 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A05DB5128DCD3B100B1FAA9 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				2A05DB5228DCD3DB00B1FAA9 /* LoginModel.swift */,
+				2A05DB5428DCD41500B1FAA9 /* LoginView.swift */,
+				2A05DB5628DCF7C700B1FAA9 /* RegistrationModel.swift */,
+				2A05DB5828DCF7DA00B1FAA9 /* RegistrationView.swift */,
+				2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */,
+				2AF1188428B89A93001A6525 /* RegistrationSelection.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		2A05DB5A28DCF86800B1FAA9 /* Vitals */ = {
+			isa = PBXGroup;
+			children = (
+				2A274C5C28B36D5D00474135 /* User.swift */,
+				2A4B2F5128A3142500E47DB2 /* PatientInfo.swift */,
+				2A661F8F2870FCCA0014B661 /* vitalsView.swift */,
+				2A4B2F4F28A3138B00E47DB2 /* PatientInfoModel.swift */,
+				2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */,
+				2A4B2F5328A3269100E47DB2 /* PatientInfoEditView.swift */,
+				2A05DB5D28DCF98600B1FAA9 /* Checklist */,
+				2A05DB5C28DCF8DC00B1FAA9 /* ALS Quiz */,
+				2A05DB5B28DCF89F00B1FAA9 /* Calendar */,
+			);
+			path = Vitals;
+			sourceTree = "<group>";
+		};
+		2A05DB5B28DCF89F00B1FAA9 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				2AB522A328B2F74000BB5691 /* LearnView.swift */,
+				2A2E59EF28D013A300796506 /* Calendar.swift */,
+				C91130CB28D95DDE0034DC68 /* CalendarSelection.swift */,
+				2A05DB3F28D7D8B300B1FAA9 /* Event.swift */,
+				2A05DB4328D7D9A700B1FAA9 /* EventModel.swift */,
+				2A05DB4528D7E2DF00B1FAA9 /* AddEventView.swift */,
+				2A05DB4728D80DFE00B1FAA9 /* EventItemView.swift */,
+				2A05DB4128D7D99B00B1FAA9 /* EventView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		2A05DB5C28DCF8DC00B1FAA9 /* ALS Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				2A05DB4D28DB8B5500B1FAA9 /* Question.swift */,
+				2A05DB4F28DB8F4600B1FAA9 /* QuizViewModel.swift */,
+				2A05DB4B28DB7E3F00B1FAA9 /* QuizView.swift */,
+			);
+			path = "ALS Quiz";
+			sourceTree = "<group>";
+		};
+		2A05DB5D28DCF98600B1FAA9 /* Checklist */ = {
+			isa = PBXGroup;
+			children = (
+				2AA7347328A9CD3A00D17A07 /* ChecklistItem.swift */,
+				2AA7347528AA247C00D17A07 /* TodosView.swift */,
+				2AB522A128B026C800BB5691 /* ChecklistNotesView.swift */,
+			);
+			path = Checklist;
+			sourceTree = "<group>";
+		};
+		2A05DB5E28DCFA0A00B1FAA9 /* Tribals */ = {
+			isa = PBXGroup;
+			children = (
+				2A661F912870FCEF0014B661 /* tribalsView.swift */,
+				2A05DB6028DCFAA700B1FAA9 /* Group Messaging */,
+				2A05DB5F28DCFA2D00B1FAA9 /* Messaging */,
+			);
+			path = Tribals;
+			sourceTree = "<group>";
+		};
+		2A05DB5F28DCFA2D00B1FAA9 /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				2A274C6228B4AC9B00474135 /* Message.swift */,
+				2A274C6028B4A88900474135 /* ChatModel.swift */,
+				2A8F13E928B5E0FF0053B091 /* MainMessagesModel.swift */,
+				2A8F13E728B5DB880053B091 /* MainMessagesView.swift */,
+				2A8F13EB28B5E7B40053B091 /* NewMessageView.swift */,
+				2A8F13EF28B5FCBF0053B091 /* ChatViewModel.swift */,
+				2A8F13ED28B5F2630053B091 /* ChatView.swift */,
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
+		2A05DB6028DCFAA700B1FAA9 /* Group Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				2AF1195628BDBF16001A6525 /* GroupMessage.swift */,
+				2AF1195828BDC075001A6525 /* GroupChatModel.swift */,
+				2AF1195A28BE6DE0001A6525 /* GroupChatView.swift */,
+			);
+			path = "Group Messaging";
+			sourceTree = "<group>";
+		};
+		2A05DB6228DCFAF900B1FAA9 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				2A5B93442881ED31005A457E /* accountView.swift */,
+				2AF1188228B896C0001A6525 /* AddNewUserView.swift */,
+				2A2E59F328D175A700796506 /* ResetPasswordView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		2A90CB2F286BF36D0079B380 = {
 			isa = PBXGroup;
 			children = (
@@ -207,52 +315,16 @@
 		2A90CB3A286BF36D0079B380 /* goALS */ = {
 			isa = PBXGroup;
 			children = (
-				C911309128D7AD150034DC68 /* RootPresentationMode.swift */,
-				2A4B2F4728936F8C00E47DB2 /* LoginModel.swift */,
-				2A2E59EF28D013A300796506 /* Calendar.swift */,
-				2A05DB4328D7D9A700B1FAA9 /* EventModel.swift */,
-				2A05DB3F28D7D8B300B1FAA9 /* Event.swift */,
-				2A05DB4128D7D99B00B1FAA9 /* EventView.swift */,
-				2A05DB4528D7E2DF00B1FAA9 /* AddEventView.swift */,
-				2A05DB4728D80DFE00B1FAA9 /* EventItemView.swift */,
-				2AA7347528AA247C00D17A07 /* TodosView.swift */,
-				2A4B2F4F28A3138B00E47DB2 /* PatientInfoModel.swift */,
-				2AD1D533288F1D180019812E /* RegistrationModel.swift */,
 				2A90CB3B286BF36D0079B380 /* goALSApp.swift */,
-				2A4B2F452893655900E47DB2 /* LoginView.swift */,
-				2A4BFB4628D2844B0090D1B5 /* MainView.swift */,
-				2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */,
 				2A90CB3D286BF36D0079B380 /* ContentView.swift */,
-				2A5B93442881ED31005A457E /* accountView.swift */,
-				2AD1D535288F22C10019812E /* RegistrationView.swift */,
-				2AF1188228B896C0001A6525 /* AddNewUserView.swift */,
-				2AF1188428B89A93001A6525 /* RegistrationSelection.swift */,
-				2A2E59F328D175A700796506 /* ResetPasswordView.swift */,
-				2A661F8F2870FCCA0014B661 /* vitalsView.swift */,
-				2A05DB4D28DB8B5500B1FAA9 /* Question.swift */,
-				2A05DB4F28DB8F4600B1FAA9 /* QuizViewModel.swift */,
-				2A05DB4B28DB7E3F00B1FAA9 /* QuizView.swift */,
-				2AB522A328B2F74000BB5691 /* LearnView.swift */,
-				2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */,
-				2A4B2F5328A3269100E47DB2 /* PatientInfoEditView.swift */,
-				2A274C5C28B36D5D00474135 /* User.swift */,
-				2AB522A128B026C800BB5691 /* ChecklistNotesView.swift */,
-				2AA7347328A9CD3A00D17A07 /* ChecklistItem.swift */,
-				2A4B2F5128A3142500E47DB2 /* PatientInfo.swift */,
-				2A274C6228B4AC9B00474135 /* Message.swift */,
-				2AF1195628BDBF16001A6525 /* GroupMessage.swift */,
 				2A661F8D2870FCB50014B661 /* goalsView.swift */,
-				2A274C6028B4A88900474135 /* ChatModel.swift */,
-				2A8F13EF28B5FCBF0053B091 /* ChatViewModel.swift */,
-				2AF1195828BDC075001A6525 /* GroupChatModel.swift */,
-				2AF1195A28BE6DE0001A6525 /* GroupChatView.swift */,
-				2A8F13ED28B5F2630053B091 /* ChatView.swift */,
-				2A8F13E928B5E0FF0053B091 /* MainMessagesModel.swift */,
-				2A8F13EB28B5E7B40053B091 /* NewMessageView.swift */,
-				2A661F912870FCEF0014B661 /* tribalsView.swift */,
-				2A8F13E728B5DB880053B091 /* MainMessagesView.swift */,
+				C911309128D7AD150034DC68 /* RootPresentationMode.swift */,
+				2A4BFB4628D2844B0090D1B5 /* MainView.swift */,
+				2A05DB6228DCFAF900B1FAA9 /* Account */,
+				2A05DB5128DCD3B100B1FAA9 /* Authentication */,
+				2A05DB5A28DCF86800B1FAA9 /* Vitals */,
+				2A05DB5E28DCFA0A00B1FAA9 /* Tribals */,
 				2A661F932870FD0E0014B661 /* verbalsView.swift */,
-				C91130CB28D95DDE0034DC68 /* CalendarSelection.swift */,
 				2A90CB3F286BF3700079B380 /* Assets.xcassets */,
 				2A654A6D288DCB4B00C0C492 /* GoogleService-Info.plist */,
 				2A90CB41286BF3700079B380 /* Preview Content */,
@@ -452,6 +524,7 @@
 				2A05DB4828D80DFE00B1FAA9 /* EventItemView.swift in Sources */,
 				2A8F13F028B5FCBF0053B091 /* ChatViewModel.swift in Sources */,
 				2A661F922870FCEF0014B661 /* tribalsView.swift in Sources */,
+				2A05DB5928DCF7DA00B1FAA9 /* RegistrationView.swift in Sources */,
 				2A90CB3E286BF36D0079B380 /* ContentView.swift in Sources */,
 				2A05DB4228D7D99B00B1FAA9 /* EventView.swift in Sources */,
 				2A8F13EA28B5E0FF0053B091 /* MainMessagesModel.swift in Sources */,
@@ -459,8 +532,7 @@
 				2AF1195928BDC075001A6525 /* GroupChatModel.swift in Sources */,
 				2A8F13EC28B5E7B40053B091 /* NewMessageView.swift in Sources */,
 				2A661F902870FCCA0014B661 /* vitalsView.swift in Sources */,
-				2A4B2F4828936F8C00E47DB2 /* LoginModel.swift in Sources */,
-				2AD1D536288F22C10019812E /* RegistrationView.swift in Sources */,
+				2A05DB5728DCF7C800B1FAA9 /* RegistrationModel.swift in Sources */,
 				2A4B2F5428A3269100E47DB2 /* PatientInfoEditView.swift in Sources */,
 				2A661F8E2870FCB50014B661 /* goalsView.swift in Sources */,
 				2A661F942870FD0E0014B661 /* verbalsView.swift in Sources */,
@@ -469,12 +541,12 @@
 				2A4BFB4728D2844B0090D1B5 /* MainView.swift in Sources */,
 				2AF1188328B896C0001A6525 /* AddNewUserView.swift in Sources */,
 				2A90CB3C286BF36D0079B380 /* goALSApp.swift in Sources */,
-				2AD1D534288F1D190019812E /* RegistrationModel.swift in Sources */,
+				2A05DB5528DCD41500B1FAA9 /* LoginView.swift in Sources */,
 				2A05DB4628D7E2DF00B1FAA9 /* AddEventView.swift in Sources */,
+				2A05DB5328DCD3DB00B1FAA9 /* LoginModel.swift in Sources */,
 				2AB522A228B026C800BB5691 /* ChecklistNotesView.swift in Sources */,
 				2A274C6328B4AC9B00474135 /* Message.swift in Sources */,
 				2A274C6128B4A88900474135 /* ChatModel.swift in Sources */,
-				2A4B2F462893655900E47DB2 /* LoginView.swift in Sources */,
 				2AF1195728BDBF16001A6525 /* GroupMessage.swift in Sources */,
 				2A5B93452881ED31005A457E /* accountView.swift in Sources */,
 				2A274C5D28B36D5D00474135 /* User.swift in Sources */,
