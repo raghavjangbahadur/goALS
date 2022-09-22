@@ -98,10 +98,10 @@
 		2A05DB4B28DB7E3F00B1FAA9 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		2A05DB4D28DB8B5500B1FAA9 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		2A05DB4F28DB8F4600B1FAA9 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
-		2A05DB5228DCD3DB00B1FAA9 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginModel.swift; path = goALS/LoginModel.swift; sourceTree = SOURCE_ROOT; };
-		2A05DB5428DCD41500B1FAA9 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = goALS/LoginView.swift; sourceTree = SOURCE_ROOT; };
-		2A05DB5628DCF7C700B1FAA9 /* RegistrationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationModel.swift; path = goALS/RegistrationModel.swift; sourceTree = SOURCE_ROOT; };
-		2A05DB5828DCF7DA00B1FAA9 /* RegistrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationView.swift; path = goALS/RegistrationView.swift; sourceTree = SOURCE_ROOT; };
+		2A05DB5228DCD3DB00B1FAA9 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginModel.swift; path = goALS/Authentication/Models/LoginModel.swift; sourceTree = SOURCE_ROOT; };
+		2A05DB5428DCD41500B1FAA9 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = goALS/Authentication/Views/LoginView.swift; sourceTree = SOURCE_ROOT; };
+		2A05DB5628DCF7C700B1FAA9 /* RegistrationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationModel.swift; path = goALS/Authentication/Models/RegistrationModel.swift; sourceTree = SOURCE_ROOT; };
+		2A05DB5828DCF7DA00B1FAA9 /* RegistrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationView.swift; path = goALS/Authentication/Views/RegistrationView.swift; sourceTree = SOURCE_ROOT; };
 		2A274C5C28B36D5D00474135 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A274C6028B4A88900474135 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		2A274C6228B4AC9B00474135 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -186,12 +186,8 @@
 		2A05DB5128DCD3B100B1FAA9 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				2A05DB5228DCD3DB00B1FAA9 /* LoginModel.swift */,
-				2A05DB5428DCD41500B1FAA9 /* LoginView.swift */,
-				2A05DB5628DCF7C700B1FAA9 /* RegistrationModel.swift */,
-				2A05DB5828DCF7DA00B1FAA9 /* RegistrationView.swift */,
-				2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */,
-				2AF1188428B89A93001A6525 /* RegistrationSelection.swift */,
+				2A05DB6528DCFC4E00B1FAA9 /* Views */,
+				2A05DB6428DCFC3000B1FAA9 /* Models */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -297,6 +293,26 @@
 				2A661F932870FD0E0014B661 /* verbalsView.swift */,
 			);
 			path = Verbals;
+			sourceTree = "<group>";
+		};
+		2A05DB6428DCFC3000B1FAA9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2A05DB5228DCD3DB00B1FAA9 /* LoginModel.swift */,
+				2A05DB5628DCF7C700B1FAA9 /* RegistrationModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2A05DB6528DCFC4E00B1FAA9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A05DB5428DCD41500B1FAA9 /* LoginView.swift */,
+				2A05DB5828DCF7DA00B1FAA9 /* RegistrationView.swift */,
+				2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */,
+				2AF1188428B89A93001A6525 /* RegistrationSelection.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		2A90CB2F286BF36D0079B380 = {
