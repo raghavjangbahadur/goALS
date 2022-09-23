@@ -27,32 +27,40 @@ struct EventItemView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                Text("Description")
-                    .font(.headline)
-                Text(event.description)
-                    .padding(.bottom, 20)
-                HStack {
-                    Text("Starts:")
-                    Text(event.startTime)
+            VStack {
+                VStack(alignment: .leading) {
+                    Text(event.title)
+                        .foregroundColor(Color.white)
+                        .font(.system(size: 25))
+                        .fontWeight(.bold)
+                        .padding(.bottom, 20)
+                    Text(event.description)
+                        .foregroundColor(Color.white)
+                        .padding(.bottom, 20)
+                    HStack {
+                        Text(event.date + " from " + event.startTime + " to " + event.endTime)
+                            .foregroundColor(Color.white)
+                        Spacer()
+                    }
                     Spacer()
                 }
-                HStack {
-                    Text("Ends:")
-                    Text(event.endTime)
-                    Spacer()
-                }
-                Spacer()
-                Button(action: {
-                    deletedEvent = event
-                    deletedDate = event.date
-                    shouldDelete.toggle()
-                }, label: {
-                    Text("Delete event")
-                })
+                .padding(15)
+                
+                VStack{
+                    Button(action: {
+                        deletedEvent = event
+                        deletedDate = event.date
+                        shouldDelete.toggle()
+                    }, label: {
+                        Text("Delete event")
+                            .foregroundColor(Color.red)
+                    })
+                }.padding(.bottom, 10)
             }
-            .padding(10)
-            .navigationTitle(event.title)
+            .background(Color.black.opacity(0.7).ignoresSafeArea(.all))
+            .cornerRadius(13)
+            .shadow(color: Color.black.opacity(0.5), radius: 10)
+            .padding(5)
         }
         .actionSheet(isPresented: $shouldDelete) {
             .init(title: Text("Are you sure you want to delete this event?") , buttons: [
@@ -68,8 +76,8 @@ struct EventItemView: View {
 }
 
 
-/*struct EventItemView_Previews: PreviewProvider {
+struct EventItemView_Previews: PreviewProvider {
     static var previews: some View {
-        EventItemView(event: nil)
+        EventItemView(event: Event(id: "", title: "Meeting", description: "", date: "", startTime: "2:30", endTime: "3:00"), model: EventModel())
     }
-}*/
+}

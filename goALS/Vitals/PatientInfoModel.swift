@@ -16,8 +16,8 @@ class PatientInfoModel: ObservableObject {
     @Published var list = [PatientInfo]()
     @Published var checklist = [ChecklistItem]()
     @Published var patient = PatientInfo(id: "", name: "", gender: "", age: 0, stage: "", tube: "", hands: "", speech: "", muscles: "", walking: "", legs: "", breathing: "")
+    @Published var count = 0
     @Published var user = User(id: "", firstName: "", lastName: "",  patientID: "", patientName: "", email: "", account: "")
-     
     /*func getPatientId() {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {
@@ -103,6 +103,7 @@ class PatientInfoModel: ObservableObject {
                 print("Document does not exist")
             }
         }
+        count+=1
     }
     /* let docRef = db.collection("patients").document(patientId)
     docRef.getDocument { (document, error) in

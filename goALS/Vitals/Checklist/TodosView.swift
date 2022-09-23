@@ -22,11 +22,6 @@ struct TodosView: View {
                     HStack {
                         Text(item.name)
                         Spacer()
-                        Button(action: {
-                            model.deleteCheckListItem(item)
-                        }, label: {
-                            Image(systemName: "minus.circle")
-                        })
                     }
                 }
             }

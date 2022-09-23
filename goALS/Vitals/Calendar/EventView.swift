@@ -53,9 +53,14 @@ struct EventView: View {
                 }
             }
             
-        }.onAppear {
+        }
+        .onAppear {
             model.getEvents(date: stringified)
         }
+        .background(Color.red.opacity(0.6).ignoresSafeArea(.all))
+        .cornerRadius(13)
+        .shadow(color: Color.black.opacity(0.5), radius: 10)
+        .padding(.trailing, 5)
     }
 }
 

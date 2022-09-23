@@ -35,16 +35,26 @@ struct AddEventView: View {
                 TextField("Title", text: self.$title)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
+                    .padding(.horizontal, 10)
+                    .padding(.top, 20)
                 TextField("Description", text: self.$description)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .textFieldStyle(.roundedBorder)
+                    .frame(height: 40)
                     .autocapitalization(.none)
-                    .padding(.bottom, 30)
+                    .padding(.horizontal, 10)
+                    .padding(.bottom, 10)
                 DatePicker("Start Time: ", selection: $start, displayedComponents: .hourAndMinute)
+                    .colorScheme(.dark)
+                    .padding(.horizontal, 10)
                 DatePicker("End Time: ", selection: $end, displayedComponents: .hourAndMinute)
+                    .padding(.horizontal, 10)
+                    .colorScheme(.dark)
                 Spacer()
             }
-            .padding(10)
-            .navigationTitle("New Event")
+            .background(Color.black.opacity(0.6).ignoresSafeArea(.all))
+            .cornerRadius(13)
+            .shadow(color: Color.black.opacity(0.5), radius: 10)
+            .padding(5)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button {
@@ -84,8 +94,8 @@ struct AddEventView: View {
     }
 }
 
-/*struct AddEventView_Previews: PreviewProvider {
+struct AddEventView_Previews: PreviewProvider {
     static var previews: some View {
-        AddEventView(date: "")
+        AddEventView(date: "12/02/2022", model: EventModel())
     }
-}*/
+}

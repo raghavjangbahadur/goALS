@@ -20,7 +20,7 @@ struct vitalsView: View {
             Image("goals_logo_white")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(height: 100)
+                .frame(height: 75)
                 .padding(.all)
             NavigationLink(destination: PatientInfoView()) {
                 ZStack {
