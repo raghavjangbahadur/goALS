@@ -201,6 +201,7 @@
 				2A4B2F4F28A3138B00E47DB2 /* PatientInfoModel.swift */,
 				2A4B2F4D28A3137800E47DB2 /* PatientInfoView.swift */,
 				2A4B2F5328A3269100E47DB2 /* PatientInfoEditView.swift */,
+				2AB522A328B2F74000BB5691 /* LearnView.swift */,
 				2A05DB5D28DCF98600B1FAA9 /* Checklist */,
 				2A05DB5C28DCF8DC00B1FAA9 /* ALS Quiz */,
 				2A05DB5B28DCF89F00B1FAA9 /* Calendar */,
@@ -211,7 +212,6 @@
 		2A05DB5B28DCF89F00B1FAA9 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				2AB522A328B2F74000BB5691 /* LearnView.swift */,
 				2A2E59EF28D013A300796506 /* Calendar.swift */,
 				C91130CB28D95DDE0034DC68 /* CalendarSelection.swift */,
 				2A05DB3F28D7D8B300B1FAA9 /* Event.swift */,

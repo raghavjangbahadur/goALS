@@ -35,6 +35,7 @@ struct ContentView: View {
                     Label("Communicate", image:"verbals_logo_grey")
                 }
         }
+        .accentColor(Color("DeepRed"))
         Divider()
         Spacer()
     }

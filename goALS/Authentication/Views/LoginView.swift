@@ -53,7 +53,7 @@ struct LoginView: View {
             }.onAppear {
                 loginAction()
             }
-            .background(Color.red)
+            .background(Color("DeepRed"))
         }.environment(\.rootPresentationMode, self.$model.loggedIn)
     }
 

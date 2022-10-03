@@ -16,17 +16,22 @@ struct RegistrationSecondaryView: View {
     
     var body: some View {
         VStack {
-            Image("goals_logo_white")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 50)
-                .padding(.all)
+            VStack {
+                Image("goals_logo_white")
+                     .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 100)
+                    .padding(.all)
+                Divider()
+            }
+            .background(Color("DeepRed"))
             Group {
                 TextField("Enter Caregiver (your) first name", text: self.$model.firstName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
                     .autocapitalization(.none)
                     .padding(.bottom)
+                    .padding(.top)
                     .disableAutocorrection(true)
                 TextField("Enter Caregiver (your) last name", text: self.$model.lastName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -71,8 +76,17 @@ struct RegistrationSecondaryView: View {
             Divider()
             Spacer()
             
-            Button("Register", action: registerAction)
-                .padding(.bottom, 35)
+            Button(action: registerAction) {
+                Text("Register now")
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 5)
+                            .foregroundColor(Color("DeepRed"))
+                    )
+            }
+            .padding(.bottom, 35)
             NavigationLink(
                 destination: ContentView(),
                 isActive: $model.registered,
@@ -82,7 +96,7 @@ struct RegistrationSecondaryView: View {
             .navigationBarHidden(true)
         }
         
-        .background(Color.red)
+        .background(Color.white)
     }
     
     

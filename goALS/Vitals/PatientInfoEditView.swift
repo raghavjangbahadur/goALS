@@ -41,7 +41,7 @@ struct PatientInfoEditView: View {
     var body: some View {
         ScrollView {
             Text("Edit patient information")
-                .foregroundColor(.teal)
+                .foregroundColor(Color("DarkGrey"))
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.top, 10)
@@ -301,12 +301,30 @@ struct PatientInfoEditView: View {
                 .padding(.horizontal, 10)
                 .padding(.bottom, 20)
                 
-            }.onAppear {
+            }
+            .padding()
+            .background{
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.white)
+                    .shadow(color: Color.black.opacity(0.3), radius: 5)
+                    .padding(10)
+            }
+            .onAppear {
                 model.getSingleData()
             }
-            
-            Button("Update", action: updateData)
-                .padding(.bottom)
+            Button(action: updateData) {
+                Text("Update")
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .padding()
+                    .padding(.horizontal)
+                    .background(
+                        RoundedRectangle(cornerRadius: 5)
+                            .foregroundColor(Color("DeepRed"))
+                    )
+            }
+            .padding(.bottom)
+            .padding(.top)
             
         }
     }

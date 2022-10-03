@@ -39,6 +39,7 @@ struct goalsView: View {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 125, height: 125)
                         .foregroundColor(.white)
+                        .shadow(color: .black.opacity(0.6), radius: 20)
                         .padding(.all, 15)
                     Image("vitals_logo_grey")
                         .resizable()
@@ -56,6 +57,7 @@ struct goalsView: View {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 125, height: 125)
                         .foregroundColor(.white)
+                        .shadow(color: .black.opacity(0.6), radius: 20)
                         .padding(.all, 15)
                     Image("tribals_logo_grey")
                         .resizable()
@@ -74,6 +76,7 @@ struct goalsView: View {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 125, height: 125)
                         .foregroundColor(.white)
+                        .shadow(color: .black.opacity(0.6), radius: 20)
                         .padding(.all, 15)
                     Image("verbals_logo_grey")
                         .resizable()
@@ -91,7 +94,7 @@ struct goalsView: View {
                 model.getSingleData()
         }
         .padding(.bottom, 100)
-        .background(Color.red)
+        .background(Color("DeepRed"))
         
     }
 }

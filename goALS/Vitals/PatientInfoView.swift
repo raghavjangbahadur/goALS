@@ -11,14 +11,14 @@ struct PatientInfoView: View {
     
     @ObservedObject var model = PatientInfoModel()
     var body: some View {
-        ScrollView {
+        VStack {
             Text("Key Details and Information")
                 .foregroundColor(.teal)
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.top, 15)
                 .padding(.bottom, 20)
-            VStack{
+            List {
                 HStack {
                     Text("Gender")
                         .foregroundColor(.teal)

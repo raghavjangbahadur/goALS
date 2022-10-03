@@ -61,7 +61,6 @@ struct AddNewUserView: View {
                         .font(.system(size: 20))
                 }
             }
-            Divider()
             Spacer()
         }
     }

@@ -12,41 +12,64 @@ struct RegistrationSelection: View {
         VStack {
             Spacer()
             NavigationLink(destination: RegistrationView(model: RegistrationModel())) {
-                ZStack {
-                    RoundedRectangle(cornerRadius:15)
-                        .frame(width: 150, height: 150)
-                        .foregroundColor(.white)
-                        .padding(.all, 15)
-                    Text("Primary Account")
-                        .foregroundColor(.gray)
-                        .fontWeight(.bold)
-                        .font(.title2)
-                        .frame(width: 100)
+                VStack{
+                    ZStack {
+                        RoundedRectangle(cornerRadius:15)
+                            .frame(width: 300, height: 100)
+                            .foregroundColor(.gray.opacity(0.9))
+                            .padding(.all, 15)
+                        Text("Primary Caregiver")
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
+                            .font(.title2)
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.top, 10)
+                    Text("You are the main caregiver for your ALS patient")
+                        .foregroundColor(.black)
+                        .frame(width: 300)
+                        .padding(.bottom)
                 }
+                .background(
+                    RoundedRectangle(cornerRadius: 15)
+                        .foregroundColor(Color.white)
+                        .shadow(color: Color.black.opacity(0.3), radius: 30)
+                )
             }
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
             .padding(.bottom, 50)
             
             NavigationLink(destination: RegistrationSecondaryView(model: RegistrationModel())) {
-                ZStack {
-                    RoundedRectangle(cornerRadius:15)
-                        .frame(width: 150, height: 150)
-                        .foregroundColor(.white)
-                        .padding(.all, 15)
-                    Text("Secondary Account")
-                        .foregroundColor(.gray)
-                        .fontWeight(.bold)
-                        .font(.title2)
-                        .frame(width: 120)
+                VStack{
+                    ZStack {
+                        RoundedRectangle(cornerRadius:15)
+                            .frame(width: 300, height: 100)
+                            .foregroundColor(.gray.opacity(0.9))
+                            .padding(.all, 15)
+                        Text("Secondary Caregiver")
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
+                            .font(.title2)
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.top, 10)
+                    Text("You are supporting the Primary Caregiver in providing care to your ALS patient, and have been sent a code and patient full name to sign up for this app")
+                        .foregroundColor(.black)
+                        .frame(width: 300)
+                        .padding(.bottom)
                 }
+                .background(
+                    RoundedRectangle(cornerRadius: 15)
+                        .foregroundColor(Color.white)
+                        .shadow(color: Color.black.opacity(0.3), radius: 30)
+                )
             }
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
-            Divider()
             Spacer()
         }
-        .background(Color.red)
+        .background(Color.white)
     }
 }
 

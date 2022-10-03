@@ -9,7 +9,31 @@ import SwiftUI
 
 struct verbalsView: View {
     var body: some View {
-        Text("hello world")
+        VStack{
+            VStack {
+                HStack{
+                    Spacer()
+                    Image("goals_logo_white")
+                         .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 100)
+                    Text("> > >")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .font(.system(size: 20))
+                    Image("verbals_logo_white")
+                         .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 125)
+                    Spacer()
+                }
+                Divider()
+            }
+            .background(Color("DarkGrey"))
+            Text("Coming soon!")
+                .padding(.top, 100)
+            Spacer()
+        }
     }
 }
 
