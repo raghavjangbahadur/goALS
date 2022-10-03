@@ -50,9 +50,8 @@ struct PatientInfoEditView: View {
                 HStack {
                     Text("Gender")
                         .padding(.horizontal, 3)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
-                    Text("Edit:")
-                        .font(.system(size: 15))
                     Picker(selection: $newGender,
                            content: {
                         ForEach(optionsGender, id: \.self) { option in
@@ -61,7 +60,6 @@ struct PatientInfoEditView: View {
                         }
                     }, label: {
                         HStack {
-                            Text("Edit:")
                             Text(newGender)
                                 .foregroundColor(.red)
                         } .onAppear() {
@@ -75,9 +73,8 @@ struct PatientInfoEditView: View {
                 HStack {
                     Text("Age")
                         .padding(.trailing, 10)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
-                    Text("Edit:")
-                        .font(.system(size: 15))
                     Picker(selection: $newAge,
                            content: {
                         ForEach(1..<120) { number in
@@ -100,9 +97,8 @@ struct PatientInfoEditView: View {
                 HStack {
                     Text("Stage of ALS \n [Link for more info](https://alsnewstoday.com/stages-of-als/)")
                         .padding(.horizontal, 3)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
-                    Text("Edit:")
-                        .font(.system(size: 15))
                     Picker(selection: $newStage,
                            content: {
                         ForEach(optionsStage, id: \.self) { option in
@@ -125,9 +121,8 @@ struct PatientInfoEditView: View {
                 HStack {
                     Text("Use of feeding tube")
                         .padding(.horizontal, 5)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
-                    Text("Edit:")
-                        .font(.system(size: 15))
                     Picker(selection: $tube,
                            content: {
                         ForEach(optionsYN, id: \.self) { option in
@@ -150,8 +145,8 @@ struct PatientInfoEditView: View {
                 HStack {
                     Text("Hand strength/control, clumsiness, inability to hold items, difficulty, etc")
                         .padding(.trailing, 10)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
-                    Text("Edit:")
                         .font(.system(size: 15))
                     Picker(selection: $hands,
                            content: {
@@ -174,10 +169,9 @@ struct PatientInfoEditView: View {
                 .padding(.bottom, 10)
                 HStack {
                     Text("Speech issues (slurring, trouble speaking clearly)")
+                        .foregroundColor(Color("DarkGrey"))
                         .padding(.horizontal, 3)
                     Spacer()
-                    Text("Edit:")
-                        .font(.system(size: 15))
                     Picker(selection: $speech,
                            content: {
                         ForEach(options, id: \.self) { option in
@@ -200,9 +194,8 @@ struct PatientInfoEditView: View {
                 HStack {
                     Text("Muscle cramps/twitches")
                         .padding(.horizontal, 3)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
-                    Text("Edit:")
-                        .font(.system(size: 15))
                     Picker(selection: $muscles,
                            content: {
                         ForEach(options, id: \.self) { option in
@@ -226,9 +219,8 @@ struct PatientInfoEditView: View {
                 HStack {
                     Text("Difficulty walking, without tripping or falling")
                         .padding(.horizontal, 3)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
-                    Text("Edit:")
-                        .font(.system(size: 15))
                     Picker(selection: $walking,
                            content: {
                         ForEach(options, id: \.self) { option in
@@ -252,9 +244,8 @@ struct PatientInfoEditView: View {
                 HStack {
                     Text("Weakness in legs, feet, hands, or fingers")
                         .padding(.horizontal, 3)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
-                    Text("Edit:")
-                        .font(.system(size: 15))
                     Picker(selection: $legs,
                            content: {
                         ForEach(options, id: \.self) { option in
@@ -278,9 +269,8 @@ struct PatientInfoEditView: View {
                 HStack {
                     Text("Difficult breathing")
                         .padding(.horizontal, 3)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
-                    Text("Edit:")
-                        .font(.system(size: 15))
                     Picker(selection: $breathing,
                            content: {
                         ForEach(options, id: \.self) { option in

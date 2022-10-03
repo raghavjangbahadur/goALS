@@ -13,7 +13,7 @@ struct PatientInfoView: View {
     var body: some View {
         VStack {
             Text("Key Details and Information")
-                .foregroundColor(.teal)
+                .foregroundColor(Color("DarkGrey"))
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.top, 15)
@@ -21,88 +21,88 @@ struct PatientInfoView: View {
             List {
                 HStack {
                     Text("Gender")
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.gender)
-                        .foregroundColor(.teal)
-                }
+                        .foregroundColor(Color("DarkGrey"))                }
                 .padding(10)
                 HStack {
                     Text("Age")
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(String(model.patient.age))
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                 }
                 .padding(10)
                 HStack {
                     Text("Stage of ALS \n [Link for more info](https://alsnewstoday.com/stages-of-als/)")
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.stage)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                 }
                 .padding(10)
                 HStack {
                     Text("Use of feeding tube")
                         .frame(width: 150)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.tube)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                 }
                 .padding(10)
                 HStack {
                     Text("Hand strength/control (clumsiness, inability to hold items, difficulty, etc)")
+                        .foregroundColor(Color("DarkGrey"))
                         .frame(width: 170)
-                        .foregroundColor(.teal)
+                    
                     Spacer()
                     Text(model.patient.hands)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                 }
                 .padding(10)
                 HStack {
                     Text("Speech issues (slurring, trouble speaking clearly")
                         .frame(width: 185)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.speech)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                 }
                 .padding(10)
                 HStack {
                     Text("Muscle cramp/twitches")
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.muscles)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                 }
                 .padding(10)
                 HStack {
                     Text("Difficulty walking without tripping/falling")
                         .frame(width: 170)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.walking)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                 }
                 .padding(10)
                 HStack {
                     Text("Weakness in legs, feet, hands, or fingers")
                         .frame(width: 190)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.legs)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                 }
                 .padding(10)
                 HStack {
                     Text("Difficult breathing")
                         .frame(width: 170)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.breathing)
-                        .foregroundColor(.teal)
+                        .foregroundColor(Color("DarkGrey"))
                 }
                 .padding(10)
             }.onAppear {
@@ -110,7 +110,7 @@ struct PatientInfoView: View {
             }
         }
         NavigationLink("Update basic information") {
-            PatientInfoEditView(/*model: PatientInfoModel()*/)
+            PatientInfoEditView()
                 .padding(.bottom, 30)
         }
     }

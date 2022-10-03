@@ -18,14 +18,16 @@ struct goalsView: View {
                         RoundedRectangle(cornerRadius:15)
                             .frame(width: 110, height: 30)
                             .foregroundColor(.white)
+                            .shadow(color: .black.opacity(0.5), radius: 5)
                             .padding(.all, 15)
                         HStack {
                             Text("Account")
                                 .font(.subheadline)
                                 .fontWeight(.bold)
-                                .foregroundColor(.blue)
+                                .foregroundColor(Color("DarkGrey"))
                             Image(systemName: "person.fill")
                                 .font(.system(size: 16))
+                                .foregroundColor(Color("DarkGrey"))
                         }
                     }
                 }

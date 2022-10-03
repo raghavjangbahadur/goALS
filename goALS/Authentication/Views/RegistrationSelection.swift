@@ -36,8 +36,6 @@ struct RegistrationSelection: View {
                         .shadow(color: Color.black.opacity(0.3), radius: 30)
                 )
             }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
             .padding(.bottom, 50)
             
             NavigationLink(destination: RegistrationSecondaryView(model: RegistrationModel())) {
@@ -65,8 +63,6 @@ struct RegistrationSelection: View {
                         .shadow(color: Color.black.opacity(0.3), radius: 30)
                 )
             }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
             Spacer()
         }
         .background(Color.white)

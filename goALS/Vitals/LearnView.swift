@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LearnView: View {
+    
+    @Environment(\.presentationMode) var present
+    
     var body: some View {
         VStack{
             ZStack {
@@ -37,12 +40,6 @@ struct LearnView: View {
             Spacer()
         }
         .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 15)
-                .foregroundColor(Color.white)
-                .shadow(color: Color.black.opacity(0.3), radius: 5)
-                .padding(20)
-        )
     }
 }
 

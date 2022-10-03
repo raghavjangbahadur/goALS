@@ -46,7 +46,7 @@ struct AddEventView: View {
                 DatePicker("Start Time: ", selection: $start, displayedComponents: .hourAndMinute)
                     .colorScheme(.dark)
                     .padding(.horizontal, 10)
-                DatePicker("End Time: ", selection: $end, displayedComponents: .hourAndMinute)
+                DatePicker("End Time: ", selection: $end, in: start..., displayedComponents: .hourAndMinute)
                     .padding(.horizontal, 10)
                     .colorScheme(.dark)
                 Spacer()

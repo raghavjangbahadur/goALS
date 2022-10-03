@@ -46,8 +46,6 @@ struct LoginView: View {
                 
                 NavigationLink("Don't have an account? Register now!") {
                     RegistrationSelection()
-                        .navigationBarBackButtonHidden(true)
-                        .navigationBarHidden(true)
                         .padding(.bottom, 30)
                 }
             }.onAppear {

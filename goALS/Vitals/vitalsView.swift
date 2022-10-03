@@ -10,6 +10,7 @@ import SwiftUI
 struct vitalsView: View {
     
     @State var showQuiz = false
+    @State var showLearn = false
     
     @State var correct = 0
     @State var incorrect = 0
@@ -63,19 +64,6 @@ struct vitalsView: View {
                 }
             }
             .padding(.bottom, 30)
-            
-            NavigationLink(destination: LearnView()) {
-                ZStack {
-                    RoundedRectangle(cornerRadius:15)
-                        .frame(width: 320, height: 45)
-                        .foregroundColor(Color("LightGrey"))
-                        .shadow(color: Color.black.opacity(0.5), radius: 10)
-                    Text("Learn more about ALS")
-                        .foregroundColor(Color("DarkGrey"))
-                        .fontWeight(.bold)
-                }
-            }
-            .padding(.bottom, 30)
 
             NavigationLink(destination: Calendar()) {
                 ZStack {
@@ -95,6 +83,20 @@ struct vitalsView: View {
                     .frame(width: 320, height: 45)
                     .foregroundColor(Color("LightGrey"))
                     .shadow(color: Color.black.opacity(0.5), radius: 10)
+                Text("Learn more about ALS")
+                    .foregroundColor(Color("DarkGrey"))
+                    .fontWeight(.bold)
+            }
+            .padding(.bottom, 30)
+            .onTapGesture(perform: {
+                showLearn.toggle()
+            })
+            
+            ZStack {
+                RoundedRectangle(cornerRadius:15)
+                    .frame(width: 320, height: 45)
+                    .foregroundColor(Color("LightGrey"))
+                    .shadow(color: Color.black.opacity(0.5), radius: 10)
                 Text("Take the ALS Quiz!")
                     .foregroundColor(Color("DarkGrey"))
                     .fontWeight(.bold)
@@ -103,12 +105,14 @@ struct vitalsView: View {
             .onTapGesture(perform: {
                 showQuiz.toggle()
             })
-            Divider()
             Spacer()
         }
         .background(Color.white)
         .sheet(isPresented: $showQuiz, content: {
             QuizView(correct: $correct, incorrect: $incorrect, answered: $answered)
+        })
+        .sheet(isPresented: $showLearn, content: {
+            LearnView()
         })
     }
 }
