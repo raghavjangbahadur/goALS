@@ -57,41 +57,45 @@ struct accountView: View {
     
     var body: some View {
         VStack {
-            Text("Account Settings")
+            Text("Settings")
             List {
-                NavigationLink {
-                    ResetPasswordView()
-                } label: {
-                    HStack {
-                        Text("Reset password")
-                        Spacer()
-                    }
-                }
-                NavigationLink {
-                    CircleView()
-                } label: {
-                    HStack {
-                        Text("Patient Circle")
-                        Spacer()
-                    }
-                }
-                if(model.primary) {
+                Section("Circle") {
                     NavigationLink {
-                        AddNewUserView()
+                        CircleView()
                     } label: {
                         HStack {
-                            Text("Add User to Circle")
+                            Text("Patient Circle")
                             Spacer()
                         }
                     }
+                    if(model.primary) {
+                        NavigationLink {
+                            AddNewUserView()
+                        } label: {
+                            HStack {
+                                Text("Add User to Circle")
+                                Spacer()
+                            }
+                        }
+                    }
                 }
-                Button {
-                    shouldShowLogOutOptions.toggle()
-                } label: {
-                    HStack {
-                        Text("Sign out")
-                            .foregroundColor(.red)
-                        Spacer()
+                Section("Account") {
+                    NavigationLink {
+                        ResetPasswordView()
+                    } label: {
+                        HStack {
+                            Text("Reset password")
+                            Spacer()
+                        }
+                    }
+                    Button {
+                        shouldShowLogOutOptions.toggle()
+                    } label: {
+                        HStack {
+                            Text("Sign out")
+                                .foregroundColor(.red)
+                            Spacer()
+                        }
                     }
                 }
                 
