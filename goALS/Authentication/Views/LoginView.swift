@@ -16,25 +16,51 @@ struct LoginView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 150)
                     .padding(50)
-                TextField("Email", text: self.$model.email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 20)
-                    .autocapitalization(.none)
-                    .padding(.bottom, 30)
-                    .disableAutocorrection(true)
-                SecureField("Password", text: self.$model.password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 20)
-                    .autocapitalization(.none)
-                    .padding(.bottom, 20)
-                    .disableAutocorrection(true)
-                Button("Log in", action: loginAction)
-                    .padding(.bottom, 15)
-                NavigationLink("Forgot Password") {
-                    ResetPasswordView()
-                        .padding(.bottom, 10)
+                VStack{
+                    TextField("Email", text: self.$model.email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal, 20)
+                        .autocapitalization(.none)
+                        .padding(.bottom, 20)
+                        .padding(.top, 20)
+                        .disableAutocorrection(true)
+                    SecureField("Password", text: self.$model.password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal, 20)
+                        .autocapitalization(.none)
+                        .padding(.bottom, 20)
+                        .disableAutocorrection(true)
+                    Button(action: loginAction) {
+                        ZStack {
+                            Rectangle()
+                                .fill(Color("DarkGrey"))
+                                .frame(width: 150, height: 45)
+                            Text("Log in")
+                                .foregroundColor(.white)
+                                .fontWeight(.bold)
+                        }
+                    }
+                    .padding(.bottom, 10)
+                    Text(model.errorMessage)
+                        .foregroundColor(.red)
+                        .padding(5)
+                        .padding(.horizontal, 5)
+                    NavigationLink("Forgot Password") {
+                        ResetPasswordView()
+                    }
+                    .padding(.bottom, 2)
+                    NavigationLink("Don't have an account? Register now!") {
+                        RegistrationSelection()
+                    }
+                    .padding(.bottom, 5)
                 }
-                Divider()
+                .padding(.bottom, 10)
+                .background(
+                    RoundedRectangle(cornerRadius: 15)
+                        .foregroundColor(Color("LightGrey"))
+                        .shadow(color: Color.black.opacity(0.3), radius: 15)
+                )
+                .padding(15)
                 Spacer()
                 NavigationLink("Hidden nav link", isActive: self.$model.loggedIn) {
                     ContentView()
@@ -43,11 +69,6 @@ struct LoginView: View {
                         .navigationBarHidden(true)
                 }
                 .hidden()
-                
-                NavigationLink("Don't have an account? Register now!") {
-                    RegistrationSelection()
-                        .padding(.bottom, 30)
-                }
             }.onAppear {
                 loginAction()
             }

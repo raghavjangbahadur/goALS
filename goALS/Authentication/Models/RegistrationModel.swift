@@ -33,10 +33,14 @@ class RegistrationModel: ObservableObject {
     @Published var breathing: String = ""
     @Published var generatedId: String = ""
     
+    @Published var errorMessage = ""
+    
     func registerCall() {
         Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
             guard let _ = authResult else {
-                print("Failed registering")
+                if let error {
+                    errorMessage = error.localizedDescription
+                }
                 return
             }
             let db = Firestore.firestore()
@@ -46,6 +50,7 @@ class RegistrationModel: ObservableObject {
             let patientId = UUID().uuidString
             db.collection("users").document(userID).setData(["patient uuid" : patientId, "patientName" : self.patientName, "firstName" : self.firstName, "lastName" : self.lastName, "email" : self.email, "account" : "primary"])
             self.createPatient(patientId, self.patientName)
+            self.errorMessage = ""
             self.registered = true
             createPatient(patientId, self.patientName)
         }
@@ -62,11 +67,14 @@ class RegistrationModel: ObservableObject {
                 let docData = document.data()
                 let name = docData!["patientName"] as? String ?? ""
                 if name != self.patientName {
+                    self.errorMessage = "ID does not match patient name"
                     return
                 }
                 Auth.auth().createUser(withEmail: self.email, password: self.password) { [self] authResult, error in
                     guard let _ = authResult else {
-                        print("Failed registering")
+                        if let error {
+                            errorMessage = error.localizedDescription
+                        }
                         return
                     }
                     let db = Firestore.firestore()
@@ -74,11 +82,12 @@ class RegistrationModel: ObservableObject {
                         return
                     }
                     db.collection("users").document(userID).setData(["patient uuid" : generatedId, "patientName" : self.patientName, "firstName" : self.firstName, "lastName" : self.lastName, "email" : self.email, "account" : "secondary"])
+                    self.errorMessage = ""
                     self.registered = true
                 }
                 
             } else {
-                print("Document does not exist")
+                self.errorMessage = "ID does not exist in record"
             }
         }
     }

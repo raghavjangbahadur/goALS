@@ -86,7 +86,11 @@ struct RegistrationSecondaryView: View {
                             .foregroundColor(Color("DeepRed"))
                     )
             }
-            .padding(.bottom, 35)
+            .padding(.bottom, 10)
+            Text(model.errorMessage)
+                .foregroundColor(.red)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 35)
             NavigationLink(
                 destination: ContentView(),
                 isActive: $model.registered,
