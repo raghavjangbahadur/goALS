@@ -78,7 +78,6 @@ struct MainMessagesView: View {
                     isActive: $exit,
                     label: {}
                 )
-                .navigationBarBackButtonHidden(true)
             } .onAppear {
                 model.fetchRecentMessages()
             }

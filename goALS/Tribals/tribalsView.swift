@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct tribalsView: View {
+    
+    @State var showPublic = false
+    
     var body: some View {
         VStack {
             VStack {
@@ -56,9 +59,25 @@ struct tribalsView: View {
                 }
             }
             .padding(.bottom, 30)
+            ZStack {
+                RoundedRectangle(cornerRadius:15)
+                    .frame(width: 320, height: 45)
+                    .foregroundColor(Color("LightGrey"))
+                    .shadow(color: Color.black.opacity(0.5), radius: 10)
+                Text("Public Community")
+                    .foregroundColor(Color("DarkGrey"))
+                    .fontWeight(.bold)
+            }
+            .padding(.bottom, 30)
+            .onTapGesture(perform: {
+                showPublic.toggle()
+            })
             Spacer()
         }
         .background(Color.white)
+        .sheet(isPresented: $showPublic, content: {
+            CommunityView()
+        })
     }
 }
 

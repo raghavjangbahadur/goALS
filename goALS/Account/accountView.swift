@@ -67,6 +67,14 @@ struct accountView: View {
                         Spacer()
                     }
                 }
+                NavigationLink {
+                    CircleView()
+                } label: {
+                    HStack {
+                        Text("Patient Circle")
+                        Spacer()
+                    }
+                }
                 if(model.primary) {
                     NavigationLink {
                         AddNewUserView()

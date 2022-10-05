@@ -17,7 +17,14 @@ struct ContentView: View {
             goalsView()
                 .navigationBarHidden(true)
                 .tabItem {
-                    Label("Home", image: "home_logo_grey")
+                    Label(title: {
+                        Text("Home")
+                    }, icon: {
+                        Image("home_logo_grey")
+                           .resizable()
+                           .aspectRatio(contentMode: .fit)
+                           .frame(height: 125)
+                    })
                 }
             vitalsView()
                 .navigationBarHidden(true)

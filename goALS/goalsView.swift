@@ -8,30 +8,31 @@
 import SwiftUI
 
 struct goalsView: View {
+    
     @ObservedObject var model = PatientInfoModel()
+    
     var body: some View {
         VStack {
             HStack {
+                Image("goals_logo_white")
+                     .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 80)
+                    .padding(.horizontal)
                 Spacer()
                 NavigationLink(destination: accountView()) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius:15)
-                            .frame(width: 110, height: 30)
+                    HStack {
+                        Text("Account")
+                            .font(.subheadline)
+                            .fontWeight(.bold)
                             .foregroundColor(.white)
-                            .shadow(color: .black.opacity(0.5), radius: 5)
-                            .padding(.all, 15)
-                        HStack {
-                            Text("Account")
-                                .font(.subheadline)
-                                .fontWeight(.bold)
-                                .foregroundColor(Color("DarkGrey"))
-                            Image(systemName: "person.fill")
-                                .font(.system(size: 16))
-                                .foregroundColor(Color("DarkGrey"))
-                        }
+                        Image(systemName: "person.fill")
+                            .font(.system(size: 16))
+                            .foregroundColor(.white)
                     }
                 }
                 .padding(.bottom, 20)
+                .padding(.horizontal)
             }
             Text("Hi " + model.user.firstName + "!")
                 .foregroundColor(.white)

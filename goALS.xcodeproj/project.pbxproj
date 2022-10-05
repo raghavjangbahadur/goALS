@@ -19,6 +19,8 @@
 		2A05DB5528DCD41500B1FAA9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB5428DCD41500B1FAA9 /* LoginView.swift */; };
 		2A05DB5728DCF7C800B1FAA9 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB5628DCF7C700B1FAA9 /* RegistrationModel.swift */; };
 		2A05DB5928DCF7DA00B1FAA9 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB5828DCF7DA00B1FAA9 /* RegistrationView.swift */; };
+		2A05DB6928EB9B4B00B1FAA9 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB6828EB9B4B00B1FAA9 /* CommunityView.swift */; };
+		2A05DB6B28EBA40E00B1FAA9 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A05DB6A28EBA40E00B1FAA9 /* CircleView.swift */; };
 		2A274C5D28B36D5D00474135 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C5C28B36D5D00474135 /* User.swift */; };
 		2A274C6128B4A88900474135 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C6028B4A88900474135 /* ChatModel.swift */; };
 		2A274C6328B4AC9B00474135 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A274C6228B4AC9B00474135 /* Message.swift */; };
@@ -102,6 +104,8 @@
 		2A05DB5428DCD41500B1FAA9 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = goALS/Authentication/Views/LoginView.swift; sourceTree = SOURCE_ROOT; };
 		2A05DB5628DCF7C700B1FAA9 /* RegistrationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationModel.swift; path = goALS/Authentication/Models/RegistrationModel.swift; sourceTree = SOURCE_ROOT; };
 		2A05DB5828DCF7DA00B1FAA9 /* RegistrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationView.swift; path = goALS/Authentication/Views/RegistrationView.swift; sourceTree = SOURCE_ROOT; };
+		2A05DB6828EB9B4B00B1FAA9 /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
+		2A05DB6A28EBA40E00B1FAA9 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		2A274C5C28B36D5D00474135 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A274C6028B4A88900474135 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		2A274C6228B4AC9B00474135 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				2A661F912870FCEF0014B661 /* tribalsView.swift */,
+				2A05DB6828EB9B4B00B1FAA9 /* CommunityView.swift */,
 				2A05DB6028DCFAA700B1FAA9 /* Group Messaging */,
 				2A05DB5F28DCFA2D00B1FAA9 /* Messaging */,
 			);
@@ -283,6 +288,7 @@
 				2A5B93442881ED31005A457E /* accountView.swift */,
 				2AF1188228B896C0001A6525 /* AddNewUserView.swift */,
 				2A2E59F328D175A700796506 /* ResetPasswordView.swift */,
+				2A05DB6A28EBA40E00B1FAA9 /* CircleView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -554,10 +560,12 @@
 				2A8F13EA28B5E0FF0053B091 /* MainMessagesModel.swift in Sources */,
 				2AF1188728B89C8F001A6525 /* RegistrationSecondaryView.swift in Sources */,
 				2AF1195928BDC075001A6525 /* GroupChatModel.swift in Sources */,
+				2A05DB6B28EBA40E00B1FAA9 /* CircleView.swift in Sources */,
 				2A8F13EC28B5E7B40053B091 /* NewMessageView.swift in Sources */,
 				2A661F902870FCCA0014B661 /* vitalsView.swift in Sources */,
 				2A05DB5728DCF7C800B1FAA9 /* RegistrationModel.swift in Sources */,
 				2A4B2F5428A3269100E47DB2 /* PatientInfoEditView.swift in Sources */,
+				2A05DB6928EB9B4B00B1FAA9 /* CommunityView.swift in Sources */,
 				2A661F8E2870FCB50014B661 /* goalsView.swift in Sources */,
 				2A661F942870FD0E0014B661 /* verbalsView.swift in Sources */,
 				2AA7347428A9CD3A00D17A07 /* ChecklistItem.swift in Sources */,
