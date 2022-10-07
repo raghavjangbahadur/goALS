@@ -65,25 +65,23 @@ struct MainMessagesView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack {
-                customNavBar
-                messagesView
-                
-                NavigationLink("", isActive: $shouldNavigateToChatLogView) {
-                    ChatView(user: self.user)
-                }
-                NavigationLink(
-                    destination: tribalsView(),
-                    isActive: $exit,
-                    label: {}
-                )
-            } .onAppear {
-                model.fetchRecentMessages()
+        VStack {
+            customNavBar
+            messagesView
+            
+            NavigationLink("", isActive: $shouldNavigateToChatLogView) {
+                ChatView(user: self.user)
             }
-            .overlay(
-                newMessageButton, alignment: .bottom)
+            NavigationLink(
+                destination: tribalsView(),
+                isActive: $exit,
+                label: {}
+            )
+        } .onAppear {
+            model.fetchRecentMessages()
         }
+        .overlay(
+            newMessageButton, alignment: .bottom)
     }
     
     private var messagesView: some View {
