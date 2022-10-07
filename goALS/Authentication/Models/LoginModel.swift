@@ -70,8 +70,8 @@ class LoginModel: ObservableObject {
             print("Error signing out: %@", signOutError)
             return
         }
-        self.loggedIn = false
         self.email = ""
         self.password = ""
+        self.loggedIn = false
     }
 }

@@ -22,7 +22,7 @@ struct goalsView: View {
                 Spacer()
                 NavigationLink(destination: accountView()) {
                     HStack {
-                        Text("Account")
+                        Text("Settings")
                             .font(.subheadline)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
