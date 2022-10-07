@@ -92,14 +92,15 @@ struct RegistrationSecondaryView: View {
                 .padding(.horizontal, 10)
                 .padding(.bottom, 35)
             NavigationLink(
-                destination: ContentView(),
+                destination:
+                    ContentView()
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true),
                 isActive: $model.registered,
                 label: {}
             )
-            .navigationBarBackButtonHidden(true)
-            .navigationBarHidden(true)
         }
-        
+        .navigationBarBackButtonHidden(false)
         .background(Color.white)
     }
     
