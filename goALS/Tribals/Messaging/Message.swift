@@ -13,6 +13,7 @@ struct Message: Identifiable, Codable {
 
     let documentId: String
     let fromId, toId, text: String
+    //let time: Date
 
     init(documentId: String, data: [String: Any]) {
         self.documentId = documentId
@@ -21,3 +22,5 @@ struct Message: Identifiable, Codable {
         self.text = data["text"] as? String ?? ""
     }
 }
+
+extension Message: Equatable, Hashable {}

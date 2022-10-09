@@ -77,7 +77,7 @@ struct GroupChatView: View {
             }
             .padding(.horizontal)
             .padding(.vertical, 6)
-            .background(Color.blue)
+            .background(Color("DeepRed"))
             .cornerRadius(4)
         }
         .padding(.horizontal)

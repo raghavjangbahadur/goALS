@@ -16,7 +16,7 @@ import FirebaseAuth
 struct ChatView: View {
     
     let user: User?
-
+    
     @ObservedObject var model: ChatViewModel
 
     @State var text = ""
@@ -84,7 +84,7 @@ struct ChatView: View {
             }
             .padding(.horizontal)
             .padding(.vertical, 6)
-            .background(Color.blue)
+            .background(Color("DeepRed"))
             .cornerRadius(4)
         }
         .padding(.horizontal)
@@ -107,14 +107,22 @@ private struct DescriptionPlaceholder: View {
 struct MessageView: View {
     let message: Message
     
+    let formatter = DateFormatter()
+    
+    init(message: Message) {
+        self.message = message
+        formatter.dateFormat = "HH:mm"
+    }
+    
     var body: some View {
         VStack {
             if message.fromId == Auth.auth().currentUser?.uid {
                 HStack {
                     Spacer()
-                    HStack {
+                    VStack {
                         Text(message.text)
                             .foregroundColor(.white)
+                        //Text(formatter.string(from: message.time))
                     }
                     .padding()
                     .background(Color.blue)
@@ -123,9 +131,10 @@ struct MessageView: View {
             }
             else {
                 HStack {
-                    HStack {
+                    VStack {
                         Text(message.text)
                             .foregroundColor(.black)
+                        //Text(formatter.string(from: message.time))
                     }
                     .padding()
                     .background(Color.white)
