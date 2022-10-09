@@ -36,6 +36,8 @@ struct goalsView: View {
             }
             Text("Hi " + model.user.firstName + "!")
                 .foregroundColor(.white)
+                .font(.system(size: 25))
+                .fontWeight(.bold)
                 .padding(.bottom, 50)
             NavigationLink(destination: vitalsView()) {
                 ZStack {
@@ -53,7 +55,6 @@ struct goalsView: View {
                     .foregroundColor(.white)
                     .frame(maxWidth: 200)
             }
-            .navigationBarBackButtonHidden(true)
             
             NavigationLink(destination: tribalsView()) {
                 ZStack {
@@ -72,7 +73,6 @@ struct goalsView: View {
                     .frame(maxWidth: 200)
                 
             }
-            .navigationBarBackButtonHidden(true)
             
             NavigationLink(destination: verbalsView()) {
                 ZStack {
@@ -90,7 +90,6 @@ struct goalsView: View {
                     .foregroundColor(.white)
                     .frame(maxWidth: 200)
             }
-            .navigationBarBackButtonHidden(true)
             Spacer()
             
         }.onAppear {
