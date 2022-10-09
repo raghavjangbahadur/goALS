@@ -16,109 +16,106 @@ struct vitalsView: View {
     @State var incorrect = 0
     @State var answered = 0
     
-    init() {
-        UINavigationBar.appearance().tintColor = .purple
-    }
-    
     var body: some View {
-        VStack {
+        NavigationView{
             VStack {
-                HStack{
-                    Spacer()
-                    Image("goals_logo_white")
-                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 100)
-                    Text("> > >")
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                        .font(.system(size: 20))
-                    Image("vitals_logo_white")
-                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 125)
-                    Spacer()
+                VStack {
+                    HStack{
+                        Spacer()
+                        Image("goals_logo_white")
+                             .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 100)
+                        Text("> > >")
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
+                            .font(.system(size: 20))
+                        Image("vitals_logo_white")
+                             .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 125)
+                        Spacer()
+                    }
+                    Divider()
                 }
-                Divider()
-            }
-            .background(Color("DarkGrey"))
-            NavigationLink(destination: PatientInfoView()) {
-                ZStack {
-                    RoundedRectangle(cornerRadius:15)
-                        .frame(width: 320, height: 45)
-                        .foregroundColor(Color("LightGrey"))
-                        .shadow(color: Color.black.opacity(0.5), radius: 10)
-                    Text("Key details and information")
-                        .foregroundColor(Color("DarkGrey"))
-                        .fontWeight(.bold)
+                .background(Color("DarkGrey"))
+                NavigationLink(destination: PatientInfoView()) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius:15)
+                            .frame(width: 320, height: 45)
+                            .foregroundColor(Color("LightGrey"))
+                            .shadow(color: Color.black.opacity(0.5), radius: 10)
+                        Text("Key details and information")
+                            .foregroundColor(Color("DarkGrey"))
+                            .fontWeight(.bold)
+                    }
+                    .padding(.top, 30)
                 }
-                .padding(.top, 30)
-            }
-            .padding(.bottom, 30)
-            
-            NavigationLink(destination: TodosView()) {
-                ZStack {
-                    RoundedRectangle(cornerRadius:15)
-                        .frame(width: 320, height: 45)
-                        .foregroundColor(Color("LightGrey"))
-                        .shadow(color: Color.black.opacity(0.5), radius: 10)
-                    Text("Daily Checklist")
-                        .foregroundColor(Color("DarkGrey"))
-                        .fontWeight(.bold)
+                .padding(.bottom, 30)
+                
+                NavigationLink(destination: TodosView()) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius:15)
+                            .frame(width: 320, height: 45)
+                            .foregroundColor(Color("LightGrey"))
+                            .shadow(color: Color.black.opacity(0.5), radius: 10)
+                        Text("Daily Checklist")
+                            .foregroundColor(Color("DarkGrey"))
+                            .fontWeight(.bold)
+                    }
                 }
-            }
-            .padding(.bottom, 30)
+                .padding(.bottom, 30)
 
-            NavigationLink(destination: Calendar()) {
+                NavigationLink(destination: Calendar()) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius:15)
+                            .frame(width: 320, height: 45)
+                            .foregroundColor(Color("LightGrey"))
+                            .shadow(color: Color.black.opacity(0.5), radius: 10)
+                        Text("Calendar")
+                            .foregroundColor(Color("DarkGrey"))
+                            .fontWeight(.bold)
+                    }
+                }
+                .padding(.bottom, 30)
+                
                 ZStack {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 320, height: 45)
                         .foregroundColor(Color("LightGrey"))
                         .shadow(color: Color.black.opacity(0.5), radius: 10)
-                    Text("Calendar")
+                    Text("Learn more about ALS")
                         .foregroundColor(Color("DarkGrey"))
                         .fontWeight(.bold)
                 }
+                .padding(.bottom, 30)
+                .onTapGesture(perform: {
+                    showLearn.toggle()
+                })
+                
+                ZStack {
+                    RoundedRectangle(cornerRadius:15)
+                        .frame(width: 320, height: 45)
+                        .foregroundColor(Color("LightGrey"))
+                        .shadow(color: Color.black.opacity(0.5), radius: 10)
+                    Text("Take the ALS Quiz!")
+                        .foregroundColor(Color("DarkGrey"))
+                        .fontWeight(.bold)
+                }
+                .padding(.bottom, 30)
+                .onTapGesture(perform: {
+                    showQuiz.toggle()
+                })
+                Spacer()
             }
-            .padding(.bottom, 30)
-            
-            ZStack {
-                RoundedRectangle(cornerRadius:15)
-                    .frame(width: 320, height: 45)
-                    .foregroundColor(Color("LightGrey"))
-                    .shadow(color: Color.black.opacity(0.5), radius: 10)
-                Text("Learn more about ALS")
-                    .foregroundColor(Color("DarkGrey"))
-                    .fontWeight(.bold)
-            }
-            .padding(.bottom, 30)
-            .onTapGesture(perform: {
-                showLearn.toggle()
+            .background(Color.white)
+            .sheet(isPresented: $showQuiz, content: {
+                QuizView(correct: $correct, incorrect: $incorrect, answered: $answered)
             })
-            
-            ZStack {
-                RoundedRectangle(cornerRadius:15)
-                    .frame(width: 320, height: 45)
-                    .foregroundColor(Color("LightGrey"))
-                    .shadow(color: Color.black.opacity(0.5), radius: 10)
-                Text("Take the ALS Quiz!")
-                    .foregroundColor(Color("DarkGrey"))
-                    .fontWeight(.bold)
-            }
-            .padding(.bottom, 30)
-            .onTapGesture(perform: {
-                showQuiz.toggle()
+            .sheet(isPresented: $showLearn, content: {
+                LearnView()
             })
-            Spacer()
         }
-        .background(Color.white)
-        .sheet(isPresented: $showQuiz, content: {
-            QuizView(correct: $correct, incorrect: $incorrect, answered: $answered)
-        })
-        .sheet(isPresented: $showLearn, content: {
-            LearnView()
-        })
-        .accentColor(Color("DeepRed"))
     }
 }
 

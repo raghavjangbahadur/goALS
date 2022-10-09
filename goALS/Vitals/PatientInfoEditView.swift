@@ -39,284 +39,255 @@ struct PatientInfoEditView: View {
     ]
     
     var body: some View {
-        ScrollView {
-            Text("Edit patient information")
-                .foregroundColor(Color("DarkGrey"))
-                .font(.title2)
-                .fontWeight(.bold)
-                .padding(.top, 10)
-                .padding(.bottom, 10)
-            VStack {
-                HStack {
-                    Text("Gender")
-                        .padding(.horizontal, 3)
-                        .foregroundColor(Color("DarkGrey"))
-                    Spacer()
-                    Picker(selection: $newGender,
-                           content: {
-                        ForEach(optionsGender, id: \.self) { option in
-                            Text(option)
-                                .tag(option)
-                        }
-                    }, label: {
-                        HStack {
-                            Text(newGender)
-                                .foregroundColor(.red)
-                        } .onAppear() {
-                            newGender = model.patient.gender
-                        }
-                    })
-                    .pickerStyle(MenuPickerStyle())
-                }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-                HStack {
-                    Text("Age")
-                        .padding(.trailing, 10)
-                        .foregroundColor(Color("DarkGrey"))
-                    Spacer()
-                    Picker(selection: $newAge,
-                           content: {
-                        ForEach(1..<120) { number in
-                            Text("\(number)")
-                                .tag(number)
-                        }
-                    }, label: {
-                        HStack {
-                            Text("       ")
-                            Text("\(newAge)")
-                                .foregroundColor(.red)
-                        }.onAppear() {
-                            newAge = model.patient.age
-                        }
-                    })
-                    
-                }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-                HStack {
-                    Text("[Stage of ALS](https://alsnewstoday.com/stages-of-als/)")
-                        .padding(.horizontal, 3)
-                        .foregroundColor(Color("DarkGrey"))
-                    Spacer()
-                    Picker(selection: $newStage,
-                           content: {
-                        ForEach(optionsStage, id: \.self) { option in
-                            Text(option)
-                                .tag(option)
-                        }
-                    }, label: {
-                        HStack {
-                            Text("       ")
-                            Text(newStage)
-                                .foregroundColor(.red)
-                        }.onAppear() {
-                            newStage = model.patient.stage
-                        }
-                    })
-                    .pickerStyle(MenuPickerStyle())
-                }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-                HStack {
-                    Text("Use of feeding tube")
-                        .padding(.horizontal, 5)
-                        .foregroundColor(Color("DarkGrey"))
-                    Spacer()
-                    Picker(selection: $tube,
-                           content: {
-                        ForEach(optionsYN, id: \.self) { option in
-                            Text(option)
-                                .tag(option)
-                        }
-                    }, label: {
-                        HStack {
-                            Text("       ")
-                            Text(tube)
-                                .foregroundColor(.red)
-                        }.onAppear() {
-                            tube = model.patient.tube
-                        }
-                    })
-                    .pickerStyle(MenuPickerStyle())
-                }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-                HStack {
-                    Text("Hand strength/control, clumsiness, inability to hold items, difficulty, etc")
-                        .padding(.trailing, 10)
-                        .foregroundColor(Color("DarkGrey"))
-                    Spacer()
-                        .font(.system(size: 15))
-                    Picker(selection: $hands,
-                           content: {
-                        ForEach(options, id: \.self) { option in
-                            Text(option)
-                                .tag(option)
-                        }
-                    }, label: {
-                        HStack {
-                            Text("")
-                            Text(hands)
-                                .foregroundColor(.red)
-                        }.onAppear() {
-                            hands = model.patient.hands
-                        }
-                    })
-                    .pickerStyle(MenuPickerStyle())
-                }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-                HStack {
-                    Text("Speech issues (slurring, trouble speaking clearly)")
-                        .foregroundColor(Color("DarkGrey"))
-                        .padding(.horizontal, 3)
-                    Spacer()
-                    Picker(selection: $speech,
-                           content: {
-                        ForEach(options, id: \.self) { option in
-                            Text(option)
-                                .tag(option)
-                        }
-                    }, label: {
-                        HStack {
-                            Text("       ")
-                            Text(speech)
-                                .foregroundColor(.red)
-                        }.onAppear() {
-                            speech = model.patient.speech
-                        }
-                    })
-                    .pickerStyle(MenuPickerStyle())
-                }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-                HStack {
-                    Text("Muscle cramps/twitches")
-                        .padding(.horizontal, 3)
-                        .foregroundColor(Color("DarkGrey"))
-                    Spacer()
-                    Picker(selection: $muscles,
-                           content: {
-                        ForEach(options, id: \.self) { option in
-                            Text(option)
-                                .tag(option)
-                        }
-                    }, label: {
-                        HStack {
-                            Text("       ")
-                            Text(muscles)
-                                .foregroundColor(.red)
-                        }.onAppear() {
-                            muscles = model.patient.muscles
-                        }
-                    })
-                    .pickerStyle(MenuPickerStyle())
-                }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-                
-                HStack {
-                    Text("Difficulty walking, without tripping or falling")
-                        .padding(.horizontal, 3)
-                        .foregroundColor(Color("DarkGrey"))
-                    Spacer()
-                    Picker(selection: $walking,
-                           content: {
-                        ForEach(options, id: \.self) { option in
-                            Text(option)
-                                .tag(option)
-                        }
-                    }, label: {
-                        HStack {
-                            Text("       ")
-                            Text(walking)
-                                .foregroundColor(.red)
-                        }.onAppear() {
-                            walking = model.patient.walking
-                        }
-                    })
-                    .pickerStyle(MenuPickerStyle())
-                }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-                
-                HStack {
-                    Text("Weakness in legs, feet, hands, or fingers")
-                        .padding(.horizontal, 3)
-                        .foregroundColor(Color("DarkGrey"))
-                    Spacer()
-                    Picker(selection: $legs,
-                           content: {
-                        ForEach(options, id: \.self) { option in
-                            Text(option)
-                                .tag(option)
-                        }
-                    }, label: {
-                        HStack {
-                            Text("       ")
-                            Text(legs)
-                                .foregroundColor(.red)
-                        }.onAppear() {
-                            legs = model.patient.legs
-                        }
-                    })
-                    .pickerStyle(MenuPickerStyle())
-                }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 10)
-                
-                HStack {
-                    Text("Difficult breathing")
-                        .padding(.horizontal, 3)
-                        .foregroundColor(Color("DarkGrey"))
-                    Spacer()
-                    Picker(selection: $breathing,
-                           content: {
-                        ForEach(options, id: \.self) { option in
-                            Text(option)
-                                .tag(option)
-                        }
-                    }, label: {
-                        HStack {
-                            Text("       ")
-                            Text(breathing)
-                                .foregroundColor(.red)
-                        }.onAppear() {
-                            breathing = model.patient.breathing
-                        }
-                    })
-                    .pickerStyle(MenuPickerStyle())
-                }
-                .padding(.horizontal, 10)
-                .padding(.bottom, 20)
+        Text("Edit patient information")
+            .foregroundColor(Color("DarkGrey"))
+            .font(.title2)
+            .fontWeight(.bold)
+            .padding(.top, 10)
+            .padding(.bottom, 10)
+        List{
+            HStack {
+                Text("Gender")
+                    .padding(.horizontal, 3)
+                    .foregroundColor(Color("DarkGrey"))
+                Spacer()
+                Picker(selection: $newGender,
+                       content: {
+                    ForEach(optionsGender, id: \.self) { option in
+                        Text(option)
+                            .tag(option)
+                    }
+                }, label: {
+                    HStack {
+                        Text("")
+                    } .onAppear() {
+                        newGender = model.patient.gender
+                    }
+                })
+                .pickerStyle(MenuPickerStyle())
+            }
+            .padding(.horizontal, 10)
+            .padding(.bottom, 8)
+            HStack {
+                Text("Age")
+                    .padding(.trailing, 10)
+                    .foregroundColor(Color("DarkGrey"))
+                Spacer()
+                Picker(selection: $newAge,
+                       content: {
+                    ForEach(1..<120) { number in
+                        Text("\(number)")
+                            .tag(number)
+                    }
+                }, label: {
+                    HStack {
+                        Text("       ")
+                        Text("")
+                    }.onAppear() {
+                        newAge = model.patient.age
+                    }
+                })
                 
             }
-            .padding()
-            .background{
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(.white)
-                    .shadow(color: Color.black.opacity(0.3), radius: 5)
-                    .padding(10)
+            .padding(.horizontal, 10)
+            .padding(.bottom, 8)
+            HStack {
+                Text("[Stage of ALS](https://alsnewstoday.com/stages-of-als/)")
+                    .padding(.horizontal, 3)
+                    .accentColor(.blue)
+                Spacer()
+                Picker(selection: $newStage,
+                       content: {
+                    ForEach(optionsStage, id: \.self) { option in
+                        Text(option)
+                            .tag(option)
+                    }
+                }, label: {
+                    HStack {
+                        Text("")
+                    }.onAppear() {
+                        newStage = model.patient.stage
+                    }
+                })
+                .pickerStyle(MenuPickerStyle())
             }
-            .onAppear {
-                model.getSingleData()
+            .padding(.horizontal, 10)
+            .padding(.bottom, 8)
+            HStack {
+                Text("Use of feeding tube")
+                    .padding(.horizontal, 5)
+                    .foregroundColor(Color("DarkGrey"))
+                Spacer()
+                Picker(selection: $tube,
+                       content: {
+                    ForEach(optionsYN, id: \.self) { option in
+                        Text(option)
+                            .tag(option)
+                    }
+                }, label: {
+                    HStack {
+                        Text("")
+                    }.onAppear() {
+                        tube = model.patient.tube
+                    }
+                })
+                .pickerStyle(MenuPickerStyle())
             }
-            Button(action: updateData) {
-                Text("Update")
-                    .foregroundColor(Color.white)
-                    .fontWeight(.bold)
-                    .padding()
-                    .padding(.horizontal)
-                    .background(
-                        RoundedRectangle(cornerRadius: 5)
-                            .foregroundColor(Color("DeepRed"))
-                    )
+            .padding(.horizontal, 10)
+            .padding(.bottom, 8)
+            HStack {
+                Text("Hand strength/control, clumsiness, inability to hold items, difficulty, etc")
+                    .padding(.trailing, 10)
+                    .foregroundColor(Color("DarkGrey"))
+                Spacer()
+                    .font(.system(size: 15))
+                Picker(selection: $hands,
+                       content: {
+                    ForEach(options, id: \.self) { option in
+                        Text(option)
+                            .tag(option)
+                    }
+                }, label: {
+                    HStack {
+                        Text("")
+                    }.onAppear() {
+                        hands = model.patient.hands
+                    }
+                })
+                .pickerStyle(MenuPickerStyle())
             }
-            .padding(.bottom)
-            .padding(.top)
+            .padding(.horizontal, 10)
+            .padding(.bottom, 8)
+            HStack {
+                Text("Speech issues (slurring, trouble speaking clearly)")
+                    .foregroundColor(Color("DarkGrey"))
+                    .padding(.horizontal, 3)
+                Spacer()
+                Picker(selection: $speech,
+                       content: {
+                    ForEach(options, id: \.self) { option in
+                        Text(option)
+                            .tag(option)
+                    }
+                }, label: {
+                    HStack {
+                        Text("")
+                    }.onAppear() {
+                        speech = model.patient.speech
+                    }
+                })
+                .pickerStyle(MenuPickerStyle())
+            }
+            .padding(.horizontal, 10)
+            .padding(.bottom, 8)
+            HStack {
+                Text("Muscle cramps/twitches")
+                    .padding(.horizontal, 3)
+                    .foregroundColor(Color("DarkGrey"))
+                Spacer()
+                Picker(selection: $muscles,
+                       content: {
+                    ForEach(options, id: \.self) { option in
+                        Text(option)
+                            .tag(option)
+                    }
+                }, label: {
+                    HStack {
+                        Text("")
+                    }.onAppear() {
+                        muscles = model.patient.muscles
+                    }
+                })
+                .pickerStyle(MenuPickerStyle())
+            }
+            .padding(.horizontal, 10)
+            .padding(.bottom, 8)
             
+            HStack {
+                Text("Difficulty walking, without tripping or falling")
+                    .padding(.horizontal, 3)
+                    .foregroundColor(Color("DarkGrey"))
+                Spacer()
+                Picker(selection: $walking,
+                       content: {
+                    ForEach(options, id: \.self) { option in
+                        Text(option)
+                            .tag(option)
+                    }
+                }, label: {
+                    HStack {
+                        Text("")
+                    }.onAppear() {
+                        walking = model.patient.walking
+                    }
+                })
+                .pickerStyle(MenuPickerStyle())
+            }
+            .padding(.horizontal, 10)
+            .padding(.bottom, 8)
+            
+            HStack {
+                Text("Weakness in legs, feet, hands, or fingers")
+                    .padding(.horizontal, 3)
+                    .foregroundColor(Color("DarkGrey"))
+                Spacer()
+                Picker(selection: $legs,
+                       content: {
+                    ForEach(options, id: \.self) { option in
+                        Text(option)
+                            .tag(option)
+                    }
+                }, label: {
+                    HStack {
+                        Text("")
+                    }.onAppear() {
+                        legs = model.patient.legs
+                    }
+                })
+                .pickerStyle(MenuPickerStyle())
+            }
+            .padding(.horizontal, 10)
+            .padding(.bottom, 8)
+            
+            HStack {
+                Text("Difficult breathing")
+                    .padding(.horizontal, 3)
+                    .foregroundColor(Color("DarkGrey"))
+                Spacer()
+                Picker(selection: $breathing,
+                       content: {
+                    ForEach(options, id: \.self) { option in
+                        Text(option)
+                            .tag(option)
+                    }
+                }, label: {
+                    HStack {
+                        Text("")
+                    }.onAppear() {
+                        breathing = model.patient.breathing
+                    }
+                })
+                .pickerStyle(MenuPickerStyle())
+            }
+            .padding(.horizontal, 10)
+            .padding(.bottom, 10)
+
         }
+        .onAppear {
+            model.getSingleData()
+        }
+        Button(action: updateData) {
+            Text("Update")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+                .padding(10)
+                .padding(.horizontal)
+                .background(
+                    RoundedRectangle(cornerRadius: 5)
+                        .foregroundColor(Color("DeepRed"))
+                )
+        }
+        .padding(.bottom)
     }
     func updateData() {
         var values = [String: Any]()

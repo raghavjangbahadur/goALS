@@ -47,9 +47,10 @@ struct TodosView: View {
                         .foregroundColor(Color("DeepRed"))
                         .fontWeight(.bold)
                 })
-                .padding()
+                .padding(10)
                 Text(model.checklistErrorMessage)
                     .foregroundColor(.red)
+                    .padding(.bottom, 10)
             }
         }
         .accentColor(.red)

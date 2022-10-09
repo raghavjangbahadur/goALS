@@ -24,6 +24,7 @@ struct ContentView: View {
                     })
                 }
             vitalsView()
+                .accentColor(Color("DeepRed"))
                 .navigationBarHidden(true)
                 .tabItem {
                     Label("View Patient Info", image:"vitals_logo_grey")
@@ -40,7 +41,6 @@ struct ContentView: View {
                 }
         }
         .accentColor(Color("DeepRed"))
-        Divider()
         Spacer()
     }
 }

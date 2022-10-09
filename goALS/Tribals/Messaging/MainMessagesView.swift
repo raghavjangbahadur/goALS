@@ -38,7 +38,7 @@ struct MainMessagesView: View {
                         .frame(width: 14, height: 14)
                     Text("online")
                         .font(.system(size: 12))
-                        .foregroundColor(Color(.lightGray))
+                        .foregroundColor(Color("DarkGrey"))
                 }
                 
             }
@@ -98,6 +98,7 @@ struct MainMessagesView: View {
                         HStack(spacing: 16) {
                             Image(systemName: "person.fill")
                                 .font(.system(size: 32))
+                                .accentColor(.black)
                                 .padding(8)
                                 .overlay(RoundedRectangle(cornerRadius: 44)
                                     .stroke(Color(.label), lineWidth: 1)
@@ -107,10 +108,10 @@ struct MainMessagesView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text(recentMessage.firstName)
                                     .font(.system(size: 16, weight: .bold))
-                                    .foregroundColor(Color(.label))
+                                    .foregroundColor(.black)
                                 Text(recentMessage.text)
                                     .font(.system(size: 14))
-                                    .foregroundColor(Color(.lightGray))
+                                    .foregroundColor(Color("DarkGrey"))
                                     .multilineTextAlignment(.leading)
                                 
                             }
@@ -118,6 +119,7 @@ struct MainMessagesView: View {
                             
                             Text(recentMessage.timeAgo)
                                 .font(.system(size: 14, weight: .semibold))
+                                .accentColor(.black)
                         }
                         Divider()
                             .padding(.vertical, 8)
@@ -140,17 +142,19 @@ struct MainMessagesView: View {
             }
             .foregroundColor(.white)
             .padding(.vertical)
-            .background(Color.blue)
+            .background(Color("DeepRed"))
             .cornerRadius(32)
             .padding(.horizontal)
             .shadow(radius: 15)
         }
+        .padding(.bottom)
         .fullScreenCover(isPresented: $shouldShowNewMessageScreen){
             NewMessageView(didSelectNewUser: { user in
                 print(user.email)
                 self.shouldNavigateToChatLogView.toggle()
                 self.user = user
             })
+            .accentColor(Color("DeepRed"))
         }
     }
 }

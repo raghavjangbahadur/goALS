@@ -27,8 +27,9 @@ struct NewMessageView: View {
                         HStack(spacing: 16) {
                             Image(systemName: "person.fill")
                                 .font(.system(size: 34, weight: .heavy))
+                                .foregroundColor(.black)
                             Text(user.firstName)
-                                .foregroundColor(Color(.label))
+                                .foregroundColor(.black)
                             Spacer()
                         }.padding(.horizontal)
                     }
@@ -36,6 +37,7 @@ struct NewMessageView: View {
                         .padding(.vertical, 8)
                 }
             }.navigationTitle("New Message")
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarLeading) {
                         Button {

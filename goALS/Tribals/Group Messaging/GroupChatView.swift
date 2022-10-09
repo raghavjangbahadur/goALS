@@ -82,6 +82,7 @@ struct GroupChatView: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 8)
+        .padding(.bottom)
     }
 
 }

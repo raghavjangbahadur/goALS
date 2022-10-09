@@ -36,7 +36,7 @@ struct PatientInfoView: View {
                 .padding(10)
                 HStack {
                     Text("[Stage of ALS](https://alsnewstoday.com/stages-of-als/)")
-                        .foregroundColor(Color("DarkGrey"))
+                        .accentColor(.blue)
                     Spacer()
                     Text(model.patient.stage)
                         .foregroundColor(Color("DarkGrey"))
@@ -109,10 +109,18 @@ struct PatientInfoView: View {
                 model.getSingleData()
             }
         }
-        NavigationLink("Update basic information") {
-            PatientInfoEditView()
-                .padding(.bottom, 30)
-        }
+        NavigationLink(destination: PatientInfoEditView(), label: {
+            Text("Update basic information")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+                .padding(10)
+                .padding(.horizontal)
+                .background(
+                    RoundedRectangle(cornerRadius: 5)
+                        .foregroundColor(Color("DeepRed"))
+                )
+        })
+        .padding(.bottom, 20)
         .accentColor(Color("DeepRed"))
     }
 }
