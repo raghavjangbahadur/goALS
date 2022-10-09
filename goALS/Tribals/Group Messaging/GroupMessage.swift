@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct GroupMessage: Identifiable, Codable {
 
@@ -14,12 +15,14 @@ struct GroupMessage: Identifiable, Codable {
     let documentId: String
     let fromId, text: String
     let firstName, lastName: String
+    let time: Date
 
-    init(documentId: String, data: [String: Any]) {
+    init(documentId: String, data: [String: Any], stamp: Timestamp) {
         self.documentId = documentId
         self.fromId = data["fromId"] as? String ?? ""
         self.text = data["text"] as? String ?? ""
         self.firstName = data["firstName"] as? String ?? ""
         self.lastName = data["lastName"] as? String ?? ""
+        self.time = stamp.dateValue()
     }
 }

@@ -16,6 +16,7 @@ import FirebaseAuth
 class EventModel: ObservableObject {
     
     @Published var events = [Event]()
+    @Published var errorMessage = ""
     var totalEvents = Set<Event>()
     
     func getEvents(date: String, completion: (([Event]) -> Void)? = nil) {
@@ -95,6 +96,7 @@ class EventModel: ObservableObject {
                 db.collection("events").document(key).collection(key).addDocument(data: ["title": title, "description": description, "date": date, "startTime" : startTime, "endTime" : endTime]) { error in
                     if error == nil {
                         self.getEvents(date: date, completion: completion)
+                        self.errorMessage = ""
                     }
                 }
             } else {

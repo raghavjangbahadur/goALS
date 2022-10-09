@@ -11,7 +11,7 @@ import ElegantCalendar
 struct Calendar: View {
     
     @ObservedObject var calendarManager: MonthlyCalendarManager
-    @State private var calendarTheme: CalendarTheme = CalendarTheme(primary: Color.red)
+    @State private var calendarTheme: CalendarTheme = CalendarTheme(primary: Color("DeepRed"))
     @ObservedObject var model = EventModel()
 
     init() {

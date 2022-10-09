@@ -21,17 +21,17 @@ struct ChecklistNotesView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(item?.notes ?? "")
+            Text(item?.name ?? "")
                 .font(.title)
                 .foregroundColor(Color.white)
                 .padding(20)
+            Divider()
             Text(item?.notes ?? "")
                 .foregroundColor(Color.white)
-            Divider()
             Spacer()
         }
         .padding()
-        .background(Color.black.opacity(0.6).ignoresSafeArea(.all))
+        .background(Color("DarkGrey"))
         .cornerRadius(13)
         .shadow(color: Color.black.opacity(0.5), radius: 10)
         .padding(5)

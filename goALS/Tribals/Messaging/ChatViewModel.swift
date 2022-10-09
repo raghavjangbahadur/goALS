@@ -85,7 +85,8 @@ class ChatViewModel: ObservableObject {
                     let documentID = change.document.documentID
                     if !self.messageIds.contains(documentID) {
                         self.messageIds.insert(documentID)
-                        self.messages.append(.init(documentId: documentID, data: data))
+                        let stamp = data["timestamp"] as? Timestamp ?? Timestamp()
+                        self.messages.append(.init(documentId: documentID, data: data, stamp: stamp))
                     }
                 }
             })

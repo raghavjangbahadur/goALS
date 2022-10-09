@@ -16,6 +16,10 @@ struct vitalsView: View {
     @State var incorrect = 0
     @State var answered = 0
     
+    init() {
+        UINavigationBar.appearance().tintColor = .purple
+    }
+    
     var body: some View {
         VStack {
             VStack {
@@ -114,6 +118,7 @@ struct vitalsView: View {
         .sheet(isPresented: $showLearn, content: {
             LearnView()
         })
+        .accentColor(Color("DeepRed"))
     }
 }
 

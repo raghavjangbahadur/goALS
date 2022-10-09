@@ -4,8 +4,12 @@
 //
 //  Created by Raghav Jangbahadur on 8/22/22.
 //
-
 import Foundation
+import Firebase
+import SwiftUI
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 struct Message: Identifiable, Codable {
 
@@ -13,13 +17,14 @@ struct Message: Identifiable, Codable {
 
     let documentId: String
     let fromId, toId, text: String
-    //let time: Date
+    let time: Date
 
-    init(documentId: String, data: [String: Any]) {
+    init(documentId: String, data: [String: Any], stamp: Timestamp) {
         self.documentId = documentId
         self.fromId = data["fromId"] as? String ?? ""
         self.toId = data["toId"] as? String ?? ""
         self.text = data["text"] as? String ?? ""
+        self.time = stamp.dateValue()
     }
 }
 

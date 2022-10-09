@@ -95,7 +95,7 @@ struct PatientInfoEditView: View {
                 .padding(.horizontal, 10)
                 .padding(.bottom, 10)
                 HStack {
-                    Text("Stage of ALS \n [Link for more info](https://alsnewstoday.com/stages-of-als/)")
+                    Text("[Stage of ALS](https://alsnewstoday.com/stages-of-als/)")
                         .padding(.horizontal, 3)
                         .foregroundColor(Color("DarkGrey"))
                     Spacer()

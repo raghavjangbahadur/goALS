@@ -62,6 +62,7 @@ struct ResetPasswordView: View {
             }
             else {
                 Text(model.errorMessage)
+                    .foregroundColor(.red)
             }
             Spacer()
         }
@@ -69,7 +70,12 @@ struct ResetPasswordView: View {
     }
     
     func resetAction() {
-        model.resetPassword()
+        if(model.email == "") {
+            model.errorMessage = "Please enter your email"
+        }
+        else {
+            model.resetPassword()
+        }
     }
 }
 

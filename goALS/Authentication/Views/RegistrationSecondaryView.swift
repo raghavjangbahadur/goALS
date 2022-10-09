@@ -106,6 +106,27 @@ struct RegistrationSecondaryView: View {
     
     
     func registerAction() {
+        if(model.firstName == "") {
+            model.errorMessage = "Please enter your first name"
+        }
+        else if(model.lastName == "") {
+            model.errorMessage = "Please enter your last name"
+        }
+        else if (model.patientName == "") {
+            model.errorMessage = "Please enter patient's name"
+        }
+        else if (model.email == "") {
+            model.errorMessage = "Please enter your email"
+        }
+        else if (model.password == "") {
+            model.errorMessage = "Please enter your password"
+        }
+        else if (model.generatedId == "") {
+            model.errorMessage = "Please enter the Patient ID"
+        }
+        else {
+            model.registerCall()
+        }
         model.registerSecondary()
     }
     

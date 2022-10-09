@@ -54,7 +54,7 @@ struct ChatView: View {
                         .id(Self.emptyString)
                 }
                 .onReceive(model.$count) { _ in
-                    withAnimation(.easeOut(duration: 0.1)) {
+                    withAnimation(.easeOut(duration: 0.3)) {
                         scrollViewProxy.scrollTo(Self.emptyString, anchor: .bottom)
                     }
                 }
@@ -119,23 +119,27 @@ struct MessageView: View {
             if message.fromId == Auth.auth().currentUser?.uid {
                 HStack {
                     Spacer()
-                    VStack {
+                    VStack(alignment: .trailing) {
                         Text(message.text)
                             .foregroundColor(.white)
-                        //Text(formatter.string(from: message.time))
+                            .padding(.bottom, 2)
+                        Text(formatter.string(from: message.time))
+                            .foregroundColor(.white)
+                            .font(.system(size: 10))
                     }
                     .padding()
-                    .background(Color.blue)
+                    .background(Color("DeepRed"))
                     .cornerRadius(8)
                 }
             }
             else {
                 HStack {
-                    VStack {
+                    VStack(alignment: .leading) {
                         Text(message.text)
                             .foregroundColor(.black)
-                        //Text(formatter.string(from: message.time))
-                    }
+                        Text(formatter.string(from: message.time))
+                            .foregroundColor(.black)
+                            .font(.system(size: 10))                    }
                     .padding()
                     .background(Color.white)
                     .cornerRadius(8)

@@ -76,9 +76,10 @@ class GroupChatModel: ObservableObject {
                             guard !self.messageIDs.contains(documentID) else {
                                 return
                             }
-
+                            let data = document.data()
                             self.messageIDs.insert(documentID)
-                            self.messages.append(.init(documentId: documentID, data: document.data()))
+                            let stamp = data["timestamp"] as? Timestamp ?? Timestamp()
+                            self.messages.append(.init(documentId: documentID, data: document.data(), stamp: stamp))
                         }
                     })
                     

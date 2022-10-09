@@ -18,22 +18,7 @@ class PatientInfoModel: ObservableObject {
     @Published var patient = PatientInfo(id: "", name: "", gender: "", age: 0, stage: "", tube: "", hands: "", speech: "", muscles: "", walking: "", legs: "", breathing: "")
     @Published var count = 0
     @Published var user = User(id: "", firstName: "", lastName: "",  patientID: "", patientName: "", email: "", account: "")
-    /*func getPatientId() {
-        let db = Firestore.firestore()
-        guard let userID = Auth.auth().currentUser?.uid else {
-            print("could not find user id")
-            return
-        }
-        let docRef = db.collection("users").document(userID)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let docData = document.data()
-                self.patientId = docData!["patient uuid"] as? String ?? ""
-            } else {
-                print("Document does not exist")
-            }
-        }
-    }*/
+    @Published var checklistErrorMessage = ""
     
     func deleteCheckListItem(_ item: ChecklistItem) {
         let db = Firestore.firestore()
@@ -97,6 +82,7 @@ class PatientInfoModel: ObservableObject {
                 db.collection("checklist").addDocument(data: ["patientId": key, "name": n, "notes": no]) { error in
                     if error == nil {
                         self.getChecklist()
+                        self.checklistErrorMessage = ""
                     }
                 }
             } else {

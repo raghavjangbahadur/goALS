@@ -101,7 +101,24 @@ struct RegistrationView: View {
     }
     
     func registerAction() {
-        model.registerCall()
+        if(model.firstName == "") {
+            model.errorMessage = "Please enter your first name"
+        }
+        else if(model.lastName == "") {
+            model.errorMessage = "Please enter your last name"
+        }
+        else if (model.patientName == "") {
+            model.errorMessage = "Please enter patient's name"
+        }
+        else if (model.email == "") {
+            model.errorMessage = "Please enter your email"
+        }
+        else if (model.password == "") {
+            model.errorMessage = "Please enter your password"
+        }
+        else {
+            model.registerCall()
+        }
     }
 }
 

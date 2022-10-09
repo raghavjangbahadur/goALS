@@ -31,29 +31,35 @@ struct AddEventView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                TextField("Title", text: self.$title)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                    .padding(.horizontal, 10)
-                    .padding(.top, 20)
-                TextField("Description", text: self.$description)
-                    .textFieldStyle(.roundedBorder)
-                    .frame(height: 40)
-                    .autocapitalization(.none)
-                    .padding(.horizontal, 10)
-                    .padding(.bottom, 10)
-                DatePicker("Start Time: ", selection: $start, displayedComponents: .hourAndMinute)
-                    .colorScheme(.dark)
-                    .padding(.horizontal, 10)
-                DatePicker("End Time: ", selection: $end, in: start..., displayedComponents: .hourAndMinute)
-                    .padding(.horizontal, 10)
-                    .colorScheme(.dark)
+            VStack{
+                VStack {
+                    TextField("Title", text: self.$title)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none)
+                        .padding(.horizontal, 10)
+                        .padding(.top, 20)
+                    TextField("Description", text: self.$description)
+                        .textFieldStyle(.roundedBorder)
+                        .frame(height: 40)
+                        .autocapitalization(.none)
+                        .padding(.horizontal, 10)
+                        .padding(.bottom, 10)
+                    DatePicker("Start Time: ", selection: $start, displayedComponents: .hourAndMinute)
+                        .colorScheme(.dark)
+                        .padding(.horizontal, 10)
+                    DatePicker("End Time: ", selection: $end, in: start..., displayedComponents: .hourAndMinute)
+                        .padding(.horizontal, 10)
+                        .colorScheme(.dark)
+                        .padding(.bottom, 30)
+                }
+                .background(Color("DarkGrey"))
+                .cornerRadius(13)
+                .shadow(color: Color.black.opacity(0.5), radius: 10)
+                Text(model.errorMessage)
+                    .foregroundColor(.red)
+                    .padding()
                 Spacer()
             }
-            .background(Color.black.opacity(0.6).ignoresSafeArea(.all))
-            .cornerRadius(13)
-            .shadow(color: Color.black.opacity(0.5), radius: 10)
             .padding(5)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
@@ -73,6 +79,11 @@ struct AddEventView: View {
                         }
                     } label: {
                         Text("Add event")
+                            .foregroundColor(Color("DeepRed"))
+                            .background(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .foregroundColor(.white)
+                            )
                     }
                 }
             }
@@ -85,12 +96,17 @@ struct AddEventView: View {
                  _ start: Date,
                  _ end: Date,
                  completion: (([Event]) -> Void)? = nil) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .none
-        dateFormatter.timeStyle = .short
-        let newStart = dateFormatter.string(from: start)
-        let newEnd = dateFormatter.string(from: end)
-        model.addEvent(title, description, date, newStart, newEnd, completion: completion)
+        if(title == "") {
+            model.errorMessage = "Please enter the event's title"
+        }
+        else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .none
+            dateFormatter.timeStyle = .short
+            let newStart = dateFormatter.string(from: start)
+            let newEnd = dateFormatter.string(from: end)
+            model.addEvent(title, description, date, newStart, newEnd, completion: completion)
+        }
     }
 }
 

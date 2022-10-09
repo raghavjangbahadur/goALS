@@ -34,15 +34,25 @@ struct TodosView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
                 Button(action: {
-                    model.addChecklistItem(name, notes)
-                    name = ""
-                    notes = ""
+                    if(name == "") {
+                        model.checklistErrorMessage = "Please enter checklist item name"
+                    }
+                    else {
+                        model.addChecklistItem(name, notes)
+                        name = ""
+                        notes = ""
+                    }
                 }, label: {
-                    Text("Add item to checklist")
+                    Text("Add checklist item")
+                        .foregroundColor(Color("DeepRed"))
+                        .fontWeight(.bold)
                 })
                 .padding()
+                Text(model.checklistErrorMessage)
+                    .foregroundColor(.red)
             }
         }
+        .accentColor(.red)
         .onAppear {
             model.getSingleData()
             model.getChecklist()

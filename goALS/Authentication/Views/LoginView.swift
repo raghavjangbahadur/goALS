@@ -70,13 +70,25 @@ struct LoginView: View {
                 }
                 .hidden()
             }.onAppear {
-                loginAction()
+                primaryLoginAction()
             }
             .background(Color("DeepRed"))
         }.environment(\.rootPresentationMode, self.$model.loggedIn)
     }
 
     func loginAction() {
+        if (model.email == "") {
+            model.errorMessage = "Please enter your email"
+        }
+        else if (model.password == "") {
+            model.errorMessage = "Please enter your password"
+        }
+        else {
+            model.loginCall()
+        }
+    }
+    
+    func primaryLoginAction() {
         model.loginCall()
     }
 }

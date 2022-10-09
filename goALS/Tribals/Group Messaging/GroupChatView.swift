@@ -102,17 +102,28 @@ private struct DescriptionPlaceholder: View {
 struct GroupMessageView: View {
     let message: GroupMessage
     
+    let formatter = DateFormatter()
+    
+    init(message: GroupMessage) {
+        self.message = message
+        formatter.dateFormat = "HH:mm"
+    }
+    
     var body: some View {
         VStack {
             if message.fromId == Auth.auth().currentUser?.uid {
                 HStack {
                     Spacer()
-                    HStack {
+                    VStack(alignment: .trailing) {
                         Text(message.text)
                             .foregroundColor(.white)
+                            .padding(.bottom, 2)
+                        Text(formatter.string(from: message.time))
+                            .foregroundColor(.white)
+                            .font(.system(size: 10))
                     }
                     .padding()
-                    .background(Color.blue)
+                    .background(Color("DeepRed"))
                     .cornerRadius(8)
                 }
             }
@@ -124,6 +135,11 @@ struct GroupMessageView: View {
                             .padding(.bottom, 1)
                         Text(message.text)
                             .foregroundColor(.black)
+                            .padding(.bottom, 2)
+                        Text(formatter.string(from: message.time))
+                            .foregroundColor(.black)
+                            .font(.system(size: 10))
+                        
                     }
                     .padding(.leading, 10)
                     .padding(.trailing, 20)
