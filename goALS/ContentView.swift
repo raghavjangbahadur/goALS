@@ -20,10 +20,7 @@ struct ContentView: View {
                     Label(title: {
                         Text("Home")
                     }, icon: {
-                        Image("home_logo_grey")
-                           .resizable()
-                           .aspectRatio(contentMode: .fit)
-                           .frame(height: 125)
+                        Image(systemName: "house.fill")
                     })
                 }
             vitalsView()
