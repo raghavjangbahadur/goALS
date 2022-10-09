@@ -13,6 +13,9 @@ import FirebaseAuth
 
 class AddNewUserModel: ObservableObject {
     @Published var patientId = ""
+    @Published var patientName = ""
+    @Published var phoneNumber = ""
+    @Published var message = ""
     
     
     func getPatientId() {
@@ -25,6 +28,8 @@ class AddNewUserModel: ObservableObject {
             if let document = document, document.exists {
                 let docData = document.data()
                 self.patientId = docData!["patient uuid"] as? String ?? ""
+                self.patientName = docData!["patientName"] as? String ?? ""
+                self.message = "You have been invited to join " + self.patientName + "'s Circle in the Goals app! Use patient code " + self.patientId + " to register as a secondary user."
                 
             } else {
                 print("Document does not exist")
@@ -38,31 +43,32 @@ struct AddNewUserView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Use unique Patient ID when secondary user registers for authentication")
+            Text("Send message with unique Patient ID for secondary user when registering")
                 .padding(.all, 8)
-            ZStack {
-                Rectangle()
-                    .fill(Color.gray.opacity(0.1))
-                    .frame(width: 370, height: 25)
-                Text(model.patientId)
-                    .textSelection(.enabled)
-            }
             .padding(.bottom, 20)
             Button {
-                model.getPatientId()
+                sendMessage()
             } label: {
                 ZStack {
                     Rectangle()
-                        .fill(.blue)
-                        .frame(width: 370, height: 38)
-                    Text("Generate Patient Unique ID")
+                        .fill(Color("DeepRed"))
+                        .frame(width: 300, height: 38)
+                    Text("Send message")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .font(.system(size: 20))
                 }
             }
             Spacer()
+        }.onAppear {
+            model.getPatientId()
         }
+    }
+    
+    func sendMessage() {
+        let sms: String = "sms:\(model.phoneNumber)&body=\(model.message)"
+        let strURL: String = sms.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        UIApplication.shared.open(URL.init(string: strURL)!, options: [:], completionHandler: nil)
     }
 }
 
