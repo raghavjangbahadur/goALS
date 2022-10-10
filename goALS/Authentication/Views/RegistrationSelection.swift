@@ -18,7 +18,7 @@ struct RegistrationSelection: View {
                     ZStack {
                         RoundedRectangle(cornerRadius:15)
                             .frame(width: 300, height: 100)
-                            .foregroundColor(.gray.opacity(0.9))
+                            .foregroundColor(Color("DarkGrey"))
                             .padding(.all, 15)
                         Text("Primary Caregiver")
                             .foregroundColor(.white)
@@ -28,7 +28,8 @@ struct RegistrationSelection: View {
                     .padding(.horizontal, 10)
                     .padding(.top, 10)
                     Text("You are the main caregiver for your ALS patient")
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("DarkGrey"))
+                        .fontWeight(.bold)
                         .frame(width: 300)
                         .padding(.bottom)
                 }
@@ -45,7 +46,7 @@ struct RegistrationSelection: View {
                     ZStack {
                         RoundedRectangle(cornerRadius:15)
                             .frame(width: 300, height: 100)
-                            .foregroundColor(.gray.opacity(0.9))
+                            .foregroundColor(Color("DarkGrey"))
                             .padding(.all, 15)
                         Text("Secondary Caregiver")
                             .foregroundColor(.white)
@@ -55,7 +56,8 @@ struct RegistrationSelection: View {
                     .padding(.horizontal, 10)
                     .padding(.top, 10)
                     Text("You are supporting the Primary Caregiver in providing care to your ALS patient, and have been sent a code and patient full name to sign up for this app")
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("DarkGrey"))
+                        .fontWeight(.bold)
                         .frame(width: 300)
                         .padding(.bottom)
                 }
