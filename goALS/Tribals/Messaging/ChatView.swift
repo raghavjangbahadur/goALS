@@ -54,7 +54,7 @@ struct ChatView: View {
                         .id(Self.emptyString)
                 }
                 .onReceive(model.$count) { _ in
-                    withAnimation(.easeOut(duration: 0.3)) {
+                    withAnimation(.easeOut(duration: 0.1)) {
                         scrollViewProxy.scrollTo(Self.emptyString, anchor: .bottom)
                     }
                 }

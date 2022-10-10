@@ -40,8 +40,6 @@ class GroupChatModel: ObservableObject {
                         return
                     }
                     
-                    //self.persistRecentMessage()
-                    
                     self.text = ""
                     self.count += 1
                 }
