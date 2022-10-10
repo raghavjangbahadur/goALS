@@ -125,15 +125,14 @@ struct RegistrationSecondaryView: View {
             model.errorMessage = "Please enter the Patient ID"
         }
         else {
-            model.registerCall()
+            model.registerSecondary()
         }
-        model.registerSecondary()
     }
     
 }
 
 struct RegistrationSecondaryView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationSecondaryView(model: RegistrationModel())
+        RegistrationSecondaryView(model: RegistrationModel(loginModel: LoginModel()))
     }
 }

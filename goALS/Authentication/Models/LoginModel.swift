@@ -39,9 +39,12 @@ class LoginModel: ObservableObject {
     @Published var loggedIn: Bool = false
     
     func loginCall() {
+        guard !loggedIn else {
+            return
+        }
+
         let email = keychain.value(forKey: "username") as? String ?? ""
         let password = keychain.value(forKey: "password") as? String ?? ""
-        
         guard !email.isEmpty || !password.isEmpty else {
             return
         }
@@ -63,15 +66,47 @@ class LoginModel: ObservableObject {
     }
     
     func logoutCall() {
+        guard loggedIn else {
+            return
+        }
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
         } catch let signOutError as NSError {
+            errorMessage = signOutError.localizedDescription
             print("Error signing out: %@", signOutError)
             return
         }
         self.email = ""
         self.password = ""
         self.loggedIn = false
+    }
+
+    func createUser() {
+        guard !loggedIn else {
+            return
+        }
+
+        let email = keychain.value(forKey: "username") as? String ?? ""
+        let password = keychain.value(forKey: "password") as? String ?? ""
+        guard !email.isEmpty || !password.isEmpty else {
+            return
+        }
+
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let strongSelf = self else {
+                return
+            }
+            guard let _ = authResult else {
+                strongSelf.loggedIn = false
+                if let error {
+                    strongSelf.errorMessage = error.localizedDescription
+                }
+                return
+            }
+            strongSelf.errorMessage = ""
+            strongSelf.loggedIn = true
+        }
+
     }
 }

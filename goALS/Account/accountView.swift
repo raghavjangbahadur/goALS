@@ -34,26 +34,12 @@ class accountViewModel: ObservableObject {
             }
         }
     }
-    
-    func signOut() {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
-            signedOut = false
-            return
-        }
-        signedOut = true
-    }
 }
 
 struct accountView: View {
-    
     @ObservedObject var model = accountViewModel()
-    @ObservedObject var loginModel = LoginModel()
     @State var shouldShowLogOutOptions = false
-    @Environment(\.rootPresentationMode) private var rootPresentationMode: Binding<RootPresentationMode>
+    @EnvironmentObject var loginModel: LoginModel
     
     var body: some View {
         VStack {
@@ -100,8 +86,8 @@ struct accountView: View {
                 }
                 
             }
-            NavigationLink("", isActive: $model.signedOut) {
-                LoginView(model: LoginModel())
+            NavigationLink("", isActive: self.$loginModel.loggedIn.not) {
+                LoginView(model: loginModel)
                     .navigationBarBackButtonHidden(true)
                     .navigationBarHidden(true)
             }
@@ -109,7 +95,6 @@ struct accountView: View {
             .init(title: Text("Sign out"), message: Text("Are you sure you want to sign out?"), buttons: [
                 .destructive(Text("Sign out"), action: {
                     loginModel.logoutCall()
-                    self.rootPresentationMode.wrappedValue.dismiss()
                 }),
                 .cancel()
             ])

@@ -117,13 +117,13 @@ struct RegistrationView: View {
             model.errorMessage = "Please enter your password"
         }
         else {
-            model.registerCall()
+            model.registerPrimary()
         }
     }
 }
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView(model: RegistrationModel())
+        RegistrationView(model: RegistrationModel(loginModel: LoginModel()))
     }
 }

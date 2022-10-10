@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct RegistrationSelection: View {
+    @EnvironmentObject var loginModel: LoginModel
+
     var body: some View {
         VStack {
             Spacer()
-            NavigationLink(destination: RegistrationView(model: RegistrationModel())) {
+            NavigationLink(destination: RegistrationView(model: RegistrationModel(loginModel: loginModel))) {
                 VStack{
                     ZStack {
                         RoundedRectangle(cornerRadius:15)
@@ -38,7 +40,7 @@ struct RegistrationSelection: View {
             }
             .padding(.bottom, 50)
             
-            NavigationLink(destination: RegistrationSecondaryView(model: RegistrationModel())) {
+            NavigationLink(destination: RegistrationSecondaryView(model: RegistrationModel(loginModel: loginModel))) {
                 VStack{
                     ZStack {
                         RoundedRectangle(cornerRadius:15)

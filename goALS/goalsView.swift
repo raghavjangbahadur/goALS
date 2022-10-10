@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct goalsView: View {
-    
     @ObservedObject var model = PatientInfoModel()
     
     var body: some View {

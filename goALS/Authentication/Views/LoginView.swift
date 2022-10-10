@@ -6,7 +6,7 @@
 //
 import SwiftUI
 struct LoginView: View {
-    @ObservedObject var model: LoginModel
+    @ObservedObject var model: LoginModel = LoginModel()
 
     var body: some View {
         NavigationView {
@@ -73,7 +73,9 @@ struct LoginView: View {
                 primaryLoginAction()
             }
             .background(Color("DeepRed"))
-        }.environment(\.rootPresentationMode, self.$model.loggedIn)
+        }
+        .environment(\.rootPresentationMode, self.$model.loggedIn)
+        .environmentObject(self.model)
     }
 
     func loginAction() {
@@ -95,6 +97,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(model: LoginModel())
+        LoginView()
     }
 }

@@ -66,10 +66,9 @@
 		2AF1195728BDBF16001A6525 /* GroupMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1195628BDBF16001A6525 /* GroupMessage.swift */; };
 		2AF1195928BDC075001A6525 /* GroupChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1195828BDC075001A6525 /* GroupChatModel.swift */; };
 		2AF1195B28BE6DE0001A6525 /* GroupChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1195A28BE6DE0001A6525 /* GroupChatView.swift */; };
-		C911309228D7AD150034DC68 /* RootPresentationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C911309128D7AD150034DC68 /* RootPresentationMode.swift */; };
+		C911309228D7AD150034DC68 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C911309128D7AD150034DC68 /* Environment.swift */; };
 		C911309528D7B3E20034DC68 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C911309428D7B3E20034DC68 /* ElegantCalendar */; };
 		C911309728D7B6260034DC68 /* ElegantCalendar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C911309628D7B6260034DC68 /* ElegantCalendar.xcassets */; };
-		C91130CC28D95DDE0034DC68 /* CalendarSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91130CB28D95DDE0034DC68 /* CalendarSelection.swift */; };
 		C995A37128D42FBC000E48D7 /* Keychain in Frameworks */ = {isa = PBXBuildFile; productRef = C995A37028D42FBC000E48D7 /* Keychain */; };
 /* End PBXBuildFile section */
 
@@ -145,9 +144,8 @@
 		2AF1195628BDBF16001A6525 /* GroupMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessage.swift; sourceTree = "<group>"; };
 		2AF1195828BDC075001A6525 /* GroupChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatModel.swift; sourceTree = "<group>"; };
 		2AF1195A28BE6DE0001A6525 /* GroupChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatView.swift; sourceTree = "<group>"; };
-		C911309128D7AD150034DC68 /* RootPresentationMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootPresentationMode.swift; sourceTree = "<group>"; };
+		C911309128D7AD150034DC68 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		C911309628D7B6260034DC68 /* ElegantCalendar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ElegantCalendar.xcassets; sourceTree = "<group>"; };
-		C91130CB28D95DDE0034DC68 /* CalendarSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSelection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				2A2E59EF28D013A300796506 /* Calendar.swift */,
-				C91130CB28D95DDE0034DC68 /* CalendarSelection.swift */,
 				2A05DB3F28D7D8B300B1FAA9 /* Event.swift */,
 				2A05DB4328D7D9A700B1FAA9 /* EventModel.swift */,
 				2A05DB4528D7E2DF00B1FAA9 /* AddEventView.swift */,
@@ -346,7 +343,7 @@
 				2A90CB3B286BF36D0079B380 /* goALSApp.swift */,
 				2A90CB3D286BF36D0079B380 /* ContentView.swift */,
 				2A661F8D2870FCB50014B661 /* goalsView.swift */,
-				C911309128D7AD150034DC68 /* RootPresentationMode.swift */,
+				C911309128D7AD150034DC68 /* Environment.swift */,
 				2A05DB6228DCFAF900B1FAA9 /* Account */,
 				2A05DB5128DCD3B100B1FAA9 /* Authentication */,
 				2A05DB5A28DCF86800B1FAA9 /* Vitals */,
@@ -535,9 +532,8 @@
 			files = (
 				2A4B2F5028A3138B00E47DB2 /* PatientInfoModel.swift in Sources */,
 				2A05DB5028DB8F4600B1FAA9 /* QuizViewModel.swift in Sources */,
-				C91130CC28D95DDE0034DC68 /* CalendarSelection.swift in Sources */,
 				2A8F13E828B5DB880053B091 /* MainMessagesView.swift in Sources */,
-				C911309228D7AD150034DC68 /* RootPresentationMode.swift in Sources */,
+				C911309228D7AD150034DC68 /* Environment.swift in Sources */,
 				2A4B2F5228A3142500E47DB2 /* PatientInfo.swift in Sources */,
 				2A2E59F428D175A800796506 /* ResetPasswordView.swift in Sources */,
 				2A4B2F4E28A3137800E47DB2 /* PatientInfoView.swift in Sources */,
