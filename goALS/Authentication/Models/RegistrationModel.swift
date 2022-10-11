@@ -87,7 +87,7 @@ class RegistrationModel: ObservableObject {
     
     func registerSecondary() {
         let db = Firestore.firestore()
-        guard generatedId == "" || patientName == "" else {
+        guard !generatedId.isEmpty && !patientName.isEmpty else {
             return
         }
         /// cancel
