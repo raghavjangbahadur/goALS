@@ -42,10 +42,10 @@ struct AddNewUserView: View {
     @ObservedObject var model = AddNewUserModel()
     var body: some View {
         VStack {
-            Spacer()
             Text("Send message with unique Patient ID for secondary user when registering")
                 .padding(.all, 8)
-            .padding(.bottom, 20)
+                .padding(.bottom, 20)
+                .padding(.vertical)
             Button {
                 sendMessage()
             } label: {
@@ -63,6 +63,8 @@ struct AddNewUserView: View {
         }.onAppear {
             model.getPatientId()
         }
+        .navigationBarTitle("Add New User")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     func sendMessage() {

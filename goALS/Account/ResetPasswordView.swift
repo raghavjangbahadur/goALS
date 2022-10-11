@@ -35,12 +35,11 @@ struct ResetPasswordView: View {
     
     var body: some View {
         VStack {
-            Text("Reset Password")
-                .font(.system(size: 40))
-                .fontWeight(.bold)
-                .padding(.bottom, 40)
-                .padding(.top, 10)
-            TextField("Enter email to reset password", text: self.$model.email)
+            Text("Enter your email below and we'll send you an email to reset your password!")
+                .padding(.all, 8)
+                .padding(.bottom, 20)
+                .padding(.vertical)
+            TextField("Email", text: self.$model.email)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.horizontal, 20)
                 .autocapitalization(.none)
@@ -49,7 +48,7 @@ struct ResetPasswordView: View {
             Button(action: resetAction) {
                 ZStack {
                     Rectangle()
-                        .fill(.blue)
+                        .fill(Color("DeepRed"))
                         .frame(width: 370, height: 45)
                     Text("Reset password")
                         .foregroundColor(.white)
@@ -66,6 +65,8 @@ struct ResetPasswordView: View {
             }
             Spacer()
         }
+        .navigationBarTitle("Reset Password")
+        .navigationBarTitleDisplayMode(.inline)
         
     }
     
