@@ -16,20 +16,10 @@ import Keychain
 class LoginModel: ObservableObject {
     private let keychain = Keychain()
     
+    @Published var email: String
+    @Published var password: String
     @Published var errorMessage: String = ""
-    
-    @Published var email: String {
-        didSet {
-            let _ = keychain.save(email, forKey: "username")
-        }
-    }
-    
-    @Published var password: String {
-        didSet {
-            let _ = keychain.save(password, forKey: "password")
-        }
-    }
-    
+
     init() {
         email = keychain.value(forKey: "username") as? String ?? ""
         password = keychain.value(forKey: "password") as? String ?? ""
@@ -39,12 +29,6 @@ class LoginModel: ObservableObject {
     @Published var loggedIn: Bool = false
     
     func loginCall() {
-        guard !loggedIn else {
-            return
-        }
-
-        let email = keychain.value(forKey: "username") as? String ?? ""
-        let password = keychain.value(forKey: "password") as? String ?? ""
         guard !email.isEmpty || !password.isEmpty else {
             return
         }
@@ -62,13 +46,11 @@ class LoginModel: ObservableObject {
             }
             strongSelf.errorMessage = ""
             strongSelf.loggedIn = true
+            strongSelf.saveCredentials()
         }
     }
     
     func logoutCall() {
-        guard loggedIn else {
-            return
-        }
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
@@ -80,15 +62,10 @@ class LoginModel: ObservableObject {
         self.email = ""
         self.password = ""
         self.loggedIn = false
+        clearCredentials()
     }
 
     func createUser() {
-        guard !loggedIn else {
-            return
-        }
-
-        let email = keychain.value(forKey: "username") as? String ?? ""
-        let password = keychain.value(forKey: "password") as? String ?? ""
         guard !email.isEmpty || !password.isEmpty else {
             return
         }
@@ -106,7 +83,17 @@ class LoginModel: ObservableObject {
             }
             strongSelf.errorMessage = ""
             strongSelf.loggedIn = true
+            strongSelf.saveCredentials()
         }
+    }
 
+    func saveCredentials() {
+        let _ = keychain.save(email, forKey: "username")
+        let _ = keychain.save(password, forKey: "password")
+    }
+
+    func clearCredentials() {
+        let _ = keychain.save("", forKey: "username")
+        let _ = keychain.save("", forKey: "password")
     }
 }
