@@ -95,9 +95,8 @@ struct goalsView: View {
                 Spacer()
                 
             }.onAppear {
-                    model.getSingleData()
+                model.getSingleData()
             }
-            .padding(.bottom, 100)
             .background(Color("DeepRed"))
         }
     }
