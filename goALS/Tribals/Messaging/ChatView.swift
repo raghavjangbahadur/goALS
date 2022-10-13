@@ -29,7 +29,7 @@ struct ChatView: View {
     var body: some View {
         VStack {
             messagesView
-            VStack(spacing: 10) {
+            VStack(spacing: 0) {
                 chatBottomBar
                     .background(Color.white.ignoresSafeArea())
             }
@@ -71,8 +71,9 @@ struct ChatView: View {
                 .foregroundColor(Color(.darkGray))*/
             ZStack {
                 DescriptionPlaceholder()
+                    .opacity(model.text.isEmpty ? 1 : 0)
                 TextEditor(text: $model.text)
-                    .opacity(text.isEmpty ? 0.5 : 1)
+                    .opacity(model.text.isEmpty ? 0.5 : 1)
             }
             .frame(height: 40)
 
@@ -89,14 +90,14 @@ struct ChatView: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 8)
-        .padding(.bottom)
+        .padding(.bottom, 8)
     }
 }
 
 private struct DescriptionPlaceholder: View {
     var body: some View {
         HStack {
-            Text("")
+            Text("Message")
                 .foregroundColor(Color(.gray))
                 .font(.system(size: 17))
                 .padding(.leading, 5)
@@ -140,7 +141,8 @@ struct MessageView: View {
                             .foregroundColor(.black)
                         Text(formatter.string(from: message.time))
                             .foregroundColor(.black)
-                            .font(.system(size: 10))                    }
+                            .font(.system(size: 10))
+                    }
                     .padding()
                     .background(Color.white)
                     .cornerRadius(8)

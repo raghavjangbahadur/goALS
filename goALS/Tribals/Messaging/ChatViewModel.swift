@@ -49,10 +49,11 @@ class ChatViewModel: ObservableObject {
                 return
             }
             
+            self.count += 1
+            
             self.persistRecentMessage()
             
             self.text = ""
-            //self.count += 1
         }
         let docRefRec = db.collection("messages").document(toId).collection(userID).document()
         docRefRec.setData(message) { error in

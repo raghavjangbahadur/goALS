@@ -64,8 +64,9 @@ struct GroupChatView: View {
                 .foregroundColor(Color(.darkGray))*/
             ZStack {
                 DescriptionPlaceholder()
+                    .opacity(model.text.isEmpty ? 1 : 0)
                 TextEditor(text: $model.text)
-                    .opacity(text.isEmpty ? 0.5 : 1)
+                    .opacity(model.text.isEmpty ? 0.5 : 1)
             }
             .frame(height: 40)
 
@@ -82,7 +83,7 @@ struct GroupChatView: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 8)
-        .padding(.bottom)
+        .padding(.bottom, 8)
     }
 
 }
@@ -90,7 +91,7 @@ struct GroupChatView: View {
 private struct DescriptionPlaceholder: View {
     var body: some View {
         HStack {
-            Text("")
+            Text("Message")
                 .foregroundColor(Color(.gray))
                 .font(.system(size: 17))
                 .padding(.leading, 5)

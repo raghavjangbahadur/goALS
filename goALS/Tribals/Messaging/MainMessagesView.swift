@@ -77,8 +77,6 @@ struct MainMessagesView: View {
                 isActive: $exit,
                 label: {}
             )
-        } .onAppear {
-            model.fetchRecentMessages()
         }
         .overlay(
             newMessageButton, alignment: .bottom)
