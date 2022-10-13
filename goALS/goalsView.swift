@@ -39,7 +39,10 @@ struct goalsView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 25))
                     .fontWeight(.bold)
-                    .padding(.bottom, 50)
+                    .padding(.bottom, 20)
+                Text("Welcome to the GoALS App!")
+                    .foregroundColor(.white)
+                    .padding(.bottom, 30)
                 
                 HStack{
                     ZStack {

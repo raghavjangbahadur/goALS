@@ -81,12 +81,12 @@ struct PatientInfoEditView: View {
                     }
                 }, label: {
                     HStack {
-                        Text("       ")
                         Text("")
                     }.onAppear() {
                         newAge = model.patient.age
                     }
                 })
+                .pickerStyle(MenuPickerStyle())
                 
             }
             .padding(.horizontal, 10)
