@@ -20,11 +20,14 @@ struct Calendar: View {
         let configuration = CalendarConfiguration(startDate: startDate, endDate: endDate)
         calendarManager = MonthlyCalendarManager(configuration: configuration)
         calendarManager.datasource = self
+        model.getTotalEvents()
     }
 
     var body: some View {
         MonthlyCalendarView(calendarManager: calendarManager)
             .theme(calendarTheme)
+            .navigationTitle("Calendar")
+                .navigationBarTitleDisplayMode(.inline)
     }
 }
 

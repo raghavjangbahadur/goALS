@@ -39,12 +39,6 @@ struct PatientInfoEditView: View {
     ]
     
     var body: some View {
-        Text("Edit patient information")
-            .foregroundColor(Color("DarkGrey"))
-            .font(.title2)
-            .fontWeight(.bold)
-            .padding(.top, 10)
-            .padding(.bottom, 10)
         List{
             HStack {
                 Text("Gender")
@@ -149,7 +143,7 @@ struct PatientInfoEditView: View {
                     }
                 }, label: {
                     HStack {
-                        Text("")
+                        Text("Edit:")
                     }.onAppear() {
                         hands = model.patient.hands
                     }
@@ -276,6 +270,8 @@ struct PatientInfoEditView: View {
         .onAppear {
             model.getSingleData()
         }
+        .navigationTitle("Key Details and Information")
+        .navigationBarTitleDisplayMode(.inline)
         Button(action: updateData) {
             Text("Update")
                 .foregroundColor(Color.white)

@@ -63,6 +63,45 @@ class EventModel: ObservableObject {
             }
         }
     }
+    
+    func getTotalEvents() {
+        let db = Firestore.firestore()
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("could not find user id")
+            return
+        }
+        let docRef = db.collection("users").document(userID)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let docData = document.data()
+                let key = docData!["patient uuid"] as? String ?? ""
+                db.collection("events").document(key).collection(key).getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        if let querySnapshot = querySnapshot {
+                            let totalEvents = querySnapshot.documents.map { d in
+                                return Event(id: d.documentID,
+                                             title: d["title"] as? String ?? "",
+                                             description: d["description"] as? String ?? "",
+                                             date: d["date"] as? String ?? "",
+                                             startTime: d["startTime"] as? String ?? "",
+                                             endTime: d["endTime"] as? String ?? "")
+                            }
+                            
+                            self.totalEvents = Set(totalEvents)
+                        }
+                        else {
+                            print("No document")
+                        }
+                    }
+                }
+
+            } else {
+                print("Document does not exist")
+            }
+        }
+    }
 
     func returnOpacity(date: Date) -> Double {
         let dateFormatter = DateFormatter()

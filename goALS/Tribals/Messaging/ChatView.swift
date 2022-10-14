@@ -33,11 +33,9 @@ struct ChatView: View {
                 chatBottomBar
                     .background(Color.white.ignoresSafeArea())
             }
-        }.onAppear() {
-            model.fetchChat()
+            .navigationTitle(user?.firstName ?? "")
+                .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle(user?.firstName ?? "")
-            .navigationBarTitleDisplayMode(.inline)
     }
     
     static let emptyString = "Empty"
@@ -66,9 +64,6 @@ struct ChatView: View {
 
     private var chatBottomBar: some View {
         HStack(spacing: 16) {
-            /*Image(systemName: "photo.on.rectangle")
-                .font(.system(size: 24))
-                .foregroundColor(Color(.darkGray))*/
             ZStack {
                 DescriptionPlaceholder()
                     .opacity(model.text.isEmpty ? 1 : 0)

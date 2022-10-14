@@ -15,7 +15,7 @@ struct LoginView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 150)
-                    .padding(50)
+                    .padding(.bottom, 50)
                 VStack{
                     TextField("Email", text: self.$model.email)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -60,11 +60,10 @@ struct LoginView: View {
                         .foregroundColor(Color("LightGrey"))
                         .shadow(color: Color.black.opacity(0.3), radius: 15)
                 )
-                .padding(15)
+                .padding(.horizontal, 15)
                 Spacer()
                 NavigationLink("Hidden nav link", isActive: self.$model.loggedIn) {
                     ContentView()
-                        .navigationTitle("")
                         .navigationBarBackButtonHidden(true)
                         .navigationBarHidden(true)
                 }

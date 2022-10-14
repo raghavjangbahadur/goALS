@@ -11,97 +11,98 @@ struct goalsView: View {
     @ObservedObject var model = PatientInfoModel()
     
     var body: some View {
-        NavigationView{
-            VStack {
-                HStack {
-                    Image("goals_logo_white")
-                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 80)
-                        .padding(.horizontal)
-                    Spacer()
-                    NavigationLink(destination: accountView()) {
-                        HStack {
-                            Text("Settings")
-                                .font(.subheadline)
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                            Image(systemName: "person.fill")
-                                .font(.system(size: 16))
-                                .foregroundColor(.white)
-                        }
-                    }
-                    .padding(.bottom, 20)
+        VStack {
+            HStack {
+                Image("goals_logo_white")
+                     .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 80)
                     .padding(.horizontal)
-                    .padding(.vertical)
-                }
-                Text("Hi " + model.user.firstName + "!")
-                    .foregroundColor(.white)
-                    .font(.system(size: 25))
-                    .fontWeight(.bold)
-                    .padding(.bottom, 20)
-                Text("Welcome to the GoALS App!")
-                    .foregroundColor(.white)
-                    .padding(.bottom, 30)
-                
-                HStack{
-                    ZStack {
-                        RoundedRectangle(cornerRadius:15)
-                            .frame(width: 125, height: 125)
-                            .foregroundColor(.white)
-                            .shadow(color: .black.opacity(0.6), radius: 20)
-                            .padding(.all, 15)
-                        Image("vitals_logo_grey")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 24)
-                    }
-                    .accentColor(Color("DeepRed"))
-                    Text("Find and update vital information about ALS and your patient")
-                        .foregroundColor(.white)
-                        .frame(maxWidth: 200)
-                }
-
-                HStack{
-                    ZStack {
-                        RoundedRectangle(cornerRadius:15)
-                            .frame(width: 125, height: 125)
-                            .foregroundColor(.white)
-                            .shadow(color: .black.opacity(0.6), radius: 20)
-                            .padding(.all, 15)
-                        Image("tribals_logo_grey")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 24)
-                    }
-                    Text("Find and access your public and private community")
-                        .foregroundColor(.white)
-                        .frame(maxWidth: 200)
-                }
-                
-                HStack{
-                    ZStack {
-                        RoundedRectangle(cornerRadius:15)
-                            .frame(width: 125, height: 125)
-                            .foregroundColor(.white)
-                            .shadow(color: .black.opacity(0.6), radius: 20)
-                            .padding(.all, 15)
-                        Image("verbals_logo_grey")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 24)
-                    }
-                    Text("Communicate with your ALS patient")
-                        .foregroundColor(.white)
-                        .frame(maxWidth: 200)
-                }
                 Spacer()
-                
-            }.onAppear {
-                model.getSingleData()
+                NavigationLink(destination: accountView()) {
+                    HStack {
+                        Text("Settings")
+                            .font(.subheadline)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.white)
+                        Image(systemName: "person.fill")
+                            .font(.system(size: 16))
+                            .foregroundColor(Color.white)
+                    }
+                    .padding(6)
+                }
+                .padding(.bottom, 20)
+                .padding(.horizontal)
+                .padding(.vertical)
             }
-            .background(Color("DeepRed"))
+            Text("Hi " + model.user.firstName + "!")
+                .foregroundColor(.white)
+                .font(.system(size: 25))
+                .fontWeight(.bold)
+                .padding(.bottom, 20)
+            Text("Welcome to the GoALS App!")
+                .foregroundColor(.white)
+                .padding(.bottom, 30)
+            
+            HStack{
+                ZStack {
+                    RoundedRectangle(cornerRadius:15)
+                        .frame(width: 125, height: 125)
+                        .foregroundColor(.white)
+                        .shadow(color: .black.opacity(0.6), radius: 20)
+                        .padding(.all, 15)
+                    Image("vitals_logo_grey")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 24)
+                }
+                .accentColor(Color("DeepRed"))
+                Text("Find and update vital information about ALS and your patient")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: 200)
+            }
+
+            HStack{
+                ZStack {
+                    RoundedRectangle(cornerRadius:15)
+                        .frame(width: 125, height: 125)
+                        .foregroundColor(.white)
+                        .shadow(color: .black.opacity(0.6), radius: 20)
+                        .padding(.all, 15)
+                    Image("tribals_logo_grey")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 24)
+                }
+                Text("Find and access your public and private community")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: 200)
+            }
+            
+            HStack{
+                ZStack {
+                    RoundedRectangle(cornerRadius:15)
+                        .frame(width: 125, height: 125)
+                        .foregroundColor(.white)
+                        .shadow(color: .black.opacity(0.6), radius: 20)
+                        .padding(.all, 15)
+                    Image("verbals_logo_grey")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 24)
+                }
+                Text("Communicate with your ALS patient")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: 200)
+            }
+            Spacer()
+            
+        }.onAppear {
+            model.getSingleData()
         }
+        .background(Color("DeepRed"))
+        .navigationBarTitle("")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

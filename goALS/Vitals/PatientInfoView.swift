@@ -12,12 +12,6 @@ struct PatientInfoView: View {
     @ObservedObject var model = PatientInfoModel()
     var body: some View {
         VStack {
-            Text("Key Details and Information")
-                .foregroundColor(Color("DarkGrey"))
-                .font(.title2)
-                .fontWeight(.bold)
-                .padding(.top, 15)
-                .padding(.bottom, 20)
             List {
                 HStack {
                     Text("Gender")
@@ -108,6 +102,8 @@ struct PatientInfoView: View {
             }.onAppear {
                 model.getSingleData()
             }
+            .navigationTitle("Key Details and Information")
+            .navigationBarTitleDisplayMode(.inline)
         }
         NavigationLink(destination: PatientInfoEditView(), label: {
             Text("Update basic information")

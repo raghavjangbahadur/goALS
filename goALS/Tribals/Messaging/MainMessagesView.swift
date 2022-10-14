@@ -21,53 +21,11 @@ struct MainMessagesView: View {
     @State var exit = false
     
     @ObservedObject var model = MainMessagesViewModel()
-
-    private var customNavBar: some View {
-        HStack(spacing: 16) {
-            
-            Image(systemName: "person.fill")
-                .font(.system(size: 34, weight: .heavy))
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text("\(model.user.firstName)")
-                    .font(.system(size: 24, weight: .bold))
-                
-                HStack {
-                    Circle()
-                        .foregroundColor(.green)
-                        .frame(width: 14, height: 14)
-                    Text("online")
-                        .font(.system(size: 12))
-                        .foregroundColor(Color("DarkGrey"))
-                }
-                
-            }
-            
-            Spacer()
-            /*Button {
-                shouldShowExitOptions.toggle()
-            } label: {
-                Image(systemName: "gear")
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundColor(Color(.label))
-            }*/
-        }
-        .padding()
-        .actionSheet(isPresented: $shouldShowExitOptions) {
-            .init(title: Text("Exit Messaging") , buttons: [
-                .destructive(Text("Exit"), action: {
-                    exit.toggle()
-                    print("handle exit")
-                }),
-                .cancel()
-            ])
-        }
-    }
     
     var body: some View {
         VStack {
-            customNavBar
             messagesView
+                .padding(.vertical)
             
             NavigationLink("", isActive: $shouldNavigateToChatLogView) {
                 ChatView(user: self.user)
@@ -78,6 +36,8 @@ struct MainMessagesView: View {
                 label: {}
             )
         }
+        .navigationTitle("Individual Messaging")
+        .navigationBarTitleDisplayMode(.inline)
         .overlay(
             newMessageButton, alignment: .bottom)
     }

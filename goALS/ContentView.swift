@@ -41,6 +41,8 @@ struct ContentView: View {
                 }
         }
         .accentColor(Color("DeepRed"))
+        .navigationTitle("")
+        .navigationBarTitleDisplayMode(.inline)
         Spacer()
     }
 }

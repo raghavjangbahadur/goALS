@@ -43,7 +43,6 @@ struct accountView: View {
     
     var body: some View {
         VStack {
-            Text("Settings")
             List {
                 Section("Circle") {
                     NavigationLink {
@@ -99,6 +98,8 @@ struct accountView: View {
                 .cancel()
             ])
         }
+        .navigationBarTitle("Settings")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
