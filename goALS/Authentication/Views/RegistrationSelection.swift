@@ -12,7 +12,6 @@ struct RegistrationSelection: View {
 
     var body: some View {
         VStack {
-            Spacer()
             NavigationLink(destination: RegistrationView(model: RegistrationModel(loginModel: loginModel))) {
                 VStack{
                     ZStack {

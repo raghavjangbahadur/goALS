@@ -11,26 +11,41 @@ struct tribalsView: View {
     
     @State var showPublic = false
     
+    @ObservedObject var GroupModel = GroupChatModel()
+    
+    @Environment(\.presentationMode) var present
+    
     var body: some View {
         VStack {
             VStack {
                 HStack{
                     Spacer()
-                    Image("goals_logo_white")
-                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 100)
+                    Button {
+                        present.wrappedValue.dismiss()
+                    } label: {
+                        HStack{
+                            Image(systemName: "house.fill")
+                                .foregroundColor(.white)
+                                .offset(x: 20)
+                            Image("goals_logo_white")
+                                 .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 100)
+                            
+                        }
+                    }
+                    .offset(x:10)
                     Text("> > >")
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .font(.system(size: 20))
                     Image("tribals_logo_white2")
-                         .resizable()
+                        .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 125)
+                        .frame(height: 115)
+                        .offset(x:-10)
                     Spacer()
                 }
-                Divider()
             }
             .background(Color("DarkGrey"))
             NavigationLink(destination: MainMessagesView()) {
@@ -47,7 +62,7 @@ struct tribalsView: View {
             }
             .padding(.bottom, 30)
             
-            NavigationLink(destination: GroupChatView(model: GroupChatModel())) {
+            NavigationLink(destination: GroupChatView(model: GroupModel)) {
                 ZStack {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 320, height: 45)
@@ -80,7 +95,7 @@ struct tribalsView: View {
         })
         .navigationBarTitle("")
         .navigationBarTitleDisplayMode(.inline)
-        .accentColor(.blue)
+        .navigationBarHidden(true)
 
     }
 }

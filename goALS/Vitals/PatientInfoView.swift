@@ -9,7 +9,11 @@ import SwiftUI
 
 struct PatientInfoView: View {
     
-    @ObservedObject var model = PatientInfoModel()
+    @ObservedObject var model: PatientInfoModel
+    
+    init(model: PatientInfoModel) {
+        self.model = model
+    }
     var body: some View {
         VStack {
             List {
@@ -113,7 +117,7 @@ struct PatientInfoView: View {
             .navigationBarColor(.white)
         }
         NavigationLink(destination: PatientInfoEditView(), label: {
-            Text("Update basic information")
+            Text("Update")
                 .foregroundColor(Color.white)
                 .fontWeight(.bold)
                 .padding(10)
@@ -123,13 +127,13 @@ struct PatientInfoView: View {
                         .foregroundColor(Color("DeepRed"))
                 )
         })
-        .padding(.bottom, 20)
+        .padding(.bottom)
         
     }
 }
 
 struct PatientInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        PatientInfoView()
+        PatientInfoView(model: PatientInfoModel())
     }
 }

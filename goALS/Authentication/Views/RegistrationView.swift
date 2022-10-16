@@ -15,19 +15,21 @@ struct RegistrationView: View {
     }
     
     var body: some View {
-        VStack {
-            VStack {
+        ScrollView{
+            HStack {
+                Spacer()
                 Image("goals_logo_white")
                      .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 100)
-                    .padding(.all)
-                Divider()
+                    .padding(10)
+                Spacer()
             }
             .background(Color("DeepRed"))
             Group {
                 Text("Enter Caregiver (your) first name")
                     .fontWeight(.bold)
+                    .foregroundColor(Color("DarkGrey"))
                     .padding(.top)
                 TextField("First name", text: self.$model.firstName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -37,6 +39,7 @@ struct RegistrationView: View {
                     .disableAutocorrection(true)
                 Text("Enter Caregiver (your) last name")
                     .fontWeight(.bold)
+                    .foregroundColor(Color("DarkGrey"))
                 TextField("Last name", text: self.$model.lastName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
@@ -45,7 +48,8 @@ struct RegistrationView: View {
                     .disableAutocorrection(true)
                 Text("ALS Patient Name")
                     .fontWeight(.bold)
-                TextField("Patient Name", text: self.$model.patientName)
+                    .foregroundColor(Color("DarkGrey"))
+                TextField("ALS Patient Name", text: self.$model.patientName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
                     .autocapitalization(.none)
@@ -53,6 +57,7 @@ struct RegistrationView: View {
                     .disableAutocorrection(true)
                 Text("Set user ID (email)")
                     .fontWeight(.bold)
+                    .foregroundColor(Color("DarkGrey"))
                 TextField("Email", text: self.$model.email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
@@ -61,6 +66,7 @@ struct RegistrationView: View {
                     .disableAutocorrection(true)
                 Text("Set password (minimum 6 characters)")
                     .fontWeight(.bold)
+                    .foregroundColor(Color("DarkGrey"))
                 TextField("Password", text: self.$model.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
@@ -68,8 +74,6 @@ struct RegistrationView: View {
                     .padding(.bottom, 25)
                     .disableAutocorrection(true)
             }
-            Spacer()
-            
             Button(action: registerAction) {
                 Text("Register now")
                     .foregroundColor(Color.white)
@@ -85,7 +89,7 @@ struct RegistrationView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .foregroundColor(.red)
                 .padding(.horizontal, 10)
-                .padding(.bottom, 35)
+                .padding(.bottom, 10)
             NavigationLink(
                 destination:
                     ContentView()
@@ -94,10 +98,10 @@ struct RegistrationView: View {
                 isActive: $model.registered,
                 label: {}
             )
-            
         }
-        .navigationBarBackButtonHidden(false)
-        .background(Color.white)
+        .navigationTitle("Primary Registration")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarColor(.white)
     
     }
     

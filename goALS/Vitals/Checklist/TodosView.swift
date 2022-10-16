@@ -9,9 +9,13 @@ import SwiftUI
 
 struct TodosView: View {
     
-    @ObservedObject var model = PatientInfoModel()
+    @ObservedObject var model: PatientInfoModel
     @State var name : String = ""
     @State var notes : String = ""
+    
+    init(model: PatientInfoModel) {
+        self.model = model
+    }
     
     var body: some View {
         VStack {
@@ -67,7 +71,7 @@ struct TodosView: View {
 
 struct TodosView_Previews: PreviewProvider {
     static var previews: some View {
-        TodosView()
+        TodosView(model: PatientInfoModel())
     }
 }
 

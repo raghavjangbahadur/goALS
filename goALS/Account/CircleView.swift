@@ -72,6 +72,7 @@ struct CircleView: View {
         }
         .navigationBarTitle("Circle")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarColor(.white)
     }
 }
 

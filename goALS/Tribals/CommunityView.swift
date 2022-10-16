@@ -16,7 +16,7 @@ struct CommunityView: View {
             ZStack {
                 RoundedRectangle(cornerRadius:15)
                     .frame(width: 350, height: 100)
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color("DeepRed"))
                     .padding(.all, 15)
                 Text("Public Community")
                     .foregroundColor(.white)
@@ -25,7 +25,7 @@ struct CommunityView: View {
             }
             .padding(.all, 20)
             List(){
-                Text("[Patientslikeme](https://www.patientslikeme.com/conditions/als)")
+                Text("[Patients Like Me](https://www.patientslikeme.com/conditions/als)")
                     .padding(10)
                 Text("[Support Group](https://www.als.org/local-support/support-groups)")
                     .padding(10)

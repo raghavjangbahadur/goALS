@@ -100,6 +100,7 @@ struct accountView: View {
         }
         .navigationBarTitle("Settings")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarColor(.white)
     }
 }
 

@@ -16,15 +16,30 @@ struct vitalsView: View {
     @State var incorrect = 0
     @State var answered = 0
     
+    @Environment(\.presentationMode) var present
+    
+    @ObservedObject var InfoModel = PatientInfoModel()
+    @ObservedObject var QuizModel = QuizViewModel()
     var body: some View {
         VStack {
             VStack {
                 HStack{
                     Spacer()
-                    Image("goals_logo_white")
-                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 100)
+                    Button {
+                        present.wrappedValue.dismiss()
+                    } label: {
+                        HStack{
+                            Image(systemName: "house.fill")
+                                .foregroundColor(.white)
+                                .offset(x: 20)
+                            Image("goals_logo_white")
+                                 .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 100)
+                            
+                        }
+                    }
+                    .offset(x:10)
                     Text("> > >")
                         .foregroundColor(.white)
                         .fontWeight(.bold)
@@ -32,13 +47,13 @@ struct vitalsView: View {
                     Image("vitals_logo_white")
                          .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 125)
+                        .frame(height: 115)
+                        .offset(x:-10)
                     Spacer()
                 }
-                Divider()
             }
             .background(Color("DarkGrey"))
-            NavigationLink(destination: PatientInfoView()) {
+            NavigationLink(destination: PatientInfoView(model: InfoModel)) {
                 ZStack {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 320, height: 45)
@@ -52,7 +67,7 @@ struct vitalsView: View {
             }
             .padding(.bottom, 30)
             
-            NavigationLink(destination: TodosView()) {
+            NavigationLink(destination: TodosView(model: InfoModel)) {
                 ZStack {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 320, height: 45)
@@ -109,14 +124,14 @@ struct vitalsView: View {
         }
         .background(Color.white)
         .sheet(isPresented: $showQuiz, content: {
-            QuizView(correct: $correct, incorrect: $incorrect, answered: $answered)
+            QuizView(model: QuizModel)
         })
         .sheet(isPresented: $showLearn, content: {
             LearnView()
         })
         .navigationBarTitle("")
         .navigationBarTitleDisplayMode(.inline)
-        .accentColor(.blue)
+        .navigationBarHidden(true)
 
     }
 }

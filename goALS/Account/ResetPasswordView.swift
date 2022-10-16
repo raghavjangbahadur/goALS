@@ -67,6 +67,7 @@ struct ResetPasswordView: View {
         }
         .navigationBarTitle("Reset Password")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarColor(.white)
         
     }
     

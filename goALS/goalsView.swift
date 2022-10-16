@@ -107,7 +107,6 @@ struct goalsView: View {
             
         }
         .background(Color("DeepRed"))
-        .accentColor(.blue)
     }
 }
 

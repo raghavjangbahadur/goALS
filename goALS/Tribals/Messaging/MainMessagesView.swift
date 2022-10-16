@@ -45,7 +45,7 @@ struct MainMessagesView: View {
     var body: some View {
         VStack {
             messagesView
-            
+            Spacer()
             NavigationLink(destination: LinkPresenter { ChatView(model: chatModel) }, isActive: $shouldNavigateToChatLogView) {
                 EmptyView()
             }
@@ -55,8 +55,9 @@ struct MainMessagesView: View {
                 label: {}
             )
         }
-        .navigationTitle("Individual Messaging")
+        .navigationTitle("Messages")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarColor(.white)
         .overlay(
             newMessageButton, alignment: .bottom)
     }

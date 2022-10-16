@@ -65,6 +65,7 @@ struct AddNewUserView: View {
         }
         .navigationBarTitle("Add New User")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarColor(.white)
     }
     
     func sendMessage() {

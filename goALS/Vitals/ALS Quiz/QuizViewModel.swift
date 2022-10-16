@@ -17,7 +17,7 @@ class QuizViewModel: ObservableObject {
     
     @Published var questions = [Question]()
     
-    func getQuestion() {
+    func getQuestions() {
         let db = Firestore.firestore()
         
         db.collection("quiz").getDocuments() { (querySnapshot, err) in
@@ -36,6 +36,5 @@ class QuizViewModel: ObservableObject {
                 }
             }
         }
-        print(questions)
     }
 }

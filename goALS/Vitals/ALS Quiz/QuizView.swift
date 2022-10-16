@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct QuizView: View {
-    @Binding var correct: Int
-    @Binding var incorrect: Int
-    @Binding var answered: Int
     
-    @ObservedObject var model = QuizViewModel()
+    @State var correct = 0
+    @State var incorrect = 0
+    @State var answered = 0
+    
+    @ObservedObject var model: QuizViewModel
+    
+    init(model: QuizViewModel) {
+        self.model = model
+    }
     
     @Environment(\.presentationMode) var present
     var body: some View {
@@ -24,12 +29,11 @@ struct QuizView: View {
                 if (answered == model.questions.count) {
                     VStack(spacing: 25) {
                         Spacer()
-                        Image(systemName: "medal")
+                        Image(systemName: "star.fill")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 225, height: 225)
                             .foregroundColor(.yellow)
-                            .padding()
                         
                         HStack(spacing: 15) {
                             Text("\(correct)/\(correct + incorrect)")
@@ -79,7 +83,7 @@ struct QuizView: View {
                                 .frame(height: 6)
                             Capsule()
                                 .fill(Color.green)
-                                .frame(width: userProgress(), height: 6)
+                                .frame(width: progress(), height: 6)
                         })
                         .padding()
                         ZStack {
@@ -101,11 +105,11 @@ struct QuizView: View {
                 }
             }
         }.onAppear {
-            model.getQuestion()
+            model.getQuestions()
         }
     }
     
-    func userProgress() -> CGFloat {
+    func progress() -> CGFloat {
         let percentage = CGFloat(answered) / CGFloat(model.questions.count)
         let width = UIScreen.main.bounds.width - 30
         return percentage * width

@@ -15,16 +15,18 @@ struct RegistrationSecondaryView: View {
     }
     
     var body: some View {
-        VStack {
-            VStack {
+        ScrollView{
+            HStack {
+                Spacer()
                 Image("goals_logo_white")
                      .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 100)
-                    .padding(.all)
-                Divider()
+                    .padding(10)
+                Spacer()
             }
             .background(Color("DeepRed"))
+
             Group {
                 TextField("Enter Caregiver (your) first name", text: self.$model.firstName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -41,6 +43,7 @@ struct RegistrationSecondaryView: View {
                     .disableAutocorrection(true)
                 Text("ALS Patient Name")
                   .fontWeight(.bold)
+                  .foregroundColor(Color("DarkGrey"))
                 TextField("Patient Name", text: self.$model.patientName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
@@ -49,6 +52,7 @@ struct RegistrationSecondaryView: View {
                     .disableAutocorrection(true)
                 Text("Set user ID (email)")
                     .fontWeight(.bold)
+                    .foregroundColor(Color("DarkGrey"))
                 TextField("Email", text: self.$model.email)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
@@ -57,6 +61,7 @@ struct RegistrationSecondaryView: View {
                     .disableAutocorrection(true)
                 Text("Set password (minimum 6 characters)")
                     .fontWeight(.bold)
+                    .foregroundColor(Color("DarkGrey"))
                 TextField("Password", text: self.$model.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
@@ -65,6 +70,7 @@ struct RegistrationSecondaryView: View {
                     .disableAutocorrection(true)
                 Text("Enter unique patient ID from Primary Caregiver")
                     .fontWeight(.bold)
+                    .foregroundColor(Color("DarkGrey"))
                 TextField("Unique Patient ID", text: self.$model.generatedId)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 10)
@@ -72,8 +78,6 @@ struct RegistrationSecondaryView: View {
                     .padding(.bottom, 15)
                     .disableAutocorrection(true)
             }
-            
-            Divider()
             Spacer()
             
             Button(action: registerAction) {
@@ -90,7 +94,7 @@ struct RegistrationSecondaryView: View {
             Text(model.errorMessage)
                 .foregroundColor(.red)
                 .padding(.horizontal, 10)
-                .padding(.bottom, 35)
+                .padding(.bottom, 10)
             NavigationLink(
                 destination:
                     ContentView()
@@ -100,7 +104,9 @@ struct RegistrationSecondaryView: View {
                 label: {}
             )
         }
-        .navigationBarBackButtonHidden(false)
+        .navigationTitle("Secondary Registration")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarColor(.white)
         .background(Color.white)
     }
     

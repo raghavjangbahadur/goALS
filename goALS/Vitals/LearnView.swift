@@ -16,7 +16,7 @@ struct LearnView: View {
             ZStack {
                 RoundedRectangle(cornerRadius:15)
                     .frame(width: 350, height: 100)
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color("DeepRed"))
                     .padding(.all, 15)
                 Text("Learn more about ALS")
                     .foregroundColor(.white)
