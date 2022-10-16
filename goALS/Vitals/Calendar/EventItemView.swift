@@ -28,27 +28,21 @@ struct EventItemView: View {
     var body: some View {
         NavigationView {
             VStack {
-                VStack {
+                VStack(alignment: .leading) {
                     VStack(alignment: .leading) {
                         Text(event.title)
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color("DarkGrey"))
                             .font(.system(size: 25))
                             .fontWeight(.bold)
-                            .padding(.bottom, 20)
+                            .padding(.bottom, 0)
+                        Text(event.date + " from " + event.startTime + " to " + event.endTime)
+                            .foregroundColor(Color("DarkGrey"))
                         Text(event.description)
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color("DarkGrey"))
                             .padding(.bottom, 20)
-                        HStack {
-                            Text(event.date + " from " + event.startTime + " to " + event.endTime)
-                                .foregroundColor(Color.white)
-                            Spacer()
-                        }
                     }
                     .padding(15)
                 }
-                .background(Color("DarkGrey"))
-                .cornerRadius(13)
-                .shadow(color: Color.black.opacity(0.5), radius: 10)
                 .padding(5)
                 .padding(.bottom, 30)
                 VStack{

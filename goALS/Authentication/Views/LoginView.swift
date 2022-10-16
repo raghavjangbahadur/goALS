@@ -5,9 +5,58 @@
 //  Created by Raghav Jangbahadur on 7/28/22.
 //
 import SwiftUI
-struct LoginView: View {
-    @ObservedObject var model: LoginModel = LoginModel()
 
+struct NavigationBarModifier: ViewModifier {
+        
+    var backgroundColor: UIColor?
+    
+    init( backgroundColor: UIColor?) {
+        self.backgroundColor = backgroundColor
+        let coloredAppearance = UINavigationBarAppearance()
+        coloredAppearance.configureWithTransparentBackground()
+        coloredAppearance.backgroundColor = .clear
+        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        UINavigationBar.appearance().standardAppearance = coloredAppearance
+        UINavigationBar.appearance().compactAppearance = coloredAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+        UINavigationBar.appearance().tintColor = .white
+
+    }
+    
+    func body(content: Content) -> some View {
+        ZStack{
+            content
+            VStack {
+                GeometryReader { geometry in
+                    Color(self.backgroundColor ?? .clear)
+                        .frame(height: geometry.safeAreaInsets.top)
+                        .edgesIgnoringSafeArea(.top)
+                    Spacer()
+                }
+            }
+        }
+    }
+}
+
+extension View {
+    func navigationBarColor(_ backgroundColor: UIColor?) -> some View {
+        self.modifier(NavigationBarModifier(backgroundColor: backgroundColor))
+    }
+}
+
+struct LoginView: View {
+    @ObservedObject var model: LoginModel
+    
+    init(model: LoginModel? = nil) {
+        if let model {
+            self.model = model
+        } else {
+            self.model = LoginModel()
+        }
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -42,6 +91,7 @@ struct LoginView: View {
                     }
                     .padding(.bottom, 10)
                     Text(model.errorMessage)
+                        .fixedSize(horizontal: false, vertical: true)
                         .foregroundColor(.red)
                         .padding(5)
                         .padding(.horizontal, 5)
@@ -63,7 +113,7 @@ struct LoginView: View {
                 .padding(.horizontal, 15)
                 Spacer()
                 NavigationLink("Hidden nav link", isActive: self.$model.loggedIn) {
-                    ContentView()
+                    goalsView()
                         .navigationBarBackButtonHidden(true)
                         .navigationBarHidden(true)
                 }
@@ -72,7 +122,9 @@ struct LoginView: View {
                 primaryLoginAction()
             }
             .background(Color("DeepRed"))
+            .navigationBarHidden(true)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .environment(\.rootPresentationMode, self.$model.loggedIn)
         .environmentObject(self.model)
     }

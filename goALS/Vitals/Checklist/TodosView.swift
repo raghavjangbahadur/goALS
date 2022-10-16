@@ -49,10 +49,14 @@ struct TodosView: View {
                 })
                 .padding(10)
                 Text(model.checklistErrorMessage)
+                    .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(.red)
                     .padding(.bottom, 10)
             }
         }
+        .navigationTitle("Checklist")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarColor(.white)
         .accentColor(.red)
         .onAppear {
             model.getSingleData()

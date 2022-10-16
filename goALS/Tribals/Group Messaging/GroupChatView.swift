@@ -15,10 +15,13 @@ import Foundation
 
 struct GroupChatView: View {
     
-    @ObservedObject var model = GroupChatModel()
-    
+    @ObservedObject var model: GroupChatModel
+
     @State var text = ""
-    
+
+    init(model: GroupChatModel) {
+        self.model =  model
+    }
     var body: some View {
         VStack {
             messagesView
@@ -26,11 +29,13 @@ struct GroupChatView: View {
                 chatBottomBar
                     .background(Color.white.ignoresSafeArea())
             }
-        }.onAppear() {
-            model.fetchChat()
         }
         .navigationTitle(model.patientName + "'s Circle" )
-            .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarColor(.white)
+        .onAppear {
+            self.model.fetchChat()
+        }
     }
     
     static let emptyString = "Empty"
@@ -46,9 +51,13 @@ struct GroupChatView: View {
                     HStack{ Spacer() }
                         .id(Self.emptyString)
                 }
-                .onReceive(model.$count) { _ in
+                .onReceive(model.$count) { count in
+                    guard count > 0 else {
+                        return
+                    }
                     withAnimation(.easeOut(duration: 0.1)) {
                         scrollViewProxy.scrollTo(Self.emptyString, anchor: .bottom)
+                        print("--------\(count)---------")
                     }
                 }
             }
@@ -108,7 +117,13 @@ struct GroupMessageView: View {
     
     init(message: GroupMessage) {
         self.message = message
-        formatter.dateFormat = "HH:mm"
+        formatter.dateFormat = "dd MMM yyyy"
+        if (formatter.string(from: message.time) == formatter.string(from: Date.now)) {
+            formatter.dateFormat = "HH:mm"
+        }
+        else{
+            formatter.dateFormat = "MM/dd HH:mm"
+        }
     }
     
     var body: some View {
@@ -160,6 +175,6 @@ struct GroupMessageView: View {
 
 struct GroupChatView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupChatView()
+        GroupChatView(model: GroupChatModel())
     }
 }

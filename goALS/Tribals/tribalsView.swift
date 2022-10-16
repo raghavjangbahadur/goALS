@@ -38,7 +38,7 @@ struct tribalsView: View {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 320, height: 45)
                         .foregroundColor(Color("LightGrey"))
-                        .shadow(color: Color.black.opacity(0.5), radius: 10)
+                        .shadow(color: Color.black.opacity(0.4), radius: 4)
                     Text("Individual Messaging")
                         .foregroundColor(Color("DarkGrey"))
                         .fontWeight(.bold)
@@ -47,12 +47,12 @@ struct tribalsView: View {
             }
             .padding(.bottom, 30)
             
-            NavigationLink(destination: GroupChatView()) {
+            NavigationLink(destination: GroupChatView(model: GroupChatModel())) {
                 ZStack {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 320, height: 45)
                         .foregroundColor(Color("LightGrey"))
-                        .shadow(color: Color.black.opacity(0.5), radius: 10)
+                        .shadow(color: Color.black.opacity(0.4), radius: 4)
                     Text("Circle Messaging")
                         .foregroundColor(Color("DarkGrey"))
                         .fontWeight(.bold)
@@ -63,7 +63,7 @@ struct tribalsView: View {
                 RoundedRectangle(cornerRadius:15)
                     .frame(width: 320, height: 45)
                     .foregroundColor(Color("LightGrey"))
-                    .shadow(color: Color.black.opacity(0.5), radius: 10)
+                    .shadow(color: Color.black.opacity(0.4), radius: 4)
                 Text("Public Community")
                     .foregroundColor(Color("DarkGrey"))
                     .fontWeight(.bold)
@@ -80,6 +80,8 @@ struct tribalsView: View {
         })
         .navigationBarTitle("")
         .navigationBarTitleDisplayMode(.inline)
+        .accentColor(.blue)
+
     }
 }
 

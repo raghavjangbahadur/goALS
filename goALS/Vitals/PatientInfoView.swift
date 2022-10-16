@@ -18,7 +18,9 @@ struct PatientInfoView: View {
                         .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.gender)
-                        .foregroundColor(Color("DarkGrey"))                }
+                        .foregroundColor(Color("DarkGrey"))
+                        .frame(width: 70)
+                }
                 .padding(10)
                 HStack {
                     Text("Age")
@@ -26,6 +28,7 @@ struct PatientInfoView: View {
                     Spacer()
                     Text(String(model.patient.age))
                         .foregroundColor(Color("DarkGrey"))
+                        .frame(width: 70)
                 }
                 .padding(10)
                 HStack {
@@ -34,34 +37,35 @@ struct PatientInfoView: View {
                     Spacer()
                     Text(model.patient.stage)
                         .foregroundColor(Color("DarkGrey"))
+                        .frame(width: 70)
                 }
                 .padding(10)
                 HStack {
                     Text("Use of feeding tube")
-                        .frame(width: 150)
                         .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.tube)
                         .foregroundColor(Color("DarkGrey"))
+                        .frame(width: 70)
                 }
                 .padding(10)
                 HStack {
                     Text("Hand strength/control (clumsiness, inability to hold items, difficulty, etc)")
                         .foregroundColor(Color("DarkGrey"))
-                        .frame(width: 170)
                     
                     Spacer()
                     Text(model.patient.hands)
                         .foregroundColor(Color("DarkGrey"))
+                        .frame(width: 70)
                 }
                 .padding(10)
                 HStack {
                     Text("Speech issues (slurring, trouble speaking clearly")
-                        .frame(width: 185)
                         .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.speech)
                         .foregroundColor(Color("DarkGrey"))
+                        .frame(width: 70)
                 }
                 .padding(10)
                 HStack {
@@ -70,33 +74,35 @@ struct PatientInfoView: View {
                     Spacer()
                     Text(model.patient.muscles)
                         .foregroundColor(Color("DarkGrey"))
+                        .frame(width: 70)
                 }
                 .padding(10)
                 HStack {
                     Text("Difficulty walking without tripping/falling")
-                        .frame(width: 170)
                         .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.walking)
                         .foregroundColor(Color("DarkGrey"))
+                        .frame(width: 70)
                 }
                 .padding(10)
                 HStack {
                     Text("Weakness in legs, feet, hands, or fingers")
-                        .frame(width: 190)
                         .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.legs)
                         .foregroundColor(Color("DarkGrey"))
+                        .frame(width: 70)
+                    
                 }
                 .padding(10)
                 HStack {
                     Text("Difficult breathing")
-                        .frame(width: 170)
                         .foregroundColor(Color("DarkGrey"))
                     Spacer()
                     Text(model.patient.breathing)
                         .foregroundColor(Color("DarkGrey"))
+                        .frame(width: 70)
                 }
                 .padding(10)
             }.onAppear {
@@ -104,6 +110,7 @@ struct PatientInfoView: View {
             }
             .navigationTitle("Key Details and Information")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarColor(.white)
         }
         NavigationLink(destination: PatientInfoEditView(), label: {
             Text("Update basic information")
@@ -117,7 +124,7 @@ struct PatientInfoView: View {
                 )
         })
         .padding(.bottom, 20)
-        .accentColor(Color("DeepRed"))
+        
     }
 }
 

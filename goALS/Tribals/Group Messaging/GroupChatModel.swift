@@ -67,6 +67,8 @@ class GroupChatModel: ObservableObject {
                         print(error)
                         return
                     }
+                    
+                    var messages = self.messages
                     querySnapshot?.documentChanges.forEach({ change in
                         if change.type == .added {
                             let document = change.document
@@ -77,12 +79,13 @@ class GroupChatModel: ObservableObject {
                             let data = document.data()
                             self.messageIDs.insert(documentID)
                             let stamp = data["timestamp"] as? Timestamp ?? Timestamp()
-                            self.messages.append(.init(documentId: documentID, data: document.data(), stamp: stamp))
+                            messages.append(.init(documentId: documentID, data: document.data(), stamp: stamp))
                         }
                     })
                     
-                    DispatchQueue.main.async {
-                        self.count += 1
+                    self.messages = messages
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.count = messages.count
                     }
                 }
                 

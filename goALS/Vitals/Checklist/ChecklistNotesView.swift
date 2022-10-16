@@ -22,19 +22,14 @@ struct ChecklistNotesView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(item?.name ?? "")
-                .font(.title)
-                .foregroundColor(Color.white)
-                .padding(20)
+                .font(.system(size: 25))
+                .foregroundColor(Color("DarkGrey"))
             Divider()
             Text(item?.notes ?? "")
-                .foregroundColor(Color.white)
+                .foregroundColor(Color("DarkGrey"))
             Spacer()
         }
-        .padding()
-        .background(Color("DarkGrey"))
-        .cornerRadius(13)
-        .shadow(color: Color.black.opacity(0.5), radius: 10)
-        .padding(5)
+        .padding(25)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {

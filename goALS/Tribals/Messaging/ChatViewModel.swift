@@ -11,24 +11,33 @@ class ChatViewModel: ObservableObject {
     @Published var count = 0
     @Published var messages = [Message]()
     @Published var userFirstName = ""
+    
     var messageIds:Set<String> = Set<String>()
 
-    let user: User?
-    init(user: User?) {
-        self.user = user
-        guard let userID = Auth.auth().currentUser?.uid else {
-            print("could not find user id")
+    var user: User? {
+        didSet {
+            messages.removeAll(keepingCapacity: true)
+            messageIds.removeAll(keepingCapacity: true)
+            count = 0
+            userFirstName = ""
+            text = ""
+            fetchUserName()
+        }
+    }
+    
+    func fetchUserName() {
+        guard let toId = user?.id, !toId.isEmpty else {
+            print("toId is empty")
             return
         }
         let db = Firestore.firestore()
-        let docRef = db.collection("users").document(userID)
+        let docRef = db.collection("users").document(toId)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let docData = document.data()
                 self.userFirstName = docData!["firstName"] as? String ?? ""
             }
         }
-        fetchChat()
     }
     
     func send() {
@@ -63,23 +72,25 @@ class ChatViewModel: ObservableObject {
             }
         }
     }
-    
+   
+
     func fetchChat() {
-        let db = Firestore.firestore()
-        guard let userID = Auth.auth().currentUser?.uid else {
-            print("could not find user id")
-            return
-        }
         guard let toId = user?.id, !toId.isEmpty else {
             print("toId is empty")
             return
         }
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("could not find user id")
+            return
+        }
+        let db = Firestore.firestore()
         db.collection("messages").document(userID).collection(toId).order(by: "timestamp").addSnapshotListener { querySnapshot, error in
             if let error = error {
                 print(error)
                 return
             }
 
+            var messages = self.messages
             querySnapshot?.documentChanges.forEach({ change in
                 if change.type == .added {
                     let data = change.document.data()
@@ -87,13 +98,13 @@ class ChatViewModel: ObservableObject {
                     if !self.messageIds.contains(documentID) {
                         self.messageIds.insert(documentID)
                         let stamp = data["timestamp"] as? Timestamp ?? Timestamp()
-                        self.messages.append(.init(documentId: documentID, data: data, stamp: stamp))
+                        messages.append(.init(documentId: documentID, data: data, stamp: stamp))
                     }
                 }
             })
-
-            DispatchQueue.main.async {
-                self.count += 1
+            self.messages = messages
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.count = messages.count
             }
         }
     }

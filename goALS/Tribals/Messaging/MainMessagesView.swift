@@ -12,6 +12,25 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 
+struct LinkPresenter<Content: View>: View {
+    let content: () -> Content
+
+    @State private var invlidated = false
+    init(@ViewBuilder _ content: @escaping () -> Content) {
+        self.content = content
+    }
+    var body: some View {
+        Group {
+            if self.invlidated {
+                EmptyView()
+            } else {
+                content()
+            }
+        }
+        .onDisappear { self.invlidated = true }
+    }
+}
+
 struct MainMessagesView: View {
     
     @State var shouldShowExitOptions = false
@@ -21,14 +40,14 @@ struct MainMessagesView: View {
     @State var exit = false
     
     @ObservedObject var model = MainMessagesViewModel()
+    var chatModel = ChatViewModel()
     
     var body: some View {
         VStack {
             messagesView
-                .padding(.vertical)
             
-            NavigationLink("", isActive: $shouldNavigateToChatLogView) {
-                ChatView(user: self.user)
+            NavigationLink(destination: LinkPresenter { ChatView(model: chatModel) }, isActive: $shouldNavigateToChatLogView) {
+                EmptyView()
             }
             NavigationLink(
                 destination: tribalsView(),
@@ -48,15 +67,14 @@ struct MainMessagesView: View {
                 VStack {
                     Button {
                         model.fetchUser(msg: recentMessage) { user in
-                            self.user = user
+                            chatModel.user = user
+                            self.shouldNavigateToChatLogView.toggle()
                         }
-                        self.shouldNavigateToChatLogView.toggle()
-                        
                     } label: {
                         HStack(spacing: 16) {
                             Image(systemName: "person.fill")
                                 .font(.system(size: 32))
-                                .accentColor(.black)
+                                .foregroundColor(.black)
                                 .padding(8)
                                 .overlay(RoundedRectangle(cornerRadius: 44)
                                     .stroke(Color(.label), lineWidth: 1)
@@ -77,7 +95,7 @@ struct MainMessagesView: View {
                             
                             Text(recentMessage.timeAgo)
                                 .font(.system(size: 14, weight: .semibold))
-                                .accentColor(.black)
+                                .foregroundColor(.black)
                         }
                         Divider()
                             .padding(.vertical, 8)
@@ -111,9 +129,7 @@ struct MainMessagesView: View {
                 print(user.email)
                 self.shouldNavigateToChatLogView.toggle()
                 self.user = user
-            })
-            .accentColor(Color("DeepRed"))
-        }
+            })        }
     }
 }
 

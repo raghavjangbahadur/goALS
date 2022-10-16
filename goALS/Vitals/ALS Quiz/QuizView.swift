@@ -24,11 +24,11 @@ struct QuizView: View {
                 if (answered == model.questions.count) {
                     VStack(spacing: 25) {
                         Spacer()
-                        Image(systemName: "trophy")
+                        Image(systemName: "medal")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 225, height: 225)
-                            .foregroundColor(Color.yellow)
+                            .foregroundColor(.yellow)
                             .padding()
                         
                         HStack(spacing: 15) {
@@ -246,7 +246,7 @@ struct QuestionView: View{
                         .cornerRadius(15)
                 })
                 .disabled(question.submitted ? true : false)
-                .opacity(question.submitted ? 1 : 0.7)
+                .opacity(question.submitted ? 0.7 : 1)
                 .padding()
                 
                 Button(action: {
@@ -263,7 +263,7 @@ struct QuestionView: View{
                         .cornerRadius(15)
                 })
                 .disabled(!question.submitted ? true : false)
-                .opacity(!question.submitted ? 1 : 0.7)
+                .opacity(!question.submitted ? 0.7 : 1)
             }
         }
         .background(Color.white)
@@ -311,8 +311,8 @@ struct QuestionView: View{
     
 }
 
-/*struct QuizView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuizView(correct: 0, incorrect: 0)
-    }
-}*/
+//struct QuizView_Previews: PreviewProvider {
+   // static var previews: some View {
+   //     QuizView(correct: 0, incorrect: 0)
+   // }
+//}

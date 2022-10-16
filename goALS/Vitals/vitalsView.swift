@@ -43,7 +43,7 @@ struct vitalsView: View {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 320, height: 45)
                         .foregroundColor(Color("LightGrey"))
-                        .shadow(color: Color.black.opacity(0.5), radius: 10)
+                        .shadow(color: Color.black.opacity(0.4), radius: 4)
                     Text("Key details and information")
                         .foregroundColor(Color("DarkGrey"))
                         .fontWeight(.bold)
@@ -57,7 +57,7 @@ struct vitalsView: View {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 320, height: 45)
                         .foregroundColor(Color("LightGrey"))
-                        .shadow(color: Color.black.opacity(0.5), radius: 10)
+                        .shadow(color: Color.black.opacity(0.4), radius: 4)
                     Text("Daily Checklist")
                         .foregroundColor(Color("DarkGrey"))
                         .fontWeight(.bold)
@@ -70,7 +70,7 @@ struct vitalsView: View {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 320, height: 45)
                         .foregroundColor(Color("LightGrey"))
-                        .shadow(color: Color.black.opacity(0.5), radius: 10)
+                        .shadow(color: Color.black.opacity(0.4), radius: 4)
                     Text("Calendar")
                         .foregroundColor(Color("DarkGrey"))
                         .fontWeight(.bold)
@@ -82,7 +82,7 @@ struct vitalsView: View {
                 RoundedRectangle(cornerRadius:15)
                     .frame(width: 320, height: 45)
                     .foregroundColor(Color("LightGrey"))
-                    .shadow(color: Color.black.opacity(0.5), radius: 10)
+                    .shadow(color: Color.black.opacity(0.4), radius: 4)
                 Text("Learn more about ALS")
                     .foregroundColor(Color("DarkGrey"))
                     .fontWeight(.bold)
@@ -96,7 +96,7 @@ struct vitalsView: View {
                 RoundedRectangle(cornerRadius:15)
                     .frame(width: 320, height: 45)
                     .foregroundColor(Color("LightGrey"))
-                    .shadow(color: Color.black.opacity(0.5), radius: 10)
+                    .shadow(color: Color.black.opacity(0.4), radius: 4)
                 Text("Take the ALS Quiz!")
                     .foregroundColor(Color("DarkGrey"))
                     .fontWeight(.bold)
@@ -116,6 +116,8 @@ struct vitalsView: View {
         })
         .navigationBarTitle("")
         .navigationBarTitleDisplayMode(.inline)
+        .accentColor(.blue)
+
     }
 }
 

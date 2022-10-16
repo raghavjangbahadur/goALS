@@ -27,7 +27,8 @@ struct Calendar: View {
         MonthlyCalendarView(calendarManager: calendarManager)
             .theme(calendarTheme)
             .navigationTitle("Calendar")
-                .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarColor(.white)
     }
 }
 

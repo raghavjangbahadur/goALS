@@ -22,16 +22,6 @@ class RegistrationModel: ObservableObject {
     @Published var patientName: String = ""
     @Published var firstName: String = ""
     @Published var lastName: String = ""
-    @Published var patientGender: String = ""
-    @Published var patientAge: Int = 0
-    @Published var stage: String = ""
-    @Published var feedingTube: String = ""
-    @Published var hands: String = ""
-    @Published var speech: String = ""
-    @Published var muscles: String = ""
-    @Published var walking: String = ""
-    @Published var legs: String = ""
-    @Published var breathing: String = ""
     @Published var generatedId: String = ""
     @Published var errorMessage = ""
     /// login model
@@ -134,16 +124,16 @@ class RegistrationModel: ObservableObject {
             .document(id)
             .setData(["patientName" : name,
                       "patient uuid" : id,
-                      "patientGender" : self.patientGender,
-                      "patientAge" : self.patientAge,
-                      "stage" : self.stage,
-                      "feedingTube" : self.feedingTube,
-                      "hands" : self.hands,
-                      "speech" : self.speech,
-                      "muscles" : self.muscles,
-                      "walking" : self.walking,
-                      "legs" : self.legs,
-                      "breathing" : self.breathing])
+                      "patientGender" : "Other",
+                      "patientAge" : 0,
+                      "stage" : "Early",
+                      "feedingTube" : "Low",
+                      "hands" : "Low",
+                      "speech" : "Low",
+                      "muscles" : "Low",
+                      "walking" : "Low",
+                      "legs" : "Low",
+                      "breathing" : "Low"])
     }
 
     func cancel() {

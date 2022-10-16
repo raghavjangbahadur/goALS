@@ -13,37 +13,37 @@ struct ContentView: View {
     }
 
     var body: some View {
-        TabView {
-            goalsView()
-                .navigationBarHidden(true)
-                .tabItem {
-                    Label(title: {
-                        Text("Home")
-                    }, icon: {
-                        Image(systemName: "house.fill")
-                    })
-                }
-            vitalsView()
-                .accentColor(Color("DeepRed"))
-                .navigationBarHidden(true)
-                .tabItem {
-                    Label("View Patient Info", image:"vitals_logo_grey")
-                }
-            tribalsView()
-                .navigationBarHidden(true)
-                .tabItem {
-                    Label("Community", image:"tribals_logo_grey")
-                }
-            verbalsView()
-                .navigationBarHidden(true)
-                .tabItem {
-                    Label("Communicate", image:"verbals_logo_grey")
-                }
+        VStack {
+            TabView {
+                goalsView()
+                    .navigationBarHidden(true)
+                    .tabItem {
+                        Label(title: {
+                            Text("Home")
+                        }, icon: {
+                            Image(systemName: "house.fill")
+                        })
+                    }
+                vitalsView()
+                    .accentColor(Color("DeepRed"))
+                    .navigationBarHidden(true)
+                    .tabItem {
+                        Label("View Patient Info", image:"vitals_logo_grey")
+                    }
+                tribalsView()
+                    .navigationBarHidden(true)
+                    .tabItem {
+                        Label("Community", image:"tribals_logo_grey")
+                    }
+                verbalsView()
+                    .navigationBarHidden(true)
+                    .tabItem {
+                        Label("Communicate", image:"verbals_logo_grey")
+                    }
+            }
         }
         .accentColor(Color("DeepRed"))
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
-        Spacer()
+       
     }
 }
 

@@ -14,16 +14,12 @@ import FirebaseFirestore
 import FirebaseAuth
 
 struct ChatView: View {
-    
-    let user: User?
-    
     @ObservedObject var model: ChatViewModel
 
     @State var text = ""
 
-    init(user: User?) {
-        self.user = user
-        self.model =  ChatViewModel(user: user)
+    init(model: ChatViewModel) {
+        self.model =  model
     }
 
     var body: some View {
@@ -33,9 +29,14 @@ struct ChatView: View {
                 chatBottomBar
                     .background(Color.white.ignoresSafeArea())
             }
-            .navigationTitle(user?.firstName ?? "")
-                .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationTitle(model.userFirstName)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarColor(.white)
+        .onAppear {
+            self.model.fetchChat()
+        }
+        
     }
     
     static let emptyString = "Empty"
@@ -46,20 +47,22 @@ struct ChatView: View {
                 VStack {
                     ForEach(model.messages) { message in
                         MessageView(message: message)
-                        
                     }
                     HStack{ Spacer() }
                         .id(Self.emptyString)
                 }
-                .onReceive(model.$count) { _ in
+                .onReceive(model.$count) { count in
+                    guard count > 0 else {
+                        return
+                    }
                     withAnimation(.easeOut(duration: 0.1)) {
                         scrollViewProxy.scrollTo(Self.emptyString, anchor: .bottom)
+                        print("--------\(count)---------")
                     }
                 }
             }
         }
         .background(Color(.init(white: 0.95, alpha: 1)))
-
     }
 
     private var chatBottomBar: some View {
@@ -108,7 +111,13 @@ struct MessageView: View {
     
     init(message: Message) {
         self.message = message
-        formatter.dateFormat = "HH:mm"
+        formatter.dateFormat = "dd MMM yyyy"
+        if (formatter.string(from: message.time) == formatter.string(from: Date.now)) {
+            formatter.dateFormat = "HH:mm"
+        }
+        else{
+            formatter.dateFormat = "MM/dd HH:mm"
+        }
     }
     
     var body: some View {
@@ -134,6 +143,7 @@ struct MessageView: View {
                     VStack(alignment: .leading) {
                         Text(message.text)
                             .foregroundColor(.black)
+                            .padding(.bottom, 2)
                         Text(formatter.string(from: message.time))
                             .foregroundColor(.black)
                             .font(.system(size: 10))
@@ -152,7 +162,7 @@ struct MessageView: View {
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ChatView(user: nil)
+            ChatView(model: ChatViewModel())
         }
     }
 }

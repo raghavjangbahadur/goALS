@@ -82,6 +82,7 @@ struct RegistrationView: View {
             }
             .padding(.bottom, 10)
             Text(model.errorMessage)
+                .fixedSize(horizontal: false, vertical: true)
                 .foregroundColor(.red)
                 .padding(.horizontal, 10)
                 .padding(.bottom, 35)

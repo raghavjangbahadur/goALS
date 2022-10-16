@@ -25,13 +25,13 @@ struct PatientInfoEditView: View {
     }
     
     let optionsStage: [String] = [
-        "       ", "Early", "Medium", "Late"
+        "Early", "Medium", "Late"
     ]
     let options: [String] = [
-        "       ", "High", "Medium", "Low"
+        "Low", "Medium", "High"
     ]
     let optionsYN: [String] = [
-        "       ", "Yes", "No"
+        "No", "Yes"
     ]
     
     let optionsGender: [String] = [
@@ -134,7 +134,6 @@ struct PatientInfoEditView: View {
                     .padding(.trailing, 10)
                     .foregroundColor(Color("DarkGrey"))
                 Spacer()
-                    .font(.system(size: 15))
                 Picker(selection: $hands,
                        content: {
                     ForEach(options, id: \.self) { option in
@@ -143,7 +142,7 @@ struct PatientInfoEditView: View {
                     }
                 }, label: {
                     HStack {
-                        Text("Edit:")
+                        Text("")
                     }.onAppear() {
                         hands = model.patient.hands
                     }
@@ -267,6 +266,7 @@ struct PatientInfoEditView: View {
             .padding(.bottom, 10)
 
         }
+        .navigationBarColor(.white)
         .onAppear {
             model.getSingleData()
         }

@@ -45,34 +45,37 @@ struct goalsView: View {
                 .padding(.bottom, 30)
             
             HStack{
-                ZStack {
-                    RoundedRectangle(cornerRadius:15)
-                        .frame(width: 125, height: 125)
-                        .foregroundColor(.white)
-                        .shadow(color: .black.opacity(0.6), radius: 20)
-                        .padding(.all, 15)
-                    Image("vitals_logo_grey")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 24)
+                NavigationLink(destination: vitalsView()) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius:15)
+                            .frame(width: 125, height: 125)
+                            .foregroundColor(.white)
+                            .shadow(color: .black.opacity(0.5), radius: 5)
+                            .padding(.all, 15)
+                        Image("vitals_logo_grey")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 24)
+                    }
                 }
-                .accentColor(Color("DeepRed"))
                 Text("Find and update vital information about ALS and your patient")
                     .foregroundColor(.white)
                     .frame(maxWidth: 200)
             }
 
             HStack{
-                ZStack {
-                    RoundedRectangle(cornerRadius:15)
-                        .frame(width: 125, height: 125)
-                        .foregroundColor(.white)
-                        .shadow(color: .black.opacity(0.6), radius: 20)
-                        .padding(.all, 15)
-                    Image("tribals_logo_grey")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 24)
+                NavigationLink(destination: tribalsView()) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius:15)
+                            .frame(width: 125, height: 125)
+                            .foregroundColor(.white)
+                            .shadow(color: .black.opacity(0.5), radius: 5)
+                            .padding(.all, 15)
+                        Image("tribals_logo_grey")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 24)
+                    }
                 }
                 Text("Find and access your public and private community")
                     .foregroundColor(.white)
@@ -80,16 +83,18 @@ struct goalsView: View {
             }
             
             HStack{
-                ZStack {
-                    RoundedRectangle(cornerRadius:15)
-                        .frame(width: 125, height: 125)
-                        .foregroundColor(.white)
-                        .shadow(color: .black.opacity(0.6), radius: 20)
-                        .padding(.all, 15)
-                    Image("verbals_logo_grey")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 24)
+                NavigationLink(destination: verbalsView()) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius:15)
+                            .frame(width: 125, height: 125)
+                            .foregroundColor(.white)
+                            .shadow(color: .black.opacity(0.5), radius: 5)
+                            .padding(.all, 15)
+                        Image("verbals_logo_grey")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 24)
+                    }
                 }
                 Text("Communicate with your ALS patient")
                     .foregroundColor(.white)
@@ -99,10 +104,10 @@ struct goalsView: View {
             
         }.onAppear {
             model.getSingleData()
+            
         }
         .background(Color("DeepRed"))
-        .navigationBarTitle("")
-        .navigationBarTitleDisplayMode(.inline)
+        .accentColor(.blue)
     }
 }
 
