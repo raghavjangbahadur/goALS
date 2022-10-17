@@ -38,7 +38,12 @@ class ChatModel: ObservableObject {
                         if let querySnapshot = querySnapshot {
                             DispatchQueue.main.async {
                                 self.users = querySnapshot.documents.map { d in
-                                    return User(id: d.documentID, firstName: d["firstName"] as? String ?? "", lastName: d["lastName"] as? String ?? "", patientID: d["patient uuid"] as? String ?? "", patientName: d["patientName"] as? String ?? "", email: d["email"] as? String ?? "", account: docData!["account"] as? String ?? "")
+                                    return User(id: d.documentID, firstName: d["firstName"] as? String ?? "",
+                                                lastName: d["lastName"] as? String ?? "",
+                                                patientID: d["patient uuid"] as? String ?? "",
+                                                patientName: d["patientName"] as? String ?? "",
+                                                email: d["email"] as? String ?? "",
+                                                account: docData!["account"] as? String ?? "")
                                 }
                             }
                         }

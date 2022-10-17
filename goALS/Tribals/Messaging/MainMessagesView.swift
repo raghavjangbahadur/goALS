@@ -36,9 +36,13 @@ struct MainMessagesView: View {
     @State var shouldShowExitOptions = false
     @State var shouldShowNewMessageScreen = false
     @State var shouldNavigateToChatLogView = false
-    @State var user: User?
     @State var exit = false
-    
+    @State var user: User? {
+        didSet {
+            self.chatModel.user = user
+        }
+    }
+
     @ObservedObject var model = MainMessagesViewModel()
     var chatModel = ChatViewModel()
     
@@ -59,7 +63,8 @@ struct MainMessagesView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarColor(.white)
         .overlay(
-            newMessageButton, alignment: .bottom)
+            newMessageButton, alignment: .bottom
+        )
     }
     
     private var messagesView: some View {
@@ -68,7 +73,7 @@ struct MainMessagesView: View {
                 VStack {
                     Button {
                         model.fetchUser(msg: recentMessage) { user in
-                            chatModel.user = user
+                            self.user = user
                             self.shouldNavigateToChatLogView.toggle()
                         }
                     } label: {
@@ -127,10 +132,11 @@ struct MainMessagesView: View {
         .padding(.bottom)
         .fullScreenCover(isPresented: $shouldShowNewMessageScreen){
             NewMessageView(didSelectNewUser: { user in
+                self.user = user
                 print(user.email)
                 self.shouldNavigateToChatLogView.toggle()
-                self.user = user
-            })        }
+            })
+        }
     }
 }
 

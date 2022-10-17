@@ -58,10 +58,7 @@ class ChatViewModel: ObservableObject {
                 return
             }
             
-            self.count += 1
-            
             self.persistRecentMessage()
-            
             self.text = ""
         }
         let docRefRec = db.collection("messages").document(toId).collection(userID).document()
@@ -72,7 +69,6 @@ class ChatViewModel: ObservableObject {
             }
         }
     }
-   
 
     func fetchChat() {
         guard let toId = user?.id, !toId.isEmpty else {
@@ -90,7 +86,7 @@ class ChatViewModel: ObservableObject {
                 return
             }
 
-            var messages = self.messages
+            var newMessages = [Message]()
             querySnapshot?.documentChanges.forEach({ change in
                 if change.type == .added {
                     let data = change.document.data()
@@ -98,14 +94,16 @@ class ChatViewModel: ObservableObject {
                     if !self.messageIds.contains(documentID) {
                         self.messageIds.insert(documentID)
                         let stamp = data["timestamp"] as? Timestamp ?? Timestamp()
-                        messages.append(.init(documentId: documentID, data: data, stamp: stamp))
+                        newMessages.append(.init(documentId: documentID, data: data, stamp: stamp))
                     }
                 }
             })
-            self.messages = messages
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.count = messages.count
+
+            guard newMessages.count > 0 else {
+                return
             }
+            self.messages.append(contentsOf: newMessages)
+            self.count = self.messages.count
         }
     }
     
@@ -117,12 +115,12 @@ class ChatViewModel: ObservableObject {
             return
         }
         /*let docRef = db.collection("users").document(userID)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let docData = document.data()
-                userFirstName = docData!["firstName"] as? String ?? ""
-            }
-        }*/
+         docRef.getDocument { (document, error) in
+         if let document = document, document.exists {
+         let docData = document.data()
+         userFirstName = docData!["firstName"] as? String ?? ""
+         }
+         }*/
         let toId = user.id
         let docRef3 = db.collection("recent_messages").document(userID).collection("messages").document(toId)
         let docRef2 = db.collection("recent_messages").document(toId).collection("messages").document(userID)
