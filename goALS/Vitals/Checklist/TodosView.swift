@@ -13,6 +13,8 @@ struct TodosView: View {
     @State var name : String = ""
     @State var notes : String = ""
     
+    @State var shouldShowAddView = false
+    
     init(model: PatientInfoModel) {
         self.model = model
     }
@@ -29,34 +31,6 @@ struct TodosView: View {
                     }
                 }
             }
-            
-            VStack(spacing: 5) {
-                TextField("Name", text: $name)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 10)
-                TextField("Notes (activites, times, etc.)", text: $notes)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal, 10)
-                Button(action: {
-                    if(name == "") {
-                        model.checklistErrorMessage = "Please enter checklist item name"
-                    }
-                    else {
-                        model.addChecklistItem(name, notes)
-                        name = ""
-                        notes = ""
-                    }
-                }, label: {
-                    Text("Add checklist item")
-                        .foregroundColor(Color("DeepRed"))
-                        .fontWeight(.bold)
-                })
-                .padding(10)
-                Text(model.checklistErrorMessage)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .foregroundColor(.red)
-                    .padding(.bottom, 10)
-            }
         }
         .navigationTitle("Checklist")
         .navigationBarTitleDisplayMode(.inline)
@@ -66,6 +40,19 @@ struct TodosView: View {
             model.getSingleData()
             model.getChecklist()
         }
+        .sheet(isPresented: $shouldShowAddView, content: {
+            AddChecklistItemView(model: model)
+        })
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    shouldShowAddView.toggle()
+                } label: {
+                    Image(systemName: "plus")
+                }
+
+            }
+        }
     }
 }
 
@@ -74,4 +61,3 @@ struct TodosView_Previews: PreviewProvider {
         TodosView(model: PatientInfoModel())
     }
 }
-

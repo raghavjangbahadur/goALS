@@ -48,7 +48,7 @@ struct vitalsView: View {
                          .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 115)
-                        .offset(x:-10)
+                        .offset(x:-15)
                     Spacer()
                 }
             }

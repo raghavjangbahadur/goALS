@@ -19,6 +19,7 @@ class PatientInfoModel: ObservableObject {
     @Published var count = 0
     @Published var user = User(id: "", firstName: "", lastName: "",  patientID: "", patientName: "", email: "", account: "")
     @Published var checklistErrorMessage = ""
+    @Published var patientErrorMessage = ""
     
     func deleteCheckListItem(_ item: ChecklistItem) {
         let db = Firestore.firestore()
@@ -161,6 +162,10 @@ class PatientInfoModel: ObservableObject {
                     db.collection("patients").document(patientId).setData(value, merge: true) { error in
                         if error == nil {
                             self.getSingleData()
+                            self.patientErrorMessage = "Patient information has been updated!"
+                        }
+                        else {
+                            self.patientErrorMessage = error!.localizedDescription
                         }
                     }
                 } else {

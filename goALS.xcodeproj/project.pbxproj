@@ -60,6 +60,7 @@
 		2AA7347628AA247C00D17A07 /* TodosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA7347528AA247C00D17A07 /* TodosView.swift */; };
 		2AB522A228B026C800BB5691 /* ChecklistNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB522A128B026C800BB5691 /* ChecklistNotesView.swift */; };
 		2AB522A428B2F74000BB5691 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB522A328B2F74000BB5691 /* LearnView.swift */; };
+		2ACF335128FE74F5003E8B0F /* AddChecklistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACF335028FE74F5003E8B0F /* AddChecklistItemView.swift */; };
 		2AF1188328B896C0001A6525 /* AddNewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1188228B896C0001A6525 /* AddNewUserView.swift */; };
 		2AF1188528B89A93001A6525 /* RegistrationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1188428B89A93001A6525 /* RegistrationSelection.swift */; };
 		2AF1188728B89C8F001A6525 /* RegistrationSecondaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */; };
@@ -138,6 +139,7 @@
 		2AA7347528AA247C00D17A07 /* TodosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosView.swift; sourceTree = "<group>"; };
 		2AB522A128B026C800BB5691 /* ChecklistNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistNotesView.swift; sourceTree = "<group>"; };
 		2AB522A328B2F74000BB5691 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
+		2ACF335028FE74F5003E8B0F /* AddChecklistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChecklistItemView.swift; sourceTree = "<group>"; };
 		2AF1188228B896C0001A6525 /* AddNewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewUserView.swift; sourceTree = "<group>"; };
 		2AF1188428B89A93001A6525 /* RegistrationSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSelection.swift; sourceTree = "<group>"; };
 		2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationSecondaryView.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			children = (
 				2AA7347328A9CD3A00D17A07 /* ChecklistItem.swift */,
 				2AA7347528AA247C00D17A07 /* TodosView.swift */,
+				2ACF335028FE74F5003E8B0F /* AddChecklistItemView.swift */,
 				2AB522A128B026C800BB5691 /* ChecklistNotesView.swift */,
 			);
 			path = Checklist;
@@ -548,6 +551,7 @@
 				2A8F13F028B5FCBF0053B091 /* ChatViewModel.swift in Sources */,
 				2A661F922870FCEF0014B661 /* tribalsView.swift in Sources */,
 				2A05DB5928DCF7DA00B1FAA9 /* RegistrationView.swift in Sources */,
+				2ACF335128FE74F5003E8B0F /* AddChecklistItemView.swift in Sources */,
 				2A90CB3E286BF36D0079B380 /* ContentView.swift in Sources */,
 				2A05DB4228D7D99B00B1FAA9 /* EventView.swift in Sources */,
 				2A8F13EA28B5E0FF0053B091 /* MainMessagesModel.swift in Sources */,

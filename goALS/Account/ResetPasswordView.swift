@@ -24,7 +24,6 @@ class ResetPasswordModel: ObservableObject {
                 return
             }
             self.completed = true
-            
         }
     }
 }
@@ -49,7 +48,7 @@ struct ResetPasswordView: View {
                 ZStack {
                     Rectangle()
                         .fill(Color("DeepRed"))
-                        .frame(width: 370, height: 45)
+                        .frame(width: 270, height: 45)
                     Text("Reset password")
                         .foregroundColor(.white)
                         .fontWeight(.bold)
@@ -58,10 +57,12 @@ struct ResetPasswordView: View {
                 .padding(.bottom, 10)
             if(model.completed == true) {
                 Text("Email has been sent to reset password!")
+                    .foregroundColor(.red)
             }
             else {
                 Text(model.errorMessage)
                     .foregroundColor(.red)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             Spacer()
         }

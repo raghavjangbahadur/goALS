@@ -42,25 +42,19 @@ struct accountView: View {
     @EnvironmentObject var loginModel: LoginModel
     
     var body: some View {
-        VStack {
+        VStack{
             List {
                 Section("Circle") {
                     NavigationLink {
                         CircleView()
                     } label: {
-                        HStack {
-                            Text("Patient Circle")
-                            Spacer()
-                        }
+                        Text("Patient Circle")
                     }
                     if(model.primary) {
                         NavigationLink {
                             AddNewUserView()
                         } label: {
-                            HStack {
-                                Text("Add User to Circle")
-                                Spacer()
-                            }
+                            Text("Add User to Circle")
                         }
                     }
                 }
@@ -68,28 +62,23 @@ struct accountView: View {
                     NavigationLink {
                         ResetPasswordView()
                     } label: {
-                        HStack {
-                            Text("Reset password")
-                            Spacer()
-                        }
+                        Text("Reset password")
                     }
                     Button {
                         shouldShowLogOutOptions.toggle()
                     } label: {
-                        HStack {
-                            Text("Sign out")
-                                .foregroundColor(.red)
-                            Spacer()
-                        }
+                        Text("Sign out")
+                            .foregroundColor(.red)
                     }
                 }
-                
             }
-            NavigationLink("", isActive: self.$loginModel.loggedIn.not) {
+            Spacer()
+            /*NavigationLink("", isActive: self.$loginModel.loggedIn.not) {
                 LoginView(model: loginModel)
                     .navigationBarBackButtonHidden(true)
                     .navigationBarHidden(true)
             }
+            .hidden()*/
         }.actionSheet(isPresented: $shouldShowLogOutOptions) {
             .init(title: Text("Sign out"), message: Text("Are you sure you want to sign out?"), buttons: [
                 .destructive(Text("Sign out"), action: {
@@ -101,6 +90,7 @@ struct accountView: View {
         .navigationBarTitle("Settings")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarColor(.white)
+        .background(Color("ListBG"))
     }
 }
 

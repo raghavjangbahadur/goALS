@@ -30,64 +30,50 @@ struct AddEventView: View {
     @State var description = ""
     
     var body: some View {
-        NavigationView {
-            VStack{
-                VStack {
-                    TextField("Title", text: self.$title)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocapitalization(.none)
-                        .padding(.horizontal, 10)
-                        .padding(.top, 20)
-                    TextField("Description", text: self.$description)
-                        .textFieldStyle(.roundedBorder)
-                        .frame(height: 40)
-                        .autocapitalization(.none)
-                        .padding(.horizontal, 10)
-                        .padding(.bottom, 10)
-                    DatePicker("Start Time: ", selection: $start, displayedComponents: .hourAndMinute)
-                        .colorScheme(.dark)
-                        .padding(.horizontal, 10)
-                    DatePicker("End Time: ", selection: $end, in: start..., displayedComponents: .hourAndMinute)
-                        .padding(.horizontal, 10)
-                        .colorScheme(.dark)
-                        .padding(.bottom, 30)
-                }
-                .background(Color("DarkGrey"))
-                .cornerRadius(13)
-                .shadow(color: Color.black.opacity(0.5), radius: 10)
-                Text(model.errorMessage)
-                    .foregroundColor(.red)
-                    .padding()
-                Spacer()
-            }
-            .padding(5)
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Button {
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Text("Cancel")
-                    }
-                }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button {
-                        addItem(title, description, date, start, end) { _ in
-                            presentationMode.wrappedValue.dismiss()
-                            // reload
-                            let date = selectedDate.wrappedValue
-                            selectedDate.wrappedValue = date
-                        }
-                    } label: {
-                        Text("Add event")
-                            .foregroundColor(Color("DeepRed"))
-                            .background(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .foregroundColor(.white)
-                            )
-                    }
-                }
-            }
+        VStack {
+            Text("Add Item")
+                .fontWeight(.bold)
+                .font(.system(size: 20 ))
+                .padding(20)
+            TextField("Title", text: self.$title)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocapitalization(.none)
+                .padding(.horizontal, 10)
+                .padding(.top, 20)
+            TextField("Description", text: self.$description)
+                .textFieldStyle(.roundedBorder)
+                .frame(height: 40)
+                .autocapitalization(.none)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 10)
+            DatePicker("Start Time: ", selection: $start, displayedComponents: .hourAndMinute)
+                .padding(.horizontal, 10)
+            DatePicker("End Time: ", selection: $end, in: start..., displayedComponents: .hourAndMinute)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 30)
         }
+        Button {
+            addItem(title, description, date, start, end) { _ in
+                presentationMode.wrappedValue.dismiss()
+                // reload
+                let date = selectedDate.wrappedValue
+                selectedDate.wrappedValue = date
+            }
+        } label: {
+            Text("Add event")
+                .foregroundColor(Color.white)
+                .fontWeight(.bold)
+                .padding(10)
+                .padding(.horizontal)
+                .background(
+                    RoundedRectangle(cornerRadius: 5)
+                        .foregroundColor(Color("DeepRed"))
+                )
+        }
+        Text(model.errorMessage)
+            .foregroundColor(.red)
+            .padding()
+        Spacer()
     }
     
     func addItem(_ title: String,

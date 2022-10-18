@@ -16,7 +16,7 @@ struct CommunityView: View {
             ZStack {
                 RoundedRectangle(cornerRadius:15)
                     .frame(width: 350, height: 100)
-                    .foregroundColor(Color("DeepRed"))
+                    .foregroundColor(Color("DarkGrey"))
                     .padding(.all, 15)
                 Text("Public Community")
                     .foregroundColor(.white)

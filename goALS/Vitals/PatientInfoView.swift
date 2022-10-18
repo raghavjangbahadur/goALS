@@ -127,7 +127,7 @@ struct PatientInfoView: View {
                         .foregroundColor(Color("DeepRed"))
                 )
         })
-        .padding(.bottom)
+        .padding()
         
     }
 }

@@ -279,12 +279,16 @@ struct PatientInfoEditView: View {
                     )
             }
             .padding()
+            if(model.patientErrorMessage != "") {
+                Text(model.patientErrorMessage)
+                    .foregroundColor(.red)
+            }
         }
         .navigationBarColor(.white)
         .onAppear {
             model.getSingleData()
         }
-        .navigationTitle("Edit Information")
+        .navigationTitle("Edit Patient Information")
         .navigationBarTitleDisplayMode(.inline)
     }
     func updateData() {

@@ -35,7 +35,7 @@ struct EventView: View {
                     shouldShowAddView.toggle()
                 } label: {
                     Image(systemName: "plus")
-                }.fullScreenCover(isPresented: $shouldShowAddView){
+                }.sheet(isPresented: $shouldShowAddView){
                     AddEventView(date: stringified, model: model)
                 }
             }

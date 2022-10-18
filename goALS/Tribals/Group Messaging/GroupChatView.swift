@@ -24,10 +24,18 @@ struct GroupChatView: View {
     }
     var body: some View {
         VStack {
-            messagesView
-            VStack(spacing: 0) {
-                chatBottomBar
-                    .background(Color.white.ignoresSafeArea())
+            if model.count == 0 {
+                VStack(spacing: 0) {
+                    Spacer()
+                    chatBottomBar
+                        .background(Color.white.ignoresSafeArea())
+                }
+            } else {
+                messagesView
+                VStack(spacing: 0) {
+                    chatBottomBar
+                        .background(Color.white.ignoresSafeArea())
+                }
             }
         }
         .navigationTitle(model.patientName + "'s Circle" )
@@ -55,10 +63,12 @@ struct GroupChatView: View {
                     guard count > 0 else {
                         return
                     }
-                    withAnimation(.easeOut(duration: 0.1)) {
+                    withAnimation(.easeInOut(duration: 0.1)) {
                         scrollViewProxy.scrollTo(Self.emptyString, anchor: .bottom)
                         print("--------\(count)---------")
                     }
+                }.onAppear {
+                    scrollViewProxy.scrollTo(Self.emptyString, anchor: .bottom)
                 }
             }
         }

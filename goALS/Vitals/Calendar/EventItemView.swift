@@ -26,38 +26,20 @@ struct EventItemView: View {
     @State var deletedDate = ""
     
     var body: some View {
-        NavigationView {
-            VStack {
-                VStack(alignment: .leading) {
-                    VStack(alignment: .leading) {
-                        Text(event.title)
-                            .foregroundColor(Color("DarkGrey"))
-                            .font(.system(size: 25))
-                            .fontWeight(.bold)
-                            .padding(.bottom, 0)
-                        Text(event.date + " from " + event.startTime + " to " + event.endTime)
-                            .foregroundColor(Color("DarkGrey"))
-                        Text(event.description)
-                            .foregroundColor(Color("DarkGrey"))
-                            .padding(.bottom, 20)
-                    }
-                    .padding(15)
-                }
-                .padding(5)
-                .padding(.bottom, 30)
-                VStack{
-                    Button(action: {
-                        deletedEvent = event
-                        deletedDate = event.date
-                        shouldDelete.toggle()
-                    }, label: {
-                        Text("Delete event")
-                            .foregroundColor(Color.red)
-                    })
-                }
-                .padding(.bottom, 10)
-                Spacer()
+        VStack {
+            VStack(alignment: .leading) {
+                Text(event.title)
+                    .foregroundColor(Color("DarkGrey"))
+                    .font(.system(size: 25))
+                    .fontWeight(.bold)
+                    .padding(.bottom, 0)
+                Text(event.date + " from " + event.startTime + " to " + event.endTime)
+                    .foregroundColor(Color("DarkGrey"))
+                Text(event.description)
+                    .foregroundColor(Color("DarkGrey"))
+                    .padding(.bottom, 20)
             }
+            .padding(5)
         }
         .actionSheet(isPresented: $shouldDelete) {
             .init(title: Text("Are you sure you want to delete this event?") , buttons: [
@@ -68,6 +50,18 @@ struct EventItemView: View {
                 }),
                 .cancel()
             ])
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    deletedEvent = event
+                    deletedDate = event.date
+                    shouldDelete.toggle()
+                }, label: {
+                    Text("Delete event")
+                        .foregroundColor(Color.red)
+                })
+            }
         }
     }
 }

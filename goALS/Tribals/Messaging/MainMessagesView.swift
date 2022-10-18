@@ -49,6 +49,7 @@ struct MainMessagesView: View {
     var body: some View {
         VStack {
             messagesView
+                .padding(.top, 5)
             Spacer()
             NavigationLink(destination: LinkPresenter { ChatView(model: chatModel) }, isActive: $shouldNavigateToChatLogView) {
                 EmptyView()

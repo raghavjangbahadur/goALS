@@ -41,9 +41,7 @@ class GroupChatModel: ObservableObject {
                     }
                     
                     self.text = ""
-                    self.count += 1
                 }
-                
             } else {
                 print("Document does not exist here")
             }
@@ -68,7 +66,7 @@ class GroupChatModel: ObservableObject {
                         return
                     }
                     
-                    var messages = self.messages
+                    var newMessages = [GroupMessage]()
                     querySnapshot?.documentChanges.forEach({ change in
                         if change.type == .added {
                             let document = change.document
@@ -79,14 +77,15 @@ class GroupChatModel: ObservableObject {
                             let data = document.data()
                             self.messageIDs.insert(documentID)
                             let stamp = data["timestamp"] as? Timestamp ?? Timestamp()
-                            messages.append(.init(documentId: documentID, data: document.data(), stamp: stamp))
+                            newMessages.append(.init(documentId: documentID, data: document.data(), stamp: stamp))
                         }
                     })
                     
-                    self.messages = messages
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.count = messages.count
+                    guard newMessages.count > 0 else {
+                        return
                     }
+                    self.messages.append(contentsOf: newMessages)
+                    self.count = self.messages.count
                 }
                 
             } else {
