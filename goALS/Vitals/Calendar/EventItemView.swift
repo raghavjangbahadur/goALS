@@ -26,21 +26,22 @@ struct EventItemView: View {
     @State var deletedDate = ""
     
     var body: some View {
-        VStack {
-            VStack(alignment: .leading) {
-                Text(event.title)
-                    .foregroundColor(Color("DarkGrey"))
-                    .font(.system(size: 25))
-                    .fontWeight(.bold)
-                    .padding(.bottom, 0)
-                Text(event.date + " from " + event.startTime + " to " + event.endTime)
-                    .foregroundColor(Color("DarkGrey"))
-                Text(event.description)
-                    .foregroundColor(Color("DarkGrey"))
-                    .padding(.bottom, 20)
-            }
-            .padding(5)
+        VStack(alignment: .leading) {
+            Text(event.title)
+                .font(.system(size: 30))
+                .foregroundColor(Color("DarkGrey"))
+                .padding(.bottom, 0.1)
+            Text(event.date + " from " + event.startTime + " to " + event.endTime)
+                .foregroundColor(Color("DarkGrey"))
+                .font(.system(size: 15))
+            Divider()
+            Text(event.description)
+                .foregroundColor(Color("DarkGrey"))
+                .padding(.bottom, 20)
+            Spacer()
         }
+        .padding(25)
+        .navigationTitle("Event Details")
         .actionSheet(isPresented: $shouldDelete) {
             .init(title: Text("Are you sure you want to delete this event?") , buttons: [
                 .destructive(Text("Delete"), action: {

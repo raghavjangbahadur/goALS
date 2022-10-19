@@ -22,7 +22,7 @@ struct ChecklistNotesView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(item?.name ?? "")
-                .font(.system(size: 25))
+                .font(.system(size: 30))
                 .foregroundColor(Color("DarkGrey"))
             Divider()
             Text(item?.notes ?? "")
@@ -30,6 +30,7 @@ struct ChecklistNotesView: View {
             Spacer()
         }
         .padding(25)
+        .navigationTitle("Item Details")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {

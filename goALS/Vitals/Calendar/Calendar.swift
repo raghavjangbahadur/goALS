@@ -43,7 +43,8 @@ extension Calendar: MonthlyCalendarDataSource {
     }
 
     func calendar(viewForSelectedDate date: Date, dimensions size: CGSize) -> AnyView {
-        AnyView(EventView(date: date, model: model).environment(\.selectedDate, self.$calendarManager.selectedDate))
+        AnyView(EventView(date: date, model: model).environment(\.selectedDate, self.$calendarManager.selectedDate)
+            .frame(maxHeight: (size.height - 50)))
     }
 }
 

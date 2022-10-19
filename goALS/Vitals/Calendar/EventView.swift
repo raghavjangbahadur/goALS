@@ -47,7 +47,8 @@ struct EventView: View {
                     HStack {
                         Text(event.title)
                         Spacer()
-                        Text(event.startTime)
+                        Text(event.startTime + "-" + event.endTime)
+                            .font(.system(size: 13))
                     }
                 }
             }
@@ -56,7 +57,7 @@ struct EventView: View {
         .onAppear {
             model.getEvents(date: stringified)
         }
-        .background(Color("DarkGrey").opacity(0.5))
+        .background(Color("DeepRed").opacity(0.5))
         .cornerRadius(13)
         .shadow(color: Color.black.opacity(0.5), radius: 10)
         .padding(.trailing, 5)

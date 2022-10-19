@@ -61,6 +61,7 @@
 		2AB522A228B026C800BB5691 /* ChecklistNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB522A128B026C800BB5691 /* ChecklistNotesView.swift */; };
 		2AB522A428B2F74000BB5691 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB522A328B2F74000BB5691 /* LearnView.swift */; };
 		2ACF335128FE74F5003E8B0F /* AddChecklistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACF335028FE74F5003E8B0F /* AddChecklistItemView.swift */; };
+		2ACF335628FFA85A003E8B0F /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 2ACF335528FFA85A003E8B0F /* ElegantCalendar */; };
 		2AF1188328B896C0001A6525 /* AddNewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1188228B896C0001A6525 /* AddNewUserView.swift */; };
 		2AF1188528B89A93001A6525 /* RegistrationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1188428B89A93001A6525 /* RegistrationSelection.swift */; };
 		2AF1188728B89C8F001A6525 /* RegistrationSecondaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1188628B89C8F001A6525 /* RegistrationSecondaryView.swift */; };
@@ -68,7 +69,6 @@
 		2AF1195928BDC075001A6525 /* GroupChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1195828BDC075001A6525 /* GroupChatModel.swift */; };
 		2AF1195B28BE6DE0001A6525 /* GroupChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF1195A28BE6DE0001A6525 /* GroupChatView.swift */; };
 		C911309228D7AD150034DC68 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C911309128D7AD150034DC68 /* Environment.swift */; };
-		C911309528D7B3E20034DC68 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C911309428D7B3E20034DC68 /* ElegantCalendar */; };
 		C911309728D7B6260034DC68 /* ElegantCalendar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C911309628D7B6260034DC68 /* ElegantCalendar.xcassets */; };
 		C995A37128D42FBC000E48D7 /* Keychain in Frameworks */ = {isa = PBXBuildFile; productRef = C995A37028D42FBC000E48D7 /* Keychain */; };
 /* End PBXBuildFile section */
@@ -158,7 +158,7 @@
 				2A654A79288DCD2900C0C492 /* FirebaseFirestoreSwift in Frameworks */,
 				2A654A7F288DCD2900C0C492 /* FirebaseRemoteConfigSwift in Frameworks */,
 				2A654A77288DCD2900C0C492 /* FirebaseDatabaseSwift in Frameworks */,
-				C911309528D7B3E20034DC68 /* ElegantCalendar in Frameworks */,
+				2ACF335628FFA85A003E8B0F /* ElegantCalendar in Frameworks */,
 				2A654A7D288DCD2900C0C492 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				C995A37128D42FBC000E48D7 /* Keychain in Frameworks */,
 				2A654A75288DCD2900C0C492 /* FirebaseCrashlytics in Frameworks */,
@@ -410,7 +410,7 @@
 				2A654A7C288DCD2900C0C492 /* FirebaseInAppMessagingSwift-Beta */,
 				2A654A7E288DCD2900C0C492 /* FirebaseRemoteConfigSwift */,
 				C995A37028D42FBC000E48D7 /* Keychain */,
-				C911309428D7B3E20034DC68 /* ElegantCalendar */,
+				2ACF335528FFA85A003E8B0F /* ElegantCalendar */,
 			);
 			productName = goALS;
 			productReference = 2A90CB38286BF36D0079B380 /* goALS.app */;
@@ -487,7 +487,7 @@
 			packageReferences = (
 				2A654A6F288DCD2800C0C492 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C995A36F28D42FBC000E48D7 /* XCRemoteSwiftPackageReference "Keychain.swift" */,
-				C911309328D7B3E20034DC68 /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
+				2ACF335428FFA85A003E8B0F /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
 			);
 			productRefGroup = 2A90CB39286BF36D0079B380 /* Products */;
 			projectDirPath = "";
@@ -918,7 +918,7 @@
 				minimumVersion = 9.0.0;
 			};
 		};
-		C911309328D7B3E20034DC68 /* XCRemoteSwiftPackageReference "ElegantCalendar" */ = {
+		2ACF335428FFA85A003E8B0F /* XCRemoteSwiftPackageReference "ElegantCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ThasianX/ElegantCalendar";
 			requirement = {
@@ -977,9 +977,9 @@
 			package = 2A654A6F288DCD2800C0C492 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseRemoteConfigSwift;
 		};
-		C911309428D7B3E20034DC68 /* ElegantCalendar */ = {
+		2ACF335528FFA85A003E8B0F /* ElegantCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C911309328D7B3E20034DC68 /* XCRemoteSwiftPackageReference "ElegantCalendar" */;
+			package = 2ACF335428FFA85A003E8B0F /* XCRemoteSwiftPackageReference "ElegantCalendar" */;
 			productName = ElegantCalendar;
 		};
 		C995A37028D42FBC000E48D7 /* Keychain */ = {
