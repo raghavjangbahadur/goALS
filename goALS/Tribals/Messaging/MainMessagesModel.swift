@@ -52,7 +52,7 @@ class MainMessagesViewModel: ObservableObject {
     struct RecentMessage: Identifiable {
         var id: String { documentId }
         let documentId: String
-        let text, fromId, toId, firstName: String
+        let text, fromId, toId, firstName, lastName: String
         let timestamp: Date
         //var timeAgo: String
         
@@ -62,6 +62,7 @@ class MainMessagesViewModel: ObservableObject {
             self.toId = data["toId"] as? String ?? ""
             self.text = data["text"] as? String ?? ""
             self.firstName = data["firstName"] as? String ?? ""
+            self.lastName = data["lastName"] as? String ?? ""
             self.timestamp = (data["timestamp"] as? Timestamp)?.dateValue() ?? Date()
         }
         

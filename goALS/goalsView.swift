@@ -44,8 +44,8 @@ struct goalsView: View {
                 .foregroundColor(.white)
                 .padding(.bottom, 30)
             
-            HStack{
-                NavigationLink(destination: vitalsView()) {
+            NavigationLink(destination: vitalsView()) {
+                HStack{
                     ZStack {
                         RoundedRectangle(cornerRadius:15)
                             .frame(width: 125, height: 125)
@@ -57,14 +57,14 @@ struct goalsView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 24)
                     }
+                    Text("Find and update vital information about ALS and your patient")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: 200)
                 }
-                Text("Find and update vital information about ALS and your patient")
-                    .foregroundColor(.white)
-                    .frame(maxWidth: 200)
             }
 
-            HStack{
-                NavigationLink(destination: tribalsView()) {
+            NavigationLink(destination: tribalsView()) {
+                HStack{
                     ZStack {
                         RoundedRectangle(cornerRadius:15)
                             .frame(width: 125, height: 125)
@@ -76,14 +76,14 @@ struct goalsView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 24)
                     }
+                    Text("Find and access your public and private community")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: 200)
                 }
-                Text("Find and access your public and private community")
-                    .foregroundColor(.white)
-                    .frame(maxWidth: 200)
             }
             
-            HStack{
-                NavigationLink(destination: verbalsView()) {
+            NavigationLink(destination: verbalsView()) {
+                HStack{
                     ZStack {
                         RoundedRectangle(cornerRadius:15)
                             .frame(width: 125, height: 125)
@@ -95,10 +95,10 @@ struct goalsView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 24)
                     }
+                    Text("Communicate with your ALS patient")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: 200)
                 }
-                Text("Communicate with your ALS patient")
-                    .foregroundColor(.white)
-                    .frame(maxWidth: 200)
             }
             Spacer()
             

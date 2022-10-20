@@ -31,9 +31,9 @@ struct AddEventView: View {
     
     var body: some View {
         VStack {
-            Text("Add Item")
+            Text("Add Event")
                 .fontWeight(.bold)
-                .font(.system(size: 20 ))
+                .font(.system(size: 20))
                 .padding(20)
             TextField("Title", text: self.$title)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -60,7 +60,7 @@ struct AddEventView: View {
                 selectedDate.wrappedValue = date
             }
         } label: {
-            Text("Add event")
+            Text("Add")
                 .foregroundColor(Color.white)
                 .fontWeight(.bold)
                 .padding(10)

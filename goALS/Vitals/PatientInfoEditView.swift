@@ -268,7 +268,7 @@ struct PatientInfoEditView: View {
 
             }
             Button(action: updateData) {
-                Text("Update")
+                Text("Done")
                     .foregroundColor(Color.white)
                     .fontWeight(.bold)
                     .padding(10)

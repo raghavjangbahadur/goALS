@@ -44,6 +44,7 @@
 		2A661F902870FCCA0014B661 /* vitalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A661F8F2870FCCA0014B661 /* vitalsView.swift */; };
 		2A661F922870FCEF0014B661 /* tribalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A661F912870FCEF0014B661 /* tribalsView.swift */; };
 		2A661F942870FD0E0014B661 /* verbalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A661F932870FD0E0014B661 /* verbalsView.swift */; };
+		2A855EA2290121070021E241 /* CommunicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A855EA1290121070021E241 /* CommunicationView.swift */; };
 		2A8F13E828B5DB880053B091 /* MainMessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F13E728B5DB880053B091 /* MainMessagesView.swift */; };
 		2A8F13EA28B5E0FF0053B091 /* MainMessagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F13E928B5E0FF0053B091 /* MainMessagesModel.swift */; };
 		2A8F13EC28B5E7B40053B091 /* NewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F13EB28B5E7B40053B091 /* NewMessageView.swift */; };
@@ -120,6 +121,7 @@
 		2A661F8F2870FCCA0014B661 /* vitalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vitalsView.swift; sourceTree = "<group>"; };
 		2A661F912870FCEF0014B661 /* tribalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tribalsView.swift; sourceTree = "<group>"; };
 		2A661F932870FD0E0014B661 /* verbalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verbalsView.swift; sourceTree = "<group>"; };
+		2A855EA1290121070021E241 /* CommunicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationView.swift; sourceTree = "<group>"; };
 		2A8F13E728B5DB880053B091 /* MainMessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessagesView.swift; sourceTree = "<group>"; };
 		2A8F13E928B5E0FF0053B091 /* MainMessagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessagesModel.swift; sourceTree = "<group>"; };
 		2A8F13EB28B5E7B40053B091 /* NewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageView.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				2A661F932870FD0E0014B661 /* verbalsView.swift */,
+				2A855EA1290121070021E241 /* CommunicationView.swift */,
 			);
 			path = Verbals;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				2A4B2F5028A3138B00E47DB2 /* PatientInfoModel.swift in Sources */,
 				2A05DB5028DB8F4600B1FAA9 /* QuizViewModel.swift in Sources */,
 				2A8F13E828B5DB880053B091 /* MainMessagesView.swift in Sources */,
+				2A855EA2290121070021E241 /* CommunicationView.swift in Sources */,
 				C911309228D7AD150034DC68 /* Environment.swift in Sources */,
 				2A4B2F5228A3142500E47DB2 /* PatientInfo.swift in Sources */,
 				2A2E59F428D175A800796506 /* ResetPasswordView.swift in Sources */,

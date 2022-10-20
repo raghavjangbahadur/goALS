@@ -38,11 +38,12 @@ struct ChatView: View {
                 }
             }
         }
-        .navigationTitle(model.userFirstName)
+        .navigationTitle(model.userFirstName + " " + model.userLastName)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarColor(.white)
         .onAppear {
             self.model.fetchChat()
+            self.model.getSelfName()
         }
     }
     
@@ -64,7 +65,6 @@ struct ChatView: View {
                     }
                     withAnimation(.easeInOut(duration: 0.1)) {
                         scrollViewProxy.scrollTo(Self.emptyString, anchor: .bottom)
-                        print("--------\(count)---------")
                     }
                 }.onAppear {
                     scrollViewProxy.scrollTo(Self.emptyString, anchor: .bottom)

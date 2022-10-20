@@ -16,7 +16,6 @@ class ChatModel: ObservableObject {
     @Published var userId = ""
     
     init() {
-        let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {
             return
         }

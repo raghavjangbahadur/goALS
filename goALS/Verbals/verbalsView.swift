@@ -11,47 +11,52 @@ struct verbalsView: View {
     
     @Environment(\.presentationMode) var present
     
+    @State var showCommunication = false
+    
     var body: some View {
-        VStack{
-            VStack {
-                VStack {
-                    HStack{
-                        Spacer()
-                        Button {
-                            present.wrappedValue.dismiss()
-                        } label: {
-                            HStack{
-                                Image(systemName: "house.fill")
-                                    .foregroundColor(.white)
-                                    .offset(x: 20)
-                                Image("goals_logo_white")
-                                     .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(height: 100)
-                                
-                            }
-                        }
-                        .offset(x:10)
-                        Text("> > >")
-                            .foregroundColor(.white)
-                            .fontWeight(.bold)
-                            .font(.system(size: 20))
-                        Image("verbals_logo_white")
+        VStack(spacing: 0) {
+            ZStack{
+                HStack{
+                    Button {
+                        present.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "house.fill")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(height: 115)
-                            .offset(x:-10)
-                        Spacer()
+                            .frame(height: 30, alignment: .leading)
+                            .foregroundColor(.white)
+                            .padding(.leading)
                     }
+                    Spacer()
+                }
+                HStack{
+                    Image("verbals_logo_white")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 120, alignment: .center)
                 }
             }
             .background(Color("DarkGrey"))
-            Text("Coming soon!")
-                .padding(.top, 100)
+            ZStack {
+                RoundedRectangle(cornerRadius:15)
+                    .frame(width: 320, height: 45)
+                    .foregroundColor(Color("LightGrey"))
+                    .shadow(color: Color.black.opacity(0.4), radius: 4)
+                Text("Patient Communication Resources")
+                    .foregroundColor(Color("DarkGrey"))
+                    .fontWeight(.bold)
+            }
+            .padding(.bottom, 30)
+            .padding(.vertical, 30)
+            .onTapGesture(perform: {
+                showCommunication.toggle()
+            })
             Spacer()
         }
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("")
+        .sheet(isPresented: $showCommunication, content: {
+            CommunicationView()
+        })
+        .background(Color("ListBG"))
         .navigationBarHidden(true)
     }
 }

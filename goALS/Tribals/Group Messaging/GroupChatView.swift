@@ -65,7 +65,6 @@ struct GroupChatView: View {
                     }
                     withAnimation(.easeInOut(duration: 0.1)) {
                         scrollViewProxy.scrollTo(Self.emptyString, anchor: .bottom)
-                        print("--------\(count)---------")
                     }
                 }.onAppear {
                     scrollViewProxy.scrollTo(Self.emptyString, anchor: .bottom)

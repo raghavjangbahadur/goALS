@@ -64,7 +64,7 @@ class EventModel: ObservableObject {
         }
     }
     
-    func getTotalEvents() {
+    /*func getTotalEvents() {
         let db = Firestore.firestore()
         guard let userID = Auth.auth().currentUser?.uid else {
             print("could not find user id")
@@ -101,8 +101,8 @@ class EventModel: ObservableObject {
                 print("Document does not exist")
             }
         }
-    }
-
+    }*/
+    
     func returnOpacity(date: Date) -> Double {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YY/MM/dd"

@@ -127,7 +127,7 @@ struct LoginView: View {
             Image("goals_logo_white")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(height: 150)
+                .frame(height: 100)
                 .padding(.bottom, 50)
             Spacer()
             HStack(alignment: .center) {

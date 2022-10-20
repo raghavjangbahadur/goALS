@@ -11,6 +11,9 @@ class ChatViewModel: ObservableObject {
     @Published var count = 0
     @Published var messages = [Message]()
     @Published var userFirstName = ""
+    @Published var userLastName = ""
+    @Published var selfFirstName = ""
+    @Published var selfLastName = ""
     
     var messageIds:Set<String> = Set<String>()
 
@@ -20,6 +23,7 @@ class ChatViewModel: ObservableObject {
             messageIds.removeAll(keepingCapacity: true)
             count = 0
             userFirstName = ""
+            userLastName = ""
             text = ""
             fetchUserName()
         }
@@ -36,7 +40,30 @@ class ChatViewModel: ObservableObject {
             if let document = document, document.exists {
                 let docData = document.data()
                 self.userFirstName = docData!["firstName"] as? String ?? ""
+                self.userLastName = docData!["lastName"] as? String ?? ""
             }
+        }
+    }
+    
+    func getSelfName() {
+        let db = Firestore.firestore()
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("could not find user id")
+            return
+        }
+        let docRef = db.collection("users").document(userID)
+        docRef.getDocument { (document, error) in
+            guard error == nil else {
+                return
+            }
+            if let document = document, document.exists {
+                let data = document.data()
+                if let data = data {
+                    self.selfFirstName = data["firstName"] as? String ?? ""
+                    self.selfLastName = data["lastName"] as? String ?? ""
+                }
+            }
+            
         }
     }
     
@@ -129,7 +156,8 @@ class ChatViewModel: ObservableObject {
             "text": self.text,
             "fromId": userID,
             "toId" : toId,
-            "firstName" : user.firstName
+            "firstName" : user.firstName,
+            "lastName" : user.lastName
         ] as [String : Any]
         
         let data2 = [
@@ -137,7 +165,8 @@ class ChatViewModel: ObservableObject {
             "text": self.text,
             "fromId": toId,
             "toId" : userID,
-            "firstName" : userFirstName
+            "firstName" : self.selfFirstName,
+            "lastName" : self.selfLastName
         ] as [String : Any]
         docRef2.setData(data2) { error in
             if let error = error {

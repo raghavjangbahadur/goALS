@@ -39,16 +39,27 @@ struct EventView: View {
                     AddEventView(date: stringified, model: model)
                 }
             }
-            .padding(5)
-            List (model.events) { event in
-                NavigationLink {
-                    EventItemView(event: event, model: model)
-                } label: {
-                    HStack {
-                        Text(event.title)
-                        Spacer()
-                        Text(event.startTime + "-" + event.endTime)
-                            .font(.system(size: 13))
+            .padding(.bottom, 5)
+            ScrollView{
+                ForEach(model.events) { event in
+                    NavigationLink {
+                        EventItemView(event: event, model: model)
+                    } label: {
+                        HStack {
+                            VStack(alignment: .leading){
+                                Capsule()
+                                    .fill(Color("DeepRed"))
+                                    .frame(width: 75, height: 5)
+                                Text(event.title)
+                                    .foregroundColor(.black)
+                            }
+                            Spacer()
+                            Text(event.startTime + "-" + event.endTime)
+                                .font(.system(size: 13))
+                                .foregroundColor(.black)
+                        }
+                        Divider()
+                            .padding(.vertical, 8)
                     }
                 }
             }
@@ -57,9 +68,6 @@ struct EventView: View {
         .onAppear {
             model.getEvents(date: stringified)
         }
-        .background(Color("DeepRed").opacity(0.5))
-        .padding(.trailing, 5)
-        .padding(.bottom)
     }
 }
 

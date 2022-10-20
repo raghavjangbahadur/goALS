@@ -89,7 +89,7 @@ struct MainMessagesView: View {
                             
                             
                             VStack(alignment: .leading, spacing: 8) {
-                                Text(recentMessage.firstName)
+                                Text(recentMessage.firstName + " " + recentMessage.lastName)
                                     .font(.system(size: 16, weight: .bold))
                                     .foregroundColor(.black)
                                 Text(recentMessage.text)
@@ -100,9 +100,16 @@ struct MainMessagesView: View {
                             }
                             Spacer()
                             
-                            Text(recentMessage.timeAgo)
-                                .font(.system(size: 14, weight: .semibold))
-                                .foregroundColor(.black)
+                            if recentMessage.timeAgo.contains("sec") {
+                                Text("Now")
+                                    .font(.system(size: 14, weight: .semibold))
+                                    .foregroundColor(.black)
+                            }
+                            else {
+                                Text(recentMessage.timeAgo)
+                                    .font(.system(size: 14, weight: .semibold))
+                                    .foregroundColor(.black)
+                            }
                         }
                         Divider()
                             .padding(.vertical, 8)

@@ -17,34 +17,26 @@ struct tribalsView: View {
     
     var body: some View {
         VStack {
-            VStack {
+            ZStack{
                 HStack{
-                    Spacer()
                     Button {
                         present.wrappedValue.dismiss()
                     } label: {
-                        HStack{
-                            Image(systemName: "house.fill")
-                                .foregroundColor(.white)
-                                .offset(x: 20)
-                            Image("goals_logo_white")
-                                 .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: 100)
-                            
-                        }
+                        Image(systemName: "house.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 30, alignment: .leading)
+                            .foregroundColor(.white)
+                            .padding(.leading)
                     }
-                    .offset(x:10)
-                    Text("> > >")
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                        .font(.system(size: 20))
+                    Spacer()
+                }
+                HStack{
                     Image("tribals_logo_white2")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 115)
-                        .offset(x:-10)
-                    Spacer()
+                        .frame(height: 120, alignment: .center)
+                        .offset(y: 5)
                 }
             }
             .background(Color("DarkGrey"))
@@ -92,10 +84,7 @@ struct tribalsView: View {
         .background(Color.white)
         .sheet(isPresented: $showPublic, content: {
             CommunityView()
-        })
-        .navigationBarTitle("")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarHidden(true)
+        })        .navigationBarHidden(true)
 
     }
 }

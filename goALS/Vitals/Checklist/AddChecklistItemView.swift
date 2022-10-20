@@ -21,7 +21,7 @@ struct AddChecklistItemView: View {
     
     var body: some View {
         VStack{
-            Text("Add Item")
+            Text("Add Item to Checklist")
                 .fontWeight(.bold)
                 .padding(20)
                 .font(.system(size: 20))
@@ -47,7 +47,7 @@ struct AddChecklistItemView: View {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }, label: {
-                    Text("Add item to Checklist")
+                    Text("Add")
                         .foregroundColor(Color.white)
                         .fontWeight(.bold)
                         .padding(10)
