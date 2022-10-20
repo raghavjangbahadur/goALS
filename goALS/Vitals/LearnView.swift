@@ -27,13 +27,13 @@ struct LearnView: View {
             List(){
                 Text("[Understanding ALS](https://www.als.org/understanding-als)")
                     .padding(10)
-                Text("[Learn about dealing with ALS](https://iamalcs.org/get-help//#learn-about-als-understanding-als)")
+                Text("[Learn about dealing with ALS](https://iamals.org/get-help//#learn-about-als-understanding-als)")
                     .padding(10)
                 Text("[ALS Fact Sheet](https://www.ninds.nih.gov/Disorders/Patient-Caregiver-Education/Fact-Sheets/Amyotrophic-lateral-Sclerosis-ALS-Fact-Sheet)")
                     .padding(10)
                 Text("[ALS FAQs](https://iamals.org/get-help/frequently-asked-questions-about-als/)")
                     .padding(10)
-                Text("[ALS Guide](www.youralsguide.com)")
+                Text("[ALS Guide](https://youralsguide.com)")
                     .padding(10)
             }
             Spacer()

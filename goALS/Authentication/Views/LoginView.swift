@@ -152,6 +152,8 @@ struct LoginView: View {
                 loginView
             case .authenticated:
                 goalsView()
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarHidden(true)
             }
         }.onAppear {
             authenticate()

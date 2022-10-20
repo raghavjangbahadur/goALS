@@ -13,8 +13,14 @@ import FirebaseAuth
 
 class ChatModel: ObservableObject {
     @Published var users = [User]()
+    @Published var userId = ""
     
     init() {
+        let db = Firestore.firestore()
+        guard let userID = Auth.auth().currentUser?.uid else {
+            return
+        }
+        userId = userID
         fetchUsers()
     }
     
@@ -31,7 +37,7 @@ class ChatModel: ObservableObject {
                 let docData = document.data()
                 let key = docData!["patient uuid"] as? String ?? ""
                 db.collection("users").whereField("patient uuid", isEqualTo: key)
-                  .getDocuments() { (querySnapshot, err) in
+                  .getDocuments { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err)")
                     } else {

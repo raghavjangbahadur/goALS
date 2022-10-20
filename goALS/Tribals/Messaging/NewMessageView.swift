@@ -18,23 +18,29 @@ struct NewMessageView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                
-                ForEach(model.users) { user in
-                    Button {
-                        presentationMode.wrappedValue.dismiss()
-                        didSelectNewUser(user)
-                    } label: {
-                        HStack(spacing: 16) {
-                            Image(systemName: "person.fill")
-                                .font(.system(size: 34, weight: .heavy))
-                                .foregroundColor(.black)
-                            Text(user.firstName)
-                                .foregroundColor(.black)
-                            Spacer()
-                        }.padding(.horizontal)
+                if model.users.count == 1 {
+                    Text("No users are in the patient circle, go to settings to add users to Circle!")
+                }
+                else {
+                    ForEach(model.users) { user in
+                        if user.id != model.userId {
+                            Button {
+                                presentationMode.wrappedValue.dismiss()
+                                didSelectNewUser(user)
+                            } label: {
+                                HStack(spacing: 16) {
+                                    Image(systemName: "person.fill")
+                                        .font(.system(size: 34, weight: .heavy))
+                                        .foregroundColor(.black)
+                                    Text(user.firstName)
+                                        .foregroundColor(.black)
+                                    Spacer()
+                                }.padding(.horizontal)
+                            }
+                            Divider()
+                                .padding(.vertical, 8)
+                        }
                     }
-                    Divider()
-                        .padding(.vertical, 8)
                 }
             }.navigationTitle("New Message")
                 .navigationBarTitleDisplayMode(.inline)

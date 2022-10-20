@@ -39,7 +39,7 @@ struct EventView: View {
                     AddEventView(date: stringified, model: model)
                 }
             }
-            .padding(10)
+            .padding(5)
             List (model.events) { event in
                 NavigationLink {
                     EventItemView(event: event, model: model)
@@ -58,8 +58,6 @@ struct EventView: View {
             model.getEvents(date: stringified)
         }
         .background(Color("DeepRed").opacity(0.5))
-        .cornerRadius(13)
-        .shadow(color: Color.black.opacity(0.5), radius: 10)
         .padding(.trailing, 5)
         .padding(.bottom)
     }
