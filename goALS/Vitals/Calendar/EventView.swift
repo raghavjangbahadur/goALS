@@ -62,6 +62,8 @@ struct EventView: View {
                             .padding(.vertical, 8)
                     }
                 }
+            }.transaction { transaction in
+                transaction.animation = nil
             }
             
         }
