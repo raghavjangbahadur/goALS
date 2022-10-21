@@ -46,7 +46,23 @@ class EventModel: ObservableObject {
 
                             self.totalEvents = Set(totalEvents)
                             var events = Array(self.totalEvents.filter { $0.date == date })
-                            events.sort { $0.startTime > $1.startTime}
+                            events = events.sorted (by: { lhs, rhs in
+                                if(((lhs.startTime.contains("AM") && rhs.startTime.contains("AM")) || (lhs.startTime.contains("PM") && rhs.startTime.contains("PM"))) && lhs.startTime.count == 7 && rhs.startTime.count == 7) {
+                                    return lhs.startTime < rhs.startTime
+                                }
+                                else if (((lhs.startTime.contains("AM") && rhs.startTime.contains("AM")) || (lhs.startTime.contains("PM") && rhs.startTime.contains("PM"))) && lhs.startTime.count == 8 && rhs.startTime.count == 7) {
+                                    return false
+                                }
+                                else if ((lhs.startTime.contains("AM") && rhs.startTime.contains("AM")) || (lhs.startTime.contains("PM") && rhs.startTime.contains("PM")) && lhs.startTime.count == 7 && rhs.startTime.count == 8) {
+                                    return true
+                                }
+                                else if (lhs.startTime.contains("AM") && rhs.startTime.contains("PM")) {
+                                    return true
+                                }
+                                else {
+                                    return false
+                                }
+                            })
                             DispatchQueue.main.async {
                                 self.events = events
                                 completion?(events)
