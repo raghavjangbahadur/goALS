@@ -24,6 +24,7 @@ class RegistrationModel: ObservableObject {
     @Published var lastName: String = ""
     @Published var generatedId: String = ""
     @Published var errorMessage = ""
+    @Published var count = 0
     /// login model
     let loginModel: LoginModel
     /// primary registration
@@ -82,6 +83,27 @@ class RegistrationModel: ObservableObject {
         }
         /// cancel
         cancel()
+        db.collection("users").whereField("email", isEqualTo: self.email)
+          .getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                if let querySnapshot = querySnapshot {
+                    DispatchQueue.main.async {
+                        self.errorMessage = "Email already exists"
+                        self.count+=1
+                    }
+                }
+                else {
+                    print("No document")
+                }
+            }
+        }
+        
+        if count > 0 {
+            return
+        }
+        
         let docRef = db.collection("patients").document(generatedId)
         docRef.getDocument { (document, error) in
             guard let document = document, document.exists, let docData = document.data() else {

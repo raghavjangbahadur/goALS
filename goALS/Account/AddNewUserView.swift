@@ -29,7 +29,7 @@ class AddNewUserModel: ObservableObject {
                 let docData = document.data()
                 self.patientId = docData!["patient uuid"] as? String ?? ""
                 self.patientName = docData!["patientName"] as? String ?? ""
-                self.message = "You have been invited to join " + self.patientName + "'s Circle in the Goals app! Use patient code " + self.patientId + " to register as a secondary user."
+                self.message = "You have been invited to join " + self.patientName + "'s Circle in the goALS app! Use patient code " + self.patientId + " to register as a secondary user."
                 
             } else {
                 print("Document does not exist")

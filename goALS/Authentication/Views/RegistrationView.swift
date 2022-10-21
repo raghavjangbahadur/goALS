@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct RegistrationView: View {
     @ObservedObject var model: RegistrationModel

@@ -51,7 +51,7 @@ struct vitalsView: View {
                         .frame(width: 320, height: 45)
                         .foregroundColor(Color("LightGrey"))
                         .shadow(color: Color.black.opacity(0.4), radius: 4)
-                    Text("Key details and information")
+                    Text("Key Details and Information")
                         .foregroundColor(Color("DarkGrey"))
                         .fontWeight(.bold)
                 }

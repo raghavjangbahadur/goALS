@@ -40,7 +40,7 @@ struct goalsView: View {
                 .font(.system(size: 25))
                 .fontWeight(.bold)
                 .padding(.bottom, 20)
-            Text("Welcome to the GoALS App!")
+            Text("Welcome to the goALS App!")
                 .foregroundColor(.white)
                 .padding(.bottom, 30)
             

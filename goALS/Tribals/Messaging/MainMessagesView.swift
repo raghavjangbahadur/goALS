@@ -93,6 +93,7 @@ struct MainMessagesView: View {
                                     .font(.system(size: 16, weight: .bold))
                                     .foregroundColor(.black)
                                 Text(recentMessage.text)
+                                    .lineLimit(1)
                                     .font(.system(size: 14))
                                     .foregroundColor(Color("DarkGrey"))
                                     .multilineTextAlignment(.leading)
