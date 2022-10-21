@@ -24,7 +24,6 @@ class RegistrationModel: ObservableObject {
     @Published var lastName: String = ""
     @Published var generatedId: String = ""
     @Published var errorMessage = ""
-    @Published var count = 0
     /// login model
     let loginModel: LoginModel
     /// primary registration
@@ -46,7 +45,25 @@ class RegistrationModel: ObservableObject {
         }
     }
 
-    func registerPrimary() {
+    private func isEmailUnique(email: String, completion:@escaping (Bool)->Void) {
+        Firestore.firestore()
+            .collection("users")
+            .whereField("email", isEqualTo: email)
+            .getDocuments() {(querySnapshot, err) in
+                guard let querySnapshot = querySnapshot else {
+                    completion(true)
+                    return
+                }
+                completion(querySnapshot.count == 0)
+            }
+    }
+
+    private func _registerPrimary(isEmailUnique: Bool) {
+        guard isEmailUnique else {
+            self.errorMessage = "Email already exists"
+            return
+        }
+        errorMessage = ""
         /// cancel
         cancel()
         /// set email and password
@@ -56,6 +73,7 @@ class RegistrationModel: ObservableObject {
         primaryCancellable = loginModel.$loggedIn.sink {loggedIn in
             let db = Firestore.firestore()
             guard let userID = Auth.auth().currentUser?.uid, loggedIn else {
+                self.registered = false
                 return
             }
 
@@ -75,35 +93,26 @@ class RegistrationModel: ObservableObject {
         startObservingError()
         loginModel.createUser()
     }
+
+    func registerPrimary() {
+        isEmailUnique(email: email) { isEmailUnique in
+            self._registerPrimary(isEmailUnique: isEmailUnique)
+        }
+    }
     
-    func registerSecondary() {
-        let db = Firestore.firestore()
+    func _registerSecondary(isEmailUnique: Bool) {
+        guard isEmailUnique else {
+            self.errorMessage = "Email already exists"
+            return
+        }
         guard !generatedId.isEmpty && !patientName.isEmpty else {
             return
         }
+        errorMessage = ""
         /// cancel
         cancel()
-        db.collection("users").whereField("email", isEqualTo: self.email)
-          .getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                if let querySnapshot = querySnapshot {
-                    DispatchQueue.main.async {
-                        self.errorMessage = "Email already exists"
-                        self.count+=1
-                    }
-                }
-                else {
-                    print("No document")
-                }
-            }
-        }
-        
-        if count > 0 {
-            return
-        }
-        
+
+        let db = Firestore.firestore()
         let docRef = db.collection("patients").document(generatedId)
         docRef.getDocument { (document, error) in
             guard let document = document, document.exists, let docData = document.data() else {
@@ -137,6 +146,12 @@ class RegistrationModel: ObservableObject {
             }
             self.startObservingError()
             self.loginModel.createUser()
+        }
+    }
+
+    func registerSecondary() {
+        isEmailUnique(email: email) { isEmailUnique in
+            self._registerSecondary(isEmailUnique: isEmailUnique)
         }
     }
     

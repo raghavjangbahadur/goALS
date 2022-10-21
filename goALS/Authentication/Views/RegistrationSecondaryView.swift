@@ -109,25 +109,24 @@ struct RegistrationSecondaryView: View {
         .navigationBarColor(.white)
         .background(Color.white)
     }
-    
-    
+
     func registerAction() {
-        if(model.firstName == "") {
+        if model.firstName.isEmpty {
             model.errorMessage = "Please enter your first name"
         }
-        else if(model.lastName == "") {
+        else if model.lastName.isEmpty {
             model.errorMessage = "Please enter your last name"
         }
-        else if (model.patientName == "") {
+        else if model.patientName.isEmpty {
             model.errorMessage = "Please enter patient's name"
         }
-        else if (model.email == "") {
+        else if model.email.isEmpty {
             model.errorMessage = "Please enter your email"
         }
-        else if (model.password == "") {
+        else if model.password.isEmpty {
             model.errorMessage = "Please enter your password"
         }
-        else if (model.generatedId == "") {
+        else if model.generatedId.isEmpty {
             model.errorMessage = "Please enter the Patient ID"
         }
         else {
