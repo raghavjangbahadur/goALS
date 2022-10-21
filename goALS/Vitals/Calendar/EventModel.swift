@@ -17,6 +17,7 @@ class EventModel: ObservableObject {
     
     @Published var events = [Event]()
     @Published var errorMessage = ""
+    @Published var loaded = false
     var totalEvents = Set<Event>()
     
     func getEvents(date: String, completion: (([Event]) -> Void)? = nil) {
@@ -106,6 +107,7 @@ class EventModel: ObservableObject {
                             }
                             
                             self.totalEvents = Set(totalEvents)
+                            self.loaded = true
                         }
                         else {
                             print("No document")

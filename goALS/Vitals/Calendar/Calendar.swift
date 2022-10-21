@@ -20,14 +20,35 @@ struct Calendar: View {
         let configuration = CalendarConfiguration(startDate: startDate, endDate: endDate)
         calendarManager = MonthlyCalendarManager(configuration: configuration)
         calendarManager.datasource = self
+        model.getTotalEvents()
+    }
+    
+    var progressView: some View {
+        VStack(alignment: .leading) {
+            Spacer()
+            HStack(alignment: .center) {
+                Spacer()
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                Spacer()
+            }
+            Spacer() // VStack bottom spacer
+        }
+        .frame(maxWidth: .infinity)
+        .navigationBarHidden(true)
     }
 
     var body: some View {
-        MonthlyCalendarView(calendarManager: calendarManager)
-            .theme(calendarTheme)
-            .navigationTitle("Calendar")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarColor(.white)
+        if(model.loaded == true) {
+            MonthlyCalendarView(calendarManager: calendarManager)
+                .theme(calendarTheme)
+                .navigationTitle("Calendar")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarColor(.white)
+        }
+        else {
+            progressView
+        }
     }
 }
 
