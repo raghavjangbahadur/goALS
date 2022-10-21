@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ThasianX/ElegantCalendar",
       "state" : {
-        "revision" : "d446234f27e60f5bef15f91c35d384f388ff2c7d",
-        "version" : "4.3.2"
+        "branch" : "master",
+        "revision" : "3d1e8369ffb233e392ee36ad6ff0fd38ad4846b2"
       }
     },
     {
