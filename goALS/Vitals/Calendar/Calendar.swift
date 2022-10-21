@@ -11,7 +11,6 @@ import ElegantCalendar
 struct Calendar: View {
     
     @ObservedObject var calendarManager: MonthlyCalendarManager
-    @State private var calendarTheme: CalendarTheme = CalendarTheme(primary: Color("DeepRed"))
     @ObservedObject var model = EventModel()
 
     init() {
@@ -39,9 +38,11 @@ struct Calendar: View {
     }
 
     var body: some View {
-        if(model.loaded == true) {
+        if model.loaded {
             MonthlyCalendarView(calendarManager: calendarManager)
-                .theme(calendarTheme)
+                .theme(CalendarTheme(primary: Color("DeepRed"),
+                                     todayTextColor: nil,
+                                     todayBackgroundColor: Color("DeepRed").opacity(model.returnOpacity(date: Date()))))
                 .navigationTitle("Calendar")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarColor(.white)
