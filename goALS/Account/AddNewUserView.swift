@@ -52,11 +52,10 @@ struct AddNewUserView: View {
                 ZStack {
                     Rectangle()
                         .fill(Color("DeepRed"))
-                        .frame(width: 300, height: 38)
+                        .frame(width: 270, height: 45)
                     Text("Send message")
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .font(.system(size: 20))
                 }
             }
             Spacer()

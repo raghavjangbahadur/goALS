@@ -19,7 +19,12 @@ struct NewMessageView: View {
         NavigationView {
             ScrollView {
                 if model.users.count == 1 {
-                    Text("No users are in the patient circle, go to settings to add users to Circle!")
+                    VStack {
+                        Spacer()
+                        Text("No users are in the patient circle, go to settings to add users to Circle!")
+                            .padding()
+                        Spacer()
+                    }
                 }
                 else {
                     ForEach(model.users) { user in
