@@ -89,6 +89,7 @@ class RegistrationModel: ObservableObject {
             self.createPatient(patientId, self.patientName)
             self.errorMessage = ""
             self.registered = true
+            self.cancel()
         }
         startObservingError()
         loginModel.createUser()
@@ -143,6 +144,7 @@ class RegistrationModel: ObservableObject {
                               "account" : "secondary"])
                 self.errorMessage = ""
                 self.registered = true
+                self.cancel()
             }
             self.startObservingError()
             self.loginModel.createUser()

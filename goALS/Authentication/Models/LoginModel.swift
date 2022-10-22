@@ -50,6 +50,7 @@ class LoginModel: ObservableObject {
             guard let _ = authResult else {
                 strongSelf.loggedIn = false
                 strongSelf.authStatus = .unauthenticated
+                strongSelf.clearCredentials()
                 if let error {
                     strongSelf.errorMessage = error.localizedDescription
                 }
