@@ -72,7 +72,7 @@ struct vitalsView: View {
             }
             .padding(.bottom, 30)
 
-            NavigationLink(destination: LinkPresenter {Calendar()}) {
+            NavigationLink(destination: Calendar()) {
                 ZStack {
                     RoundedRectangle(cornerRadius:15)
                         .frame(width: 320, height: 45)

@@ -38,7 +38,8 @@ class accountViewModel: ObservableObject {
 
 struct accountView: View {
     @ObservedObject var model = accountViewModel()
-    @State var shouldShowLogOutOptions = false
+    @State var shouldShowMenuOptions = false
+    @State var optionsMenu = ""
     @EnvironmentObject var loginModel: LoginModel
     
     var body: some View {
@@ -65,9 +66,17 @@ struct accountView: View {
                         Text("Reset password")
                     }
                     Button {
-                        shouldShowLogOutOptions.toggle()
+                        optionsMenu = "sign"
+                        shouldShowMenuOptions.toggle()
                     } label: {
                         Text("Sign out")
+                            .foregroundColor(.red)
+                    }
+                    Button {
+                        optionsMenu = "delete"
+                        shouldShowMenuOptions.toggle()
+                    } label: {
+                        Text("Delete account")
                             .foregroundColor(.red)
                     }
                 }
@@ -79,13 +88,23 @@ struct accountView: View {
                     .navigationBarHidden(true)
             }
             .hidden()*/
-        }.actionSheet(isPresented: $shouldShowLogOutOptions) {
-            .init(title: Text("Sign out"), message: Text("Are you sure you want to sign out?"), buttons: [
-                .destructive(Text("Sign out"), action: {
-                    loginModel.logoutCall()
-                }),
-                .cancel()
-            ])
+        }.actionSheet(isPresented: $shouldShowMenuOptions) {
+            if(optionsMenu=="sign") {
+                return ActionSheet(title: Text("Sign out"), message: Text("Are you sure you want to sign out?"), buttons: [
+                    .destructive(Text("Sign out"), action: {
+                        loginModel.logoutCall()
+                    }),
+                    .cancel()
+                ])
+            }
+            else {
+                return ActionSheet(title: Text("Delete Account"), message: Text("Are you sure you want to delete your account?"), buttons: [
+                    .destructive(Text("Delete"), action: {
+                        loginModel.deleteCall()
+                    }),
+                    .cancel()
+                ])
+            }
         }
         .navigationBarTitle("Settings")
         .navigationBarTitleDisplayMode(.inline)

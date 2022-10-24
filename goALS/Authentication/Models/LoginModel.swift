@@ -26,6 +26,7 @@ class LoginModel: ObservableObject {
     @Published var password: String
     @Published var errorMessage: String = ""
     @Published var authStatus: AuthenticationStatus = .inProgress
+    @Published var patientID = ""
 
     init() {
         email = keychain.value(forKey: "username") as? String ?? ""
@@ -77,6 +78,47 @@ class LoginModel: ObservableObject {
         loggedIn = false
         authStatus = .unauthenticated
         clearCredentials()
+    }
+    
+    func deleteCall() {
+        let db = Firestore.firestore()
+        guard let userID = Auth.auth().currentUser?.uid else {
+            print("could not find user id")
+            return
+        }
+        db.collection("users").document(userID).delete() { err in
+            if let err = err {
+                self.errorMessage = err.localizedDescription
+            } else {
+                let docRef2 = db.collection("users").document(userID)
+                docRef2.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let docData = document.data()
+                        let key = docData!["patient uuid"] as? String ?? ""
+                        let type = docData!["account"] as? String ?? ""
+                        if type == "primary" {
+                            db.collection("patients").document(key).delete() { err in
+                                if let err = err {
+                                    self.errorMessage = err.localizedDescription
+                                }
+                            }
+                        }
+                    } else {
+                        print("Document does not exist")
+                    }
+                }
+            }
+        }
+        
+        let user = Auth.auth().currentUser
+        
+        user?.delete { error in
+            if error != nil {
+                self.errorMessage = error?.localizedDescription ?? ""
+            } else {
+                self.logoutCall()
+            }
+        }
     }
 
     func createUser() {
